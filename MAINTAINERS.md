@@ -2,7 +2,7 @@
 
 * Distinguish between `Public API Changes` and `System Administration Changes`
 * Put `Added` section first, followed by `Changed`, `Deprecated`, `Removed`, `Fixed` and `Security`.
-
+  
 # Release process
 
 * Rebuild ../dlauncher/dashboard from the and run `go generate ./...`
