@@ -63,20 +63,6 @@ export function getPixeosClaimAmounts(traceInfo?: TraceInfo) {
   return "unknown quantity"
 }
 
-export function getResolveBetAmounts(traceInfo?: TraceInfo) {
-  const inlineTraces = (traceInfo ? traceInfo.inline_traces : []) || []
-
-  const transferAction = inlineTraces.find((trace: ActionTrace<any>) => {
-    return trace.act.name === "transfer"
-  })
-
-  const [EOSAmount, unit] = transferAction
-    ? extractValueWithUnits(transferAction.act.data.quantity)
-    : [0, " - "]
-  const receiver = transferAction ? transferAction.act.data.to : ""
-  return [EOSAmount, unit, receiver]
-}
-
 export function getBlobUrlFromPayload(payload: string | Uint8Array, downloadUrl: string = "") {
   if (downloadUrl.length > 0) {
     URL.revokeObjectURL(downloadUrl)
@@ -101,17 +87,6 @@ export function getRefundTransfer(traceInfo?: TraceInfo): ActionTrace<any> | und
 
 // ******************************************************************************************* //
 
-export function getBetReceiptLevel1Fields(action: Action<any>) {
-  return [
-    {
-      type: "accountLink",
-      value: action.data.bettor,
-      name: "account",
-    },
-    { type: "bold", value: action.data.payout, name: "EOSAmount" },
-    { type: "bold", value: action.data.random_roll, name: "roll" },
-  ]
-}
 
 export function getBuyRamBytesLevel1Fields(action: Action<any>) {
   return [
@@ -365,15 +340,6 @@ export function getRefundLevel1Fields(action: Action<any>, traceInfo?: TraceInfo
       value: transferAction ? transferAction.act.data.quantity : "-",
     },
     { name: "owner", type: "accountLink", value: action.data.owner },
-  ]
-}
-
-export function getResolveBetLevel1Fields(action: Action<any>, traceInfo?: TraceInfo) {
-  const traceData = getResolveBetAmounts(traceInfo)
-  return [
-    { name: "account", type: "accountLink", value: traceData[2] },
-    { name: "EOSAmount", type: "bold", value: `${traceData[0]} ${traceData[1]}` },
-    { name: "betId", type: "bold", value: action.data.bet_id },
   ]
 }
 

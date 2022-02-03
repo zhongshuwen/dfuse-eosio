@@ -7,7 +7,7 @@ export default {
     tokens: {
       title: "OTHER TOKENS",
       table: {
-        token: "Token",
+        token: "Compute Credits",
         quantity: "Balance",
         contract: "Account"
       }
@@ -69,10 +69,6 @@ export default {
       pv: "Pv",
       co: "Co",
       bp: "Bp",
-      my: {
-        name: "My",
-        title: "Account created by MYKEY"
-      }
     },
     pie_chart: {
       legendTitle: "TOTAL BALANCE",

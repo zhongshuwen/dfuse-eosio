@@ -4,7 +4,6 @@ import {
   getTraceInfoMock
 } from "../../__mocks__/transaction.mock"
 import {
-  getBetReceiptLevel1Fields,
   getBlobUrlFromPayload,
   getBuyRamBytesLevel1Fields,
   getBuyRamLevel1Fields,
@@ -19,7 +18,6 @@ import {
   getNewAccountLevel2Fields,
   getRefundLevel1Fields,
   getRefundTransfer,
-  getResolveBetAmounts,
   getUndelegatebwLevel1Fields,
   getUndelegatebwLevel2Fields,
   getUpdateAuthLevel1Fields,
@@ -43,16 +41,6 @@ describe("getClaimAmounts", () => {
   })
 })
 
-describe("getResolveBetAmounts", () => {
-  it("should...", () => {
-    const traceInfo = getTraceInfoMock({
-      data: { from: "eosbets", quantity: "30.0000 EOS", to: "winner" }
-    })
-    traceInfo.inline_traces[0].act.name = "transfer"
-    expect(getResolveBetAmounts(traceInfo)).toEqual(["30.0000", "EOS", "winner"])
-  })
-})
-
 describe("getBlobUrlFromPayload", () => {
   it("should call revoke and create if old url provided", () => {
     URL.revokeObjectURL = jest.fn()
@@ -64,34 +52,6 @@ describe("getBlobUrlFromPayload", () => {
     ])
     expect(URL.revokeObjectURL).toHaveBeenCalledWith("old.url")
     expect(URL.createObjectURL).toHaveBeenCalled()
-  })
-})
-
-describe("getRefundTransfer", () => {
-  it("should return the transfer actionTrace", () => {
-    const traceInfo = getTraceInfoMock({
-      data: { from: "eosbets", quantity: "30.0000 EOS", to: "winner" }
-    })
-    traceInfo.inline_traces[0].act.name = "transfer"
-    traceInfo.inline_traces.push(
-      getActionTraceMock({ data: { from: "eosio.bpay", quantity: "50.0000 EOS" } })
-    )
-    expect(getRefundTransfer(traceInfo)).toEqual(traceInfo.inline_traces[0])
-  })
-})
-
-//* ****************************************************************************************** //
-
-describe("getBetReceiptLevel1Fields", () => {
-  it("should return the level 1 fields", () => {
-    const action = getActionMock({
-      data: { bettor: "bettor", payout: "30.0000 TOKENS", random_roll: "abc123" }
-    })
-    expect(getBetReceiptLevel1Fields(action)).toEqual([
-      { name: "account", type: "accountLink", value: "bettor" },
-      { name: "EOSAmount", type: "bold", value: "30.0000 TOKENS" },
-      { name: "roll", type: "bold", value: "abc123" }
-    ])
   })
 })
 
@@ -289,20 +249,6 @@ describe("getRefundLevel1Fields", () => {
   })
 })
 
-describe("getResolveBetLevel1Fields", () => {
-  it("should return the level 1 fields", () => {
-    const traceInfo = getTraceInfoMock({
-      data: { from: "eosbets", quantity: "30.0000 EOS", to: "winner" }
-    })
-
-    traceInfo.inline_traces[0].act.name = "transfer"
-    const action = getActionMock({ data: { owner: "owner" } })
-    expect(getRefundLevel1Fields(action, traceInfo)).toEqual([
-      { name: "refundAmount", type: "bold", value: "30.0000 EOS" },
-      { name: "owner", type: "accountLink", value: "owner" }
-    ])
-  })
-})
 
 describe("getUndelegatebwLevel1Fields", () => {
   it("should return the level 1 fields", () => {

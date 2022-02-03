@@ -16,11 +16,9 @@ import { UnDelegateBandwidthPillComponent } from "../system/undelegate-bandwidth
 import { UpdateAuthPillComponent } from "../system/updateauth-pill.component"
 import { VotePillComponent } from "../system/vote-pill.component"
 import { GenericPillComponent } from "../generic-pill.component"
-import { BetReceiptPillComponent } from "../eosbetdice11/betreceipt-pill.component"
 import { DecenTwitterTweetPillComponent } from "../decenttwitter/decenttwitter-tweet-pill.component"
 import { ForumPostPillComponent } from "../forum/forum-post-pill.component"
 import { ForumProposePillComponent } from "../forum/forum-propose-pill.component"
-import { ResolveBetPillComponent } from "../eosbetdice11/resolvebet-pill.component"
 import { SetcodePillComponent } from "../system/setcode-pill.component"
 
 const headerAndTitleOptions = {
@@ -33,21 +31,6 @@ const headerAndTitleOptions = {
 }
 
 describe("Templates", () => {
-  describe("BetReceiptPillComponent", () => {
-    it("should render properly", () => {
-      const action = getActionMock({
-        data: {
-          roll_under: "roll_under",
-          bet_amt: "30.000 EOS",
-          seed: "seed",
-          payout: "31.000 EOS"
-        }
-      })
-
-      expect(shallowWithTheme(renderComponent(BetReceiptPillComponent, action))).toMatchSnapshot()
-    })
-  })
-
   describe("BuyRamBytesPillComponent", () => {
     it("should render properly", () => {
       const action = getActionMock({
@@ -251,18 +234,6 @@ describe("Templates", () => {
     })
   })
 
-  describe("BaseResolveBetPillComponent", () => {
-    it("should render properly", () => {
-      const action = getActionMock({
-        data: {
-          bet_id: "bet_id",
-          sig: "sig"
-        }
-      })
-
-      expect(shallowWithTheme(renderComponent(ResolveBetPillComponent, action))).toMatchSnapshot()
-    })
-  })
 
   describe("BaseSetcodePillComponent", () => {
     it("should render properly", () => {

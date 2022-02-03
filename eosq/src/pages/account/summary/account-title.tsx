@@ -82,13 +82,7 @@ export class AccountTitle extends ContentLoaderComponent<Props, any> {
   }
 
   renderMykey(account: Account) {
-    return isAccountCreatedByMykey(account) ? (
-      <ExternalTextLink to="https://mykey.org">
-        <ClickableBadge title={t("account.badges.my.title")} bg={theme.colors.logo1}>
-          <img src="/images/mykey.svg" alt="mykey logo" />
-        </ClickableBadge>
-      </ExternalTextLink>
-    ) : null
+    return null
   }
 
   isLastCodeUpdateEpoch(lastCodeUpdate: Date) {

@@ -183,7 +183,7 @@ class AppContainer extends React.Component<Props, State> {
 
   changeDocumentTitle() {
     if (this.isAListPage(this.props.location.pathname)) {
-      document.title = "eosq: High-Precision Block Explorer"
+      document.title = "中数文联盟链区块浏览器"
     }
   }
 

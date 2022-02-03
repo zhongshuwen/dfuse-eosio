@@ -13,8 +13,6 @@ import { UpdateAuthPillComponent } from "./system/updateauth-pill.component"
 import { ClaimRewardsPillComponent } from "./system/claim-rewards-pill.component"
 import { SetcodePillComponent } from "./system/setcode-pill.component"
 import { RegProxyPillComponent } from "./system/regproxy-pill.component"
-import { ResolveBetPillComponent } from "./eosbetdice11/resolvebet-pill.component"
-import { BetReceiptPillComponent } from "./eosbetdice11/betreceipt-pill.component"
 import { ForumProposePillComponent } from "./forum/forum-propose-pill.component"
 import { ForumPostPillComponent } from "./forum/forum-post-pill.component"
 import { DecenTwitterTweetPillComponent } from "./decenttwitter/decenttwitter-tweet-pill.component"
@@ -67,8 +65,6 @@ export const ALL_TEMPLATES: PillComponentClass[] = [
   ClaimRewardsPillComponent,
   SetcodePillComponent,
   RegProxyPillComponent,
-  ResolveBetPillComponent,
-  BetReceiptPillComponent,
   ForumProposePillComponent,
   ForumPostPillComponent,
   DecenTwitterTweetPillComponent,

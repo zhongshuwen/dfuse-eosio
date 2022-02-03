@@ -7,7 +7,7 @@ export default {
     tokens: {
       title: "其它代币",
       table: {
-        token: "代币",
+        token: "计算Credit",
         quantity: "余额",
         contract: "账户"
       }
@@ -68,10 +68,6 @@ export default {
       pv: "Pv",
       co: "Co",
       bp: "Bp",
-      my: {
-        name: "My",
-        title: "账户通过 MYKEY 创建"
-      }
     },
     pie_chart: {
       legendTitle: "总余额",
