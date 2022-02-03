@@ -47,7 +47,7 @@ class MainMenuContainer extends React.Component<RouteComponentProps<any> & Props
   }
 
   get color() {
-    return this.props.variant === "dark" ? theme.colors.bleu8 : theme.colors.primary
+    return this.props.variant==="dark"? "#333":"#fff"
   }
 
   navigate(path: string) {
@@ -62,19 +62,20 @@ class MainMenuContainer extends React.Component<RouteComponentProps<any> & Props
             <PictoTransactions color={this.color} />
             <ListItemText
               primary={this.renderTextLink(t("navbar.transactions"), "/transactions")}
+              color={this.color}
             />
           </ListItem>
         </Cell>
         <Cell key="blocks" onClick={() => this.navigate("/blocks")}>
           <ListItem button={true}>
             <PictoProducer color={this.color} />
-            <ListItemText primary={this.renderTextLink(t("navbar.blocks"), "/blocks")} />
+            <ListItemText primary={this.renderTextLink(t("navbar.blocks"), "/blocks")} color={this.color} />
           </ListItem>
         </Cell>
         <Cell key="producers" onClick={() => this.navigate("/producers")}>
           <ListItem button={true}>
             <PictoBlocks color={this.color} />
-            <ListItemText primary={this.renderTextLink(t("navbar.producers"), "/producers")} />
+            <ListItemText primary={this.renderTextLink(t("navbar.producers"), "/producers")} color={this.color} />
           </ListItem>
         </Cell>
       </List>

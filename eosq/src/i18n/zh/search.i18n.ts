@@ -19,8 +19,8 @@ export default {
       summary: {
         account_history: "{{accountName}}的账户历史",
         signed_by: "{{accountName}}所签名的交易",
-        eos_token_transfer: "{{accountName}}的EOS转账",
-        fuzzy_token_search: "{{accountName}}泛代币查询"
+        eos_token_transfer: "{{accountName}}的ZSWCC转账",
+        fuzzy_token_search: "{{accountName}}计算搜索"
       }
     },
     syntax: "句法:",

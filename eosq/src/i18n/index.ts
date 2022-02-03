@@ -8,7 +8,7 @@ i18nLib
   .use(LanguageDetector)
   .use(reactI18nextModule)
   .init({
-    fallbackLng: "en",
+    fallbackLng: "zh",
     ns: ["translations"],
     defaultNS: "translations",
     lookupCookie: "i18next",

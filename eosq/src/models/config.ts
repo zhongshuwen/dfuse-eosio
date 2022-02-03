@@ -52,7 +52,7 @@ const newDefaultConfig = () => {
       process.env.REACT_APP_EOSQ_NETWORK_ID ||
       process.env.REACT_APP_EOSQ_CURRENT_NETWORK ||
       "local",
-    chain_core_symbol: "4,EOS",
+    chain_core_symbol: "4,ZSWCC",
     dfuse_auth_endpoint: process.env.REACT_APP_DFUSE_AUTH_URL || "null://",
     dfuse_io_api_key: process.env.REACT_APP_DFUSE_API_KEY || "web_1234567890abc",
     dfuse_io_endpoint: process.env.REACT_APP_DFUSE_API_NETWORK || "localhost:8080",
@@ -67,16 +67,16 @@ const newDefaultConfig = () => {
         url: "http://localhost:8080",
       },
       {
-        id: "eos-kylin",
+        id: "zsw-testnet",
         is_test: true,
-        name: "Kylin Testnet",
-        url: "https://kylin.eosq.app",
+        name: "国家版权保护联盟链测试环境",
+        url: "https://testnet.explorer.zhongshuwen.com",
       },
       {
-        id: "wax-mainnet",
+        id: "zsw-mainnet",
         is_test: false,
-        name: "WAX Mainnet",
-        url: "https://wax.eosq.app",
+        name: "国家版权保护联盟链",
+        url: "https://mainnet.explorer.zhongshuwen.com",
       },
     ],
   }

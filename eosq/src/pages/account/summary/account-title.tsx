@@ -140,10 +140,10 @@ export class AccountTitle extends ContentLoaderComponent<Props, any> {
           </Cell>
 
           <Cell mt={[2, 0]} gridColumn={["1", "2"]} gridRow={["2", "1"]} mr={[3]}>
-            <MonospaceText color="primary" fontWeight="bold" fontSize={[6]}>
+            <MonospaceText color="#fff" fontWeight="bold" fontSize={[6]}>
               {account.account_name}
             </MonospaceText>
-            <SubTitle fontWeight="bold" color="primary" fontSize={[2]}>
+            <SubTitle fontWeight="bold" color="#aaa" fontSize={[2]}>
               {blockProducerInfo.org.candidate_name}
             </SubTitle>
           </Cell>
@@ -164,7 +164,7 @@ export class AccountTitle extends ContentLoaderComponent<Props, any> {
           </Cell>
 
           <Cell mt={[2, 0]} gridColumn={["1", "2"]} gridRow={["2", "1"]} mr={[3]}>
-            <MonospaceText color="primary" fontWeight="bold" fontSize={[6]}>
+            <MonospaceText color="#fff" fontWeight="bold" fontSize={[6]}>
               {account.account_name}
             </MonospaceText>
           </Cell>
@@ -185,7 +185,7 @@ export class AccountTitle extends ContentLoaderComponent<Props, any> {
           alignItems="center"
         >
           <Cell mt={[2, 0]} gridColumn={["1", "1"]} gridRow={["1", "1"]} mr={[3]}>
-            <MonospaceText color="primary" fontWeight="bold" fontSize={[6]}>
+            <MonospaceText color="#fff" fontWeight="bold" fontSize={[6]}>
               {account.account_name}
             </MonospaceText>
           </Cell>

@@ -2,7 +2,8 @@ export default {
   accountTables: {
     search: {
       scope: "规模",
-      load: "读取"
+      load: "读取",
+      lowerBound:"Lower Bound"
     },
     tables: {
       dropdown: {

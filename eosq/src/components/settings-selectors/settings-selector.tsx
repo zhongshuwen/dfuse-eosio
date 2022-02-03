@@ -24,7 +24,7 @@ interface Props extends RouteComponentProps<{}> {
 class SelectorContainer extends React.Component<Props> {
   renderActiveIcon() {
     if (this.props.variant === "dark") {
-      return <FontAwesomeIcon color={theme.colors.bleu8} icon={faCircle as any} size="lg" />
+      return <FontAwesomeIcon color={"#fff"} icon={faCircle as any} size="lg" />
     }
     return <FontAwesomeIcon color={theme.colors.ternary} icon={faCheck as any} size="lg" />
   }
@@ -42,9 +42,9 @@ class SelectorContainer extends React.Component<Props> {
   }
 
   renderTextLink(option: { label: string; value: string }) {
-    let color = theme.colors.primary
+    let color = "#fff"
     if (this.props.variant === "dark") {
-      color = option.value !== this.props.currentOption ? theme.colors.grey5 : theme.colors.bleu8
+      color = "#222"
     }
     return (
       <UpperText fontSize={[3]} color={color}>

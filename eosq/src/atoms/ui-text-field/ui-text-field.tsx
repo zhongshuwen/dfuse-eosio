@@ -22,8 +22,10 @@ export const UiInput: React.ComponentType<any> = styled(Input)`
 `
 
 export const UiSearch: React.ComponentType<any> = styled(Input)`
-  background-color: ${(props: any) => props.theme.colors.bleu8};
-  color: white !important;
+  background-color: ${(props: any) => "#fff"};
+  border:1px solid transparent;
+  border-bottom:3px solid #aaa;
+  color: #222 !important;
   padding: 0.75em 95px 0.75em 25px;
   font-size: 18px !important;
   height: 76px;
@@ -32,20 +34,26 @@ export const UiSearch: React.ComponentType<any> = styled(Input)`
   text-align: left;
   font-family: "Roboto Condensed", sans-serif !important;
   border-radius: 0px !important;
+  transition: background-color 500ms linear, border-color 500ms linear;
 
   input:-webkit-autofill {
-    color: white !important;
+    color: #222 !important;
     background-color: ${(props) => props.theme.colors.searchBg} !important;
   }
 
   input:-webkit-autofill {
-    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: #222;
     -webkit-box-shadow: 0 0 0 30px ${(props) => props.theme.colors.searchBg} inset;
   }
 
-  &:hover,
+  &:hover{
+    background-color: #efefef !important;
+    border-bottom-color: #000;
+  }
   &:focus {
-    background-color: #7a85ff !important;
+    border-color: #000;
+    border-bottom-color: #000;
+    background-color: #efefef !important;
   }
 
   input::placeholder {

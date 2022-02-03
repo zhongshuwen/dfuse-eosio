@@ -25,6 +25,7 @@ const StyledButton: React.ComponentType<any> = styled(Button)`
   height: 35px !important;
   min-height: 35px !important;
   color: ${(props) => props.theme.colors.primary} !important;
+  ${props=>(props as any).extraStyle||""}
 `
 
 interface Props {
@@ -160,7 +161,7 @@ export class AccountTableSearch extends React.Component<Props> {
             {this.renderLowerBoundInput()}
           </Cell>
           <Cell gridColumn={["1", "4"]} gridRow={["4", "1"]} ml={[0, 3]} mt={[3]}>
-            <StyledButton onClick={this.onClick}>
+            <StyledButton onClick={this.onClick} extraStyle="padding:0px !important;">
               <Text fontWeight="bold" color="primary">
                 {t("accountTables.search.load")}
               </Text>

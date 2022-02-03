@@ -49,46 +49,23 @@ export const HeaderLogo: React.FC<Props> = () => {
           <Logo />
         </LogoLink>
       </Cell>
-      <Cell pl={[0, 1, 3]} mr={[1, 2]} alignSelf="center" justifySelf="left">
-        <Tagline color="#fff" fontWeight="400">
-          <Cell display={["none", "block"]} fontSize={[0, 1, 2]}>
-            {t("core.tagline")}
-          </Cell>
-          <Cell display={["none", "block"]} fontSize={[0, 1, 2]}>
-            {t("core.tagline2")}
-          </Cell>
-        </Tagline>
-      </Cell>
     </Grid>
   )
 }
 
 const Logo: React.FC = () => {
   const { network } = Config
-  if (network?.logo) {
-    if (network.logo_text) {
-      return <LogoImageAndText image={network.logo} text={network.logo_text} />
-    }
 
-    return <LogoImage image={network.logo} />
-  }
-
-  return <LogoDefault />
+  return (<Img src={"/images/logo-explorer-black.png"} alt="Logo" minWidth="70px" maxHeight="70px" maxWidth="70vw"></Img>)
 }
 
 const LogoDefault: React.FC = () => (
   <>
-    <LogoElement px={[0]} color="white" fontSize={["40px", "56px", "56px"]}>
-      eos
-    </LogoElement>
-    <LogoElement px={[0]} color="logo2" fontSize={["40px", "56px"]}>
-      q
-    </LogoElement>
-  </>
+a  </>
 )
 
 const LogoImage: React.FC<{ image: string }> = ({ image }) => (
-  <Img src={image} alt="Logo" minWidth="70px" maxHeight="70px"></Img>
+  <Img src={image} alt="Logo" minWidth="70px" maxHeight="70px" maxWidth="70vw"></Img>
 )
 
 const LogoText = styled(Text)`

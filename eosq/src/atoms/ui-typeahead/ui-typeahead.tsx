@@ -39,7 +39,7 @@ const SearchButton: React.ComponentType<any> = styled.div`
   border: none !important;
 
   cursor: pointer;
-  color: #fff;
+  color: #333;
   border-radius: 0px !important;
   padding: 0 6px;
 
@@ -75,7 +75,7 @@ const SyntaxBox: React.ComponentType<any> = styled.div`
 const DeleteIcon: React.ComponentType<any> = styled(FontAwesomeIcon)`
   position: absolute;
 
-  color: #fff;
+  color: #222;
   &:disabled {
     cursor: inherit;
   }
@@ -391,7 +391,7 @@ export class UiTypeahead extends React.Component<Props, State> {
     if (this.state.searching) {
       return (
         <SearchButton key="1" name="search" disabled={true}>
-          <RoundedSpinnerCube color="white" fadeIn="none" name="double-bounce" />
+          <RoundedSpinnerCube color="black" fadeIn="none" name="double-bounce" />
         </SearchButton>
       )
     }

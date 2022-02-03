@@ -49,7 +49,7 @@ export default {
     dropdowns: {
       tokens: {
         allTokens: "ALL TOKENS",
-        eos: "EOS",
+        eos: "ZSWCC",
         popularTokens: "POPULAR TOKENS"
       },
       system: {

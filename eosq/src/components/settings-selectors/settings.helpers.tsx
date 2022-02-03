@@ -7,7 +7,7 @@ export function getCurrentLanguageName() {
 
   const currentLanguage = LANGUAGE_OPTIONS.find((ref) => ref.value === currentLang)
 
-  let languageName = "EN"
+  let languageName = "中文"
   if (currentLanguage) {
     languageName = currentLanguage.label
   }

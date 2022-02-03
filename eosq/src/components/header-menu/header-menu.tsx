@@ -8,25 +8,25 @@ import { NetworkSelector } from "../settings-selectors/network-selector"
 import { LanguageSelector } from "../settings-selectors/language-selector"
 import { t } from "i18next"
 import { getCurrentLanguageValue } from "../settings-selectors/settings.helpers"
+import { Img } from "../../atoms/img"
 
 const HeaderWrapper: React.ComponentType<any> = styled(Cell)`
   width: 100%;
 
-  background: #474793; /* Old browsers */
-  background: -moz-linear-gradient(left, #474793 8%, #5e5ec2 93%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #474793 8%, #5e5ec2 93%); /* Chrome10-25,Safari5.1-6 */
+
+
+  background: #111; 
   background: linear-gradient(
     to right,
-    #474793 8%,
-    #5e5ec2 93%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#474793', endColorstr='#5e5ec2',GradientType=1 ); /* IE6-9 */
+    #000000 8%,
+    #1a1a1d 93%
+  );
 `
 
 export class HeaderMenu extends React.Component {
   renderSectionTitle(text: string) {
     return (
-      <Text pb={[2]} pl={[3]} fontWeight="600" fontSize={[3]} color={theme.colors.bleu6}>
+      <Text pb={[2]} pl={[3]} fontWeight="600" fontSize={[3]} color={"#fff"}>
         {text}
       </Text>
     )
@@ -43,27 +43,10 @@ export class HeaderMenu extends React.Component {
             px={[1, 0]}
             gridColumnGap={[0, 1, 2]}
           >
-            <Cell height="100%" py={[2]}>
-              <HeaderLogo variant="light" />
-              <Cell pt={[4]}>
-                <a
-                  href={`https://dfuse.io/${getCurrentLanguageValue()}`}
-                  title="The dfuse Blockchain Data Platform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img
-                    src={`/images/built-with-dfuse${
-                      getCurrentLanguageValue() === "zh" ? "-CN" : ""
-                    }-01.png`}
-                    title="The dfuse Blockchain Data Platform"
-                    alt="built-with-dfuse"
-                    width="210"
-                    height="auto"
-                  />
-                </a>
-              </Cell>
-            </Cell>
+            <div style={{height:"100%", display:"flex", justifyContent:"center",alignItems:"center"}} > 
+            <Img src={"/images/logo-explorer-white.png"} alt="Logo" minWidth="70px" maxHeight="70px" maxWidth="70vw"></Img>
+             
+            </div>
 
             <Cell
               height="100%"

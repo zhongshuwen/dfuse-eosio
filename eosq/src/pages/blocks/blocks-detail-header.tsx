@@ -61,7 +61,7 @@ export class BlockHeader extends ContentLoaderComponent<Props, any> {
   changeDocumentTitle() {
     document.title = `${truncateString(this.props.match.params.id, 8).join(
       ""
-    )} ${BULLET} block ${BULLET} eosq`
+    )} ${BULLET} 区块 ${BULLET} 国家级版权交易保护联盟链区块浏览器`
   }
 
   hasRecentMetrics(block: BlockSummary) {

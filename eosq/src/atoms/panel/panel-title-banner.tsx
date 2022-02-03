@@ -8,6 +8,7 @@ const Container: React.ComponentType<any> = styled(Cell)`
   border-style: solid;
   border-color: ${(props) => props.theme.colors.bleu6};
   margin-bottom: 1px;
+  color:#fff;
 `
 
 export interface BannerContainerProps {
@@ -36,7 +37,7 @@ export const PanelTitleBanner: React.SFC<BannerContainerProps> = ({
   >
     <Grid gridTemplateColumns={["auto 6fr 100px"]}>
       <Cell alignSelf="center" gridColumn={["1 / span 2", "1"]} gridRow={["1", "1"]} mr={[2, 4]}>
-        <Text fontSize={[4]} color="bannerSubtitle">
+        <Text fontSize={[4]} color="#fff">
           {title}
         </Text>
       </Cell>
@@ -48,7 +49,7 @@ export const PanelTitleBanner: React.SFC<BannerContainerProps> = ({
         pr={[2, 3]}
         alignSelf="center"
       >
-        <Text fontSize={[4]} fontWeight="800" fontFamily="Roboto Condensed" color="primary">
+        <Text fontSize={[4]} fontWeight="800" fontFamily="Roboto Condensed" color="#f0f0f0">
           {content}
         </Text>
       </Cell>

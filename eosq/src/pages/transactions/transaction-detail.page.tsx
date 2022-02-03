@@ -89,7 +89,7 @@ export class TransactionDetailPage extends ContentLoaderComponent<Props, State> 
   changeDocumentTitle() {
     document.title = `${truncateString(this.props.match.params.id, 8).join(
       ""
-    )} ${BULLET} transaction ${BULLET} eosq`
+    )} ${BULLET} 交易 ${BULLET} 国家级版权交易保护联盟链区块浏览器`
   }
 
   componentWillUnmount() {
@@ -143,7 +143,7 @@ export class TransactionDetailPage extends ContentLoaderComponent<Props, State> 
       <PageContainer>
         <PanelTitleBanner
           title={t("transaction.banner.title")}
-          content={this.props.match.params.id}
+          content={this.props.match.params.id+"afawef"}
         />
         <Grid gridRowGap={[3]}>
           <Panel>

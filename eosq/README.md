@@ -1,6 +1,5 @@
-# eosq
-
-EOSIO block explorer
+# 国家级版权交易保护联盟链区块浏览器
+国家级版权交易保护联盟链区块浏览器
 
 ## Quick start
 
