@@ -48,13 +48,13 @@ func Test_processSingleBlocks(t *testing.T) {
 	}{
 		{
 			name:                  "sunny path",
-			block:                 newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:                 newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			expectedLastBlockRead: uint64(6),
 			expectedMatchCount:    1,
 		},
 		{
 			name:               "canceled context",
-			block:              newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:              newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			cancelContext:      true,
 			expectedMatchCount: 0,
 			expectedError:      derr.Status(codes.Canceled, "context canceled"),
@@ -72,7 +72,7 @@ func Test_processSingleBlocks(t *testing.T) {
 				Blk: block,
 			}
 
-			bleveQuery, err := search.NewParsedQuery(context.Background(), "account:eosio.token")
+			bleveQuery, err := search.NewParsedQuery(context.Background(), "account:zswhq.token")
 			matchCollector := search.GetMatchCollector
 			if matchCollector == nil {
 				panic(fmt.Errorf("no match collector set, should not happen, you should define a collector"))

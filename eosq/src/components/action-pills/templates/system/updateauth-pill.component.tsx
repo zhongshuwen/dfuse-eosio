@@ -11,7 +11,7 @@ export class UpdateAuthPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "eosio", action: "updateauth" }]
+      validActions: [{ contract: "zswhq", action: "updateauth" }]
     }
   }
 

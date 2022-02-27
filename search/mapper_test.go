@@ -28,7 +28,7 @@ func TestPreprocessTokenization(t *testing.T) {
 	}{
 		{"standard-block", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_EXECUTED"},"action_traces":[
-				{"receipt":{"receiver":"battlefield1"},"action":{"name":"transfer","account":"eosio","json_data":"{\"to\":\"eosio\"}"}}
+				{"receipt":{"receiver":"battlefield1"},"action":{"name":"transfer","account":"zswhq","json_data":"{\"to\":\"eosio\"}"}}
 			]}`,
 			`{"id":"a2","index":1,"receipt":{"status":"TRANSACTIONSTATUS_EXECUTED"},"action_traces":[
 				{"receipt":{"receiver":"other"},"action":{"name":"random","account":"account","json_data":"{\"proposer\":\"eosio\"}"}}
@@ -40,7 +40,7 @@ func TestPreprocessTokenization(t *testing.T) {
 					"receipt": {"receiver":"battlefield1"},
 					"action": {
 					  "name":"transfer",
-					  "account":"eosio",
+					  "account":"zswhq",
 					  "json_data":"{\"auth\":{\"accounts\":[],\"keys\":[{\"key\":\"EOS6j4hqTnuXdmpcePV9AHr2Av4fxrf3kFiRKJpEbTYbP6ZwJi62h\",\"weight\":1}],\"threshold\":1,\"waits\":[]}}"
 					}
 				}
@@ -48,21 +48,21 @@ func TestPreprocessTokenization(t *testing.T) {
 		)},
 		{"on-blocks", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_EXECUTED"},
-				"action_traces":[{"receipt": {"receiver":"eosio"}, "action": {"name":"transfer","account":"eosio","json_data":""}}],
+				"action_traces":[{"receipt": {"receiver":"zswhq"}, "action": {"name":"transfer","account":"zswhq","json_data":""}}],
 				"db_ops":[
-					{"code": "eosio", "scope": "eosio", "table_name": "producers", "primary_key": "eoshuobipool"},
-					{"code": "eosio", "scope": "eosio", "table_name": "namebids", "primary_key": "j"},
-					{"code": "eosio", "scope": "eosio", "table_name": "global", "primary_key": "global"},
-					{"code": "eosio", "scope": "eosio", "table_name": "global2", "primary_key": "global2"},
-					{"code": "eosio", "scope": "eosio", "table_name": "global3", "primary_key": "global3"}
+					{"code": "zswhq", "scope": "zswhq", "table_name": "producers", "primary_key": "eoshuobipool"},
+					{"code": "zswhq", "scope": "zswhq", "table_name": "namebids", "primary_key": "j"},
+					{"code": "zswhq", "scope": "zswhq", "table_name": "global", "primary_key": "global"},
+					{"code": "zswhq", "scope": "zswhq", "table_name": "global2", "primary_key": "global2"},
+					{"code": "zswhq", "scope": "zswhq", "table_name": "global3", "primary_key": "global3"}
 				]
 			}`,
 		)},
 		{"dtrx-onerror-soft-fail", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_SOFTFAIL"},
-				"action_traces":[{"receiver":"eosio","receipt": {"receiver":"eosio"}, "action": {"name":"onerror","account":"eosio","json_data":""}}],
+				"action_traces":[{"receiver":"zswhq","receipt": {"receiver":"zswhq"}, "action": {"name":"onerror","account":"zswhq","json_data":""}}],
 				"db_ops":[
-					{"code": "eosio", "scope": "eosio", "table_name": "producers", "primary_key": "eoshuobipool"}
+					{"code": "zswhq", "scope": "zswhq", "table_name": "producers", "primary_key": "eoshuobipool"}
 				]
 			}`,
 			`{"id":"a2","index":1,"receipt":{"status":"TRANSACTIONSTATUS_SOFTFAIL"},
@@ -74,9 +74,9 @@ func TestPreprocessTokenization(t *testing.T) {
 		)},
 		{"dtrx-onerror-hard-fail", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_HARDFAIL"},
-				"action_traces":[{"receipt": {"receiver":"any"}, "action": {"name":"onerror","account":"eosio","json_data":""}}],
+				"action_traces":[{"receipt": {"receiver":"any"}, "action": {"name":"onerror","account":"zswhq","json_data":""}}],
 				"db_ops":[
-					{"code": "eosio", "scope": "eosio", "table_name": "producers", "primary_key": "eoshuobipool"}
+					{"code": "zswhq", "scope": "zswhq", "table_name": "producers", "primary_key": "eoshuobipool"}
 				]
 			}`,
 			`{"id":"a2","index":1,"receipt":{"status":"TRANSACTIONSTATUS_SOFTFAIL"},
@@ -90,7 +90,7 @@ func TestPreprocessTokenization(t *testing.T) {
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_SOFTFAIL"},
 				"action_traces":[{"receipt": {"receiver":"any"}, "action": {"name":"onerror","account":"any","json_data":"{\"to\":\"toaccount\"}"}}],
 				"db_ops":[
-					{"code": "eosio", "scope": "eosio", "table_name": "producers", "primary_key": "eoshuobipool"}
+					{"code": "zswhq", "scope": "zswhq", "table_name": "producers", "primary_key": "eoshuobipool"}
 				]
 			}`,
 		)},
@@ -102,7 +102,7 @@ func TestPreprocessTokenization(t *testing.T) {
 		{"dfuse-events-inline-indexed-at-creator", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_EXECUTED"},
 				"action_traces":[
-					{"receipt": {"receiver":"any"}, "action": {"name":"event","account":"eosio","json_data":"{}"}, "action_ordinal":1},
+					{"receipt": {"receiver":"any"}, "action": {"name":"event","account":"zswhq","json_data":"{}"}, "action_ordinal":1},
 					{"receipt": {"receiver":"dfuseiohooks"}, "action": {"name":"event","account":"dfuseiohooks","json_data":"{\"data\":\"key=value\"}"},"action_ordinal":2,"creator_action_ordinal":1}
 				]
 			}`,
@@ -110,8 +110,8 @@ func TestPreprocessTokenization(t *testing.T) {
 		{"dfuse-events-deep-inline-indexed-at-creator", deosTestBlock(t, "00000001a", nil,
 			`{"id":"a1","index":0,"receipt":{"status":"TRANSACTIONSTATUS_EXECUTED"},
 				"action_traces":[
-					{"receipt": {"receiver":"any"}, "action": {"name":"topevent","account":"eosio","json_data":"{}"}, "action_ordinal":1},
-					{"receipt": {"receiver":"any"}, "action": {"name":"childevent","account":"eosio","json_data":"{}"}, "action_ordinal":2,"creator_action_ordinal":1},
+					{"receipt": {"receiver":"any"}, "action": {"name":"topevent","account":"zswhq","json_data":"{}"}, "action_ordinal":1},
+					{"receipt": {"receiver":"any"}, "action": {"name":"childevent","account":"zswhq","json_data":"{}"}, "action_ordinal":2,"creator_action_ordinal":1},
 					{"receipt": {"receiver":"dfuseiohooks"}, "action": {"name":"event","account":"dfuseiohooks","json_data":"{\"data\":\"key=value\"}"},"action_ordinal":3,"creator_action_ordinal":2}
 				]
 			}`,

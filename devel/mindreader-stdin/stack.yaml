@@ -18,4 +18,4 @@ start:
   - search-router
   - trxdb-loader
   flags:
-    common-exclude-filter-expr: (receiver == "eosio" && action == "onblock")
+    common-exclude-filter-expr: (receiver == "zswhq" && action == "onblock")

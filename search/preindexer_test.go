@@ -39,7 +39,7 @@ func TestPreIndexerRunSingleIndexQuery(t *testing.T) {
 	mapper, _ := NewBlockMapper("dfuseiohooks:event", false, "*")
 	preIndexer := search.NewPreIndexer(mapper, tmpDir)
 
-	block, err := ToBStreamBlock(newBlock("00000001a", "00000000a", trxID(1), "eosio.token"))
+	block, err := ToBStreamBlock(newBlock("00000001a", "00000000a", trxID(1), "zswhq.token"))
 	require.NoError(t, err)
 	matchCollector := collector
 
@@ -51,7 +51,7 @@ func TestPreIndexerRunSingleIndexQuery(t *testing.T) {
 	highBlockNum := uint64(1)
 	releaseFunc := func() {}
 	metrics := search.NewQueryMetrics(zap.NewNop(), sortDesc, "", 1, 0, 0)
-	bleveQuery, err := search.NewParsedQuery(ctx, "account:eosio.token")
+	bleveQuery, err := search.NewParsedQuery(ctx, "account:zswhq.token")
 
 	matches, err := search.RunSingleIndexQuery(ctx, sortDesc, lowBlockNum, highBlockNum, matchCollector, bleveQuery, index.Index, releaseFunc, metrics)
 	require.NoError(t, err)

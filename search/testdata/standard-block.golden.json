@@ -2,11 +2,11 @@
   {
     "trx_id": "a1",
     "data": {
-      "account": "eosio",
+      "account": "zswhq",
       "action": "transfer",
       "block_num": 1,
       "data": {
-        "to": "eosio"
+        "to": "zswhq"
       },
       "input": true,
       "notif": true,
@@ -22,7 +22,7 @@
       "action": "random",
       "block_num": 1,
       "data": {
-        "proposer": "eosio"
+        "proposer": "zswhq"
       },
       "input": true,
       "notif": true,

@@ -106,17 +106,17 @@
   "link_auths": [
     {
       "permission": "day2day",
-      "contract": "eosio",
+      "contract": "zswhq",
       "action": "regproducer"
     },
     {
       "permission": "day2day",
-      "contract": "eosio",
+      "contract": "zswhq",
       "action": "unregprod"
     },
     {
       "permission": "day2day",
-      "contract": "eosio",
+      "contract": "zswhq",
       "action": "claimrewards"
     }
   ]

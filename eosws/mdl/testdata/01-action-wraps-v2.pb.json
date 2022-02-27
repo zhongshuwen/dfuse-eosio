@@ -11,15 +11,15 @@
   "netUsage": "168",
   "actionTraces": [
     {
-      "receiver": "eosio.null",
+      "receiver": "zswhq.null",
       "receipt": {
-        "receiver": "eosio.null",
+        "receiver": "zswhq.null",
         "digest": "a82ac831e97682b576ca502e91cdd8e3be64e99286060667195bebf7ff579cf7",
         "globalSequence": "131",
         "recvSequence": "1"
       },
       "action": {
-        "account": "eosio.null",
+        "account": "zswhq.null",
         "name": "nonce",
         "rawData": "0c393963393762326136636231"
       },
@@ -177,15 +177,15 @@
       "executionIndex": 4
     },
     {
-      "receiver": "eosio.null",
+      "receiver": "zswhq.null",
       "receipt": {
-        "receiver": "eosio.null",
+        "receiver": "zswhq.null",
         "digest": "495c05ccda67e6bed61f84bc24e2c672ce0f98d5793b2240c0d9729abc7737f4",
         "globalSequence": "136",
         "recvSequence": "2"
       },
       "action": {
-        "account": "eosio.null",
+        "account": "zswhq.null",
         "name": "nonce",
         "rawData": "026332"
       },
@@ -200,15 +200,15 @@
       "executionIndex": 5
     },
     {
-      "receiver": "eosio.null",
+      "receiver": "zswhq.null",
       "receipt": {
-        "receiver": "eosio.null",
+        "receiver": "zswhq.null",
         "digest": "ed0112b81d9f579a190f9d7857aece63898ed8321c3cd8c7b4bf255b2c4305a5",
         "globalSequence": "137",
         "recvSequence": "3"
       },
       "action": {
-        "account": "eosio.null",
+        "account": "zswhq.null",
         "name": "nonce",
         "rawData": "026331"
       },
@@ -334,15 +334,15 @@
       "executionIndex": 9
     },
     {
-      "receiver": "eosio.null",
+      "receiver": "zswhq.null",
       "receipt": {
-        "receiver": "eosio.null",
+        "receiver": "zswhq.null",
         "digest": "569a41714bfd4f1804acb9f4fa4b7f2347164cf2e6e8672e572a067784c97148",
         "globalSequence": "141",
         "recvSequence": "4"
       },
       "action": {
-        "account": "eosio.null",
+        "account": "zswhq.null",
         "name": "nonce",
         "rawData": "026333"
       },

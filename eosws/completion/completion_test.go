@@ -46,7 +46,7 @@ func TestComplete(t *testing.T) {
 		return section("query",
 			fmt.Sprintf("(auth:%s OR receiver:%s)|account_history", prefix, prefix),
 			fmt.Sprintf("auth:%s|signed_by", prefix),
-			fmt.Sprintf("receiver:eosio.token account:eosio.token action:transfer (data.from:%s OR data.to:%s)|eos_token_transfer", prefix, prefix),
+			fmt.Sprintf("receiver:zswhq.token account:zswhq.token action:transfer (data.from:%s OR data.to:%s)|eos_token_transfer", prefix, prefix),
 			fmt.Sprintf("data.to:%s|fuzzy_token_search", prefix),
 		)
 	}
@@ -63,9 +63,9 @@ func TestComplete(t *testing.T) {
 	}{
 		// Account like
 		{
-			"only eos account matches", "eosio.bp", 5, []string{"eosio.bpay"}, nil, []*mdl.SuggestionSection{
-				section("accounts", "eosio.bpay"),
-				defaultSQESection("eosio.bp"),
+			"only eos account matches", "zswhq.bp", 5, []string{"zswhq.bpay"}, nil, []*mdl.SuggestionSection{
+				section("accounts", "zswhq.bpay"),
+				defaultSQESection("zswhq.bp"),
 			},
 		},
 		{
@@ -74,10 +74,10 @@ func TestComplete(t *testing.T) {
 			},
 		},
 		{
-			"account like, followed by space shows nothing", "eosio.bp ", 5, []string{"eosio.bpay"}, nil, emptySections,
+			"account like, followed by space shows nothing", "zswhq.bp ", 5, []string{"zswhq.bpay"}, nil, emptySections,
 		},
 		{
-			"account like, followed by something else", "eosio.bp testing", 5, []string{"eosio.bpay"}, nil, emptySections,
+			"account like, followed by something else", "zswhq.bp testing", 5, []string{"zswhq.bpay"}, nil, emptySections,
 		},
 
 		// SQE
@@ -208,7 +208,7 @@ func TestComplete(t *testing.T) {
 }
 
 func TestAddAccount(t *testing.T) {
-	completion := newFromData([]string{"eosio"})
+	completion := newFromData([]string{"zswhq"})
 	sections, err := completion.Complete("test", 1)
 	require.NoError(t, err)
 
@@ -270,21 +270,21 @@ func TestSearchAccountNameByPrefix(t *testing.T) {
 		},
 		{
 			"multiple matching",
-			[]string{"eos", "abc", "eosio"},
+			[]string{"eos", "abc", "zswhq"},
 			"eos",
 			100,
-			[]string{"eos", "eosio"},
+			[]string{"eos", "zswhq"},
 		},
 		{
 			"multiple matching/flush on limit",
-			[]string{"eos", "abc", "eosio"},
+			[]string{"eos", "abc", "zswhq"},
 			"eos",
 			2,
-			[]string{"eos", "eosio"},
+			[]string{"eos", "zswhq"},
 		},
 		{
 			"multiple matching/more than limit",
-			[]string{"eos", "abc", "eosio"},
+			[]string{"eos", "abc", "zswhq"},
 			"eos",
 			1,
 			[]string{"eos"},

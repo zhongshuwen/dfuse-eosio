@@ -304,7 +304,7 @@ func suggestNextSQEField(prefix string, limit int, alreadyUsedFields []string) [
 func suggestSQEDefaultSuggestions(prefix string) []*mdl.Suggestion {
 	accountHistory := fmt.Sprintf("(auth:%s OR receiver:%s)", prefix, prefix)
 	signedBy := fmt.Sprintf("auth:%s", prefix)
-	eosTokenTransfer := fmt.Sprintf("receiver:eosio.token account:eosio.token action:transfer (data.from:%s OR data.to:%s)", prefix, prefix)
+	eosTokenTransfer := fmt.Sprintf("receiver:zswhq.token account:zswhq.token action:transfer (data.from:%s OR data.to:%s)", prefix, prefix)
 	fuzzyTokenSearch := fmt.Sprintf("data.to:%s", prefix)
 
 	return []*mdl.Suggestion{

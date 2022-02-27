@@ -9,7 +9,7 @@ import (
 
 type OwnedAsset struct {
 	Owner eos.AccountName    // ex: eoscanadadad
-	Asset *eos.ExtendedAsset // ex: 1.23 EOS (eosio.token)
+	Asset *eos.ExtendedAsset // ex: 1.23 EOS (zswhq.token)
 }
 
 type OwnedAssetSorter func([]*OwnedAsset, SortingOrder) []*OwnedAsset

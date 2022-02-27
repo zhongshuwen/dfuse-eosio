@@ -23,14 +23,14 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 		{
 			name:     "simple raw message",
 			scope:    "eoscanadacom",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
 			dbRow: []byte("{\"balance\":\"0.0064 EOS\"}"),
 			expectValue: &pbtokenmeta.AccountBalance{
-				TokenContract: "eosio.token",
+				TokenContract: "zswhq.token",
 				Account:       "eoscanadacom",
 				Amount:        64,
 				Precision:     4,
@@ -40,7 +40,7 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 		{
 			name:     "invalid raw message",
 			scope:    "eoscanadacom",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
@@ -51,7 +51,7 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 		{
 			name:     "invalid balance in raw message",
 			scope:    "eoscanadacom",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
@@ -86,17 +86,17 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 	}{
 		{
 			name:     "updating an existing token",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
 			dbRow: []byte("{\"supply\":\"1074146295.0178 EOS\",\"max_supply\":\"10000000000.0000 EOS\",\"issuer\":\"eosio\"}"),
 			expectValue: &pbtokenmeta.Token{
-				Contract:      "eosio.token",
+				Contract:      "zswhq.token",
 				Symbol:        "EOS",
 				Precision:     4,
-				Issuer:        "eosio",
+				Issuer:        "zswhq",
 				MaximumSupply: 100000000000000,
 				TotalSupply:   10741462950178,
 				Holders:       0,
@@ -118,7 +118,7 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 		},
 		{
 			name:     "invalid raw message",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
@@ -128,7 +128,7 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 		},
 		{
 			name:     "invalid balance in raw message",
-			contract: "eosio.token",
+			contract: "zswhq.token",
 			symbol: &eos.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",

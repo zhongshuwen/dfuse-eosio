@@ -1,14 +1,14 @@
 {
   "permissions": [
     {
-      "owner": "eosio.ram",
+      "owner": "zswhq.ram",
       "name": "owner",
       "authority": {
         "threshold": 1,
         "accounts": [
           {
             "permission": {
-              "actor": "eosio",
+              "actor": "zswhq",
               "permission": "active"
             },
             "weight": 1
@@ -18,14 +18,14 @@
     },
     {
       "parent": "owner",
-      "owner": "eosio.ram",
+      "owner": "zswhq.ram",
       "name": "active",
       "authority": {
         "threshold": 1,
         "accounts": [
           {
             "permission": {
-              "actor": "eosio",
+              "actor": "zswhq",
               "permission": "active"
             },
             "weight": 1

@@ -26,7 +26,7 @@ boot_sequence:
     label: Enabling chain protocol eatures
 
   - op: system.setcode
-    label: Setting eosio account contract to eosio.system 1.8.3
+    label: Setting eosio account contract to zswhq.system 1.8.3
     data:
       account: eosio
       contract_name_ref: eosio.system.1.8.3
@@ -54,7 +54,7 @@ boot_sequence:
       duration: 2s
 
   - op: system.setcode
-    label: Setting eosio account from eosio.bios contract to eosio.system
+    label: Setting eosio account from zswhq.bios contract to zswhq.system
     data:
       account: eosio
-      contract_name_ref: eosio.system
+      contract_name_ref: zswhq.system

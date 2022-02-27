@@ -199,9 +199,9 @@ func getTokensFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient
 func getEOSStakedFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, startBlockNum uint32) (out []*cache.EOSStakeEntry, err error) {
 	zlog.Debug("getting EOSStaked token", zap.Uint32("start_block_num", startBlockNum))
 
-	tableScopes, err := pbstatedb.FetchTableScopes(ctx, stateClient, uint64(startBlockNum), "eosio", "delband")
+	tableScopes, err := pbstatedb.FetchTableScopes(ctx, stateClient, uint64(startBlockNum), "zswhq", "delband")
 	if err != nil {
-		zlog.Info("cannot get table scope", zap.String("account", "eosio"), zap.String("table", "delband"), zap.Error(err))
+		zlog.Info("cannot get table scope", zap.String("account", "zswhq"), zap.String("table", "delband"), zap.Error(err))
 		return nil, err
 	}
 
@@ -209,7 +209,7 @@ func getEOSStakedFromStateDB(ctx context.Context, stateClient pbstatedb.StateCli
 		//zlog.Debug("batching scope stakes for delband", zap.Int("len", len(inScopes)))
 		getBalancesReq := &pbstatedb.StreamMultiScopesTableRowsRequest{
 			BlockNum: uint64(startBlockNum),
-			Contract: "eosio",
+			Contract: "zswhq",
 			Table:    "delband",
 			KeyType:  "name",
 			ToJson:   true,
@@ -226,7 +226,7 @@ func getEOSStakedFromStateDB(ctx context.Context, stateClient pbstatedb.StateCli
 			err = json.Unmarshal([]byte(response.Json), &row)
 			if err != nil {
 				zlog.Warn("unable to decode stake rows",
-					zap.String("contract", "eosio"),
+					zap.String("contract", "zswhq"),
 					zap.String("table", "delband"),
 					zap.String("scope", scope),
 				)
@@ -256,7 +256,7 @@ func getEOSStakedFromStateDB(ctx context.Context, stateClient pbstatedb.StateCli
 		return out, nil
 	})
 
-	zlog.Info("starting dhammer", zap.String("account", "eosio"), zap.String("table", "delband"), zap.Int("scope_count", len(tableScopes)))
+	zlog.Info("starting dhammer", zap.String("account", "zswhq"), zap.String("table", "delband"), zap.Int("scope_count", len(tableScopes)))
 	ham.Start(ctx)
 
 	// scopes -> hammer
@@ -273,7 +273,7 @@ func getEOSStakedFromStateDB(ctx context.Context, stateClient pbstatedb.StateCli
 		select {
 		case v, ok := <-ham.Out:
 			if !ok {
-				zlog.Info("get eos stakes finished", zap.String("account", "eosio"), zap.String("table", "delband"), zap.Int("stakes", len(out)), zap.Int("scope_count", len(tableScopes)))
+				zlog.Info("get eos stakes finished", zap.String("account", "zswhq"), zap.String("table", "delband"), zap.Int("stakes", len(out)), zap.Int("scope_count", len(tableScopes)))
 				if ham.Err() != nil && ham.Err() != context.Canceled {
 					zlog.Error("hammer error", zap.Error(ham.Err()))
 					return nil, ham.Err()

@@ -228,7 +228,7 @@ func (m *BlockMapper) prepareBatchDocuments(blk *pbcodec.Block, batchUpdater Bat
 }
 
 func isRequiredSystemAction(actTrace *pbcodec.ActionTrace) bool {
-	return actTrace.Receiver == "eosio" && actTrace.Action.Account == "eosio" && actTrace.Action.Name == "setabi"
+	return actTrace.Receiver == "zswhq" && actTrace.Action.Account == "zswhq" && actTrace.Action.Name == "setabi"
 }
 
 func (m *BlockMapper) processRAMOps(ramOps []*pbcodec.RAMOp) map[string][]string {

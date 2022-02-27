@@ -214,7 +214,7 @@ func (c *ABIDecoder) processTransaction(trxTrace *pbcodec.TransactionTrace) erro
 	//                      In the first pass we loop on all `non-notification` action, decoding them against the ABI.
 	//                      In the second pass, we loop on all `notification` action this time and now instead of
 	//                      decoding them, we find the action that created the notification and use it's already decoded
-	//                      action. This would save us 2 decoding for each `eosio.token` for example.
+	//                      action. This would save us 2 decoding for each `zswhq.token` for example.
 	//
 	//                      Now that we run that in parallel, two-pass it a little bit harder. Implementation wise, I
 	//                      suggest we perform a final serialize phase in the `endBlock` method, after having done all
@@ -445,9 +445,9 @@ func (d *ABIDecoder) decodeAction(action *pbcodec.Action, globalSequence uint64,
 	}
 
 	// Transfer raw data min length is 8 bytes for `from`, 8 bytes for `to`, 16 bytes for `quantity` and `1 byte` for memo length
-	if action.Account == "eosio.token" && action.Name == "transfer" && len(action.RawData) >= 33 {
+	if action.Account == "zswhq.token" && action.Name == "transfer" && len(action.RawData) >= 33 {
 		if traceEnabled {
-			zlog.Debug("decoding action using pre-built eosio.token:transfer decoder", zap.String("action", action.SimpleName()), zap.Uint64("global_sequence", globalSequence))
+			zlog.Debug("decoding action using pre-built zswhq.token:transfer decoder", zap.String("action", action.SimpleName()), zap.Uint64("global_sequence", globalSequence))
 		}
 
 		var err error

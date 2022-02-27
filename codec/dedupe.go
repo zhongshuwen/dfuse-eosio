@@ -12,7 +12,7 @@ func DeduplicateTransactionTrace(trx *pbcodec.TransactionTrace) {
 		if act.Receipt != nil {
 			act.Receipt.Receiver = ""
 
-			if act.Action.Account == "eosio" && act.Action.Name == "setabi" {
+			if act.Action.Account == "zswhq" && act.Action.Name == "setabi" {
 				// In the SLIM case where a `setabi` would make the JSON decoding different
 				// after `setabi` is called.  Wow, such powerful!  Execution order assumed.
 				digs = make(map[string]*pbcodec.Action)

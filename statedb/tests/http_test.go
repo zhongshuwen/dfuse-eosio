@@ -104,15 +104,15 @@ func runAll(t *testing.T, storeFactory StoreFactory) {
 func testStateABIHex(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateABI(e, "eosio.test", "")
+	response := okQueryStateABI(e, "zswhq.test", "")
 
-	jsonValueEqual(t, "abi", `{"abi": "0e656f73696f3a3a6162692f312e3000010576616c7565000102746f0675696e743634000100000000008139bd0000000576616c756500000000", "account": "eosio.test", "block_num": 5}`, response.Path("$"))
+	jsonValueEqual(t, "abi", `{"abi": "0e656f73696f3a3a6162692f312e3000010576616c7565000102746f0675696e743634000100000000008139bd0000000576616c756500000000", "account": "zswhq.test", "block_num": 5}`, response.Path("$"))
 }
 
 func testStateTableSingleRowHeadHex(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTable(e, "eosio.token/accounts/eosio1", "")
+	response := okQueryStateTable(e, "zswhq.token/accounts/eosio1", "")
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "table-rows", `[{"key":"eos","payer":"eosio1","hex":"a08601000000000004454f5300000000"}]`, response.Path("$.rows"))
@@ -121,7 +121,7 @@ func testStateTableSingleRowHeadHex(ctx context.Context, t *testing.T, feedSourc
 func testStateTableSingleRowHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTable(e, "eosio.token/accounts/eosio1", "json=true")
+	response := okQueryStateTable(e, "zswhq.token/accounts/eosio1", "json=true")
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "table-rows", `[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]`, response.Path("$.rows"))
@@ -130,7 +130,7 @@ func testStateTableSingleRowHeadJSON(ctx context.Context, t *testing.T, feedSour
 func testStateTableSingleRowHistoricalJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTable(e, "eosio.token/accounts/eosio1", "json=true&block_num=4")
+	response := okQueryStateTable(e, "zswhq.token/accounts/eosio1", "json=true&block_num=4")
 
 	assertIrrBlockInfo(response, "00000005aa")
 	jsonValueEqual(t, "table-rows", `[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]`, response.Path("$.rows"))
@@ -139,7 +139,7 @@ func testStateTableSingleRowHistoricalJSON(ctx context.Context, t *testing.T, fe
 func testStateTableMultiRowsHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTable(e, "eosio.test/rows2/s", "json=true")
+	response := okQueryStateTable(e, "zswhq.test/rows2/s", "json=true")
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "table-rows", `[
@@ -154,7 +154,7 @@ func testStateTableMultiRowsHeadJSON(ctx context.Context, t *testing.T, feedSour
 func testStateTableMultiRowsHistoricalJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTable(e, "eosio.test/rows/s", "json=true&block_num=3")
+	response := okQueryStateTable(e, "zswhq.test/rows/s", "json=true&block_num=3")
 
 	assertIrrBlockInfo(response, "00000005aa")
 	jsonValueEqual(t, "table-rows", `[
@@ -167,7 +167,7 @@ func testStateTableMultiRowsHistoricalJSON(ctx context.Context, t *testing.T, fe
 func testStateTableScopesHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTableScopes(e, "eosio.token/accounts", "")
+	response := okQueryStateTableScopes(e, "zswhq.token/accounts", "")
 
 	response.ValueEqual("block_num", 6)
 	jsonValueEqual(t, "scopes", `["eosio1", "eosio2"]`, response.Path("$.scopes"))
@@ -176,7 +176,7 @@ func testStateTableScopesHeadJSON(ctx context.Context, t *testing.T, feedSourceW
 func testStateTableScopesHistoricalJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTableScopes(e, "eosio.token/accounts", "block_num=3")
+	response := okQueryStateTableScopes(e, "zswhq.token/accounts", "block_num=3")
 
 	response.ValueEqual("block_num", 3)
 	jsonValueEqual(t, "scopes", `["eosio1", "eosio2", "eosio3"]`, response.Path("$.scopes"))
@@ -185,27 +185,27 @@ func testStateTableScopesHistoricalJSON(ctx context.Context, t *testing.T, feedS
 func testStateTablesForScopesHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTablesForScopes(e, "eosio.token/accounts/eosio1|eosio2|eosio3", "json=true")
+	response := okQueryStateTablesForScopes(e, "zswhq.token/accounts/eosio1|eosio2|eosio3", "json=true")
 
 	// That is not the correct behavior, there should be only `eosio1` & `eosio3` in the tests
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "tables", `[
-		{ "account": "eosio.token","scope": "eosio1", "rows": [{ "key": "eos", "payer": "eosio1", "json": {"balance":"10.0000 EOS"}}]},
-		{ "account": "eosio.token","scope": "eosio2", "rows": [{ "key": "eos", "payer": "eosio2", "json": {"balance":"22.0000 EOS"}}]},
-		{ "account": "eosio.token","scope": "eosio3", "rows": []}
+		{ "account": "zswhq.token","scope": "eosio1", "rows": [{ "key": "eos", "payer": "eosio1", "json": {"balance":"10.0000 EOS"}}]},
+		{ "account": "zswhq.token","scope": "eosio2", "rows": [{ "key": "eos", "payer": "eosio2", "json": {"balance":"22.0000 EOS"}}]},
+		{ "account": "zswhq.token","scope": "eosio3", "rows": []}
 	]`, response.Path("$.tables"))
 }
 
 func testStateTablesForScopesHistoricalJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTablesForScopes(e, "eosio.token/accounts/eosio1|eosio2|eosio3", "block_num=3&json=true")
+	response := okQueryStateTablesForScopes(e, "zswhq.token/accounts/eosio1|eosio2|eosio3", "block_num=3&json=true")
 
 	assertIrrBlockInfo(response, "00000005aa")
 	jsonValueEqual(t, "tables", `[
-		{ "account": "eosio.token","scope": "eosio1", "rows": [{ "key": "eos", "payer": "eosio1", "json": {"balance":"1.0000 EOS"}}]},
-		{ "account": "eosio.token","scope": "eosio2", "rows": [{ "key": "eos", "payer": "eosio2", "json": {"balance":"20.0000 EOS"}}]},
-		{ "account": "eosio.token","scope": "eosio3", "rows": [{ "key": "eos", "payer": "eosio3", "json": {"balance":"3.0000 EOS"}}]}
+		{ "account": "zswhq.token","scope": "eosio1", "rows": [{ "key": "eos", "payer": "eosio1", "json": {"balance":"1.0000 EOS"}}]},
+		{ "account": "zswhq.token","scope": "eosio2", "rows": [{ "key": "eos", "payer": "eosio2", "json": {"balance":"20.0000 EOS"}}]},
+		{ "account": "zswhq.token","scope": "eosio3", "rows": [{ "key": "eos", "payer": "eosio3", "json": {"balance":"3.0000 EOS"}}]}
 	]`, response.Path("$.tables"))
 }
 
@@ -216,8 +216,8 @@ func testStateTablesForAccountsHeadJSON(ctx context.Context, t *testing.T, feedS
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "tables", `[
-		{"account":"eosio.nekot","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"1.0000 SOE"}}]},
-		{"account":"eosio.token","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]}
+		{"account":"zswhq.nekot","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"1.0000 SOE"}}]},
+		{"account":"zswhq.token","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]}
 	]`, response.Path("$.tables"))
 }
 
@@ -228,15 +228,15 @@ func testStateTablesForAccountsHistoricalJSON(ctx context.Context, t *testing.T,
 
 	assertIrrBlockInfo(response, "00000005aa")
 	jsonValueEqual(t, "tables", `[
-		{"account":"eosio.nekot","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"1.0000 SOE"}}]},
-		{"account":"eosio.token","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]}
+		{"account":"zswhq.nekot","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"1.0000 SOE"}}]},
+		{"account":"zswhq.token","scope":"eosio1","rows":[{"key":"eos","payer":"eosio1","json":{"balance":"10.0000 EOS"}}]}
 	]`, response.Path("$.tables"))
 }
 
 func testStateTableRowHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTableRow(e, "eosio.nekot/accounts/eosio5/SOE", "json=true&key_type=symbol_code")
+	response := okQueryStateTableRow(e, "zswhq.nekot/accounts/eosio5/SOE", "json=true&key_type=symbol_code")
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "row", `{"key":"SOE","payer":"eosio5","json":{"balance":"5.0000 SOE"}}`, response.Path("$.row"))
@@ -249,60 +249,60 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 	eosioNekotABI1 := readABI(t, "eosio.nekot.1.abi.json")
 
 	return []*pbcodec.Block{
-		// Block #2 | Sets ABI on `eosio.token` (v1) and `eosio.test` (v1)
+		// Block #2 | Sets ABI on `zswhq.token` (v1) and `eosio.test` (v1)
 		ct.Block(t, "00000002aa",
-			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "eosio.token", eosioTokenABI1)),
-			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "eosio.test", eosioTestABI1)),
+			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.token", eosioTokenABI1)),
+			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.test", eosioTestABI1)),
 		),
 
 		// Block #3
 		ct.Block(t, "00000003aa",
-			// Creates three balances `eosio1`, `eosio2`, `eosio3` on `eosio.token`
+			// Creates three balances `eosio1`, `eosio2`, `eosio3` on `zswhq.token`
 			ct.TrxTrace(t,
-				ct.TableOp(t, "insert", "eosio.token/accounts/eosio1", "eosio1"),
-				ct.DBOp(t, "insert", "eosio.token/accounts/eosio1/eos", "/eosio1", `/{"balance":"1.0000 EOS"}`, eosioTokenABI1),
+				ct.TableOp(t, "insert", "zswhq.token/accounts/eosio1", "eosio1"),
+				ct.DBOp(t, "insert", "zswhq.token/accounts/eosio1/eos", "/eosio1", `/{"balance":"1.0000 EOS"}`, eosioTokenABI1),
 
-				ct.TableOp(t, "insert", "eosio.token/accounts/eosio2", "eosio2"),
-				ct.DBOp(t, "insert", "eosio.token/accounts/eosio2/eos", "/eosio2", `/{"balance":"2.0000 EOS"}`, eosioTokenABI1),
+				ct.TableOp(t, "insert", "zswhq.token/accounts/eosio2", "eosio2"),
+				ct.DBOp(t, "insert", "zswhq.token/accounts/eosio2/eos", "/eosio2", `/{"balance":"2.0000 EOS"}`, eosioTokenABI1),
 
-				ct.TableOp(t, "insert", "eosio.token/accounts/eosio3", "eosio3"),
-				ct.DBOp(t, "insert", "eosio.token/accounts/eosio3/eos", "/eosio3", `/{"balance":"3.0000 EOS"}`, eosioTokenABI1),
+				ct.TableOp(t, "insert", "zswhq.token/accounts/eosio3", "eosio3"),
+				ct.DBOp(t, "insert", "zswhq.token/accounts/eosio3/eos", "/eosio3", `/{"balance":"3.0000 EOS"}`, eosioTokenABI1),
 			),
 
 			// Add three rows (keys `a`, `b` & `c`) to `eosio.test` contract, on table `rows` under scope `s`, then update key `b` within same transaction
 			ct.TrxTrace(t,
-				ct.TableOp(t, "insert", "eosio.test/rows/s", "s"),
-				ct.DBOp(t, "insert", "eosio.test/rows/s/a", "/s", `/{"from":"a"}`, eosioTestABI1),
-				ct.DBOp(t, "insert", "eosio.test/rows/s/b", "/s", `/{"from":"b"}`, eosioTestABI1),
-				ct.DBOp(t, "insert", "eosio.test/rows/s/c", "/s", `/{"from":"c"}`, eosioTestABI1),
-				ct.DBOp(t, "update", "eosio.test/rows/s/b", "s/s", `{"from":"b"}/{"from":"b2"}`, eosioTestABI1),
+				ct.TableOp(t, "insert", "zswhq.test/rows/s", "s"),
+				ct.DBOp(t, "insert", "zswhq.test/rows/s/a", "/s", `/{"from":"a"}`, eosioTestABI1),
+				ct.DBOp(t, "insert", "zswhq.test/rows/s/b", "/s", `/{"from":"b"}`, eosioTestABI1),
+				ct.DBOp(t, "insert", "zswhq.test/rows/s/c", "/s", `/{"from":"c"}`, eosioTestABI1),
+				ct.DBOp(t, "update", "zswhq.test/rows/s/b", "s/s", `{"from":"b"}/{"from":"b2"}`, eosioTestABI1),
 			),
 
-			// Update balance of `eosio2` on `eosio.token` within same block, but in different transaction
+			// Update balance of `eosio2` on `zswhq.token` within same block, but in different transaction
 			ct.TrxTrace(t,
-				ct.DBOp(t, "update", "eosio.token/accounts/eosio2/eos", "eosio2/eosio2", `{"balance":"2.0000 EOS"}/{"balance":"20.0000 EOS"}`, eosioTokenABI1),
+				ct.DBOp(t, "update", "zswhq.token/accounts/eosio2/eos", "eosio2/eosio2", `{"balance":"2.0000 EOS"}/{"balance":"20.0000 EOS"}`, eosioTokenABI1),
 			),
 		),
 
 		// Block #4
 		ct.Block(t, "00000004aa",
-			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `eosio.token`
+			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
 			ct.TrxTrace(t,
-				ct.ActionTraceSetABI(t, "eosio.nekot", eosioNekotABI1),
+				ct.ActionTraceSetABI(t, "zswhq.nekot", eosioNekotABI1),
 
-				ct.TableOp(t, "insert", "eosio.nekot/accounts/eosio1", "eosio1"),
-				ct.DBOp(t, "insert", "eosio.nekot/accounts/eosio1/eos", "/eosio1", `/{"balance":"1.0000 SOE"}`, eosioNekotABI1),
+				ct.TableOp(t, "insert", "zswhq.nekot/accounts/eosio1", "eosio1"),
+				ct.DBOp(t, "insert", "zswhq.nekot/accounts/eosio1/eos", "/eosio1", `/{"balance":"1.0000 SOE"}`, eosioNekotABI1),
 
-				ct.TableOp(t, "insert", "eosio.nekot/accounts/eosio3", "eosio3"),
-				ct.DBOp(t, "insert", "eosio.nekot/accounts/eosio3/eos", "/eosio3", `/{"balance":"3.0000 SOE"}`, eosioNekotABI1),
+				ct.TableOp(t, "insert", "zswhq.nekot/accounts/eosio3", "eosio3"),
+				ct.DBOp(t, "insert", "zswhq.nekot/accounts/eosio3/eos", "/eosio3", `/{"balance":"3.0000 SOE"}`, eosioNekotABI1),
 			),
 
-			// Modify `eosio.token` `eosio1` balance and delete `eosio3`
+			// Modify `zswhq.token` `eosio1` balance and delete `eosio3`
 			ct.TrxTrace(t,
-				ct.DBOp(t, "update", "eosio.token/accounts/eosio1/eos", "eosio1/eosio1", `{"balance":"1.0000 EOS"}/{"balance":"10.0000 EOS"}`, eosioTokenABI1),
+				ct.DBOp(t, "update", "zswhq.token/accounts/eosio1/eos", "eosio1/eosio1", `{"balance":"1.0000 EOS"}/{"balance":"10.0000 EOS"}`, eosioTokenABI1),
 
-				ct.DBOp(t, "remove", "eosio.token/accounts/eosio3/eos", "eosio3/", `{"balance":"3.0000 EOS"}/`, eosioTokenABI1),
-				ct.TableOp(t, "remove", "eosio.token/accounts/eosio3", "eosio3"),
+				ct.DBOp(t, "remove", "zswhq.token/accounts/eosio3/eos", "eosio3/", `{"balance":"3.0000 EOS"}/`, eosioTokenABI1),
+				ct.TableOp(t, "remove", "zswhq.token/accounts/eosio3", "eosio3"),
 			),
 		),
 
@@ -310,46 +310,46 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 		ct.Block(t, "00000005aa",
 			// Remove all rows (keys `a`, `b`) of `eosio.test`
 			ct.TrxTrace(t,
-				ct.DBOp(t, "remove", "eosio.test/rows/s/a", "s/", `{"from":"a"}/`, eosioTestABI1),
-				ct.DBOp(t, "remove", "eosio.test/rows/s/b", "s/", `{"from":"b2"}/`, eosioTestABI1),
-				ct.DBOp(t, "remove", "eosio.test/rows/s/b", "s/", `{"from":"c"}/`, eosioTestABI1),
-				ct.TableOp(t, "remove", "eosio.test/rows/s", "s"),
+				ct.DBOp(t, "remove", "zswhq.test/rows/s/a", "s/", `{"from":"a"}/`, eosioTestABI1),
+				ct.DBOp(t, "remove", "zswhq.test/rows/s/b", "s/", `{"from":"b2"}/`, eosioTestABI1),
+				ct.DBOp(t, "remove", "zswhq.test/rows/s/b", "s/", `{"from":"c"}/`, eosioTestABI1),
+				ct.TableOp(t, "remove", "zswhq.test/rows/s", "s"),
 			),
 
 			// Set a new ABI on `eosio.test`
-			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "eosio.test", eosioTestABI2)),
+			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.test", eosioTestABI2)),
 
 			// Re-add all rows on `eosio.test` using new ABI
 			ct.TrxTrace(t,
-				ct.TableOp(t, "insert", "eosio.test/rows2/s", "s"),
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/a", "/s", `/{"to":1}`, eosioTestABI2),
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/b", "/s", `/{"to":2}`, eosioTestABI2),
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/c", "/s", `/{"to":3}`, eosioTestABI2),
+				ct.TableOp(t, "insert", "zswhq.test/rows2/s", "s"),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/a", "/s", `/{"to":1}`, eosioTestABI2),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/b", "/s", `/{"to":2}`, eosioTestABI2),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/c", "/s", `/{"to":3}`, eosioTestABI2),
 			),
 
-			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `eosio.token`
+			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
 			ct.TrxTrace(t,
-				ct.TableOp(t, "insert", "eosio.nekot/accounts/eosio5", "eosio5"),
-				ct.DBOp(t, "insert", "eosio.nekot/accounts/eosio5/........cpbp3", "/eosio5", `/{"balance":"5.0000 SOE"}`, eosioNekotABI1),
+				ct.TableOp(t, "insert", "zswhq.nekot/accounts/eosio5", "eosio5"),
+				ct.DBOp(t, "insert", "zswhq.nekot/accounts/eosio5/........cpbp3", "/eosio5", `/{"balance":"5.0000 SOE"}`, eosioNekotABI1),
 			),
 		),
 
 		// Block #6 | This block will be in the reversible segment, i.e. in the speculative writes
 		ct.Block(t, "00000006aa",
-			// Update balance of `eosio2` on `eosio.token`
+			// Update balance of `eosio2` on `zswhq.token`
 			ct.TrxTrace(t,
-				ct.DBOp(t, "update", "eosio.token/accounts/eosio2/eos", "eosio2/eosio2", `{"balance":"20.0000 EOS"}/{"balance":"22.0000 EOS"}`, eosioTokenABI1),
+				ct.DBOp(t, "update", "zswhq.token/accounts/eosio2/eos", "eosio2/eosio2", `{"balance":"20.0000 EOS"}/{"balance":"22.0000 EOS"}`, eosioTokenABI1),
 			),
 
 			// Delete rows `a` from `eosio.test`, update `b` and add three new rows (`d`, `e` & `f`)
 			ct.TrxTrace(t,
-				ct.DBOp(t, "remove", "eosio.test/rows2/s/a", "s/", `{"to":1}/`, eosioTestABI2),
+				ct.DBOp(t, "remove", "zswhq.test/rows2/s/a", "s/", `{"to":1}/`, eosioTestABI2),
 
-				ct.DBOp(t, "update", "eosio.test/rows2/s/b", "s/s", `{"to":2}/{"to":20}`, eosioTestABI2),
+				ct.DBOp(t, "update", "zswhq.test/rows2/s/b", "s/s", `{"to":2}/{"to":20}`, eosioTestABI2),
 
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/d", "/s", `/{"to":4}`, eosioTestABI2),
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/e", "/s", `/{"to":5}`, eosioTestABI2),
-				ct.DBOp(t, "insert", "eosio.test/rows2/s/f", "/s", `/{"to":6}`, eosioTestABI2),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/d", "/s", `/{"to":4}`, eosioTestABI2),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/e", "/s", `/{"to":5}`, eosioTestABI2),
+				ct.DBOp(t, "insert", "zswhq.test/rows2/s/f", "/s", `/{"to":6}`, eosioTestABI2),
 			),
 		),
 	}

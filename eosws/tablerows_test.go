@@ -68,8 +68,8 @@ func Test_onGetTableRows(t *testing.T) {
                     "old_data": "096f6c642e76616c7565",
                     "new_payer": "new_payer",
                     "old_payer": "old.payer",
-                    "code": "eosio",
-                    "scope": "eosio",
+                    "code": "zswhq",
+                    "scope": "zswhq",
                     "table_name": "table_name_1",
                     "primary_key": "key_name_1"
                 }
@@ -79,7 +79,7 @@ func Test_onGetTableRows(t *testing.T) {
     ]
 }
 `))}},
-			stateDBResponse:   `{"last_irreversible_block_id":"00000001a","last_irreversible_block_num":1,"up_to_block_id":"00000001a","up_to_block_num":1,"rows":[{"key":"a","payer":"eosio","json":"{\"foo\":\"bar\"}"}]}`,
+			stateDBResponse:   `{"last_irreversible_block_id":"00000001a","last_irreversible_block_num":1,"up_to_block_id":"00000001a","up_to_block_num":1,"rows":[{"key":"a","payer":"zswhq","json":"{\"foo\":\"bar\"}"}]}`,
 			abiForAccountName: &ABIAccountName{accountName: eos.AccountName("account.1"), abiString: `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`},
 			msg:               `{"type":"get_table_rows","req_id":"abc","listen":false,"fetch":true,"data":{"code":"account.1","scope":"scope.1","table":"table.name.1","json":true}}`,
 			expectedOutput:    []string{`{"type":"table_snapshot","req_id":"abc","data":{"rows":[{"foo":"bar"}]}}`},
@@ -127,7 +127,7 @@ func Test_onGetTableRows(t *testing.T) {
 }
 
 func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
-	scope := eos.Name("eosio")
+	scope := eos.Name("zswhq")
 
 	msg := &wsmsg.GetTableRows{
 		CommonIn: wsmsg.CommonIn{
@@ -136,7 +136,7 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 			StartBlock: 3,
 		},
 		Data: wsmsg.GetTableRowsData{
-			Code:      "eosio",
+			Code:      "zswhq",
 			Scope:     &scope,
 			TableName: "table_name_1",
 			JSON:      true,
@@ -155,11 +155,11 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 	}{
 		{
 			name: "no delta matching",
-			block: testBlock(t, "00000002a", "00000001a", "eosio", 1, `{"id":"trx.1","db_ops":[{
+			block: testBlock(t, "00000002a", "00000001a", "zswhq", 1, `{"id":"trx.1","db_ops":[{
 				"old_payer": "old.payer",
 				"new_payer": "new_payer",
-                "code": "eosio",
-                "scope": "eosio",
+                "code": "zswhq",
+                "scope": "zswhq",
                 "table_name": "table_name_1",
                 "primary_key": "key_name",
 				"old_data": "096f6c642e76616c7565",
@@ -170,11 +170,11 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 		},
 		{
 			name: "no delta none matching",
-			block: testBlock(t, "00000003a", "00000002a", "eosio", 2, `{"id":"trx.1","db_ops":[{
+			block: testBlock(t, "00000003a", "00000002a", "zswhq", 2, `{"id":"trx.1","db_ops":[{
 				"old_payer": "old.payer",
 				"new_payer": "new_payer",
-                "code": "eosio",
-                "scope": "eosio",
+                "code": "zswhq",
+                "scope": "zswhq",
                 "table_name": "table_name_1",
                 "primary_key": "key_name",
 				"old_data": "096f6c642e76616c7565",
@@ -209,37 +209,37 @@ func Test_dbopsFromBlock(t *testing.T) {
 	abi, err := eos.NewABI(strings.NewReader(abiString))
 	assert.NoError(t, err)
 
-	goodBlock := testBlock(t, "00000002a0", "00000001a0", "eosio", 1, `{"id": "abcd","db_ops":[{
+	goodBlock := testBlock(t, "00000002a0", "00000001a0", "zswhq", 1, `{"id": "abcd","db_ops":[{
 		"operation": "OPERATION_UPDATE",
 		"action_index": 0,
 		"old_payer": "old.payer",
 		"new_payer": "new_payer",
-        "code": "eosio",
-        "scope": "eosio",
+        "code": "zswhq",
+        "scope": "zswhq",
         "table_name": "table_name_1",
         "primary_key": "key_name",
 		"old_data": "096f6c642e76616c7565",
 		"new_data": "096e65772e76616c7565"
 	}]}`)
 
-	badOldDataHEX := testBlock(t, "00000002a0", "00000001a0", "eosio", 1, `{"id": "abcd","db_ops":[{
+	badOldDataHEX := testBlock(t, "00000002a0", "00000001a0", "zswhq", 1, `{"id": "abcd","db_ops":[{
 		"operation": "OPERATION_UPDATE",
 		"action_index": 0,
 		"old_payer": "old.payer",
 		"new_payer": "new_payer",
-        "code": "eosio",
-        "scope": "eosio",
+        "code": "zswhq",
+        "scope": "zswhq",
         "table_name": "table_name_1",
         "primary_key": "key_name",
 		"old_data": "096f6c642e76616c7565",
 		"new_data": "096e65772e76616c7565"
 	}]}`)
 
-	scope := eos.Name("eosio")
+	scope := eos.Name("zswhq")
 
 	msg := &wsmsg.GetTableRows{
 		Data: wsmsg.GetTableRowsData{
-			Code:      "eosio",
+			Code:      "zswhq",
 			Scope:     &scope,
 			TableName: "table_name_1",
 			JSON:      true,

@@ -67,8 +67,8 @@ usage() {
   echo "    Health          curl http://localhost:8080/healthz"
   echo ""
   echo "Examples (grpc)"
-  echo '    Stream Table    grpcurl -plaintext -d '\''{"contract":"eosio","table":"global","scope":"eosio","to_json":true}'\'' localhost:9000 dfuse.eosio.statedb.v1.State/StreamTableRows'
-  echo '    Get Table Row   grpcurl -plaintext -d '\''{"contract":"eosio","table":"global","scope":"eosio","primary_key":"global","to_json":true}'\'' localhost:9000 dfuse.eosio.statedb.v1.State/GetTableRow'
+  echo '    Stream Table    grpcurl -plaintext -d '\''{"contract":"zswhq","table":"global","scope":"zswhq","to_json":true}'\'' localhost:9000 dfuse.eosio.statedb.v1.State/StreamTableRows'
+  echo '    Get Table Row   grpcurl -plaintext -d '\''{"contract":"zswhq","table":"global","scope":"zswhq","primary_key":"global","to_json":true}'\'' localhost:9000 dfuse.eosio.statedb.v1.State/GetTableRow'
 
 }
 

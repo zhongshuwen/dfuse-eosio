@@ -46,7 +46,7 @@ func ExampleEOSClient() {
 	defer cancel()
 
 	stream, err := client.StreamMatches(ctx, &pbsearch.RouterRequest{
-		Query:          "account:eosio.token action:transfer",
+		Query:          "account:zswhq.token action:transfer",
 		LowBlockNum:    110521022,
 		HighBlockNum:   110521023,
 		Limit:          5,

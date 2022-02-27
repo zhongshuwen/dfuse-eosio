@@ -1,14 +1,14 @@
 {
   "permissions": [
     {
-      "owner": "eosio.msig",
+      "owner": "zswhq.msig",
       "name": "owner",
       "authority": {
         "threshold": 1,
         "accounts": [
           {
             "permission": {
-              "actor": "eosio",
+              "actor": "zswhq",
               "permission": "active"
             },
             "weight": 1
@@ -18,14 +18,14 @@
     },
     {
       "parent": "owner",
-      "owner": "eosio.msig",
+      "owner": "zswhq.msig",
       "name": "active",
       "authority": {
         "threshold": 1,
         "accounts": [
           {
             "permission": {
-              "actor": "eosio",
+              "actor": "zswhq",
               "permission": "active"
             },
             "weight": 1

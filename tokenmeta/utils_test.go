@@ -15,19 +15,19 @@ func Test_stringInFilter(t *testing.T) {
 	}{
 		{
 			name:        "without any filters",
-			term:        "eosio.token",
+			term:        "zswhq.token",
 			expectMatch: true,
 		},
 		{
 			name:        "with a non-matching filter",
-			term:        "eosio.token",
+			term:        "zswhq.token",
 			filter:      []string{"baababbaba"},
 			expectMatch: false,
 		},
 		{
 			name:        "with a non-matching filter",
-			term:        "eosio.token",
-			filter:      []string{"baababbaba", "eosio.token"},
+			term:        "zswhq.token",
+			filter:      []string{"baababbaba", "zswhq.token"},
 			expectMatch: true,
 		},
 	}

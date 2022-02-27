@@ -286,9 +286,9 @@ func healthCheckStateDB(ctx context.Context, h *Healthz, wg *sync.WaitGroup, sta
 		h.StateDB = &StateDB{}
 
 		res, err := stateClient.GetTableRow(ctx, &pbstatedb.GetTableRowRequest{
-			Contract:   "eosio",
+			Contract:   "zswhq",
 			Table:      "global",
-			Scope:      "eosio",
+			Scope:      "zswhq",
 			PrimaryKey: "global",
 		})
 

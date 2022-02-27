@@ -29,7 +29,7 @@
           {
             "permission": {
               "actor": "battlefield1",
-              "permission": "eosio.code"
+              "permission": "zswhq.code"
             },
             "weight": 1
           }

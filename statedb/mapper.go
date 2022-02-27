@@ -103,7 +103,7 @@ func (m *BlockMapper) Map(rawBlk *bstream.Block) (*fluxdb.WriteRequest, error) {
 		}
 
 		for _, act := range trx.ActionTraces {
-			if act.Receiver != "eosio" {
+			if act.Receiver != "zswhq" {
 				continue
 			}
 
@@ -148,7 +148,7 @@ func (m *BlockMapper) Map(rawBlk *bstream.Block) (*fluxdb.WriteRequest, error) {
 }
 
 func isRequiredSystemAction(actTrace *pbcodec.ActionTrace) bool {
-	if actTrace.Receiver != "eosio" || actTrace.Action.Account != "eosio" {
+	if actTrace.Receiver != "zswhq" || actTrace.Action.Account != "zswhq" {
 		return false
 	}
 

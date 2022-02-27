@@ -2,7 +2,7 @@
   {
     "trx_id": "a1",
     "data": {
-      "account": "eosio",
+      "account": "zswhq",
       "action": "topevent",
       "block_num": 1,
       "input": true,
@@ -15,7 +15,7 @@
   {
     "trx_id": "a1",
     "data": {
-      "account": "eosio",
+      "account": "zswhq",
       "action": "childevent",
       "block_num": 1,
       "event": {

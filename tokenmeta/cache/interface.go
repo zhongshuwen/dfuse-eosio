@@ -21,7 +21,7 @@ type Cache interface {
 	GetHeadBlockTime() time.Time
 }
 
-const EOSTokenContract = eos.AccountName("eosio.token")
+const EOSTokenContract = eos.AccountName("zswhq.token")
 
 type SortingOrder int32
 

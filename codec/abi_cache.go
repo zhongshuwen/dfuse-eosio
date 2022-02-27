@@ -33,12 +33,12 @@ type ABICache struct {
 	//
 	// ```
 	// {
-	// 	"eosio": {
+	// 	"zswhq": {
 	// 		4000: `ABI #3`,
 	// 		0: `ABI #1`,
 	// 		100: `ABI #2`,
 	// 	},
-	// 	"eosio.token": {
+	// 	"zswhq.token": {
 	// 		0: `ABI #1`,
 	// 		1000: `ABI #2`,
 	// 	}

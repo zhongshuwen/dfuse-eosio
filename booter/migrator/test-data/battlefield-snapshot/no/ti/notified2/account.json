@@ -29,7 +29,7 @@
           {
             "permission": {
               "actor": "notified2",
-              "permission": "eosio.code"
+              "permission": "zswhq.code"
             },
             "weight": 1
           }

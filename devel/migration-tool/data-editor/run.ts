@@ -29,12 +29,12 @@ const onTable = (tableScope: TableScope): TableScope | undefined => {
     console.log(`received table scope: ${tableScope.contract} ${tableScope.tableName} with ${tableScope.rows.length} rows`)
 
     // To delete all table/scope pair for a given table
-    if (tableScope.contract === "eosio.token" && tableScope.tableName === "accounts") {
+    if (tableScope.contract === "zswhq.token" && tableScope.tableName === "accounts") {
         return undefined
     }
 
     // Modifiy the rows of a table/scope pair
-    if (tableScope.contract === "eosio.token" && tableScope.tableName === "accounts") {
+    if (tableScope.contract === "zswhq.token" && tableScope.tableName === "accounts") {
         if (tableScope.scope === "battlefield3") {
             // Delete unwanted rows
             tableScope.rows = tableScope.rows.filter((row) => row.key > "")

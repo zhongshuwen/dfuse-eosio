@@ -20,7 +20,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "without any filters",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -29,7 +29,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a non-matching contract filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -39,17 +39,17 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a matching contract filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
-			contractFilter: []string{"eidosonecoin", "eosio.token"},
+			contractFilter: []string{"eidosonecoin", "zswhq.token"},
 			expectMatch:    true,
 		},
 		{
 			name: "with a non-matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -59,7 +59,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -69,7 +69,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a non-matching contract filter & non-matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -80,7 +80,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a non-matching contract filter & matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
@@ -91,22 +91,22 @@ func Test_tokenMatchFilters(t *testing.T) {
 		{
 			name: "with a matching contract filter & non-matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
-			contractFilter: []string{"eidosonecoin", "eosio.token"},
+			contractFilter: []string{"eidosonecoin", "zswhq.token"},
 			symbolFilter:   []string{"WALL"},
 			expectMatch:    false,
 		},
 		{
 			name: "with a matching contract filter & matching symbol filter",
 			token: &pbtokenmeta.Token{
-				Contract:  "eosio.token",
+				Contract:  "zswhq.token",
 				Symbol:    "EOS",
 				Precision: 4,
 			},
-			contractFilter: []string{"eidosonecoin", "eosio.token"},
+			contractFilter: []string{"eidosonecoin", "zswhq.token"},
 			symbolFilter:   []string{"WALL", "EOS"},
 			expectMatch:    true,
 		},
@@ -156,41 +156,41 @@ func Test_limitResults(t *testing.T) {
 		{
 			name: "limit 0",
 			results: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 				{Contract: "eidosonecoin", Symbol: "EIDOS", Holders: 8},
 			},
 			limit: 0,
 			expectResult: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 				{Contract: "eidosonecoin", Symbol: "EIDOS", Holders: 8},
 			},
 		},
 		{
 			name: "limit less then results set length",
 			results: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 				{Contract: "eidosonecoin", Symbol: "EIDOS", Holders: 8},
 			},
 			limit: 2,
 			expectResult: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 			},
 		},
 		{
 			name: "limit greater then results set length",
 			results: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 				{Contract: "eidosonecoin", Symbol: "EIDOS", Holders: 8},
 			},
 			limit: 10,
 			expectResult: []*pbtokenmeta.Token{
-				{Contract: "eosio.token", Symbol: "EOS", Holders: 15},
-				{Contract: "eosio.token", Symbol: "WAL", Holders: 8},
+				{Contract: "zswhq.token", Symbol: "EOS", Holders: 15},
+				{Contract: "zswhq.token", Symbol: "WAL", Holders: 8},
 				{Contract: "eidosonecoin", Symbol: "EIDOS", Holders: 8},
 			},
 		},

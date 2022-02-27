@@ -84,9 +84,9 @@ export class SearchBar extends React.Component<Props> {
 
   onSimpleSearchSubmit = (query: string): Promise<any> => {
     if (
-      searchStore.query === "eosio" ||
-      searchStore.query === "eosio.prods" ||
-      searchStore.query === "eosio.null"
+      searchStore.query === "zswhq" ||
+      searchStore.query === "zswhq.prods" ||
+      searchStore.query === "zswhq.null"
     ) {
       this.props.history.push(`${Links.viewAccount({ id: searchStore.query })}`)
       return Promise.resolve()

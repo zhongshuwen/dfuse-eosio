@@ -4,7 +4,7 @@ start:
   - dashboard
   - mindreader
   flags:
-    common-exclude-filter-expr: (receiver == "eosio" && action == "onblock")
+    common-exclude-filter-expr: (receiver == "zswhq" && action == "onblock")
     mindreader-log-to-zap: false
     mindreader-start-failure-handler: true
     mindreader-blocks-chan-capacity: 10000

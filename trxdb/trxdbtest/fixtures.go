@@ -94,9 +94,9 @@ func testBlock1() *pbcodec.Block {
 				},
 				ActionTraces: []*pbcodec.ActionTrace{
 					{
-						Receiver: "eosio",
+						Receiver: "zswhq",
 						Action: &pbcodec.Action{
-							Account:  "eosio",
+							Account:  "zswhq",
 							Name:     "newaccount",
 							JsonData: `{"creator": "frankenstein", "name": "createdacct"}`,
 						},

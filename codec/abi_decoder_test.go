@@ -230,15 +230,15 @@ func TestABIDecoder(t *testing.T) {
 		{
 			name: "soft_fail, with abi dumps, single action global sequence 0, still records ABI",
 			abiDumps: map[string]*eos.ABI{
-				"eosio.token": tokenABI2,
+				"zswhq.token": tokenABI2,
 			},
 			blocks: in(
 				testBlock(t, "00000002aa", "00000001aa",
-					trxTrace(t, actionTraceSetABI(t, "eosio.token", 0, 1, tokenABI2)),
+					trxTrace(t, actionTraceSetABI(t, "zswhq.token", 0, 1, tokenABI2)),
 				),
 				testBlock(t, "00000003aa", "00000002aa",
 					trxTrace(t, softFailStatus,
-						actionTraceFail(t, "eosio.token:eosio.token:transfer", 0, tokenABI2, `{"from":"bitfinexcw11","memo":"Simple test","quantity":"1.0000 EOS","to":"bitfinexcw12"}`),
+						actionTraceFail(t, "zswhq.token:zswhq.token:transfer", 0, tokenABI2, `{"from":"bitfinexcw11","memo":"Simple test","quantity":"1.0000 EOS","to":"bitfinexcw12"}`),
 					),
 				),
 			),
@@ -322,7 +322,7 @@ func TestABIDecoder(t *testing.T) {
 					trxTrace(t,
 						actionTraceSetABI(t, "test", 0, 1, testABI1),
 						actionTraceSetABI(t, "token", 1, 2, tokenABI1),
-						actionTraceSetABI(t, "eosio", 2, 3, systemABI),
+						actionTraceSetABI(t, "zswhq", 2, 3, systemABI),
 					),
 				),
 				testBlock(t, "00000003aa", "00000002aa",
@@ -358,14 +358,14 @@ func TestABIDecoder(t *testing.T) {
 			name: "native eosio:transfer correctly decoded",
 			blocks: in(
 				testBlock(t, "00000002aa", "00000001aa",
-					trxTrace(t, actionTraceSetABI(t, "eosio.token", 0, 1, tokenABI2)),
-					trxTrace(t, actionTrace(t, "eosio.token:eosio.token:transfer", 0, 2, tokenABI2, `{"from":"eosio","to":"token","quantity":"1.0000 EOS","memo":""}`)),
-					trxTrace(t, actionTrace(t, "eosio.token:eosio.token:transfer", 0, 3, tokenABI2, `{"from":"eosio","to":"token","quantity":"1.0000 EOS","memo":"With memo"}`)),
+					trxTrace(t, actionTraceSetABI(t, "zswhq.token", 0, 1, tokenABI2)),
+					trxTrace(t, actionTrace(t, "zswhq.token:zswhq.token:transfer", 0, 2, tokenABI2, `{"from":"zswhq","to":"token","quantity":"1.0000 EOS","memo":""}`)),
+					trxTrace(t, actionTrace(t, "zswhq.token:zswhq.token:transfer", 0, 3, tokenABI2, `{"from":"zswhq","to":"token","quantity":"1.0000 EOS","memo":"With memo"}`)),
 				),
 			),
 			expectations: []expectation{
-				{"block 0/trace 1/action 0", `{"from":"eosio","to":"token","quantity":"1.0000 EOS","memo":""}`},
-				{"block 0/trace 2/action 0", `{"from":"eosio","to":"token","quantity":"1.0000 EOS","memo":"With memo"}`},
+				{"block 0/trace 1/action 0", `{"from":"zswhq","to":"token","quantity":"1.0000 EOS","memo":""}`},
+				{"block 0/trace 2/action 0", `{"from":"zswhq","to":"token","quantity":"1.0000 EOS","memo":"With memo"}`},
 			},
 		},
 		// TODO: Add those tests
@@ -598,13 +598,13 @@ func actionTraceSetABI(t *testing.T, account string, executionIndex uint32, glob
 
 	return &pbcodec.ActionTrace{
 		ExecutionIndex: executionIndex,
-		Receiver:       "eosio",
+		Receiver:       "zswhq",
 		Receipt: &pbcodec.ActionReceipt{
-			Receiver:       "eosio",
+			Receiver:       "zswhq",
 			GlobalSequence: globalSequence,
 		},
 		Action: &pbcodec.Action{
-			Account: "eosio",
+			Account: "zswhq",
 			Name:    "setabi",
 			RawData: rawData,
 		},

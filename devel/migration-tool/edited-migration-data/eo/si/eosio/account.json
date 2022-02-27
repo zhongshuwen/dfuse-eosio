@@ -1,7 +1,7 @@
 {
 	"permissions": [
 		{
-			"owner": "eosio",
+			"owner": "zswhq",
 			"name": "owner",
 			"authority": {
 				"threshold": 1,
@@ -15,7 +15,7 @@
 		},
 		{
 			"parent": "owner",
-			"owner": "eosio",
+			"owner": "zswhq",
 			"name": "active",
 			"authority": {
 				"threshold": 1,

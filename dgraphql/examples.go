@@ -21,7 +21,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Document: graphqlDocument(box, "search_stream_forward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
 				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "limit": 10}`),
-				"mainnet": r(`{"query": "receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "limit": 10}`),
+				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
 			},
@@ -31,7 +31,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Document: graphqlDocument(box, "search_query_forward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
 				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "limit": 10}`),
-				"mainnet": r(`{"query": "receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
+				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
 			},
@@ -41,7 +41,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Document: graphqlDocument(box, "search_stream_backward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
 				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "low": 1, "limit": 10}`),
-				"mainnet": r(`{"query": "receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "low": 1, "limit": 10}`),
+				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "low": 1, "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
 			},
@@ -51,7 +51,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Document: graphqlDocument(box, "search_query_backward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
 				"generic": r(`{"query": "receiver:eosio action:newaccount", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
-				"mainnet": r(`{"query": "receiver:eosio.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
+				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
 			},
@@ -95,14 +95,14 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Get Token Balances (Alpha)",
 			Document: graphqlDocument(box, "get_token_balances.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"contract": "eosio.token", "symbol": "EOS", "opts": ["EOS_INCLUDE_STAKED"], "limit": 10}`),
+				"generic": r(`{"contract": "zswhq.token", "symbol": "EOS", "opts": ["EOS_INCLUDE_STAKED"], "limit": 10}`),
 			},
 		},
 		{
 			Label:    "Get Account Balances (Alpha)",
 			Document: graphqlDocument(box, "get_account_balances.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"account": "eosio", "opts": ["EOS_INCLUDE_STAKED"], "limit": 10}`),
+				"generic": r(`{"account": "zswhq", "opts": ["EOS_INCLUDE_STAKED"], "limit": 10}`),
 			},
 		},
 	}
@@ -112,7 +112,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Get Account History (Alpha)",
 			Document: graphqlDocument(box, "get_account_history_by_account.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"account": "eosio","limit": 100}`),
+				"generic": r(`{"account": "zswhq","limit": 100}`),
 				"mainnet": r(`{"account": "eoscanadacom","limit": 100}`),
 				"kylin":   r("mainnet"),
 				"dev1":    r(`{"account": "battlefield1","limit": 100}`),
@@ -125,10 +125,10 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Get Account History by Contract (Alpha)",
 			Document: graphqlDocument(box, "get_account_history_by_account_contract.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"account": "eosio", "contract": "eosio.token", "limit": 100}`),
-				"mainnet": r(`{"account": "eoscanadacom", "contract": "eosio.token", "limit": 100}`),
+				"generic": r(`{"account": "zswhq", "contract": "zswhq.token", "limit": 100}`),
+				"mainnet": r(`{"account": "eoscanadacom", "contract": "zswhq.token", "limit": 100}`),
 				"kylin":   r("mainnet"),
-				"dev1":    r(`{"account": "battlefield1", "contract": "eosio.token", "limit": 100}`),
+				"dev1":    r(`{"account": "battlefield1", "contract": "zswhq.token", "limit": 100}`),
 			},
 		})
 	}

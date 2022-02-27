@@ -65,8 +65,8 @@ func makeRequestURL() string {
 	}
 
 	val := url.Values{}
-	val.Set("account", "eosio.forum")
-	val.Set("scope", "eosio.forum")
+	val.Set("account", "zswhq.forum")
+	val.Set("scope", "zswhq.forum")
 	val.Set("table", "proposal")
 	val.Set("json", "true")
 

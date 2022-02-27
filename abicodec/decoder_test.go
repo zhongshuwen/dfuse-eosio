@@ -36,14 +36,14 @@ func TestDecoder_DecodeAction(t *testing.T) {
 	require.NoError(t, err)
 	cache, err := NewABICache(store, "test_cache.bin")
 	require.NoError(t, err)
-	cache.SetABIAtBlockNum("eosio.token", 100, abi)
+	cache.SetABIAtBlockNum("zswhq.token", 100, abi)
 
 	transferHex := "7015345262aaba4a90558c8663aaba4a853300000000000004454f53000000006d7b2274797065223a22627579222c226d61726b6574223a22454f53222c227175616e74697479223a22312e33313839222c227072696365223a22302e3130343334393137222c22636f6465223a22656f7364747374746f6b656e222c2273796d626f6c223a22454f534454227d"
 	data, err := hex.DecodeString(transferHex)
 	require.NoError(t, err)
 
 	decoder := NewDecoder(cache)
-	out, abiBlockNum, err := decoder.decodeAction("eosio.token", "transfer", data, 101)
+	out, abiBlockNum, err := decoder.decodeAction("zswhq.token", "transfer", data, 101)
 	require.NoError(t, err)
 
 	require.Equal(t, uint32(100), abiBlockNum)
@@ -64,13 +64,13 @@ func TestDecoder_DecodeTable(t *testing.T) {
 	cache, err := NewABICache(store, "test_cache.bin")
 	require.NoError(t, err)
 
-	cache.SetABIAtBlockNum("eosio.token", 100, abi)
+	cache.SetABIAtBlockNum("zswhq.token", 100, abi)
 
 	data, err := hex.DecodeString("2ef204000000000004454f5300000000")
 	require.NoError(t, err)
 
 	decoder := NewDecoder(cache)
-	out, abiBlockNum, err := decoder.decodeTable("eosio.token", "accounts", data, 100)
+	out, abiBlockNum, err := decoder.decodeTable("zswhq.token", "accounts", data, 100)
 	fmt.Println(string(out))
 	require.NoError(t, err)
 

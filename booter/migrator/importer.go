@@ -211,7 +211,7 @@ func (i *importer) setImporterContract(account eos.AccountName) error {
 }
 
 func (i *importer) createAccount(account *Account) {
-	i.actionChan <- (*bootops.TransactionAction)(system.NewNewAccount("eosio", account.getAccountName(), i.opPublicKey))
+	i.actionChan <- (*bootops.TransactionAction)(system.NewNewAccount("zswhq", account.getAccountName(), i.opPublicKey))
 	i.actionChan <- (*bootops.TransactionAction)(system.NewSetalimits(account.getAccountName(), -1, -1, -1))
 	i.actionChan <- bootops.EndTransaction(i.opPublicKey) // end transaction
 }
@@ -314,7 +314,7 @@ func (i *importer) importerAuthority() eos.Authority {
 
 func newNonceAction() *eos.Action {
 	return &eos.Action{
-		Account: eos.AN("eosio.null"),
+		Account: eos.AN("zswhq.null"),
 		Name:    eos.ActN("nonce"),
 		ActionData: eos.NewActionData(system.Nonce{
 			Value: nonceActionEntropy(),
@@ -332,7 +332,7 @@ func generateRandomNonce() []byte {
 }
 
 func isNativeChainAccount(account *Account) bool {
-	nativeAccount := []string{"eosio", "eosio.null", "eosio.prods"}
+	nativeAccount := []string{"zswhq", "zswhq.null", "zswhq.prods"}
 	for _, acc := range nativeAccount {
 		if acc == account.name {
 			return true

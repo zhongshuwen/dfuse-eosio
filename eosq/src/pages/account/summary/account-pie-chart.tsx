@@ -69,7 +69,7 @@ export class AccountPieChart extends React.Component<Props, State> {
 
   fetchDelband() {
     fetchContractTableRowsFromEOSWS({
-      code: "eosio",
+      code: "zswhq",
       json: true,
       limit: -1,
       scope: this.props.account.account_name,
@@ -212,7 +212,7 @@ export class AccountPieChart extends React.Component<Props, State> {
         return this.renderSearchShortcutWrapper(contents, query)
       case "available_funds":
         contents = this.renderTooltipWrapper(value)
-        query = `receiver:eosio.token action:transfer (data.from:${accountName} OR data.to:${accountName})`
+        query = `receiver:zswhq.token action:transfer (data.from:${accountName} OR data.to:${accountName})`
         return this.renderSearchShortcutWrapper(contents, query)
       default:
         throw new Error(`Wrong type: ${type}`)

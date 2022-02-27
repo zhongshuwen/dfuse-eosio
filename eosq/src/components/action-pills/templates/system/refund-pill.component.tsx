@@ -10,7 +10,7 @@ export class RefundPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "eosio", action: "refund" }]
+      validActions: [{ contract: "zswhq", action: "refund" }]
     }
   }
 

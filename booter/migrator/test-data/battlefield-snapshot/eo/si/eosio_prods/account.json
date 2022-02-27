@@ -1,7 +1,7 @@
 {
   "permissions": [
     {
-      "owner": "eosio.prods",
+      "owner": "zswhq.prods",
       "name": "owner",
       "authority": {
         "threshold": 1
@@ -9,7 +9,7 @@
     },
     {
       "parent": "owner",
-      "owner": "eosio.prods",
+      "owner": "zswhq.prods",
       "name": "active",
       "authority": {
         "threshold": 1,
@@ -26,7 +26,7 @@
     },
     {
       "parent": "active",
-      "owner": "eosio.prods",
+      "owner": "zswhq.prods",
       "name": "prod.major",
       "authority": {
         "threshold": 1,
@@ -43,7 +43,7 @@
     },
     {
       "parent": "prod.major",
-      "owner": "eosio.prods",
+      "owner": "zswhq.prods",
       "name": "prod.minor",
       "authority": {
         "threshold": 1,

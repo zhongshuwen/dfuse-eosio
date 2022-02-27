@@ -34,7 +34,7 @@ func TestRoot_CheckAccounthistServiceAvailability(t *testing.T) {
 			},
 			request: GetAccountHistoryActionsArgs{
 				Account:  "eoscanacom",
-				Contract: s("eosio.token"),
+				Contract: s("zswhq.token"),
 			},
 			expectError: true,
 		},
@@ -59,7 +59,7 @@ func TestRoot_CheckAccounthistServiceAvailability(t *testing.T) {
 			},
 			request: GetAccountHistoryActionsArgs{
 				Account:  "eoscanacom",
-				Contract: s("eosio.token"),
+				Contract: s("zswhq.token"),
 			},
 			expectError: true,
 		},
@@ -84,7 +84,7 @@ func TestRoot_CheckAccounthistServiceAvailability(t *testing.T) {
 			},
 			request: GetAccountHistoryActionsArgs{
 				Account:  "eoscanacom",
-				Contract: s("eosio.token"),
+				Contract: s("zswhq.token"),
 			},
 			expectError: false,
 		},
@@ -111,7 +111,7 @@ func TestRoot_CheckAccounthistServiceAvailability(t *testing.T) {
 			},
 			request: GetAccountHistoryActionsArgs{
 				Account:  "eoscanacom",
-				Contract: s("eosio.token"),
+				Contract: s("zswhq.token"),
 			},
 			expectError: false,
 		},

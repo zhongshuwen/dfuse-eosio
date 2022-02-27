@@ -184,7 +184,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 							Transaction: &Transaction{
 								Actions: []*Action{
 									{
-										Account:  "eosio.token",
+										Account:  "zswhq.token",
 										Name:     "transfer",
 										JsonData: "",
 									},
@@ -214,7 +214,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 								{
 									Operation:   RAMOp_OPERATION_DEFERRED_TRX_PUSHED,
 									ActionIndex: 0,
-									Payer:       "eosio",
+									Payer:       "zswhq",
 									Delta:       371,
 									Usage:       1182644,
 									Namespace:   RAMOp_NAMESPACE_DEFERRED_TRX,
@@ -234,7 +234,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 							Transaction: &Transaction{
 								Actions: []*Action{
 									{
-										Account:  "eosio.token",
+										Account:  "zswhq.token",
 										Name:     "transfer",
 										JsonData: "{\"from\":\"eosio\",\"to\":\"battlefield1\",\"quantity\":\"1.0000 EOS\",\"memo\":\"push delayed trx\"}",
 									},
@@ -267,7 +267,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 								{
 									Operation:   RAMOp_OPERATION_DEFERRED_TRX_REMOVED,
 									ActionIndex: 0,
-									Payer:       "eosio",
+									Payer:       "zswhq",
 									Delta:       -371,
 									Usage:       1182273,
 									Namespace:   RAMOp_NAMESPACE_DEFERRED_TRX,
@@ -291,7 +291,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 					Transaction: &Transaction{
 						Actions: []*Action{
 							{
-								Account:  "eosio.token",
+								Account:  "zswhq.token",
 								Name:     "transfer",
 								JsonData: "{\"from\":\"eosio\",\"to\":\"battlefield1\",\"quantity\":\"1.0000 EOS\",\"memo\":\"push delayed trx\"}",
 							},
@@ -317,7 +317,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 						{
 							Operation:   RAMOp_OPERATION_DEFERRED_TRX_PUSHED,
 							ActionIndex: 0,
-							Payer:       "eosio",
+							Payer:       "zswhq",
 							Delta:       371,
 							Usage:       1182644,
 							Namespace:   RAMOp_NAMESPACE_DEFERRED_TRX,
@@ -327,7 +327,7 @@ func TestMergeTransactionEvents(t *testing.T) {
 						{
 							Operation:   RAMOp_OPERATION_DEFERRED_TRX_REMOVED,
 							ActionIndex: 0,
-							Payer:       "eosio",
+							Payer:       "zswhq",
 							Delta:       -371,
 							Usage:       1182273,
 							Namespace:   RAMOp_NAMESPACE_DEFERRED_TRX,

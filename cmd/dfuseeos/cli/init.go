@@ -53,7 +53,7 @@ func dfuseInitE(cmd *cobra.Command, args []string) (err error) {
 
 	if runProducer {
 		userLog.Printf("")
-		userLog.Printf("Here are the key pair controlling 'eosio' to interact with your local chain:")
+		userLog.Printf("Here are the key pair controlling 'zswhq' to interact with your local chain:")
 		userLog.Printf("")
 		userLog.Printf("  Public Key:  EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV")
 		userLog.Printf("  Private Key: 5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3")

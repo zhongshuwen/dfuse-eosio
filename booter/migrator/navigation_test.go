@@ -36,20 +36,20 @@ func Test_retrieveAccounts(t *testing.T) {
 		"battlefield3": true,
 		"battlefield4": false,
 		"battlefield5": false,
-		"eosio":        true,
-		"eosio.bpay":   false,
-		"eosio.msig":   true,
-		"eosio.ram":    false,
-		"eosio.token":  true,
-		"eosio.null":   false,
-		"eosio.prods":  false,
+		"zswhq":        true,
+		"zswhq.bpay":   false,
+		"zswhq.msig":   true,
+		"zswhq.ram":    false,
+		"zswhq.token":  true,
+		"zswhq.null":   false,
+		"zswhq.prods":  false,
 		"eosio2":       false,
 		"eosio3":       false,
-		"eosio.names":  false,
-		"eosio.ramfee": false,
-		"eosio.saving": false,
-		"eosio.stake":  false,
-		"eosio.vpay":   false,
+		"zswhq.names":  false,
+		"zswhq.ramfee": false,
+		"zswhq.saving": false,
+		"zswhq.stake":  false,
+		"zswhq.vpay":   false,
 		"notified1":    false,
 		"notified2":    true,
 		"notified3":    false,
@@ -74,7 +74,7 @@ func Test_walkScopes(t *testing.T) {
 		return
 	}
 	scopes := []string{}
-	accountPath, err := newAccountPath(testDir, "eosio.token")
+	accountPath, err := newAccountPath(testDir, "zswhq.token")
 	require.NoError(t, err)
 
 	walkScopes(fmt.Sprintf("%s/tables/accounts", accountPath), func(scope string) error {
@@ -86,10 +86,10 @@ func Test_walkScopes(t *testing.T) {
 		"battlefeeld4",
 		"battlefield1",
 		"battlefield3",
-		"eosio",
-		"eosio.ram",
-		"eosio.ramfee",
-		"eosio.stake",
+		"zswhq",
+		"zswhq.ram",
+		"zswhq.ramfee",
+		"zswhq.stake",
 		"notified1",
 		"notified2",
 		"notified3",

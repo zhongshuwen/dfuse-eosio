@@ -318,12 +318,12 @@ func ActionTraceSetABI(t testing.T, account string, abi *eos.ABI, components ...
 	require.NoError(t, err)
 
 	actTrace := &pbcodec.ActionTrace{
-		Receiver: "eosio",
+		Receiver: "zswhq",
 		Receipt: &pbcodec.ActionReceipt{
-			Receiver: "eosio",
+			Receiver: "zswhq",
 		},
 		Action: &pbcodec.Action{
-			Account:  "eosio",
+			Account:  "zswhq",
 			Name:     "setabi",
 			JsonData: string(jsonData),
 			RawData:  rawData,

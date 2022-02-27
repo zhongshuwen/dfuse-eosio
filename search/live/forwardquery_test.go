@@ -54,20 +54,20 @@ func Test_forwardProcessBlock(t *testing.T) {
 	}{
 		{
 			name:                  "sunny path",
-			block:                 newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:                 newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			expectedLastBlockRead: uint64(6),
 			expectedMatchCount:    1,
 		},
 		{
 			name:               "canceled context",
-			block:              newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:              newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			cancelContext:      true,
 			expectedMatchCount: 0,
 			expectedError:      "rpc error: code = Canceled desc = context canceled",
 		},
 		{
 			name:               "block to young context",
-			block:              newBlock("00000009a", "00000001a", trxID(2), "eosio.token"),
+			block:              newBlock("00000009a", "00000001a", trxID(2), "zswhq.token"),
 			expectedMatchCount: 0,
 			expectedError:      "end of block range",
 		},
@@ -83,7 +83,7 @@ func Test_forwardProcessBlock(t *testing.T) {
 				Obj: preprocessObj.(*search.SingleIndex),
 			}
 
-			bleveQuery, err := search.NewParsedQuery(context.Background(), "account:eosio.token")
+			bleveQuery, err := search.NewParsedQuery(context.Background(), "account:zswhq.token")
 			matchCollector := search.GetMatchCollector
 			if matchCollector == nil {
 				panic(fmt.Errorf("no match collector set, should not happen, you should define a collector"))
@@ -153,7 +153,7 @@ func Test_processMatches(t *testing.T) {
 		{
 			name:               "With Match no marker",
 			liveQuery:          &searchLive.LiveQuery{},
-			block:              newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:              newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			expectedMatchCount: 1,
 			matches: []search.SearchMatch{
 				&eosSearch.SearchMatch{},
@@ -171,7 +171,7 @@ func Test_processMatches(t *testing.T) {
 			matches: []search.SearchMatch{
 				&eosSearch.SearchMatch{},
 			},
-			block:              newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:              newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			expectedMatchCount: 2,
 		},
 		{
@@ -183,7 +183,7 @@ func Test_processMatches(t *testing.T) {
 					LiveMarkerInterval: 2,
 				},
 			},
-			block:              newBlock("00000006a", "00000005a", trxID(2), "eosio.token"),
+			block:              newBlock("00000006a", "00000005a", trxID(2), "zswhq.token"),
 			expectedMatchCount: 1,
 		},
 	}

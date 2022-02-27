@@ -129,7 +129,7 @@ func TestBlockMapper(t *testing.T) {
 		{
 			name: "valid ABI gives a singlet entry",
 			input: ct.Block(t, "00000001aa", ct.TrxTrace(t,
-				ct.ActionTraceSetABI(t, "eosio", validABI),
+				ct.ActionTraceSetABI(t, "zswhq", validABI),
 			)),
 			expectedEntries: []string{
 				`abi:eosio:fffffffffffffffe => {"rawAbi":"000000000000000000"}`,
@@ -138,7 +138,7 @@ func TestBlockMapper(t *testing.T) {
 		{
 			name: "invalid ABI is not an error and is ignored",
 			input: ct.Block(t, "00000001aa", ct.TrxTrace(t,
-				ct.ActionTraceSetABI(t, "eosio", nil, ct.UndecodedActionData),
+				ct.ActionTraceSetABI(t, "zswhq", nil, ct.UndecodedActionData),
 			)),
 			expectedEntries: nil,
 		},

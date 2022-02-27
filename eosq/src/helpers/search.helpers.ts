@@ -25,7 +25,7 @@ export function getSearchTransfersOptions(accountName: string): DropDownOption[]
     },
     {
       label: t("transactionSearch.dropdowns.tokens.eos"),
-      value: `action:transfer account:eosio.token (data.to:${accountName} OR data.from:${accountName})`,
+      value: `action:transfer account:zswhq.token (data.to:${accountName} OR data.from:${accountName})`,
     },
     {
       label: t("transactionSearch.dropdowns.tokens.popularTokens"),

@@ -14,15 +14,15 @@ export function getClaimAmounts(traceInfo?: TraceInfo) {
   const inlineTraces = (traceInfo ? traceInfo.inline_traces : []) || []
 
   const vpayAction = inlineTraces.find((trace: ActionTrace<any>) => {
-    return trace.act.data.from === "eosio.vpay"
+    return trace.act.data.from === "zswhq.vpay"
   })
 
   const bpayAction = inlineTraces.find((trace: ActionTrace<any>) => {
-    return trace.act.data.from === "eosio.bpay"
+    return trace.act.data.from === "zswhq.bpay"
   })
 
   const ppayAction = inlineTraces.find((trace: ActionTrace<any>) => {
-    return trace.act.data.from === "eosio.ppay"
+    return trace.act.data.from === "zswhq.ppay"
   })
 
   const unit = Config.chain_core_symbol_code
@@ -40,7 +40,7 @@ export function getNewAccountInTraces(traceInfo?: TraceInfo): string | undefined
   const inlineTraces = (traceInfo ? traceInfo.inline_traces : []) || []
 
   const newAccountAction = inlineTraces.find((trace: ActionTrace<any>) => {
-    return trace.act.name === "newaccount" && trace.act.account === "eosio"
+    return trace.act.name === "newaccount" && trace.act.account === "zswhq"
   })
 
   if (newAccountAction) {

@@ -17,14 +17,14 @@ func Test_AccountContractLiveShardWithTransfers(t *testing.T) {
 
 	streamBlocks(t, s,
 		ct.Block(t, "00000001aa", autoGlobalSequence,
-			ct.TrxTrace(t, ct.ActionTrace(t, "some1:eosio.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some1:zswhq.token:transfer")),
 			ct.TrxTrace(t, ct.ActionTrace(t, "some1:battlefieldt:init")),
 		),
 	)
 
 	assert.Equal(t, []*actionResult{
-		{cursor: "04c524a080000000005530ea033482a60000fffffffffffffffe:00:1", actionTrace: ct.ActionTrace(t, "some1:eosio.token:transfer", ct.GlobalSequence(1))},
-	}, listAccountContractActions(t, s, "some1", "eosio.token", nil))
+		{cursor: "04c524a080000000005530ea033482a60000fffffffffffffffe:00:1", actionTrace: ct.ActionTrace(t, "some1:zswhq.token:transfer", ct.GlobalSequence(1))},
+	}, listAccountContractActions(t, s, "some1", "zswhq.token", nil))
 }
 
 func Test_AccountContractLiveShard_ActionGate(t *testing.T) {
@@ -37,7 +37,7 @@ func Test_AccountContractLiveShard_ActionGate(t *testing.T) {
 
 	streamBlocks(t, s,
 		ct.Block(t, "00000001aa", autoGlobalSequence,
-			ct.TrxTrace(t, ct.ActionTrace(t, "some1:eosio.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some1:zswhq.token:transfer")),
 			ct.TrxTrace(t, ct.ActionTrace(t, "some1:battlefieldt:init")),
 		),
 	)
@@ -56,14 +56,14 @@ func Test_Test_AccountContractLiveShard_DeleteWindow(t *testing.T) {
 	streamBlocks(t, s,
 		ct.Block(t, "00000001aa", autoGlobalSequence,
 			ct.TrxTrace(t, ct.ActionTrace(t, "some1:battlefieldt:transfer")),
-			ct.TrxTrace(t, ct.ActionTrace(t, "some2:eosio.token:transfer")),
-			ct.TrxTrace(t, ct.ActionTrace(t, "some2:eosio.token:transfer")),
-			ct.TrxTrace(t, ct.ActionTrace(t, "some2:eosio.token:transfer")),
-			ct.TrxTrace(t, ct.ActionTrace(t, "some2:eosio.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some2:zswhq.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some2:zswhq.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some2:zswhq.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some2:zswhq.token:transfer")),
 		),
 
 		ct.Block(t, "00000002aa", autoGlobalSequence,
-			ct.TrxTrace(t, ct.ActionTrace(t, "some1:eosio.token:transfer")),
+			ct.TrxTrace(t, ct.ActionTrace(t, "some1:zswhq.token:transfer")),
 			ct.TrxTrace(t, ct.ActionTrace(t, "some1:battlefieldt:transfer")),
 		),
 	)
@@ -74,7 +74,7 @@ func Test_Test_AccountContractLiveShard_DeleteWindow(t *testing.T) {
 	}, listAccountContractActions(t, s, "some1", "battlefieldt", nil))
 
 	assert.Equal(t, []*actionResult{
-		{cursor: "04c524a100000000005530ea033482a60000fffffffffffffffb:00:4", actionTrace: ct.ActionTrace(t, "some2:eosio.token:transfer", ct.GlobalSequence(5))},
-		{cursor: "04c524a100000000005530ea033482a60000fffffffffffffffc:00:3", actionTrace: ct.ActionTrace(t, "some2:eosio.token:transfer", ct.GlobalSequence(4))},
-	}, listAccountContractActions(t, s, "some2", "eosio.token", nil))
+		{cursor: "04c524a100000000005530ea033482a60000fffffffffffffffb:00:4", actionTrace: ct.ActionTrace(t, "some2:zswhq.token:transfer", ct.GlobalSequence(5))},
+		{cursor: "04c524a100000000005530ea033482a60000fffffffffffffffc:00:3", actionTrace: ct.ActionTrace(t, "some2:zswhq.token:transfer", ct.GlobalSequence(4))},
+	}, listAccountContractActions(t, s, "some2", "zswhq.token", nil))
 }

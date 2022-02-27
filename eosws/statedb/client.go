@@ -86,9 +86,9 @@ func NewDefaultFluxHelper(client pbstatedb.StateClient) *DefaultFluxHelper {
 func (f *DefaultFluxHelper) QueryTotalActivatedStake(ctx context.Context) (float64, error) {
 	response, err := f.client.GetTableRow(ctx, &pbstatedb.GetTableRowRequest{
 		BlockNum:   0,
-		Contract:   "eosio",
+		Contract:   "zswhq",
 		Table:      "global",
-		Scope:      "eosio",
+		Scope:      "zswhq",
 		PrimaryKey: "global",
 		KeyType:    "name",
 		ToJson:     true,
@@ -109,9 +109,9 @@ func (f *DefaultFluxHelper) QueryTotalActivatedStake(ctx context.Context) (float
 func (f *DefaultFluxHelper) QueryProducers(ctx context.Context) ([]Producer, float64, error) {
 	request := &pbstatedb.StreamTableRowsRequest{
 		BlockNum: 0,
-		Contract: "eosio",
+		Contract: "zswhq",
 		Table:    "producers",
-		Scope:    "eosio",
+		Scope:    "zswhq",
 		KeyType:  "name",
 		ToJson:   true,
 	}

@@ -33,8 +33,8 @@ func TestABIChangeHandler_ProcessBlock(t *testing.T) {
 	abiString3 := `{"version":"eosio::abi/3.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
 
 	abiGetter := NewTestABIGetter()
-	abiGetter.SetABIForAccount(abiString1, eos.AccountName("eosio"))
-	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("eosio"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
+	abiGetter.SetABIForAccount(abiString1, eos.AccountName("zswhq"))
+	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
 		return nil
 	}), context.Background())
 
@@ -71,20 +71,20 @@ func TestABIChangeHandler_ProcesswithError(t *testing.T) {
 	abiString := `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
 
 	abiGetter := NewTestABIGetter()
-	abiGetter.SetABIForAccount(abiString, eos.AccountName("eosio"))
-	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("eosio"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
+	abiGetter.SetABIForAccount(abiString, eos.AccountName("zswhq"))
+	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
 		return nil
 	}), context.Background())
 
 	require.NoError(t, err)
 	require.Equal(t, "eosio::abi/1.0", handler.CurrentABI().Version)
 
-	blkWithBadABI := testBlock(t, "00000002a", "00000001a", "eosio", 1, `{
+	blkWithBadABI := testBlock(t, "00000002a", "00000001a", "zswhq", 1, `{
 		"id":"trx.1",
 		"action_traces":[{
-            "receiver": "eosio",
+            "receiver": "zswhq",
 			"action": {
-				"account": "eosio",
+				"account": "zswhq",
 				"name": "setabi",
 				"json_data": "{\"account\":\"eosio\",\"abi\":\"bad.data.here\"}"
 			}
@@ -102,12 +102,12 @@ func newBlockWithAbi(t *testing.T, abiString string) *bstream.Block {
 	data, err := eos.MarshalBinary(abi)
 	require.NoError(t, err)
 
-	return testBlock(t, "00000002a", "00000001a", "eosio", 1, fmt.Sprintf(`{
+	return testBlock(t, "00000002a", "00000001a", "zswhq", 1, fmt.Sprintf(`{
 		"id":"trx.1",
 		"action_traces":[{
-            "receiver": "eosio",
+            "receiver": "zswhq",
 			"action": {
-				"account": "eosio",
+				"account": "zswhq",
 				"name": "setabi",
 				"json_data": "{\"account\":\"eosio\",\"abi\":\"%s\"}"
 			}

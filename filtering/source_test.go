@@ -115,7 +115,7 @@ func TestFilteringTwice(t *testing.T) {
 			"no-reapply", // we cheat a bit here, we pretend spamcoint was removed, but we keep it
 			// this way we know that it does not try to reapply
 			getFilters("*", `receiver == "spamcoint"`, ""),
-			getFilters("*", `receiver == "eosio"`, ""),
+			getFilters("*", `receiver == "zswhq"`, ""),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         "*",
 				Exclude:         `receiver == "spamcoint"`,
@@ -136,7 +136,7 @@ func TestFilteringTwice(t *testing.T) {
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         "*",
-				Exclude:         `receiver == "spamcoint";;;receiver == "eosio"`,
+				Exclude:         `receiver == "spamcoint";;;receiver == "zswhq"`,
 				UnfilteredStats: ct.Counts{3, 3, 3},
 				FilteredStats:   ct.Counts{1, 1, 1},
 			},
@@ -150,7 +150,7 @@ func TestFilteringTwice(t *testing.T) {
 			ct.Block(t, "00000001aa",
 				ct.TrxTrace(t, ct.ActionTrace(t, "eosio:eosio:newaccount")),
 				ct.TrxTrace(t, ct.ActionTrace(t, "spamcoin:spamcoin:transfer")),
-				ct.TrxTrace(t, ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched)),
+				ct.TrxTrace(t, ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched)),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         `action == "transfer"`,
@@ -159,7 +159,7 @@ func TestFilteringTwice(t *testing.T) {
 				FilteredStats:   ct.Counts{2, 2, 2},
 			},
 				ct.TrxTrace(t, ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched)),
-				ct.TrxTrace(t, ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched)),
+				ct.TrxTrace(t, ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched)),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         `action == "transfer";;;receiver == "spamcoin"`,
@@ -169,7 +169,7 @@ func TestFilteringTwice(t *testing.T) {
 			},
 				ct.TrxTrace(t,
 					ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched),
-				//	ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched),
+				//	ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched),
 				),
 			),
 		},
@@ -181,7 +181,7 @@ func TestFilteringTwice(t *testing.T) {
 				ct.TrxTrace(t,
 					ct.ActionTrace(t, "eosio:eosio:newaccount"),
 					ct.ActionTrace(t, "spamcoin:spamcoin:transfer"),
-					ct.ActionTrace(t, "eosio.token:eosio.token:transfer"),
+					ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer"),
 				),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
@@ -193,7 +193,7 @@ func TestFilteringTwice(t *testing.T) {
 				ct.TrxTrace(t,
 					ct.ActionTrace(t, "eosio:eosio:newaccount"),
 					ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched),
-					ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched),
+					ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched),
 				),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
@@ -205,7 +205,7 @@ func TestFilteringTwice(t *testing.T) {
 				ct.TrxTrace(t,
 					ct.ActionTrace(t, "eosio:eosio:newaccount"),
 					ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched),
-					ct.ActionTrace(t, "eosio.token:eosio.token:transfer"),
+					ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer"),
 				),
 			),
 		},
@@ -220,7 +220,7 @@ func TestFilteringTwice(t *testing.T) {
 				FilteredStats:   ct.Counts{2, 2, 2},
 			},
 				ct.TrxTrace(t, ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched)),
-				ct.TrxTrace(t, ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched)),
+				ct.TrxTrace(t, ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched)),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         `action == "transfer"`,
@@ -229,7 +229,7 @@ func TestFilteringTwice(t *testing.T) {
 				FilteredStats:   ct.Counts{2, 2, 2},
 			},
 				ct.TrxTrace(t, ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched)),
-				ct.TrxTrace(t, ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched)),
+				ct.TrxTrace(t, ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched)),
 			),
 			ct.Block(t, "00000001aa", ct.FilteredBlock{
 				Include:         `action == "transfer"`,
@@ -238,7 +238,7 @@ func TestFilteringTwice(t *testing.T) {
 				FilteredStats:   ct.Counts{2, 2, 2},
 			},
 				ct.TrxTrace(t, ct.ActionTrace(t, "spamcoin:spamcoin:transfer", ct.ActionMatched)),
-				ct.TrxTrace(t, ct.ActionTrace(t, "eosio.token:eosio.token:transfer", ct.ActionMatched)),
+				ct.TrxTrace(t, ct.ActionTrace(t, "zswhq.token:zswhq.token:transfer", ct.ActionMatched)),
 			),
 		},
 	}

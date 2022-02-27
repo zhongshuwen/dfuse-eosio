@@ -2,7 +2,7 @@ start:
   args:
   - statedb
   flags:
-    common-exclude-filter-expr: (receiver == "eosio" && action == "onblock")
+    common-exclude-filter-expr: (receiver == "zswhq" && action == "onblock")
     statedb-disable-pipeline: true
     statedb-enable-inject-mode: false
     statedb-enable-server-mode: true

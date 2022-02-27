@@ -4,7 +4,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:14:55Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "00000012b518a7d08697f9b5a3899d549d0393331c83a91af5c3ab362254c174",
     "transactionMroot": "bd8445d14580a3e7ecbcf233cef2d3e2b401c0126f30c0b15b0568498e0742a4",
     "actionMroot": "cfb7e0d8e600c29555eb02fae01f1164c8f82413db5bb8a5b98a929e5c764789"
@@ -22,13 +22,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 19
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 18
     }
   ],
@@ -110,11 +110,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -138,14 +138,14 @@
       "elapsed": "140",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "fee22ee82c6639ae97b5527f423127002a1be18b700b59b6f0d6e8d1707ac5bb",
             "globalSequence": "90",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "46"
               }
             ],
@@ -154,11 +154,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -175,12 +175,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -189,7 +189,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "871095",
               "consumed": "1"
@@ -382,7 +382,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -404,7 +404,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:00.500Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "0000001d4efe5183de243fd08dea51ab874edf3106b8ddac9bc611111ec7cb93",
     "transactionMroot": "8ab832c160c1f23ddeb41fd57a68753a95c4674f734b0e886999ce271cad49b4",
     "actionMroot": "059df235ecf8d9745a8dd38f619449f7d479367620361d3b65cfd54bb7347180"
@@ -424,13 +424,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 30
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 29
     }
   ],
@@ -518,11 +518,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -546,14 +546,14 @@
       "elapsed": "92",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "9d568abc85939269b8cea5a0f3ac3439898019b0b486a5dac6f285c7d23924f8",
             "globalSequence": "108",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "57"
               }
             ],
@@ -562,11 +562,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -583,12 +583,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -597,7 +597,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "871029",
               "consumed": "1"
@@ -886,7 +886,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -908,7 +908,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:01.500Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "0000001fbef63d0b429e39f4cefc2992500a41421877555b2a7662e1e4ceb207",
     "transactionMroot": "9f96108e03862c61f41f12611631bd51e621504417e1b38a6be5d88b3dbb5feb",
     "actionMroot": "8e06535bbcbab03b365410891dabab54ca6725a6fd719a0592523287244c7c45"
@@ -929,13 +929,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 32
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 31
     }
   ],
@@ -1009,11 +1009,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -1036,7 +1036,7 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onerror",
               "authorization": [
                 {
@@ -1065,14 +1065,14 @@
       "elapsed": "90",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "31484ec45c6b235064d43d4dfc179270d8b4c028e2a86e171bb805d087e8f062",
             "globalSequence": "113",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "59"
               }
             ],
@@ -1081,11 +1081,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -1102,12 +1102,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -1116,7 +1116,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "871017",
               "consumed": "1"
@@ -1177,7 +1177,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.889Z"
                 },
@@ -1212,7 +1212,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.889Z"
             },
@@ -1261,7 +1261,7 @@
         {
           "receiver": "battlefield1",
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onerror",
             "authorization": [
               {
@@ -1354,7 +1354,7 @@
                     "level": "error",
                     "file": "wasm_interface.cpp",
                     "line": 1075,
-                    "method": "eosio_assert",
+                    "method": "zswhq.assert",
                     "threadName": "thread-0",
                     "timestamp": "2020-05-05T14:35:58.889Z"
                   },
@@ -1389,7 +1389,7 @@
                 "level": "error",
                 "file": "wasm_interface.cpp",
                 "line": 1075,
-                "method": "eosio_assert",
+                "method": "zswhq.assert",
                 "threadName": "thread-0",
                 "timestamp": "2020-05-05T14:35:58.889Z"
               },
@@ -1491,7 +1491,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -1513,7 +1513,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:03Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "000000227a12c417e4c3a34f5ce63d997599b2549f399e7e3798667e016ed130",
     "transactionMroot": "7f8088a7cb1714b66fb869c4f85b10f031517165ff09394a86220eeb8231174d",
     "actionMroot": "6e015896b9c5eac9997ae245bdcec8ffb8a79e951329e38866f77367b50a8fe8"
@@ -1531,13 +1531,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 35
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 34
     }
   ],
@@ -1611,11 +1611,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -1638,7 +1638,7 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onerror",
               "authorization": [
                 {
@@ -1667,14 +1667,14 @@
       "elapsed": "92",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "9bba6ccb74fe87231142b7f36568958290a55b1e993c0f39b4c39a7341f68255",
             "globalSequence": "117",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "62"
               }
             ],
@@ -1683,11 +1683,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -1704,12 +1704,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -1718,7 +1718,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "870999",
               "consumed": "1"
@@ -1815,7 +1815,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.891Z"
                 },
@@ -1853,7 +1853,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.891Z"
             },
@@ -1902,7 +1902,7 @@
         {
           "receiver": "battlefield1",
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onerror",
             "authorization": [
               {
@@ -2031,7 +2031,7 @@
                     "level": "error",
                     "file": "wasm_interface.cpp",
                     "line": 1075,
-                    "method": "eosio_assert",
+                    "method": "zswhq.assert",
                     "threadName": "thread-0",
                     "timestamp": "2020-05-05T14:35:58.891Z"
                   },
@@ -2069,7 +2069,7 @@
                 "level": "error",
                 "file": "wasm_interface.cpp",
                 "line": 1075,
-                "method": "eosio_assert",
+                "method": "zswhq.assert",
                 "threadName": "thread-0",
                 "timestamp": "2020-05-05T14:35:58.891Z"
               },
@@ -2171,7 +2171,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -2193,7 +2193,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:04.500Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "000000256242fbb2789ceaa0a7696a71bcfeaaf02a7f1d792c47031082c7ad16",
     "transactionMroot": "b4dab8304da66748c7d09fb39cc500e37279a9cf7d09d8c8cb8ca5e99d794749",
     "actionMroot": "01cfd3715730801efd90324d0522aa5e08ecfe6dc4bcc1cea319e95dedbcb405"
@@ -2212,13 +2212,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 38
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 37
     }
   ],
@@ -2306,11 +2306,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -2333,7 +2333,7 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onerror",
               "authorization": [
                 {
@@ -2362,14 +2362,14 @@
       "elapsed": "95",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "b88837e338cc3ecd34523c01a887260d1eb7349a5604c41b64cfd0daabf3205a",
             "globalSequence": "121",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "65"
               }
             ],
@@ -2378,11 +2378,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -2399,12 +2399,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -2413,7 +2413,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "870981",
               "consumed": "1"
@@ -2474,7 +2474,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.896Z"
                 },
@@ -2509,7 +2509,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.896Z"
             },
@@ -2572,7 +2572,7 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onerror",
             "authorization": [
               {
@@ -2712,15 +2712,15 @@
           "executionIndex": 3
         },
         {
-          "receiver": "eosio.null",
+          "receiver": "zswhq.null",
           "receipt": {
-            "receiver": "eosio.null",
+            "receiver": "zswhq.null",
             "digest": "569a41714bfd4f1804acb9f4fa4b7f2347164cf2e6e8672e572a067784c97148",
             "globalSequence": "126",
             "recvSequence": "1"
           },
           "action": {
-            "account": "eosio.null",
+            "account": "zswhq.null",
             "name": "nonce",
             "rawData": "026333"
           },
@@ -2861,7 +2861,7 @@
                     "level": "error",
                     "file": "wasm_interface.cpp",
                     "line": 1075,
-                    "method": "eosio_assert",
+                    "method": "zswhq.assert",
                     "threadName": "thread-0",
                     "timestamp": "2020-05-05T14:35:58.896Z"
                   },
@@ -2896,7 +2896,7 @@
                 "level": "error",
                 "file": "wasm_interface.cpp",
                 "line": 1075,
-                "method": "eosio_assert",
+                "method": "zswhq.assert",
                 "threadName": "thread-0",
                 "timestamp": "2020-05-05T14:35:58.896Z"
               },
@@ -3197,7 +3197,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -3219,7 +3219,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:05.500Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "00000027705df61cfb2b6120c33e2cddb158491a48d1c77ebd3ec9eb8c2d6793",
     "transactionMroot": "9ffb66681ab5914b057af8aafc83cbf436507fea6f635cca42bb351d164bd730",
     "actionMroot": "a88e546a8749416a10124a5c54792fa01deff6e16bbdf128a0b84bfb6a8178de"
@@ -3239,13 +3239,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 40
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 39
     }
   ],
@@ -3319,11 +3319,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -3346,7 +3346,7 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onerror",
               "authorization": [
                 {
@@ -3375,14 +3375,14 @@
       "elapsed": "119",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "159fd63d57a6922724c0dd893addde6a7de373bfefb7586c1469a307d4033b53",
             "globalSequence": "131",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "67"
               }
             ],
@@ -3391,11 +3391,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -3412,12 +3412,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -3426,7 +3426,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "870969",
               "consumed": "1"
@@ -3487,7 +3487,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.898Z"
                 },
@@ -3522,7 +3522,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.898Z"
             },
@@ -3571,7 +3571,7 @@
         {
           "receiver": "battlefield3",
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onerror",
             "authorization": [
               {
@@ -3604,7 +3604,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.898Z"
                 },
@@ -3671,7 +3671,7 @@
                     "level": "error",
                     "file": "wasm_interface.cpp",
                     "line": 1075,
-                    "method": "eosio_assert",
+                    "method": "zswhq.assert",
                     "threadName": "thread-0",
                     "timestamp": "2020-05-05T14:35:58.898Z"
                   },
@@ -3706,7 +3706,7 @@
                 "level": "error",
                 "file": "wasm_interface.cpp",
                 "line": 1075,
-                "method": "eosio_assert",
+                "method": "zswhq.assert",
                 "threadName": "thread-0",
                 "timestamp": "2020-05-05T14:35:58.898Z"
               },
@@ -3750,7 +3750,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.898Z"
             },
@@ -3808,7 +3808,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,
@@ -3830,7 +3830,7 @@
   "version": 1,
   "header": {
     "timestamp": "2020-01-28T16:15:07Z",
-    "producer": "eosio",
+    "producer": "zswhq",
     "previous": "0000002aa7fe98afe7aebeb768e3fac5ca1512711a756d3f8fe68a6a4292c105",
     "transactionMroot": "cedfb661fdab73e11392b891bc42f00a314a3160a225b29a23332656b686e520",
     "actionMroot": "117a76d0844db047044343702e40347c78b76bc67e902778a9b549fd817e79a1"
@@ -3849,13 +3849,13 @@
   },
   "producerToLastProduced": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 43
     }
   ],
   "producerToLastImpliedIrb": [
     {
-      "name": "eosio",
+      "name": "zswhq",
       "lastBlockNumProduced": 42
     }
   ],
@@ -3929,11 +3929,11 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onblock",
               "authorization": [
                 {
-                  "actor": "eosio",
+                  "actor": "zswhq",
                   "permission": "active"
                 }
               ],
@@ -3956,7 +3956,7 @@
           },
           "actions": [
             {
-              "account": "eosio",
+              "account": "zswhq",
               "name": "onerror",
               "authorization": [
                 {
@@ -3985,14 +3985,14 @@
       "elapsed": "92",
       "actionTraces": [
         {
-          "receiver": "eosio",
+          "receiver": "zswhq",
           "receipt": {
-            "receiver": "eosio",
+            "receiver": "zswhq",
             "digest": "e371f168eee1f408c49fa8a0026a3914a36a7c759c7d48cfc140bb34a6f6d669",
             "globalSequence": "135",
             "authSequence": [
               {
-                "accountName": "eosio",
+                "accountName": "zswhq",
                 "sequence": "70"
               }
             ],
@@ -4001,11 +4001,11 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onblock",
             "authorization": [
               {
-                "actor": "eosio",
+                "actor": "zswhq",
                 "permission": "active"
               }
             ],
@@ -4022,12 +4022,12 @@
       "dbOps": [
         {
           "operation": "OPERATION_UPDATE",
-          "code": "eosio",
-          "scope": "eosio",
+          "code": "zswhq",
+          "scope": "zswhq",
           "tableName": "global",
           "primaryKey": "global",
-          "oldPayer": "eosio",
-          "newPayer": "eosio",
+          "oldPayer": "zswhq",
+          "newPayer": "zswhq",
           "oldData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
           "newData": "0000100000000000e8030000000008000c000000f40100001400000064000000400d0300e8030000f049020064000000100e00005802000080533b0000100000040006000000000010000000db1f000000000000a3040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
         }
@@ -4036,7 +4036,7 @@
         {
           "operation": "OPERATION_UPDATE",
           "accountUsage": {
-            "owner": "eosio",
+            "owner": "zswhq",
             "netUsage": {
               "valueEx": "870951",
               "consumed": "1"
@@ -4097,7 +4097,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.899Z"
                 },
@@ -4132,7 +4132,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.899Z"
             },
@@ -4195,7 +4195,7 @@
             "abiSequence": "2"
           },
           "action": {
-            "account": "eosio",
+            "account": "zswhq",
             "name": "onerror",
             "authorization": [
               {
@@ -4335,15 +4335,15 @@
           "executionIndex": 3
         },
         {
-          "receiver": "eosio.null",
+          "receiver": "zswhq.null",
           "receipt": {
-            "receiver": "eosio.null",
+            "receiver": "zswhq.null",
             "digest": "569a41714bfd4f1804acb9f4fa4b7f2347164cf2e6e8672e572a067784c97148",
             "globalSequence": "140",
             "recvSequence": "2"
           },
           "action": {
-            "account": "eosio.null",
+            "account": "zswhq.null",
             "name": "nonce",
             "rawData": "026333"
           },
@@ -4477,7 +4477,7 @@
                   "level": "error",
                   "file": "wasm_interface.cpp",
                   "line": 1075,
-                  "method": "eosio_assert",
+                  "method": "zswhq.assert",
                   "threadName": "thread-0",
                   "timestamp": "2020-05-05T14:35:58.900Z"
                 },
@@ -4547,7 +4547,7 @@
                     "level": "error",
                     "file": "wasm_interface.cpp",
                     "line": 1075,
-                    "method": "eosio_assert",
+                    "method": "zswhq.assert",
                     "threadName": "thread-0",
                     "timestamp": "2020-05-05T14:35:58.899Z"
                   },
@@ -4582,7 +4582,7 @@
                 "level": "error",
                 "file": "wasm_interface.cpp",
                 "line": 1075,
-                "method": "eosio_assert",
+                "method": "zswhq.assert",
                 "threadName": "thread-0",
                 "timestamp": "2020-05-05T14:35:58.899Z"
               },
@@ -4626,7 +4626,7 @@
               "level": "error",
               "file": "wasm_interface.cpp",
               "line": 1075,
-              "method": "eosio_assert",
+              "method": "zswhq.assert",
               "threadName": "thread-0",
               "timestamp": "2020-05-05T14:35:58.900Z"
             },
@@ -4684,7 +4684,7 @@
   "activeScheduleV2": {
     "producers": [
       {
-        "accountName": "eosio",
+        "accountName": "zswhq",
         "blockSigningAuthority": {
           "v0": {
             "threshold": 1,

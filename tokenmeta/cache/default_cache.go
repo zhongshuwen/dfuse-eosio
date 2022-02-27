@@ -14,10 +14,10 @@ import (
 )
 
 type DefaultCache struct {
-	// eosio.token -> [WAX, EOS]
+	// zswhq.token -> [WAX, EOS]
 	TokensInContract map[eos.AccountName][]*pbtokenmeta.Token `json:"tokens_in_contract"`
 
-	// tokencontract-centric: eosio.token -> eoscanadadad -> [23 WAX, 22 EOS]
+	// tokencontract-centric: zswhq.token -> eoscanadadad -> [23 WAX, 22 EOS]
 	Balances map[eos.AccountName]map[eos.AccountName][]*OwnedAsset `json:"balances"`
 
 	AtBlock        *Block `json:"at_block"`

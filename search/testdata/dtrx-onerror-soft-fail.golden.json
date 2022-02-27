@@ -2,7 +2,7 @@
   {
     "trx_id": "a1",
     "data": {
-      "account": "eosio",
+      "account": "zswhq",
       "action": "onerror",
       "block_num": 1,
       "db": {
@@ -16,7 +16,7 @@
       },
       "input": true,
       "notif": false,
-      "receiver": "eosio",
+      "receiver": "zswhq",
       "scheduled": false,
       "trx_idx": 0
     }

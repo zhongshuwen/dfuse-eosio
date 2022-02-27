@@ -99,7 +99,7 @@ func shouldProcessAction(actTrace *pbcodec.ActionTrace, actionMatcher pbcodec.Fi
 	if !actionMatcher.Matched(actTrace.ExecutionIndex) {
 		return false
 	}
-	if actTrace.Receiver != "eosio" || actTrace.Action.Account != "eosio" {
+	if actTrace.Receiver != "zswhq" || actTrace.Action.Account != "zswhq" {
 		return false
 	}
 	return actTrace.Action.Name == "setabi"

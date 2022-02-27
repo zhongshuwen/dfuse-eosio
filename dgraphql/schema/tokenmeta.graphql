@@ -29,7 +29,7 @@ type BlockRef {
 
 """A single Token"""
 type Token {
-    """Contract that created the token i.e.: eosio.token"""
+    """Contract that created the token i.e.: zswhq.token"""
     contract: String!
 
     """Symbol of token  i.e.: EOS"""
@@ -74,7 +74,7 @@ type AccountBalanceEdge {
 
 
 type AccountBalance {
-    """Contract that created the token i.e.: eosio.token"""
+    """Contract that created the token i.e.: zswhq.token"""
     contract: String!
 
     """Account holding the token"""

@@ -15,7 +15,7 @@ type Query {
         tokenSymbols: [String!]
 
         """
-        List of token contracts (eosio.token) to filter the results against
+        List of token contracts (zswhq.token) to filter the results against
         """
         tokenContracts: [String!]
 
@@ -60,7 +60,7 @@ type Query {
         tokenSymbols: [String!]
 
         """
-        List of token contracts (eosio.token) to filter the results against
+        List of token contracts (zswhq.token) to filter the results against
         """
         tokenContracts: [String!]
 

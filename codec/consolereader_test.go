@@ -296,12 +296,12 @@ func Test_TraceRlimitOp(t *testing.T) {
 		expectedErr error
 	}{
 		{
-			`RLIMIT_OP ACCOUNT_LIMITS INS {"owner":"eosio.ram","net_weight":-1,"cpu_weight":-1,"ram_bytes":-1}`,
+			`RLIMIT_OP ACCOUNT_LIMITS INS {"owner":"zswhq.ram","net_weight":-1,"cpu_weight":-1,"ram_bytes":-1}`,
 			&pbcodec.RlimitOp{
 				Operation: pbcodec.RlimitOp_OPERATION_INSERT,
 				Kind: &pbcodec.RlimitOp_AccountLimits{
 					AccountLimits: &pbcodec.RlimitAccountLimits{
-						Owner:     "eosio.ram",
+						Owner:     "zswhq.ram",
 						NetWeight: -1,
 						CpuWeight: -1,
 						RamBytes:  -1,
@@ -311,12 +311,12 @@ func Test_TraceRlimitOp(t *testing.T) {
 			nil,
 		},
 		{
-			`RLIMIT_OP ACCOUNT_USAGE UPD {"owner":"eosio","net_usage":{"last_ordinal":0,"value_ex":868696,"consumed":1},"cpu_usage":{"last_ordinal":0,"value_ex":572949,"consumed":101},"ram_usage":1181072}`,
+			`RLIMIT_OP ACCOUNT_USAGE UPD {"owner":"zswhq","net_usage":{"last_ordinal":0,"value_ex":868696,"consumed":1},"cpu_usage":{"last_ordinal":0,"value_ex":572949,"consumed":101},"ram_usage":1181072}`,
 			&pbcodec.RlimitOp{
 				Operation: pbcodec.RlimitOp_OPERATION_UPDATE,
 				Kind: &pbcodec.RlimitOp_AccountUsage{
 					AccountUsage: &pbcodec.RlimitAccountUsage{
-						Owner:    "eosio",
+						Owner:    "zswhq",
 						NetUsage: &pbcodec.UsageAccumulator{LastOrdinal: 0, ValueEx: 868696, Consumed: 1},
 						CpuUsage: &pbcodec.UsageAccumulator{LastOrdinal: 0, ValueEx: 572949, Consumed: 101},
 						RamUsage: 1181072,
@@ -351,7 +351,7 @@ func Test_readPermOp(t *testing.T) {
 		Threshold: 1,
 		Accounts: []*pbcodec.PermissionLevelWeight{
 			{
-				Permission: &pbcodec.PermissionLevel{Actor: "eosio", Permission: "active"},
+				Permission: &pbcodec.PermissionLevel{Actor: "zswhq", Permission: "active"},
 				Weight:     1,
 			},
 		},
@@ -363,14 +363,14 @@ func Test_readPermOp(t *testing.T) {
 		expectedErr error
 	}{
 		{
-			`PERM_OP INS 0 {"parent":1,"owner":"eosio.ins","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}`,
+			`PERM_OP INS 0 {"parent":1,"owner":"zswhq.ins","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_INSERT,
 				ActionIndex: 0,
 				OldPerm:     nil,
 				NewPerm: &pbcodec.PermissionObject{
 					ParentId:    1,
-					Owner:       "eosio.ins",
+					Owner:       "zswhq.ins",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -379,20 +379,20 @@ func Test_readPermOp(t *testing.T) {
 			nil,
 		},
 		{
-			`PERM_OP UPD 0 {"old":{"parent":2,"owner":"eosio.old","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}},"new":{"parent":3,"owner":"eosio.new","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}}`,
+			`PERM_OP UPD 0 {"old":{"parent":2,"owner":"zswhq.old","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}},"new":{"parent":3,"owner":"zswhq.new","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_UPDATE,
 				ActionIndex: 0,
 				OldPerm: &pbcodec.PermissionObject{
 					ParentId:    2,
-					Owner:       "eosio.old",
+					Owner:       "zswhq.old",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
 				},
 				NewPerm: &pbcodec.PermissionObject{
 					ParentId:    3,
-					Owner:       "eosio.new",
+					Owner:       "zswhq.new",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -401,13 +401,13 @@ func Test_readPermOp(t *testing.T) {
 			nil,
 		},
 		{
-			`PERM_OP REM 0 {"parent":4,"owner":"eosio.rem","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}`,
+			`PERM_OP REM 0 {"parent":4,"owner":"zswhq.rem","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_REMOVE,
 				ActionIndex: 0,
 				OldPerm: &pbcodec.PermissionObject{
 					ParentId:    4,
-					Owner:       "eosio.rem",
+					Owner:       "zswhq.rem",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -419,7 +419,7 @@ func Test_readPermOp(t *testing.T) {
 
 		// New format
 		{
-			`PERM_OP INS 0 2 {"parent":1,"owner":"eosio.ins","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}`,
+			`PERM_OP INS 0 2 {"parent":1,"owner":"zswhq.ins","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_INSERT,
 				ActionIndex: 0,
@@ -427,7 +427,7 @@ func Test_readPermOp(t *testing.T) {
 				NewPerm: &pbcodec.PermissionObject{
 					Id:          2,
 					ParentId:    1,
-					Owner:       "eosio.ins",
+					Owner:       "zswhq.ins",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -436,14 +436,14 @@ func Test_readPermOp(t *testing.T) {
 			nil,
 		},
 		{
-			`PERM_OP UPD 0 4 {"old":{"parent":2,"owner":"eosio.old","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}},"new":{"parent":3,"owner":"eosio.new","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}}`,
+			`PERM_OP UPD 0 4 {"old":{"parent":2,"owner":"zswhq.old","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}},"new":{"parent":3,"owner":"zswhq.new","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_UPDATE,
 				ActionIndex: 0,
 				OldPerm: &pbcodec.PermissionObject{
 					Id:          4,
 					ParentId:    2,
-					Owner:       "eosio.old",
+					Owner:       "zswhq.old",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -451,7 +451,7 @@ func Test_readPermOp(t *testing.T) {
 				NewPerm: &pbcodec.PermissionObject{
 					Id:          4,
 					ParentId:    3,
-					Owner:       "eosio.new",
+					Owner:       "zswhq.new",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -460,14 +460,14 @@ func Test_readPermOp(t *testing.T) {
 			nil,
 		},
 		{
-			`PERM_OP REM 0 3 {"parent":4,"owner":"eosio.rem","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"eosio","permission":"active"},"weight":1}],"waits":[]}}`,
+			`PERM_OP REM 0 3 {"parent":4,"owner":"zswhq.rem","name":"prod.major","last_updated":"2018-06-08T08:08:08.888","auth":{"threshold":1,"keys":[],"accounts":[{"permission":{"actor":"zswhq","permission":"active"},"weight":1}],"waits":[]}}`,
 			&pbcodec.PermOp{
 				Operation:   pbcodec.PermOp_OPERATION_REMOVE,
 				ActionIndex: 0,
 				OldPerm: &pbcodec.PermissionObject{
 					Id:          3,
 					ParentId:    4,
-					Owner:       "eosio.rem",
+					Owner:       "zswhq.rem",
 					Name:        "prod.major",
 					LastUpdated: mustProtoTimestamp(mustTimeParse("2018-06-08T08:08:08.888")),
 					Authority:   auth,
@@ -599,7 +599,7 @@ func Test_readABIDump_ABI(t *testing.T) {
 			require.Equal(t, test.expectedErr, err)
 
 			if test.expectedErr == nil {
-				contractABI := ctx.abiDecoder.cache.findABI("eosio", 0)
+				contractABI := ctx.abiDecoder.cache.findABI("zswhq", 0)
 				assert.NotNil(t, contractABI)
 			}
 		})

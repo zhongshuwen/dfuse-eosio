@@ -20,7 +20,7 @@ func TestFilteringActionMatcher(t *testing.T) {
 	newAccount := []pbcodec.ActionMatcher{
 		func(actTrace *pbcodec.ActionTrace) bool {
 			fmt.Printf("%#v\n", actTrace)
-			return actTrace.Receiver == "eosio" && actTrace.Action.Account == "eosio" && actTrace.Action.Name == "newaccount"
+			return actTrace.Receiver == "zswhq" && actTrace.Action.Account == "zswhq" && actTrace.Action.Name == "newaccount"
 		},
 	}
 

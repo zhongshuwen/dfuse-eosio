@@ -267,20 +267,20 @@ func TestCELActivation(t *testing.T) {
 	}{
 		{
 			"auth match, single, single check",
-			`auth.exists(x, x == "eosio")`,
+			`auth.exists(x, x == "zswhq")`,
 			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active")), false, 0},
 			shouldMatch,
 		},
 		{
 			"auth match, multi, single check",
-			`auth.exists(x, x == "eosio")`,
+			`auth.exists(x, x == "zswhq")`,
 			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
 			shouldMatch,
 		},
 
 		{
 			"auth match, single, multi check",
-			`auth.exists(x, x in ["bob", "eosio"])`,
+			`auth.exists(x, x in ["bob", "zswhq"])`,
 			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active")), false, 0},
 			shouldMatch,
 		},

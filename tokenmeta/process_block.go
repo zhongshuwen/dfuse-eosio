@@ -99,7 +99,7 @@ func (t *TokenMeta) ProcessBlock(block *bstream.Block, obj interface{}) error {
 				zap.String("primary_key", dbop.PrimaryKey),
 			)
 
-			isEOSStake := dbop.Code == "eosio" && dbop.TableName == string(EOSStakeTable)
+			isEOSStake := dbop.Code == "zswhq" && dbop.TableName == string(EOSStakeTable)
 
 			tokenContract := eos.AccountName(dbop.Code)
 			if !t.cache.IsTokenContract(tokenContract) && !isEOSStake {

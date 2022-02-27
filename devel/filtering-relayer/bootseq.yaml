@@ -32,17 +32,17 @@ contents:
     url: https://github.com/dfuse-io/eosio.contracts/releases/download/v1.5.2/eosio.msig-1.5.2.wasm
 
   - name: eosio.token.abi
-    url: https://github.com/dfuse-io/eosio.contracts/releases/download/v1.5.2/eosio.token-1.5.2.abi
+    url: https://github.com/dfuse-io/eosio.contracts/releases/download/v1.5.2/zswhq.token-1.5.2.abi
   - name: eosio.token.wasm
-    url: https://github.com/dfuse-io/eosio.contracts/releases/download/v1.5.2/eosio.token-1.5.2.wasm
+    url: https://github.com/dfuse-io/eosio.contracts/releases/download/v1.5.2/zswhq.token-1.5.2.wasm
 
 ################################# BOOT SEQUENCE ###################################
 boot_sequence:
   - op: system.setcode
-    label: Setting eosio.bios code for account eosio
+    label: Setting zswhq.bios code for account eosio
     data:
       account: eosio
-      contract_name_ref: eosio.bios
+      contract_name_ref: zswhq.bios
 
   - op: system.newaccount
     label: Create account eosio2
@@ -59,83 +59,82 @@ boot_sequence:
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.msig (on-chain multi-signature helper)
+    label: Create account zswhq.msig (on-chain multi-signature helper)
     data:
       creator: eosio
-      new_account: eosio.msig
+      new_account: zswhq.msig
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.token (main multi-currency contract, including EOS)
+    label: Create account zswhq.token (main multi-currency contract, including EOS)
     data:
       creator: eosio
-      new_account: eosio.token
+      new_account: zswhq.token
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.ram (where buyram proceeds go)
+    label: Create account zswhq.ram (where buyram proceeds go)
     data:
       creator: eosio
-      new_account: eosio.ram
+      new_account: zswhq.ram
       pubkey: boot
   - op: system.newaccount
-    label: Create account eosio.ramfee (where buyram fees go)
+    label: Create account zswhq.ramfee (where buyram fees go)
     data:
       creator: eosio
-      new_account: eosio.ramfee
-      pubkey: boot
-
-  - op: system.newaccount
-    label: Create account eosio.names (where bidname revenues go)
-    data:
-      creator: eosio
-      new_account: eosio.names
+      new_account: zswhq.ramfee
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.stake (where delegated stakes go)
+    label: Create account zswhq.names (where bidname revenues go)
     data:
       creator: eosio
-      new_account: eosio.stake
+      new_account: zswhq.names
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.saving (unallocated inflation)
+    label: Create account zswhq.stake (where delegated stakes go)
     data:
       creator: eosio
-      new_account: eosio.saving
+      new_account: zswhq.stake
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.bpay (fund per-block bucket)
+    label: Create account zswhq.saving (unallocated inflation)
     data:
       creator: eosio
-      new_account: eosio.bpay
+      new_account: zswhq.saving
       pubkey: boot
 
   - op: system.newaccount
-    label: Create account eosio.vpay (fund per-vote bucket)
+    label: Create account zswhq.bpay (fund per-block bucket)
     data:
       creator: eosio
-      new_account: eosio.vpay
+      new_account: zswhq.bpay
+      pubkey: boot
+
+  - op: system.newaccount
+    label: Create account zswhq.vpay (fund per-vote bucket)
+    data:
+      creator: eosio
+      new_account: zswhq.vpay
       pubkey: boot
 
   - op: system.setpriv
-    label: Setting privileged account for eosio.msig
-    data:
-      account: eosio.msig
-
-  - op: system.setcode
-    label: Setting eosio.msig code for account eosio.msig
-    data:
-      account: eosio.msig
+    label: Setting privileged account for zswhq.msig
+    data: zswhq.msig
+ zswhq.msig
+     zswhq.msig
+    op: system.setcode zswhq.msig
+    bel: Setting eosio zswhq.msig
+        account: eosio.msig
       contract_name_ref: eosio.msig
 
   - op: system.setcode
-    label: Setting eosio.token code for account eosio.token
+    label: Setting zswhq.token code for account zswhq.token
     data:
-      account: eosio.token
-      contract_name_ref: eosio.token
+      account: zswhq.token
+      contract_name_ref: zswhq.token
 
   - op: token.create
     label: Creating the EOS currency symbol
@@ -151,22 +150,22 @@ boot_sequence:
       memo: "Creation of EOS. Credits and Acknowledgments: eosacknowledgments.io"
 
   - op: system.setcode
-    label: Replacing eosio account from eosio.bios contract to eosio.system
+    label: Replacing eosio account from zswhq.bios contract to zswhq.system
     data:
       account: eosio
-      contract_name_ref: eosio.system
+      contract_name_ref: zswhq.system
 
   - op: system.resign_accounts
     label: Disabling authorization for system accounts, pointing `eosio` to the `eosio.prods` account.
     data:
       accounts:
         #- eosio
-        - eosio.msig
-        - eosio.token
-        - eosio.ram
-        - eosio.ramfee
-        - eosio.stake
-        - eosio.names
-        - eosio.saving
-        - eosio.bpay
+        - zswhq.msig
+        - zswhq.token zswhq.msig
+        - zswhq.ram
+        - zswhq.ramfee
+        - zswhq.stake
+        - zswhq.names
+        - zswhq.saving
+        - zswhq.bpay
         - eosio.vpay

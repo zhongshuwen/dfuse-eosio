@@ -23,13 +23,13 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			name:        "owner with one token in one contract",
 			accountName: eos.AccountName("eoscanadadad"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -38,7 +38,7 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(29371, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -49,7 +49,7 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -58,13 +58,13 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			name:        "owner with one token in two contract",
 			accountName: eos.AccountName("eoscanadadad"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -86,7 +86,7 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
@@ -102,20 +102,20 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			name:        "owner with two tokens in one contract",
 			accountName: eos.AccountName("eoscanadadad"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(3, "WALL"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -126,14 +126,14 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(3, "WALL"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -142,13 +142,13 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			name:        "poor owner without any assets",
 			accountName: eos.AccountName("johndoemyone"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -173,20 +173,20 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(111, "WAX"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -200,14 +200,14 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(111, "WAX"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(138, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -217,13 +217,13 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			accountName: eos.AccountName("eoscanadadad"),
 			eosStake:    map[eos.AccountName]*EOSStake{},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -237,7 +237,7 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -260,13 +260,13 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 			},
 
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -277,7 +277,7 @@ func TestDefaultCache_AccountBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -306,22 +306,22 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 	}{
 		{
 			name:     "contract with multiple users and tokens",
-			contract: eos.AccountName("eosio.token"),
+			contract: eos.AccountName("zswhq.token"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(3, "WALL"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -330,7 +330,7 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 							Owner: eos.AccountName("johndoeonecoin"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(23927, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -341,28 +341,28 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(3, "WALL"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("johndoeonecoin"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(23927, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
 		},
 		{
-			name:     "eosio.token with staked",
-			contract: eos.AccountName("eosio.token"),
+			name:     "zswhq.token with staked",
+			contract: eos.AccountName("zswhq.token"),
 			options: []TokenBalanceOption{
 				EOSIncludeStakedTokOpt,
 			},
@@ -381,20 +381,20 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(3, "WALL"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -403,7 +403,7 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 							Owner: eos.AccountName("johndoeonecoin"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(23927, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -414,21 +414,21 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(300000100, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("eoscanadadad"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(3, "WALL"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 				{
 					Owner: eos.AccountName("johndoeonecoin"),
 					Asset: &eos.ExtendedAsset{
 						Asset:    generateTestAsset(23927, "EOS"),
-						Contract: "eosio.token",
+						Contract: "zswhq.token",
 					},
 				},
 			},
@@ -437,13 +437,13 @@ func TestDefaultCache_TokenBalances(t *testing.T) {
 			name:     "contract does not exists",
 			contract: eos.AccountName("eidoeonecoin"),
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				eos.AccountName("eosio.token"): {
+				eos.AccountName("zswhq.token"): {
 					eos.AccountName("eoscanadadad"): {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: "eosio.token",
+								Contract: "zswhq.token",
 							},
 						},
 					},
@@ -471,15 +471,15 @@ func TestDefaultCache_IsTokenContract(t *testing.T) {
 	}{
 		{
 			name:        "contract is not cached",
-			contract:    eos.AccountName("eosio.token"),
+			contract:    eos.AccountName("zswhq.token"),
 			tokens:      map[eos.AccountName][]*pbtokenmeta.Token{},
 			expectValue: false,
 		},
 		{
 			name:     "contract is cached",
-			contract: eos.AccountName("eosio.token"),
+			contract: eos.AccountName("zswhq.token"),
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{},
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{},
 			},
 			expectValue: true,
 		},
@@ -505,10 +505,10 @@ func TestDefaultCache_hasSymbolForContract(t *testing.T) {
 	}{
 		{
 			name:     "contract and symbol exists",
-			contract: eos.AccountName("eosio.token"),
+			contract: eos.AccountName("zswhq.token"),
 			symbol:   "EOS",
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol: "EOS",
 					},
@@ -518,15 +518,15 @@ func TestDefaultCache_hasSymbolForContract(t *testing.T) {
 		},
 		{
 			name:        "contract does not exists",
-			contract:    eos.AccountName("eosio.token"),
+			contract:    eos.AccountName("zswhq.token"),
 			tokens:      map[eos.AccountName][]*pbtokenmeta.Token{},
 			expectValue: false,
 		},
 		{
 			name:     "contract exists but symbol does not exists",
-			contract: eos.AccountName("eosio.token"),
+			contract: eos.AccountName("zswhq.token"),
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol: "WAX",
 					},
@@ -562,11 +562,11 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol: "EOS",
 					},
@@ -574,20 +574,20 @@ func TestDefaultCache_setBalance(t *testing.T) {
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -601,11 +601,11 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 0,
@@ -613,25 +613,25 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -645,7 +645,7 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens:         map[eos.AccountName][]*pbtokenmeta.Token{},
@@ -660,16 +660,16 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{},
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{},
 			},
 			balances:       map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{},
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{},
 			},
 			expectError: true,
 		},
@@ -679,11 +679,11 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -691,33 +691,33 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(20, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -731,11 +731,11 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(100, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{Symbol: "EOS", Holders: 1},
 				},
 				eos.AccountName("eidosonecoin"): []*pbtokenmeta.Token{
@@ -743,13 +743,13 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(20, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
@@ -767,13 +767,13 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
@@ -791,7 +791,7 @@ func TestDefaultCache_setBalance(t *testing.T) {
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{Symbol: "EOS", Holders: 1},
 				},
 				eos.AccountName("eidosonecoin"): []*pbtokenmeta.Token{
@@ -836,11 +836,11 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(0, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -848,23 +848,23 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {},
+				"zswhq.token": {},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 0,
@@ -878,11 +878,11 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(0, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -894,40 +894,40 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(65, "WALL"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(65, "WALL"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 0,
@@ -945,11 +945,11 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(0, "EOS"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -957,33 +957,33 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"lelapinblanc": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"lelapinblanc": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1002,7 +1002,7 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1016,13 +1016,13 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(20, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
@@ -1040,13 +1040,13 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(20, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
@@ -1054,7 +1054,7 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				"eidosonecoin": {},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1078,7 +1078,7 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1086,33 +1086,33 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1127,11 +1127,11 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				Owner: eos.AccountName("eoscanadadad"),
 				Asset: &eos.ExtendedAsset{
 					Asset:    generateTestAsset(0, "WAL"),
-					Contract: eos.AccountName("eosio.token"),
+					Contract: eos.AccountName("zswhq.token"),
 				},
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1139,33 +1139,33 @@ func TestDefaultCache_removeBalance(t *testing.T) {
 				},
 			},
 			balances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectBalances: map[eos.AccountName]map[eos.AccountName][]*OwnedAsset{
-				"eosio.token": {
+				"zswhq.token": {
 					"eoscanadadad": {
 						{
 							Owner: eos.AccountName("eoscanadadad"),
 							Asset: &eos.ExtendedAsset{
 								Asset:    generateTestAsset(100, "EOS"),
-								Contract: eos.AccountName("eosio.token"),
+								Contract: eos.AccountName("zswhq.token"),
 							},
 						},
 					},
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
 						Symbol:  "EOS",
 						Holders: 1,
@@ -1206,20 +1206,20 @@ func TestDefaultCache_setToken(t *testing.T) {
 		{
 			name: "sunny path",
 			token: &pbtokenmeta.Token{
-				Contract:      "eosio.token",
+				Contract:      "zswhq.token",
 				Symbol:        "EOS",
-				Issuer:        "eosio.token",
+				Issuer:        "zswhq.token",
 				MaximumSupply: uint64(asset.Amount),
 				Precision:     4,
 				TotalSupply:   uint64(asset.Amount),
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),
@@ -1230,19 +1230,19 @@ func TestDefaultCache_setToken(t *testing.T) {
 		{
 			name: "update token",
 			token: &pbtokenmeta.Token{
-				Contract:      "eosio.token",
+				Contract:      "zswhq.token",
 				Symbol:        "EOS",
-				Issuer:        "eosio.token",
+				Issuer:        "zswhq.token",
 				MaximumSupply: uint64(biggerAsset.Amount),
 				Precision:     4,
 				TotalSupply:   uint64(biggerAsset.Amount),
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),
@@ -1251,11 +1251,11 @@ func TestDefaultCache_setToken(t *testing.T) {
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(biggerAsset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(biggerAsset.Amount),
@@ -1267,19 +1267,19 @@ func TestDefaultCache_setToken(t *testing.T) {
 		{
 			name: "add token to existing contract",
 			token: &pbtokenmeta.Token{
-				Contract:      "eosio.token",
+				Contract:      "zswhq.token",
 				Symbol:        "WALL",
-				Issuer:        "eosio.token",
+				Issuer:        "zswhq.token",
 				MaximumSupply: uint64(biggerAsset.Amount),
 				Precision:     4,
 				TotalSupply:   uint64(biggerAsset.Amount),
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),
@@ -1288,20 +1288,20 @@ func TestDefaultCache_setToken(t *testing.T) {
 				},
 			},
 			expectTokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),
 						Holders:       13,
 					},
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "WALL",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(biggerAsset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(biggerAsset.Amount),
@@ -1321,11 +1321,11 @@ func TestDefaultCache_setToken(t *testing.T) {
 				TotalSupply:   uint64(biggerAsset.Amount),
 			},
 			tokens: map[eos.AccountName][]*pbtokenmeta.Token{
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),
@@ -1345,11 +1345,11 @@ func TestDefaultCache_setToken(t *testing.T) {
 						Holders:       0,
 					},
 				},
-				eos.AccountName("eosio.token"): []*pbtokenmeta.Token{
+				eos.AccountName("zswhq.token"): []*pbtokenmeta.Token{
 					{
-						Contract:      "eosio.token",
+						Contract:      "zswhq.token",
 						Symbol:        "EOS",
-						Issuer:        "eosio.token",
+						Issuer:        "zswhq.token",
 						MaximumSupply: uint64(asset.Amount),
 						Precision:     4,
 						TotalSupply:   uint64(asset.Amount),

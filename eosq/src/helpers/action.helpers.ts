@@ -11,9 +11,9 @@ export function getMemoText(action: Action<any>): string {
 }
 
 const PILL_HEADER_PARAMS_MAP: { [key: string]: PillHeaderParams } = {
-  eosio: { color: "#002343", text: "Sy", hoverTitle: "eosio" },
-  "eosio.forum": { color: "#5449ba", text: "Fo", hoverTitle: "eosio.forum" },
-  "eosio.token": { color: "#5449ba", text: "Tk", hoverTitle: "eosio.token" }
+  eosio: { color: "#002343", text: "Sy", hoverTitle: "zswhq" },
+  "zswhq.forum": { color: "#5449ba", text: "Fo", hoverTitle: "zswhq.forum" },
+  "zswhq.token": { color: "#5449ba", text: "Tk", hoverTitle: "zswhq.token" }
 }
 
 export function getHeaderParams(account: string, receiver: string): PillHeaderParams {
