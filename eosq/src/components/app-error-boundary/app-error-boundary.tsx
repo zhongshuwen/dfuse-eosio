@@ -134,7 +134,7 @@ export class AppErrorBoundary extends React.Component<any, State> {
         >
           <div style={{ fontSize: 34, color: "#6d6ae8", width: "100%" }}>
             Welcome to&nbsp;
-            <b style={{ fontSize: 34, color: "#6d6ae8" }}>eosq</b>
+            <b style={{ fontSize: 34, color: "#6d6ae8" }}>中数文联盟链浏览器</b>
             <br />
             <br />
             <span style={{ fontSize: 20, color: "#6d6ae8" }}>

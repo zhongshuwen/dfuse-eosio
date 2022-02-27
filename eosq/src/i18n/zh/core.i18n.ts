@@ -10,17 +10,17 @@ export default {
     tagline2: "",
 
     networkOptions: {
-      eos_mainnet: "EOS主网",
-      eos_kylin: "麒麟测试网",
-      eos_eosio: "EOSIO 测试网"
+      eos_mainnet: "联盟链",
+      eos_kylin: "联盟链",
+      eos_eosio: "联盟链 测试网"
     },
     maintenance: {
       start: "我们目前正在将我们的后端迁移到",
-      link: "https://dfuse.io",
+      link: "https://zhongshuwen.com",
       end:
         "来提供最快，最可靠的区块浏览器。 我们希望在接下来的48小时内完成。 对于沿途的任何颠簸，我们深表歉意！"
     },
-    newVersionAvailable: "eosq 发布了新版本",
+    newVersionAvailable: "国家级版权交易保护联盟链区块浏览器 发布了新版本",
     refresh: "刷新",
     by: "来自",
     menu: {

@@ -8,13 +8,14 @@ import { Config } from "./models/config"
 import { Helmet } from "react-helmet"
 
 // Let's initialize Sentry error handling, if not disabled
+/*
 if (!Config.disable_sentry && !Config.isLocalhost) {
   console.log("Initializing Sentry!")
   Sentry.init({
     dsn: "https://e268f409256b4df6b11d2fa584e734af@sentry.io/1339887",
   })
 }
-
+*/
 // @ts-ignore
 const Container = withRouter(withTheme(AppContainer))
 

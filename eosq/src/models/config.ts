@@ -63,7 +63,7 @@ const newDefaultConfig = () => {
       {
         id: "local",
         is_test: true,
-        name: "Local Network",
+        name: "LAN测试环境",
         url: "http://localhost:8080",
       },
       {
