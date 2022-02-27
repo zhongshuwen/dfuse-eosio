@@ -1,12 +1,12 @@
-ARG EOSIO_TAG="v2.0.6-dm-12.0"
-ARG DEB_PKG="eosio_2.0.6-dm.12.0-1-ubuntu-18.04_amd64.deb"
+ARG EOSIO_TAG="v2.0.8-dm-zsw1-12.0"
+ARG DEB_PKG="zswhq_2.0.8-dm.12.0_amd64.deb"
 
 FROM ubuntu:18.04 AS base
 ARG EOSIO_TAG
 ARG DEB_PKG
 RUN apt update && apt-get -y install curl ca-certificates libicu60 libusb-1.0-0 libcurl3-gnutls
 RUN mkdir -p /var/cache/apt/archives/
-RUN curl -sL -o/var/cache/apt/archives/eosio.deb "https://github.com/dfuse-io/eos/releases/download/${EOSIO_TAG}/${DEB_PKG}"
+RUN curl -sL -o/var/cache/apt/archives/eosio.deb "https://github.com/invisible-train-40/zswchain-lishi/releases/download/${EOSIO_TAG}/${DEB_PKG}"
 RUN dpkg -i /var/cache/apt/archives/eosio.deb
 RUN rm -rf /var/cache/apt/*
 
