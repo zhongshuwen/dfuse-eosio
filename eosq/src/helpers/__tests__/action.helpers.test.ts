@@ -20,26 +20,26 @@ describe("getHeaderParams", () => {
   })
 
   it("return system header params with eosio account", () => {
-    expect(getHeaderParams("zswhq", "zswhq")).toEqual({
+    expect(getHeaderParams("eosio", "eosio")).toEqual({
       color: "#002343",
       text: "Sy",
-      hoverTitle: "zswhq"
+      hoverTitle: "eosio"
     })
   })
 
   it("return forum header params with eosio account", () => {
-    expect(getHeaderParams("zswhq.forum", "zswhq.forum")).toEqual({
+    expect(getHeaderParams("eosio.forum", "eosio.forum")).toEqual({
       color: "#5449ba",
       text: "Fo",
-      hoverTitle: "zswhq.forum"
+      hoverTitle: "eosio.forum"
     })
   })
 
   it("return token header params with eosio account", () => {
-    expect(getHeaderParams("zswhq.token", "zswhq.token")).toEqual({
+    expect(getHeaderParams("eosio.token", "eosio.token")).toEqual({
       color: "#5449ba",
       text: "Tk",
-      hoverTitle: "zswhq.token"
+      hoverTitle: "eosio.token"
     })
   })
 })

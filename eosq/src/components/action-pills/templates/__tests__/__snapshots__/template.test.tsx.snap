@@ -779,7 +779,7 @@ exports[`Templates IssuePillComponent should render properly 1`] = `
   content={
     <TransferBox
       amount="10.0000 EOS"
-      from="zswhq"
+      from="eosio"
       to="eoscanadacom"
     />
   }

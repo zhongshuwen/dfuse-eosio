@@ -48,9 +48,9 @@ export async function registerAccountDetailsListeners(
 
       const rexParams: GetTableRowParams = {
         json: true,
-        scope: "zswhq",
+        scope: "eosio",
         table: "rexbal",
-        code: "zswhq",
+        code: "eosio",
         table_key: "",
         lower_bound: accountName,
         upper_bound: "",
@@ -59,9 +59,9 @@ export async function registerAccountDetailsListeners(
 
       const rexfundsParams: GetTableRowParams = {
         json: true,
-        scope: "zswhq",
+        scope: "eosio",
         table: "rexfund",
-        code: "zswhq",
+        code: "eosio",
         table_key: "",
         lower_bound: accountName,
         upper_bound: "",
@@ -69,9 +69,9 @@ export async function registerAccountDetailsListeners(
       }
 
       const cpuLoans: any = {
-        code: "zswhq",
+        code: "eosio",
         json: true,
-        scope: "zswhq",
+        scope: "eosio",
         table: "cpuloan",
         lower_bound: accountName,
         upper_bound: "zzzzzzzzzzzz",
@@ -81,9 +81,9 @@ export async function registerAccountDetailsListeners(
       }
 
       const netLoans: any = {
-        code: "zswhq",
+        code: "eosio",
         json: true,
-        scope: "zswhq",
+        scope: "eosio",
         table: "netloan",
         lower_bound: accountName,
         upper_bound: "zzzzzzzzzzzz",

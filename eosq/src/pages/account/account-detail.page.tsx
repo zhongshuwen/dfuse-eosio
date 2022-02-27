@@ -40,7 +40,7 @@ export class AccountDetail extends ContentLoaderComponent<Props, State> {
   }
 
   changeDocumentTitle() {
-    document.title = `${this.props.match.params.id} ${BULLET} account ${BULLET} eosq`
+    document.title = `${this.props.match.params.id} ${BULLET} 账号 ${BULLET} 国家级版权交易保护联盟链区块浏览器`
   }
 
   componentDidUpdate = async (prevProps: Props) => {

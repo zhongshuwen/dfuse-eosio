@@ -65,7 +65,7 @@ export class TemplateStore {
    * match the action alone.
    *
    * The action alone case is required for example for token contracts that
-   * are not `zswhq.token` so that their transfer methods is correctly templated
+   * are not `eosio.token` so that their transfer methods is correctly templated
    * because for those, we only want to check that the action is `transfer` and that
    * the action has all required fields.
    */

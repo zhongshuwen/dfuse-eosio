@@ -9,7 +9,7 @@ export class RegProxyPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "zswhq", action: "regproxy" }]
+      validActions: [{ contract: "eosio", action: "regproxy" }]
     }
   }
 

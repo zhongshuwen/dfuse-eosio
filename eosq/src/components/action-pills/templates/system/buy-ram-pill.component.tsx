@@ -11,7 +11,7 @@ export class BuyRamPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "zswhq", action: "buyram" }]
+      validActions: [{ contract: "eosio", action: "buyram" }]
     }
   }
 

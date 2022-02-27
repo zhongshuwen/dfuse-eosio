@@ -1,12 +1,12 @@
 export const PILL_CONTRACT_LOGOS = {
   "eos-mainnet": [
     {
-      contract: "zswhq.token",
+      contract: "eosio.token",
       path: "/images/pill-logos/logo-contract-eos-01.svg",
       website: "https://zhongshuwen.com"
     },
     {
-      contract: "zswhq",
+      contract: "eosio",
       path: "/images/pill-logos/logo-contract-eos-01.svg",
       website: "https://zhongshuwen.com",
       action: "onblock"

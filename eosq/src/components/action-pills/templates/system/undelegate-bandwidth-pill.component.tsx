@@ -10,7 +10,7 @@ export class UnDelegateBandwidthPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "zswhq", action: "undelegatebw" }]
+      validActions: [{ contract: "eosio", action: "undelegatebw" }]
     }
   }
 

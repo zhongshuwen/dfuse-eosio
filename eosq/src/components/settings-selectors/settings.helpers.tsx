@@ -1,6 +1,6 @@
 import { i18n } from "../../i18n"
 
-export const LANGUAGE_OPTIONS = [{ label: "EN", value: "en" }, { label: "中文", value: "zh" }]
+export const LANGUAGE_OPTIONS = [ { label: "中文", value: "zh" },{ label: "EN", value: "en" }]
 
 export function getCurrentLanguageName() {
   const currentLang = getCurrentLanguageValue()

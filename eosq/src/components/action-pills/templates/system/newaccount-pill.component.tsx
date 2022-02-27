@@ -31,7 +31,7 @@ export class NewAccountPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "zswhq", action: "newaccount" }],
+      validActions: [{ contract: "eosio", action: "newaccount" }],
     }
   }
 

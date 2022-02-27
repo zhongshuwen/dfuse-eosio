@@ -10,7 +10,7 @@ export class DelegateBandwidthPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "zswhq", action: "delegatebw" }]
+      validActions: [{ contract: "eosio", action: "delegatebw" }]
     }
   }
 
