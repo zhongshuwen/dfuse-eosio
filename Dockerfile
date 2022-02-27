@@ -14,7 +14,7 @@ FROM node:12 AS zsw-lishi-launcher
 WORKDIR /work
 ADD go.mod /work
 RUN apt update && apt-get -y install git
-RUN cd /work && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
+RUN cd /work && echo "中数文" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
 	grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > zsw-lishi-launcher.hash &&\
     cd zsw-lishi-launcher &&\
     git checkout "$(cat ../zsw-lishi-launcher.hash)" &&\
