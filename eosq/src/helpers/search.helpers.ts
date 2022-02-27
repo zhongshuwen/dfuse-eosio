@@ -24,8 +24,8 @@ export function getSearchTransfersOptions(accountName: string): DropDownOption[]
       value: `action:transfer (data.to:${accountName} OR data.from:${accountName})`,
     },
     {
-      label: t("transactionSearch.dropdowns.tokens.eos"),
-      value: `action:transfer account:eosio.token (data.to:${accountName} OR data.from:${accountName})`,
+      label: t("transactionSearch.dropdowns.tokens.zswcc"),
+      value: `action:transfer account:zswhq.token (data.to:${accountName} OR data.from:${accountName})`,
     },
     {
       label: t("transactionSearch.dropdowns.tokens.popularTokens"),
@@ -42,23 +42,23 @@ export function getSearchSystemOptions(accountName: string): DropDownOption[] {
     },
     {
       label: t("transactionSearch.dropdowns.system.claimRewards"),
-      value: `action:claimrewards account:eosio data.owner:${accountName}`,
+      value: `action:claimrewards account:zswhq data.owner:${accountName}`,
     },
     {
       label: t("transactionSearch.dropdowns.system.delegateBandwidth"),
-      value: `action:delegatebw account:eosio (data.from:${accountName} OR data.receiver:${accountName})`,
+      value: `action:delegatebw account:zswhq (data.from:${accountName} OR data.receiver:${accountName})`,
     },
     {
       label: t("transactionSearch.dropdowns.system.undelegateBandwidth"),
-      value: `action:undelegatebw account:eosio (data.from:${accountName} OR data.receiver:${accountName})`,
+      value: `action:undelegatebw account:zswhq (data.from:${accountName} OR data.receiver:${accountName})`,
     },
     {
       label: t("transactionSearch.dropdowns.system.regProducer"),
-      value: `action:regproducer account:eosio data.producer:${accountName}`,
+      value: `action:regproducer account:zswhq data.producer:${accountName}`,
     },
     {
       label: t("transactionSearch.dropdowns.system.setCode"),
-      value: `action:setcode account:eosio data.account:${accountName}`,
+      value: `action:setcode account:zswhq data.account:${accountName}`,
     },
   ]
 }

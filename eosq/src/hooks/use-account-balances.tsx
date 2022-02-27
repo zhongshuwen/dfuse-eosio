@@ -58,7 +58,7 @@ export function useAccountBalances(
 
   const balances = response.result.accountBalances.edges
     .map(({ node }) => node)
-    .filter((balance) => balance.contract !== "eosio.token")
+    .filter((balance) => balance.contract !== "zswhq.token")
 
   balances.forEach((balance) => {
     const metadata = tokenInfos[balance.contract + balance.symbol]

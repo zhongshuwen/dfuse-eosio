@@ -20,7 +20,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Search Stream (Forward)",
 			Document: graphqlDocument(box, "search_stream_forward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "limit": 10}`),
+				"generic": r(`{"query": "receiver:zswhq action:newaccount", "cursor": "", "limit": 10}`),
 				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
@@ -30,7 +30,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Search Query (Forward)",
 			Document: graphqlDocument(box, "search_query_forward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "limit": 10}`),
+				"generic": r(`{"query": "receiver:zswhq action:newaccount", "cursor": "", "limit": 10}`),
 				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
@@ -40,7 +40,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Search Stream (Backward)",
 			Document: graphqlDocument(box, "search_stream_backward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"query": "receiver:eosio action:newaccount", "cursor": "", "low": 1, "limit": 10}`),
+				"generic": r(`{"query": "receiver:zswhq action:newaccount", "cursor": "", "low": 1, "limit": 10}`),
 				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "cursor": "", "low": 1, "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),
@@ -50,7 +50,7 @@ func GraphqlExamples(config *Config) []*static.GraphqlExample {
 			Label:    "Search Query (Backward)",
 			Document: graphqlDocument(box, "search_query_backward.graphql"),
 			Variables: static.GraphqlVariablesByNetwork{
-				"generic": r(`{"query": "receiver:eosio action:newaccount", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
+				"generic": r(`{"query": "receiver:zswhq action:newaccount", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
 				"mainnet": r(`{"query": "receiver:zswhq.token action:transfer -data.quantity:'0.0001 EOS'", "low": -500, "high": -1, "cursor": "", "limit": 10}`),
 				"jungle":  r("mainnet"),
 				"kylin":   r("mainnet"),

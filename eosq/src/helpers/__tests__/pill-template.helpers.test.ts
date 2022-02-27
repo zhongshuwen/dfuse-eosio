@@ -27,10 +27,10 @@ import { TraceInfo } from "../../models/pill-templates"
 
 function getClaimTraceInfo(): TraceInfo {
   const traceInfo = getTraceInfoMock({
-    data: { from: "eosio.vpay", quantity: "30.0000 EOS" }
+    data: { from: "zswhq.vpay", quantity: "30.0000 EOS" }
   })
   traceInfo.inline_traces.push(
-    getActionTraceMock({ data: { from: "eosio.bpay", quantity: "50.0000 EOS" } })
+    getActionTraceMock({ data: { from: "zswhq.bpay", quantity: "50.0000 EOS" } })
   )
   return traceInfo
 }
@@ -237,7 +237,7 @@ describe("getNewAccountLevel2Fields", () => {
 describe("getRefundLevel1Fields", () => {
   it("should return the level 1 fields", () => {
     const traceInfo = getTraceInfoMock({
-      data: { from: "eosio", quantity: "15.0000 EOS", to: "winner" }
+      data: { from: "zswhq", quantity: "15.0000 EOS", to: "winner" }
     })
     traceInfo.inline_traces[0].act.name = "transfer"
 

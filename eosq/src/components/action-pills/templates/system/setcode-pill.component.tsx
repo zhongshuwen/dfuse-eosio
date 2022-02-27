@@ -17,7 +17,7 @@ export class SetcodePillComponent extends GenericPillComponent {
     return {
       networks: ["all"],
       needsTranslate: true,
-      validActions: [{ contract: "eosio", action: "setcode" }]
+      validActions: [{ contract: "zswhq", action: "setcode" }]
     }
   }
 

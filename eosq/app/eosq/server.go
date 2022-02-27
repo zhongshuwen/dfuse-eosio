@@ -57,7 +57,7 @@ func newServer(config *Config) *Server {
 }
 
 func (s *Server) Launch() error {
-	zlog.Info("launching eosq")
+	zlog.Info("launching 中数文联盟链区块浏览器")
 	router := mux.NewRouter()
 
 	router.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
@@ -70,10 +70,10 @@ func (s *Server) Launch() error {
 
 	router.PathPrefix("/").HandlerFunc(s.ServerHttp)
 
-	zlog.Info("eosq static listener http server launching", zap.String("addr", s.config.HTTPListenAddr))
+	zlog.Info("中数文联盟链区块浏览器 static listener http server launching", zap.String("addr", s.config.HTTPListenAddr))
 	err := http.ListenAndServe(s.config.HTTPListenAddr, handlers.CompressHandlerLevel(router, gzip.DefaultCompression))
 	if err != nil {
-		zlog.Debug("eosq static http server failed", zap.Error(err))
+		zlog.Debug("中数文联盟链区块浏览器 static http server failed", zap.Error(err))
 		return err
 	}
 
@@ -127,7 +127,7 @@ func (s *Server) staticAssetsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	zlog.Debug("serving eosq static asset", zap.String("path", path))
+	zlog.Debug("serving 中数文联盟链区块浏览器 static asset", zap.String("path", path))
 
 	content, err := s.box.Open(path)
 	if err != nil {

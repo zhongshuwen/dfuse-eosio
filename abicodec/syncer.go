@@ -102,7 +102,7 @@ func (s *ABISyncer) streamABIChanges() error {
 	defer cancelSearch()
 
 	stream, err := s.client.StreamMatches(ctx, &pbsearch.RouterRequest{
-		Query:              "receiver:eosio action:setabi notif:false",
+		Query:              "receiver:zswhq action:setabi notif:false",
 		LowBlockNum:        1,
 		HighBlockUnbounded: true,
 		LiveMarkerInterval: 1,

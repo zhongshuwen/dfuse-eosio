@@ -171,7 +171,7 @@ export class AccountStatusBars extends React.Component<Props> {
           amount={
             <SearchShortcut
               position="left"
-              query={`receiver:eosio (action:delegatebw OR action:undelegatebw) data.receiver:${this.props.account.account_name}`}
+              query={`receiver:zswhq (action:delegatebw OR action:undelegatebw) data.receiver:${this.props.account.account_name}`}
             >
               <Text fontSize={[4]}>{formatMicroseconds(amount)}</Text>
             </SearchShortcut>
@@ -213,7 +213,7 @@ export class AccountStatusBars extends React.Component<Props> {
           amount={
             <SearchShortcut
               position="left"
-              query={`receiver:eosio (action:delegatebw OR action:undelegatebw) data.receiver:${this.props.account.account_name}`}
+              query={`receiver:zswhq (action:delegatebw OR action:undelegatebw) data.receiver:${this.props.account.account_name}`}
             >
               <Text fontSize={[4]}>{formatBytes(amount)}</Text>
             </SearchShortcut>

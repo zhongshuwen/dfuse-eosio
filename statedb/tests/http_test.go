@@ -212,7 +212,7 @@ func testStateTablesForScopesHistoricalJSON(ctx context.Context, t *testing.T, f
 func testStateTablesForAccountsHeadJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTablesForAccounts(e, "eosio.token|eosio.nekot/accounts/eosio1", "json=true")
+	response := okQueryStateTablesForAccounts(e, "zswhq.token|zswhq.nekot/accounts/eosio1", "json=true")
 
 	assertHeadBlockInfo(response, "00000006aa", "00000005aa")
 	jsonValueEqual(t, "tables", `[
@@ -224,7 +224,7 @@ func testStateTablesForAccountsHeadJSON(ctx context.Context, t *testing.T, feedS
 func testStateTablesForAccountsHistoricalJSON(ctx context.Context, t *testing.T, feedSourceWithBlocks blocksFeeder, e *httpexpect.Expect) {
 	feedSourceWithBlocks(tableBlocks(t)...)
 
-	response := okQueryStateTablesForAccounts(e, "eosio.token|eosio.nekot/accounts/eosio1", "block_num=4&json=true")
+	response := okQueryStateTablesForAccounts(e, "zswhq.token|zswhq.nekot/accounts/eosio1", "block_num=4&json=true")
 
 	assertIrrBlockInfo(response, "00000005aa")
 	jsonValueEqual(t, "tables", `[
@@ -243,13 +243,13 @@ func testStateTableRowHeadJSON(ctx context.Context, t *testing.T, feedSourceWith
 }
 
 func tableBlocks(t *testing.T) []*pbcodec.Block {
-	eosioTokenABI1 := readABI(t, "eosio.token.1.abi.json")
-	eosioTestABI1 := readABI(t, "eosio.test.1.abi.json")
-	eosioTestABI2 := readABI(t, "eosio.test.2.abi.json")
-	eosioNekotABI1 := readABI(t, "eosio.nekot.1.abi.json")
+	eosioTokenABI1 := readABI(t, "zswhq.token.1.abi.json")
+	eosioTestABI1 := readABI(t, "zswhq.test.1.abi.json")
+	eosioTestABI2 := readABI(t, "zswhq.test.2.abi.json")
+	eosioNekotABI1 := readABI(t, "zswhq.nekot.1.abi.json")
 
 	return []*pbcodec.Block{
-		// Block #2 | Sets ABI on `zswhq.token` (v1) and `eosio.test` (v1)
+		// Block #2 | Sets ABI on `zswhq.token` (v1) and `zswhq.test` (v1)
 		ct.Block(t, "00000002aa",
 			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.token", eosioTokenABI1)),
 			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.test", eosioTestABI1)),
@@ -269,7 +269,7 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 				ct.DBOp(t, "insert", "zswhq.token/accounts/eosio3/eos", "/eosio3", `/{"balance":"3.0000 EOS"}`, eosioTokenABI1),
 			),
 
-			// Add three rows (keys `a`, `b` & `c`) to `eosio.test` contract, on table `rows` under scope `s`, then update key `b` within same transaction
+			// Add three rows (keys `a`, `b` & `c`) to `zswhq.test` contract, on table `rows` under scope `s`, then update key `b` within same transaction
 			ct.TrxTrace(t,
 				ct.TableOp(t, "insert", "zswhq.test/rows/s", "s"),
 				ct.DBOp(t, "insert", "zswhq.test/rows/s/a", "/s", `/{"from":"a"}`, eosioTestABI1),
@@ -286,7 +286,7 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 
 		// Block #4
 		ct.Block(t, "00000004aa",
-			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
+			// Add a new token contract `zswhq.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
 			ct.TrxTrace(t,
 				ct.ActionTraceSetABI(t, "zswhq.nekot", eosioNekotABI1),
 
@@ -308,7 +308,7 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 
 		// Block #5
 		ct.Block(t, "00000005aa",
-			// Remove all rows (keys `a`, `b`) of `eosio.test`
+			// Remove all rows (keys `a`, `b`) of `zswhq.test`
 			ct.TrxTrace(t,
 				ct.DBOp(t, "remove", "zswhq.test/rows/s/a", "s/", `{"from":"a"}/`, eosioTestABI1),
 				ct.DBOp(t, "remove", "zswhq.test/rows/s/b", "s/", `{"from":"b2"}/`, eosioTestABI1),
@@ -316,10 +316,10 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 				ct.TableOp(t, "remove", "zswhq.test/rows/s", "s"),
 			),
 
-			// Set a new ABI on `eosio.test`
+			// Set a new ABI on `zswhq.test`
 			ct.TrxTrace(t, ct.ActionTraceSetABI(t, "zswhq.test", eosioTestABI2)),
 
-			// Re-add all rows on `eosio.test` using new ABI
+			// Re-add all rows on `zswhq.test` using new ABI
 			ct.TrxTrace(t,
 				ct.TableOp(t, "insert", "zswhq.test/rows2/s", "s"),
 				ct.DBOp(t, "insert", "zswhq.test/rows2/s/a", "/s", `/{"to":1}`, eosioTestABI2),
@@ -327,7 +327,7 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 				ct.DBOp(t, "insert", "zswhq.test/rows2/s/c", "/s", `/{"to":3}`, eosioTestABI2),
 			),
 
-			// Add a new token contract `eosio.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
+			// Add a new token contract `zswhq.nekot` (to test `/tables/accounts` calls) and populate odd rows from `zswhq.token`
 			ct.TrxTrace(t,
 				ct.TableOp(t, "insert", "zswhq.nekot/accounts/eosio5", "eosio5"),
 				ct.DBOp(t, "insert", "zswhq.nekot/accounts/eosio5/........cpbp3", "/eosio5", `/{"balance":"5.0000 SOE"}`, eosioNekotABI1),
@@ -341,7 +341,7 @@ func tableBlocks(t *testing.T) []*pbcodec.Block {
 				ct.DBOp(t, "update", "zswhq.token/accounts/eosio2/eos", "eosio2/eosio2", `{"balance":"20.0000 EOS"}/{"balance":"22.0000 EOS"}`, eosioTokenABI1),
 			),
 
-			// Delete rows `a` from `eosio.test`, update `b` and add three new rows (`d`, `e` & `f`)
+			// Delete rows `a` from `zswhq.test`, update `b` and add three new rows (`d`, `e` & `f`)
 			ct.TrxTrace(t,
 				ct.DBOp(t, "remove", "zswhq.test/rows2/s/a", "s/", `{"to":1}/`, eosioTestABI2),
 

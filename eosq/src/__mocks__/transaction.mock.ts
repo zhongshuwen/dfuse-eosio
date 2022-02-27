@@ -46,7 +46,7 @@ export function getActionTraceMock(params: ActionMockParams): ActionTrace<any> {
 
 export function getActionMock(params: ActionMockParams): Action<any> {
   return {
-    account: params.account ? params.account : "eosio",
+    account: params.account ? params.account : "zswhq",
     name: params.name ? params.name : "transfer",
     authorization: [
       {
@@ -61,7 +61,7 @@ export function getActionMock(params: ActionMockParams): Action<any> {
 
 export const getTransferDataMock = () => {
   return {
-    from: "eosio.ram",
+    from: "zswhq.ram",
     to: "valuenetwork",
     quantity: "0.1508 EOS",
     memo: "0aa7674699771f0ca61b40db92c385fa5a6cd34100bb478f487b8c2badb861f9"
@@ -223,7 +223,7 @@ export function generateActions(actionIndexStart?: number, actionIndexEnd?: numb
         }
       },
       hex_data: "asa",
-      account: "eosio",
+      account: "zswhq",
       name: "newaccount"
     },
     {
@@ -239,7 +239,7 @@ export function generateActions(actionIndexStart?: number, actionIndexEnd?: numb
         receiver: "superoneiobp"
       },
       hex_data: "a09869fe4e9cbe6a500f756ad2abaac6102700000000000004454f5300000000",
-      account: "eosio",
+      account: "zswhq",
       name: "buyram"
     },
     {
@@ -258,7 +258,7 @@ export function generateActions(actionIndexStart?: number, actionIndexEnd?: numb
       },
       hex_data:
         "a09869fe4e9cbe6a500f756ad2abaac6204e00000000000004454f5300000000204e00000000000004454f530000000001",
-      account: "eosio",
+      account: "zswhq",
       name: "delegatebw"
     }
   ]

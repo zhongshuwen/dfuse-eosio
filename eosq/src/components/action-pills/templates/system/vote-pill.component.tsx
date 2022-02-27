@@ -13,8 +13,8 @@ export class VotePillComponent extends GenericPillComponent {
     return {
       networks: ["all"],
       validActions: [
-        { contract: "eosio", action: "voteproxy" },
-        { contract: "eosio", action: "voteproducer" }
+        { contract: "zswhq", action: "voteproxy" },
+        { contract: "zswhq", action: "voteproducer" }
       ]
     }
   }

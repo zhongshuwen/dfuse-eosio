@@ -10,7 +10,7 @@ export class LinkAuthPillComponent extends GenericPillComponent {
   static contextForRendering = (): PillRenderingContext => {
     return {
       networks: ["all"],
-      validActions: [{ contract: "eosio", action: "linkauth" }]
+      validActions: [{ contract: "zswhq", action: "linkauth" }]
     }
   }
 
