@@ -4,7 +4,7 @@ import (
 	"time"
 
 	eoswsApp "github.com/dfuse-io/dfuse-eosio/eosws/app/eosws"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

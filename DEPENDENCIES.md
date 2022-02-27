@@ -17,11 +17,11 @@ yarn install
 yarn build
 ```
 
-and building the `dashboard` from dlauncher, copying the ricebox to this repo:
+and building the `dashboard` from zsw-lishi-launcher, copying the ricebox to this repo:
 
 ```
 pushd ..
-  git clone git@github.com/dfuse-io/dlauncher
+  git clone git@github.com/invisible-train-40/zsw-lishi-launcher
   pushd dashboard
     pushd client
       yarn install
@@ -30,7 +30,7 @@ pushd ..
     go generate
   popd
 popd
-go generate ./dashboard # copies the ../dlauncher/dashboard/rice-box.go file to ./dashboard
+go generate ./dashboard # copies the ../zsw-lishi-launcher/dashboard/rice-box.go file to ./dashboard
 ```
 
 ## dfuse Instrumented EOSIO Prebuilt Binaries

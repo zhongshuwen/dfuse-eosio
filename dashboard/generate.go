@@ -1,3 +1,3 @@
 package dashboard
 
-//go:generate cp ../../dlauncher/dashboard/rice-box.go .
+//go:generate cp ../../zsw-lishi-launcher/dashboard/rice-box.go .

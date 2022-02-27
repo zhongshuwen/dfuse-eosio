@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/dfuse-io/dfuse-eosio/node-manager/superviser"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/logging"
 	nodeManager "github.com/dfuse-io/node-manager"
 	nodeManagerApp "github.com/dfuse-io/node-manager/app/node_manager"

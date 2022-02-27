@@ -10,7 +10,7 @@ import (
 	"github.com/dfuse-io/dfuse-eosio/codec"
 	"github.com/dfuse-io/dfuse-eosio/node-manager/superviser"
 	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/logging"
 	nodeManager "github.com/dfuse-io/node-manager"
 	nodeMindreaderApp "github.com/dfuse-io/node-manager/app/node_mindreader"

@@ -2,8 +2,8 @@ package cli
 
 import (
 	_ "github.com/dfuse-io/dfuse-eosio/dashboard"
-	"github.com/dfuse-io/dlauncher/dashboard"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/dashboard"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -14,7 +14,7 @@ func init() {
 		Title:       "Dashboard",
 		Description: "dfuse for EOSIO - dashboard",
 		MetricsID:   "dashboard",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dlauncher/dashboard.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/invisible-train-40/zsw-lishi-launcher/dashboard.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("dashboard-grpc-listen-addr", DashboardGRPCServingAddr, "TCP Listener addr for http")
 			cmd.Flags().String("dashboard-http-listen-addr", DashboardHTTPListenAddr, "TCP Listener addr for gRPC")

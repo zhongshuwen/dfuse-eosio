@@ -10,7 +10,7 @@ import (
 	dauthAuthenticator "github.com/dfuse-io/dauth/authenticator"
 	"github.com/dfuse-io/dfuse-eosio/filtering"
 	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/dmetering"
 	"github.com/dfuse-io/dmetrics"
 	firehoseApp "github.com/dfuse-io/firehose/app/firehose"

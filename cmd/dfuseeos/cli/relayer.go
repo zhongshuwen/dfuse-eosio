@@ -4,7 +4,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	relayerApp "github.com/dfuse-io/relayer/app/relayer"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

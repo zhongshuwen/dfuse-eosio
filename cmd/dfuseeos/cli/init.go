@@ -22,7 +22,7 @@ import (
 	"runtime"
 	"strings"
 
-	launcher "github.com/dfuse-io/dlauncher/launcher"
+	launcher "github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/manifoldco/promptui"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

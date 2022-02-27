@@ -6,7 +6,7 @@ import (
 	blockmetaApp "github.com/dfuse-io/blockmeta/app/blockmeta"
 	dblockmeta "github.com/dfuse-io/dfuse-eosio/blockmeta"
 	"github.com/dfuse-io/dfuse-eosio/trxdb"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/eoscanada/eos-go"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

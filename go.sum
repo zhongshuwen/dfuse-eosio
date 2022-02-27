@@ -322,8 +322,8 @@ github.com/dfuse-io/dhammer v0.0.0-20200723173708-b7e52c540f64 h1:yAxP/9sNL8uulV
 github.com/dfuse-io/dhammer v0.0.0-20200723173708-b7e52c540f64/go.mod h1:oMDmMjK+thNJi8TgUgqEx5PkpW9GFlGfrWy9Id1zDiA=
 github.com/dfuse-io/dipp v1.0.1-0.20200407033930-5c17c531c3c4 h1:2y5Tbm8RPbhCSutKgJwa328F/bJ23rpWC8clt5LhCiA=
 github.com/dfuse-io/dipp v1.0.1-0.20200407033930-5c17c531c3c4/go.mod h1:4OSkJC9kCEQMw9f79Kl4Dl2vQZxQLknn0W7hZlZLsPM=
-github.com/dfuse-io/dlauncher v0.0.0-20201112212422-91f62bcef971 h1:uv+z/fIYGzMD/NYm3O4NC/auPSdahftPhSYmXDMA4sA=
-github.com/dfuse-io/dlauncher v0.0.0-20201112212422-91f62bcef971/go.mod h1:AfUE2njp7F5hXASr10ux3dmBbq4iCjFBmz0enYJRrBk=
+github.com/invisible-train-40/zsw-lishi-launcher v0.0.0-20201112212422-91f62bcef971 h1:uv+z/fIYGzMD/NYm3O4NC/auPSdahftPhSYmXDMA4sA=
+github.com/invisible-train-40/zsw-lishi-launcher v0.0.0-20201112212422-91f62bcef971/go.mod h1:AfUE2njp7F5hXASr10ux3dmBbq4iCjFBmz0enYJRrBk=
 github.com/dfuse-io/dmesh v0.0.0-20200427143025-f55305fa4b95/go.mod h1:xUkrTebUXPRjO5wm565eEQluow9nzb6NYl42aeupllQ=
 github.com/dfuse-io/dmesh v0.0.0-20200602201926-d79e48fdac7c/go.mod h1:e1x/Bvi0Y0Hl5pJCboN4RnNHwGuVqS6kIZFgrAs9V2E=
 github.com/dfuse-io/dmesh v0.0.0-20201117184409-6a094bb91fca h1:mbpkMBmoOCLu5xyhRebZMbv4b0fPNOhyk6IEqKkV4Ko=

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/shutter"
 	"go.uber.org/zap"
 )

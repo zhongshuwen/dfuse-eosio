@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	pbdashboard "github.com/dfuse-io/dlauncher/dashboard/pb"
+	pbdashboard "github.com/invisible-train-40/zsw-lishi-launcher/dashboard/pb"
 	dmeshClient "github.com/dfuse-io/dmesh/client"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"

@@ -10,14 +10,14 @@ RUN curl -sL -o/var/cache/apt/archives/eosio.deb "https://github.com/dfuse-io/eo
 RUN dpkg -i /var/cache/apt/archives/eosio.deb
 RUN rm -rf /var/cache/apt/*
 
-FROM node:12 AS dlauncher
+FROM node:12 AS zsw-lishi-launcher
 WORKDIR /work
 ADD go.mod /work
 RUN apt update && apt-get -y install git
-RUN cd /work && git clone https://github.com/dfuse-io/dlauncher.git dlauncher &&\
-	grep -w github.com/dfuse-io/dlauncher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > dlauncher.hash &&\
-    cd dlauncher &&\
-    git checkout "$(cat ../dlauncher.hash)" &&\
+RUN cd /work && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
+	grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > zsw-lishi-launcher.hash &&\
+    cd zsw-lishi-launcher &&\
+    git checkout "$(cat ../zsw-lishi-launcher.hash)" &&\
     cd dashboard/client &&\
     yarn install && yarn build
 
@@ -33,8 +33,8 @@ ADD . /work
 WORKDIR /work
 COPY --from=eosq      /work/ /work/eosq
 # The copy needs to be one level higher than work, the dashboard generates expects this file layout
-COPY --from=dlauncher /work/dlauncher /dlauncher
-RUN cd /dlauncher/dashboard && go generate
+COPY --from=zsw-lishi-launcher /work/zsw-lishi-launcher /zsw-lishi-launcher
+RUN cd /zsw-lishi-launcher/dashboard && go generate
 RUN cd /work/eosq/app/eosq && go generate
 RUN cd /work/dashboard && go generate
 RUN cd /work/dgraphql && go generate

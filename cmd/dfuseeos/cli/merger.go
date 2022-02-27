@@ -3,7 +3,7 @@ package cli
 import (
 	"time"
 
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	mergerApp "github.com/dfuse-io/merger/app/merger"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

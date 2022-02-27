@@ -28,7 +28,7 @@ require (
 	github.com/dfuse-io/dgrpc v0.0.0-20210424033943-10e04dd5b19c
 	github.com/dfuse-io/dhammer v0.0.0-20200723173708-b7e52c540f64
 	github.com/dfuse-io/dipp v1.0.1-0.20200407033930-5c17c531c3c4
-	github.com/dfuse-io/dlauncher v0.0.0-20201112212422-91f62bcef971
+	github.com/invisible-train-40/zsw-lishi-launcher v0.0.0-20201112212422-91f62bcef971
 	github.com/dfuse-io/dmesh v0.0.0-20210526183400-53c814798369
 	github.com/dfuse-io/dmetering v0.0.0-20210208201314-50d9add52005
 	github.com/dfuse-io/dmetrics v0.0.0-20200508170817-3b8cb01fee68

@@ -41,24 +41,24 @@ build() {
     popd > /dev/null
   fi
 
-  dlauncher_hash=`grep -w github.com/dfuse-io/dlauncher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' | head -n 1`
+  zsw-lishi-launcher_hash=`grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' | head -n 1`
   pushd .. > /dev/null
-    if [[ ! -d dlauncher ]]; then
-      echo "Cloning dlauncher dependency"
-      git clone https://github.com/dfuse-io/dlauncher
-      git checkout $dlauncher_hash
+    if [[ ! -d zsw-lishi-launcher ]]; then
+      echo "Cloning zsw-lishi-launcher dependency"
+      git clone https://github.com/invisible-train-40/zsw-lishi-launcher
+      git checkout $zsw-lishi-launcher_hash
     elif [[ $force_build == true ]]; then
-      pushd dlauncher > /dev/null
+      pushd zsw-lishi-launcher > /dev/null
         git pull
-        git checkout $dlauncher_hash
+        git checkout $zsw-lishi-launcher_hash
       popd > /dev/null
     fi
-    pushd dlauncher
-      git checkout $DLAUNCHER
+    pushd zsw-lishi-launcher
+      git checkout $zsw-lishi-launcher
     popd >/dev/null
 
-    if [[ ! -d dlauncher/dashboard/dashboard-build || $force_build == true ]]; then
-      pushd dlauncher/dashboard > /dev/null
+    if [[ ! -d zsw-lishi-launcher/dashboard/dashboard-build || $force_build == true ]]; then
+      pushd zsw-lishi-launcher/dashboard > /dev/null
         pushd client > /dev/null
           echo "Building dashboard"
           yarn install && yarn build

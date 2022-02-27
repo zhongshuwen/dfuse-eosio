@@ -25,8 +25,8 @@ import (
 	_ "github.com/dfuse-io/dauth/ratelimiter/null"     // ratelimiter plugin
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dlauncher/flags"
-	launcher "github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/flags"
+	launcher "github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 )
 

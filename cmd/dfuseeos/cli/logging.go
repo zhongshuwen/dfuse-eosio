@@ -16,7 +16,7 @@ package cli
 
 import (
 	_ "github.com/dfuse-io/dfuse-eosio/trxdb-loader"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/logging"
 	"go.uber.org/zap"
 )

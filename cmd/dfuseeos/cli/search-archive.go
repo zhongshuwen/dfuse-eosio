@@ -5,7 +5,7 @@ import (
 	"time"
 
 	eosSearch "github.com/dfuse-io/dfuse-eosio/search"
-	"github.com/dfuse-io/dlauncher/launcher"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	archiveApp "github.com/dfuse-io/search/app/archive"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
