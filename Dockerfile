@@ -1,5 +1,5 @@
-ARG EOSIO_TAG="v2.0.8-dm-zsw1-12.0"
-ARG DEB_PKG="zswhq_2.0.8-dm.12.0_amd64.deb"
+ARG EOSIO_TAG="lishi-zsw-2.0.8-release-v1"
+ARG DEB_PKG="lishi-zswchain_2.0.8-dm.12.0_amd64.deb"
 
 FROM ubuntu:18.04 AS base
 ARG EOSIO_TAG
