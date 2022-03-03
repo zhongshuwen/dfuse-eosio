@@ -16,6 +16,9 @@
 
     <script>
       window.TopLevelConfig = --== json . ==--;
+      if(window.TopLevelConfig){
+        window.TopLevelConfig.dfuse_io_endpoint=(window.TopLevelConfig.dfuse_io_endpoint==='localhost:8080'?window.location.host:window.TopLevelConfig.dfuse_io_endpoint);
+      }
     </script>
 
     <script>

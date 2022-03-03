@@ -57,7 +57,7 @@ func New(config *Config) *App {
 
 func (a *App) Run() error {
 
-	zlog.Info("running eosq")
+	zlog.Info("running 联盟链区块浏览器")
 	s := newServer(a.config)
 	a.OnTerminating(s.Shutdown)
 
