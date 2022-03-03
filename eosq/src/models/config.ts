@@ -33,7 +33,9 @@ interface EosqConfig {
   disable_segments: boolean
   disable_sentry: boolean
 }
-
+function getHost(){
+  return window.location.host;
+}
 // Extracted from React register service worker part to detect localhost
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
@@ -53,10 +55,10 @@ const newDefaultConfig = () => {
       process.env.REACT_APP_EOSQ_CURRENT_NETWORK ||
       "local",
     chain_core_symbol: "4,ZSWCC",
-    dfuse_auth_endpoint: process.env.REACT_APP_DFUSE_AUTH_URL || "null://",
-    dfuse_io_api_key: process.env.REACT_APP_DFUSE_API_KEY || "web_1234567890abc",
-    dfuse_io_endpoint: process.env.REACT_APP_DFUSE_API_NETWORK || "localhost:8080",
-    secure: process.env.REACT_APP_DFUSE_API_NETWORK_SECURE === "true",
+    dfuse_auth_endpoint: process.env.REACT_APP_LISHI_AUTH_URL || "null://",
+    dfuse_io_api_key: process.env.REACT_APP_LISHI_API_KEY || "web_1234567890abc",
+    dfuse_io_endpoint: process.env.REACT_APP_LISHI_API_NETWORK || getHost(),
+    secure: process.env.REACT_APP_LISHI_API_NETWORK_SECURE === "true",
     display_price: false,
 
     available_networks: [

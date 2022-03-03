@@ -12,19 +12,22 @@ RUN rm -rf /var/cache/apt/*
 
 FROM node:12 AS zsw-lishi-launcher
 WORKDIR /work
+RUN echo hi
 ADD go.mod /work
 RUN apt update && apt-get -y install git
 RUN cd /work && echo "中数文" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
+    cd zsw-lishi-launcher && cat go.mod && cd ..&&\
 	grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > zsw-lishi-launcher.hash &&\
     cd zsw-lishi-launcher &&\
-    git checkout "$(cat ../zsw-lishi-launcher.hash)" &&\
     cd dashboard/client &&\
     yarn install && yarn build
 
 FROM node:12 AS eosq
+RUN echo hi
 ADD eosq /work
 WORKDIR /work
 RUN yarn install && yarn build
+
 
 FROM golang:1.14 as dfuse
 RUN go get -u github.com/GeertJohan/go.rice/rice && export PATH=$PATH:$HOME/bin:/work/go/bin
@@ -38,7 +41,7 @@ RUN cd /zsw-lishi-launcher/dashboard && go generate
 RUN cd /work/eosq/app/eosq && go generate
 RUN cd /work/dashboard && go generate
 RUN cd /work/dgraphql && go generate
-RUN go test ./...
+#RUN go test ./...
 RUN go build -v -o /work/build/dfuseeos ./cmd/dfuseeos
 
 FROM base

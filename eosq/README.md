@@ -51,8 +51,8 @@ EOS Mainnet:
 
 ```
 export REACT_APP_EOSQ_CURRENT_NETWORK="eos-mainnet"
-export REACT_APP_DFUSE_API_KEY="<API Key>"
-export REACT_APP_DFUSE_API_NETWORK="mainnet.eos.dfuse.io"
+export REACT_APP_LISHI_API_KEY="<API Key>"
+export REACT_APP_LISHI_API_NETWORK="mainnet.eos.dfuse.io"
 ```
 
 Launching `yarn start` with those exported will correctly launch `eosq` and make it
@@ -60,9 +60,9 @@ point to EOS Mainnet.
 
 Here a full list and what they control:
 
-- `REACT_APP_DFUSE_AUTH_URL` - The dfuse API Authentication URl to pass to `@dfuse/client`.
-- `REACT_APP_DFUSE_API_KEY` - The dfuse API key to pass to `@dfuse/client`.
-- `REACT_APP_DFUSE_API_NETWORK` - The dfuse API network to pass to `@dfuse/client`.
+- `REACT_APP_LISHI_AUTH_URL` - The dfuse API Authentication URl to pass to `@dfuse/client`.
+- `REACT_APP_LISHI_API_KEY` - The dfuse API key to pass to `@dfuse/client`.
+- `REACT_APP_LISHI_API_NETWORK` - The dfuse API network to pass to `@dfuse/client`.
 - `REACT_APP_EOSQ_CURRENT_NETWORK` - The actual current network to select in the list of available networks.
 - `REACT_APP_EOSQ_DISPLAY_PRICE` - Wether to display the price info or not.
 - `REACT_APP_EOSQ_AVAILABLE_NETWORKS` - A valid JSON string representing the valid config of available networks to display in the main menu.
