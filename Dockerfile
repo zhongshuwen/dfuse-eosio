@@ -41,10 +41,10 @@ RUN cd /work/dashboard && go generate
 RUN cd /work/dgraphql && go generate
 #RUN go test ./...
 RUN go build -v -o /work/build/dfuseeos ./cmd/dfuseeos
-
+RUN mv /work/build/dfuseeos /work/build/zswlishi
 FROM base
 RUN mkdir -p /app/ && curl -Lo /app/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/v0.2.2/grpc_health_probe-linux-amd64 && chmod +x /app/grpc_health_probe
-COPY --from=dfuse /work/build/dfuseeos /app/zswlishi
+COPY --from=dfuse /work/build/zswlishi /app/zswlishi
 COPY --from=dfuse /work/tools/manageos/motd /etc/motd
 COPY --from=dfuse /work/tools/manageos/scripts /usr/local/bin/
 RUN echo cat /etc/motd >> /root/.bashrc
