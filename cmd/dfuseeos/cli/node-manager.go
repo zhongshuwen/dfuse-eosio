@@ -35,7 +35,7 @@ func init() {
 			cmd.Flags().Bool("node-manager-connection-watchdog", false, "Force-reconnect dead peers automatically")
 			cmd.Flags().String("node-manager-config-dir", "./producer", "Directory for config files")
 			cmd.Flags().String("node-manager-nodeos-path", NodeosBinPath, "Path to the nodeos binary. Defaults to the nodeos found in your PATH")
-			cmd.Flags().String("node-manager-data-dir", "{dfuse-data-dir}/node-manager/data", "Directory for data (nodeos blocks and state)")
+			cmd.Flags().String("node-manager-data-dir", "{zswlishi-data-dir}/node-manager/data", "Directory for data (nodeos blocks and state)")
 			cmd.Flags().String("node-manager-producer-hostname", "", "Hostname that will produce block (other will be paused)")
 			cmd.Flags().String("node-manager-trusted-producer", "", "The EOS account name of the Block Producer we trust all blocks from")
 			cmd.Flags().Duration("node-manager-readiness-max-latency", 5*time.Second, "/healthz will return error until nodeos head block time is within that duration to now")

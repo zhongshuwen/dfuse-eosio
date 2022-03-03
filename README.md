@@ -24,7 +24,7 @@ development chain by also managing the block producing node for you.
 ### From a pre-built release
 
 * Download a tarball from the [GitHub Releases Tab](https://github.com/dfuse-io/dfuse-eosio/releases).
-* Put the binary `dfuseeos` in your `PATH`.
+* Put the binary `zswlishi` in your `PATH`.
 
 ### From source
 
@@ -41,17 +41,17 @@ This will install the binary in your `$GOPATH/bin` folder (normally `$HOME/go/bi
 
 _**Note** -- If you're getting yarn dependency warnings while running the `yarn install && yarn build` commands above, you can normally safely ignore those and move forward with the installation. If you're getting an error while installing and/or compiling, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md#installing--compiling-error)._
 
-## Creating a new local chain with `dfuseeos`
+## Creating a new local chain with `zswlishi`
 
 ### 1. Initialize
 
 Initialize a few configuration files in your working directory (`dfuse.yaml`, `mindreader/config.ini`, ...)
 
 ```
-dfuseeos init
+zswlishi init
 ```
 
-Answer `y` (yes) when being prompted for `Do you want dfuse for EOSIO to run a producing node for you?`. If you intend is to sync an existing chain, follow [Syncing an existing chain with `dfuseeos`](#syncing-an-existing-chain-with-dfuseeos) instead.
+Answer `y` (yes) when being prompted for `Do you want ZSWLiShi to run a producing node for you?`. If you intend is to sync an existing chain, follow [Syncing an existing chain with `zswlishi`](#syncing-an-existing-chain-with-zswlishi) instead.
 
 ### 2. Boot
 
@@ -64,7 +64,7 @@ wget -O bootseq.yaml https://raw.githubusercontent.com/dfuse-io/dfuse-eosio/deve
 When you're ready, boot your instance with:
 
 ```
-dfuseeos start
+zswlishi start
 ```
 
 A successful start will list the launching applications as well as the graphical interfaces with their relevant links:
@@ -78,7 +78,7 @@ GraphiQL:         http://localhost:8080/graphiql
 
 In this mode, two nodeos instances will now be running on your machine, a block producer node and a mindreader node, and the dfuse services should be ready in a couple seconds.
 
-## Syncing an existing chain with `dfuseeos`
+## Syncing an existing chain with `zswlishi`
 
 If you chose to sync to an existing chain, only the mindreader node will launch. It may take a while for the initial sync depending on the size of the chain and the services may generate various error logs until it catches up (more options for quickly syncing with an existing chain will be proposed in upcoming releases).
 
@@ -96,14 +96,14 @@ You should also take a look at our Docs:
 ## Overview - Repository Map
 
 The glue:
-* The [dfuseeos](./cmd/dfuseeos) binary.
+* The [zswlishi](./cmd/zswlishi) binary.
 * The [launcher](./launcher) which starts all the internal services
 
 The EOSIO-specific services:
 * [abicodec](./abicodec): ABI encoding and decoding service
 * [statedb](./statedb): The **dfuse State** database for EOSIO, with all tables at any block height
 * [kvdb-loader](./kvdb-loader): Service that loads data into the `kvdb` storage
-* [dashboard](./dashboard): Server and UI for the **dfuse for EOSIO** dashboard.
+* [dashboard](./dashboard): Server and UI for the **ZSWLiShi** dashboard.
 * [eosq](./eosq): The famous https://eosq.app block explorer
 * [eosws](./eosws): The REST, Websocket service, push guarantee, chain pass-through service.
 

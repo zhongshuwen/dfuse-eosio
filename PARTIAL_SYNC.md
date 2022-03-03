@@ -1,8 +1,8 @@
-# Partial synchronisation of Kylin testnet's head using dfuse for EOSIO
+# Partial synchronisation of Kylin testnet's head using ZSWLiShi
 
 ## Requirements
 
-* A working `dfuseeos` command and nodeos installed with 'deep-mind' patch (see https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries)
+* A working `zswlishi` command and nodeos installed with 'deep-mind' patch (see https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries)
 
 ## Get a clean workspace folder, fetch a Kylin snapshot (using EOS Nation snapshots as a source in this example)
 
@@ -66,7 +66,7 @@ p2p-accept-transactions = false
 api-accept-transactions = false
 
 # P2P
-agent-name = dfuse for EOSIO (mindreader)
+agent-name = ZSWLiShi (mindreader)
 p2p-server-address = 127.0.0.1:9877
 p2p-listen-endpoint = 127.0.0.1:9877
 p2p-max-nodes-per-host = 2
@@ -101,23 +101,23 @@ EOC
 ## Run 'phase1-blocks'
 
 ```
-dfuseeos -c kylin-phase1-blocks.yaml start -v
+zswlishi -c kylin-phase1-blocks.yaml start -v
 ```
 
-* You can see the 'actual' progress of block files being written by running this command from another terminal: `ls -ltr dfuse-data/storage/merged-blocks/ |tail`
+* You can see the 'actual' progress of block files being written by running this command from another terminal: `ls -ltr zswlishi-data/storage/merged-blocks/ |tail`
 * From different terminal sessions, you can run the "search" and "trxdb" phases in parallel with this phase. They will wait for merged block files to be created. See next steps in this document.
 
 KNOWN ISSUES:
 
-* The mindreader writes merged block files SLOWER than the nodeos instance can catch up. This means that it will keep going for a while after the "stop block" appears in the logs. Do not worry and do not try to force kill the dfuseeos instance! Let it continue until it finishes.
-* Since the nodeos will go further than the requested "stop block", all extra blocks will be written to the 'dfuse-data/storage/one-blocks` folder, so that the `merger` can pick them up on the next run.
+* The mindreader writes merged block files SLOWER than the nodeos instance can catch up. This means that it will keep going for a while after the "stop block" appears in the logs. Do not worry and do not try to force kill the zswlishi instance! Let it continue until it finishes.
+* Since the nodeos will go further than the requested "stop block", all extra blocks will be written to the 'zswlishi-data/storage/one-blocks` folder, so that the `merger` can pick them up on the next run.
 
 
 ## 'phase1-search' (can be done in parallel with phase1)
 
 ### Required information
 * `search-indexer-start-block: {500 blocks higher than first merged block file, rounded to the next 'shard-size'}`
-  * Take that bluck number `ls  ./dfuse-data/storage/merged-blocks/ |head -n 1` and add 500 to it
+  * Take that bluck number `ls  ./zswlishi-data/storage/merged-blocks/ |head -n 1` and add 500 to it
 * `search-indexer-stop-block: {100 below the value that you put in for mindreader-stop-block-num earlier, rounded to the lower 'shard-size'}`
 
 ### Example kylin-phase1-search.yaml
@@ -138,7 +138,7 @@ start:
 ### Run 'phase1-search'
 
 ```
-dfuseeos -c kylin-phase1-search.yaml start  -vv
+zswlishi -c kylin-phase1-search.yaml start  -vv
 ```
 
 NOTE: the 'actual' start block that you can use afterwards will most likely be the one that you set here in 'search-indexer'
@@ -147,7 +147,7 @@ NOTE: the 'actual' start block that you can use afterwards will most likely be t
 
 ### Required information
 * `trxdb-loader-start-block-num: {500 blocks higher than first merged block file}`
-  * Take that bluck number `ls  ./dfuse-data/storage/merged-blocks/ |head -n 1` and add 500 to it
+  * Take that bluck number `ls  ./zswlishi-data/storage/merged-blocks/ |head -n 1` and add 500 to it
 * `trxdb-loader-stop-block-num: {100 below the value that you put in for mindreader-stop-block-num earlier}`
 * `common-chain-id: 5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191`
   * change this if you are syncing another chain than kylin, could be scripted like this `curl -s https://kylin.eos.dfuse.io/v1/chain/get_info | sed 's/.*chain_id...\([a-f0-9]*\).*/\1/'` or with better tools like 'jq'
@@ -170,7 +170,7 @@ start:
 ### Run 'phase1-trxdb'
 
 ```
-dfuseeos -c kylin-phase1-trxdb.yaml start  -vv
+zswlishi -c kylin-phase1-trxdb.yaml start  -vv
 ```
 
 KNOWN ISSUES:
@@ -208,7 +208,7 @@ start:
 
 ### Known Issues
 
-* You may see some warnings like this: `found a hole in a oneblock files`, sometimes they are false positive. Watch the progression of merged-blocks in the folder like this: `ls  ./dfuse-data/storage/merged-blocks/ |tail -n 1` to make sure that the merger keeps going correctly
+* You may see some warnings like this: `found a hole in a oneblock files`, sometimes they are false positive. Watch the progression of merged-blocks in the folder like this: `ls  ./zswlishi-data/storage/merged-blocks/ |tail -n 1` to make sure that the merger keeps going correctly
 * EOSQ will not work correctly without "eosws", "fluxdb", "abicodec", which do not support 'partial chain syncing' at the moment. You will need to sync the full chain to get that.
 
 ### Watch as the chain syncs its missing part up to the head

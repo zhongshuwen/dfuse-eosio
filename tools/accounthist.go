@@ -26,7 +26,7 @@ var accounthistCmd = &cobra.Command{Use: "accounthist", Short: "Read from accoun
 var accountCmd = &cobra.Command{Use: "account", Short: "Account interactions"}
 var checkpointCmd = &cobra.Command{Use: "checkpoint", Short: "Shard checkpoint interactions", Args: cobra.ExactArgs(1), RunE: readCheckpointE}
 
-// dfuseeos tools accounthist account read {account} --dsn
+// zswlishi tools accounthist account read {account} --dsn
 var readAccountCmd = &cobra.Command{
 	Use:   "read {account}",
 	Short: "Read an account",
@@ -34,7 +34,7 @@ var readAccountCmd = &cobra.Command{
 	RunE:  readAccountE,
 }
 
-// dfuseeos tools accounthist account purge {account} --dsn
+// zswlishi tools accounthist account purge {account} --dsn
 var purgeAccountCmd = &cobra.Command{
 	Use:   "purge {maxEntries}",
 	Short: "Purge accounts",
@@ -42,14 +42,14 @@ var purgeAccountCmd = &cobra.Command{
 	RunE:  purgeAccountE,
 }
 
-// dfuseeos tools accounthist account scan --dsn
+// zswlishi tools accounthist account scan --dsn
 var scanAccountsCmd = &cobra.Command{
 	Use:   "scan",
 	Short: "Scan accounts",
 	RunE:  scanAccountE,
 }
 
-// dfuseeos tools accounthist account scan --dsn
+// zswlishi tools accounthist account scan --dsn
 var readCheckpointCmd = &cobra.Command{
 	Use:   "read",
 	Short: "Read a shard's checkpoint",
@@ -74,7 +74,7 @@ func init() {
 	checkpointCmd.AddCommand(readCheckpointCmd, deleteCheckpointCmd)
 
 	accounthistCmd.PersistentFlags().String("mode", "account", "accountgist mode one of 'account' or 'account-contract'")
-	accounthistCmd.PersistentFlags().String("dsn", "badger:///dfuse-data/kvdb/kvdb_badger.db", "kvStore DSN")
+	accounthistCmd.PersistentFlags().String("dsn", "badger:///zswlishi-data/kvdb/kvdb_badger.db", "kvStore DSN")
 	readAccountCmd.Flags().Int("shardNum", -1, "Analyze at a specific shard number")
 	scanAccountsCmd.Flags().Int("limit", 100, "limit the number of accounts when doing scan")
 

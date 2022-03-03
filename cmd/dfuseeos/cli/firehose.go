@@ -50,13 +50,13 @@ func init() {
 				tracker.AddGetter(bstream.BlockStreamLIBTarget, bstream.StreamLIBBlockRefGetter(blockstreamAddr))
 			}
 
-			// FIXME: That should be a shared dependencies across `dfuse for EOSIO`
+			// FIXME: That should be a shared dependencies across `ZSWLiShi`
 			authenticator, err := dauthAuthenticator.New(viper.GetString("common-auth-plugin"))
 			if err != nil {
 				return nil, fmt.Errorf("unable to initialize dauth: %w", err)
 			}
 
-			// FIXME: That should be a shared dependencies across `dfuse for EOSIO`, it will avoid the need to call `dmetering.SetDefaultMeter`
+			// FIXME: That should be a shared dependencies across `ZSWLiShi`, it will avoid the need to call `dmetering.SetDefaultMeter`
 			metering, err := dmetering.New(viper.GetString("common-metering-plugin"))
 			if err != nil {
 				return nil, fmt.Errorf("unable to initialize dmetering: %w", err)

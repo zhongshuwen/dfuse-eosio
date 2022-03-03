@@ -77,7 +77,7 @@ build() {
   if ! [[ $prepare_only == true ]]; then
     GIT_COMMIT="$(git describe --match=NeVeRmAtCh --always --abbrev=7 --dirty)"
 
-    echo "Building & installing dfuseeos binary for $GIT_COMMIT"
+    echo "Building & installing zswlishi binary for $GIT_COMMIT"
     go install -ldflags "-X main.commit=$GIT_COMMIT" ./cmd/dfuseeos
   fi
 }
@@ -150,7 +150,7 @@ usage() {
   echo "usage: ./scripts/build.sh [-f] [-s] [-y] [-p]"
   echo ""
   echo "Checks build requirements and build a development local version of the"
-  echo "'dfuseeos' binary."
+  echo "'zswlishi' binary."
   echo ""
   echo "Options"
   echo "   -f          Force re-build all dependencies (eosq, dashboard)"

@@ -1,6 +1,6 @@
 # Logging
 
-It's possible to configure `dfuseeos` logging with the repeatable
+It's possible to configure `zswlishi` logging with the repeatable
 verbosity flag, like `-vvv` which enables debugging verbosity level
 3 (default is 0).
 
@@ -26,14 +26,14 @@ use the environment variable INFO (detailed later in this document): INFO=
 
 These are the simplest way to manage verbosity in a holistic way.
 Different levels are already defined to make it easier to run all
-`dfuseeos` apps together.
+`zswlishi` apps together.
 
 ### Verbosity 0 (no flag)
 
 Level:
 
 - INFO `github.com/dfuse-io/dfuse-eosio`
-- INFO `github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos`
+- INFO `github.com/dfuse-io/dfuse-eosio/cmd/zswlishi`
 - WARN All others
 
 Formatting:
@@ -48,7 +48,7 @@ Formatting:
 Level:
 
 - INFO `github.com/dfuse-io/dfuse-eosio`
-- INFO `github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos`
+- INFO `github.com/dfuse-io/dfuse-eosio/cmd/zswlishi`
 - WARN `github.com/dfuse-io/manageos.*`
 - INFO All apps
 - WARN All others
@@ -65,7 +65,7 @@ Formatting:
 Level:
 
 - DEBUG `github.com/dfuse-io/dfuse-eosio`
-- DEBUG `github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos`
+- DEBUG `github.com/dfuse-io/dfuse-eosio/cmd/zswlishi`
 - INFO `github.com/dfuse-io/manageos.*`
 - INFO All apps
 - INFO All others
@@ -118,7 +118,7 @@ Formatting:
 For example, you can run:
 
 ```
-DEBUG="mindreader,dgraphql,relayer" INFO="mindreader/nodeos" dfuseeos start
+DEBUG="mindreader,dgraphql,relayer" INFO="mindreader/nodeos" zswlishi start
 ```
 
 which will:

@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 
 main() {
@@ -19,10 +19,10 @@ main() {
   [[ $1 = "--" ]] && shift
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data &> /dev/null || true
+    rm -rf zswlishi-data &> /dev/null || true
   fi
 
-  exec $dfuseeos -c $(basename $ROOT).yaml start "$@"
+  exec $zswlishi -c $(basename $ROOT).yaml start "$@"
 }
 
 usage_error() {

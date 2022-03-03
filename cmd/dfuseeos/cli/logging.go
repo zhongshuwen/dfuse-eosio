@@ -25,5 +25,5 @@ var userLog = launcher.UserLog
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos", &zlog)
+	logging.Register("github.com/dfuse-io/dfuse-eosio/cmd/zswlishi", &zlog)
 }

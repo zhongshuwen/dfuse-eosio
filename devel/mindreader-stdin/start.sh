@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 all=true
 only_mindreader=
@@ -41,7 +41,7 @@ main() {
   fi
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data &> /dev/null || true
+    rm -rf zswlishi-data &> /dev/null || true
   fi
 
   if [[ $all == true ]]; then
@@ -51,23 +51,23 @@ main() {
   fi
 
   if [[ $all == true || $only_producer == true ]]; then
-    $dfuseeos -c producer.yaml start "$@" &
+    $zswlishi -c producer.yaml start "$@" &
   fi
 
   if [[ $all == true || $only_mindreader == true ]]; then
     if [[ $use_deep_mind_file != "" ]]; then
-      (cat $use_deep_mind_file | $dfuseeos -c mindreader-stdin.yaml start "$@") &
+      (cat $use_deep_mind_file | $zswlishi -c mindreader-stdin.yaml start "$@") &
     else
       # Sleeping a few seconds to let the procuding node enough time to start
       sleep 3
 
-      nodeos="nodeos --config-dir ./mindreader -d ./dfuse-data/mindreader/data --genesis-json=./mindreader/genesis.json --deep-mind"
-      ($nodeos | $dfuseeos -c mindreader-stdin.yaml start "$@") &
+      nodeos="nodeos --config-dir ./mindreader -d ./zswlishi-data/mindreader/data --genesis-json=./mindreader/genesis.json --deep-mind"
+      ($nodeos | $zswlishi -c mindreader-stdin.yaml start "$@") &
     fi
   fi
 
   if [[ $all == true || $only_stack == true ]]; then
-    $dfuseeos -c stack.yaml start "$@" &
+    $zswlishi -c stack.yaml start "$@" &
   fi
 
   wait

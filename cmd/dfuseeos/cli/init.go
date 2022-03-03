@@ -63,7 +63,7 @@ func dfuseInitE(cmd *cobra.Command, args []string) (err error) {
 	}
 
 	userLog.Printf("")
-	userLog.Printf("Initialization completed! To kickstart your environment, run: 'dfuseeos start'")
+	userLog.Printf("Initialization completed! To kickstart your environment, run: 'zswlishi start'")
 
 	return nil
 }
@@ -175,14 +175,14 @@ func peersListConfigEntry(peers []string) string {
 }
 
 func askProducer() (bool, error) {
-	userLog.Printf(`dfuse for EOSIO can run a local test node configured for block production,
+	userLog.Printf(`ZSWLiShi can run a local test node configured for block production,
 similar to what you use in development, with a clean blank chain and no contracts.
 
-Alternatively, dfuse for EOSIO can connect to an already existing network.`)
+Alternatively, ZSWLiShi can connect to an already existing network.`)
 	userLog.Printf("")
 
 	prompt := promptui.Prompt{
-		Label:     "Do you want dfuse for EOSIO to run a producing node for you",
+		Label:     "Do you want ZSWLiShi to run a producing node for you",
 		IsConfirm: true,
 	}
 

@@ -30,8 +30,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// Root of the `dfuseeos` command
-var RootCmd = &cobra.Command{Use: "dfuseeos", Short: "dfuse for EOSIO"}
+// Root of the `zswlishi` command
+var RootCmd = &cobra.Command{Use: "zswlishi", Short: "ZSWLiShi"}
 var version = "dev"
 var commit = ""
 var allFlags = make(map[string]bool) // used as global because of async access to cobra init functions
@@ -42,11 +42,11 @@ func init() {
 
 func Main() {
 	cobra.OnInitialize(func() {
-		allFlags = flags.AutoBind(RootCmd, "DFUSEEOS")
+		allFlags = flags.AutoBind(RootCmd, "ZSWLISHI")
 	})
 
-	RootCmd.PersistentFlags().StringP("data-dir", "d", "./dfuse-data", "Path to data storage for all components of dfuse")
-	RootCmd.PersistentFlags().StringP("config-file", "c", "./dfuse.yaml", "dfuse configuration file to use. No config file loaded if set to an empty string.")
+	RootCmd.PersistentFlags().StringP("data-dir", "d", "./zswlishi-data", "Path to data storage for all components of dfuse")
+	RootCmd.PersistentFlags().StringP("config-file", "c", "./zswlishi.yaml", "zswlishi configuration file to use. No config file loaded if set to an empty string.")
 	RootCmd.PersistentFlags().String("nodeos-path", "nodeos", "Path to the nodeos binary. Defaults to the nodeos found in your PATH")
 	RootCmd.PersistentFlags().Bool("skip-checks", false, "Skip checks to ensure 'nodeos' binary is supported")
 	RootCmd.PersistentFlags().String("log-format", "text", "Format for logging to stdout. Either 'text' or 'stackdriver'")
@@ -75,7 +75,7 @@ func Main() {
 	derr.Check("dfuse", RootCmd.Execute())
 }
 
-var startCmdExample = `dfuseeos start relayer merger --merger-grpc-serving-addr=localhost:12345 --relayer-merger-addr=localhost:12345`
+var startCmdExample = `zswlishi start relayer merger --merger-grpc-serving-addr=localhost:12345 --relayer-merger-addr=localhost:12345`
 var startCmdHelpTemplate = `Usage:{{if .Runnable}}
   {{.UseLine}}{{end}} [all|command1 [command2...]]{{if gt (len .Aliases) 0}}
 

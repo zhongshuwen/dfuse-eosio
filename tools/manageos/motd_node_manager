@@ -4,7 +4,7 @@
           /____//_/   \____//___//___/
 
 Welcome to this node manager pod, common commands:
- - Show version           dfuseeos --version
+ - Show version           zswlishi --version
 
 Node manager commands (zsw-... <tab> to show all):
  - Check HEAD & LIB info              cleos get info

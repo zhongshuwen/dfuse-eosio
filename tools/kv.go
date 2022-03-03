@@ -31,10 +31,10 @@ func init() {
 	kvCmd.AddCommand(kvScanCmd)
 	kvCmd.AddCommand(kvGetCmd)
 
-	defaultBadger := "badger://dfuse-data/storage/statedb-v1"
+	defaultBadger := "badger://zswlishi-data/storage/statedb-v1"
 	cwd, err := os.Getwd()
 	if err == nil {
-		defaultBadger = "badger://" + cwd + "/dfuse-data/storage/statedb-v1"
+		defaultBadger = "badger://" + cwd + "/zswlishi-data/storage/statedb-v1"
 	}
 
 	kvCmd.PersistentFlags().String("dsn", defaultBadger, "kvStore DSN")

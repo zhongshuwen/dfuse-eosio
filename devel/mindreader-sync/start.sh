@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos=../dfuseeos
+zswlishi=../dfuseeos
 
 clean=
 network=
@@ -36,13 +36,13 @@ main() {
   fi
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data &> /dev/null || true
+    rm -rf zswlishi-data &> /dev/null || true
   fi
 
-  DFUSEEOS_MINDREADER_STOP_BLOCK_NUM=$stop_block\
-  DFUSEEOS_MINDREADER_CONFIG_DIR=mindreader/$network \
-  DFUSEEOS_MINDREADER_RESTORE_SNAPSHOT_NAME=$snapshot \
-  $dfuseeos -c sync.yaml start "$@"
+  ZSWLISHI_MINDREADER_STOP_BLOCK_NUM=$stop_block\
+  ZSWLISHI_MINDREADER_CONFIG_DIR=mindreader/$network \
+  ZSWLISHI_MINDREADER_RESTORE_SNAPSHOT_NAME=$snapshot \
+  $zswlishi -c sync.yaml start "$@"
 }
 
 valid_networks() {

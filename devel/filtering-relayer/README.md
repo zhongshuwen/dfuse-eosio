@@ -45,7 +45,7 @@ To test trxdb switch db implementation, follow those steps:
 To read a block from the "global" block database you can use this:
 
 ```
-dfuseeos tools db blk 200 --dsn bigkv://dev.dev/test-trxdb-blocks
+zswlishi tools db blk 200 --dsn bigkv://dev.dev/test-trxdb-blocks
 ```
 
 Reading the same block from the "filtered" transaction database will
@@ -54,5 +54,5 @@ try
 it:
 
 ```
-dfuseeos tools db blk 200 --dsn bigkv://dev.dev/test-trxdb-trxs
+zswlishi tools db blk 200 --dsn bigkv://dev.dev/test-trxdb-trxs
 ```

@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 force_injection=
 active_pid=
@@ -27,23 +27,23 @@ main() {
   [[ $1 = "--" ]] && shift
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data 1> /dev/null
+    rm -rf zswlishi-data 1> /dev/null
   fi
 
-  isEmpty=$([ ! -d "dfuse-data" ] && echo "true" || echo "false")
+  isEmpty=$([ ! -d "zswlishi-data" ] && echo "true" || echo "false")
 
   set -e
 
   if [[ $isEmpty == "true" ]]; then
     # Each sharder generate all shards for a given range, this can be parallelize heavily as it depends only on `merged-blocks`
     echo "Generating statedb shards"
-    $dfuseeos -c sharder-0-1000.yaml start "$@"
+    $zswlishi -c sharder-0-1000.yaml start "$@"
     echo ""
-    $dfuseeos -c sharder-1000-2000.yaml start "$@"
+    $zswlishi -c sharder-1000-2000.yaml start "$@"
     echo ""
 
     echo "Sharder is done"
-    $dfuseeos tools check statedb-reproc-sharder dfuse-data/storage/statedb-shards 3
+    $zswlishi tools check statedb-reproc-sharder zswlishi-data/storage/statedb-shards 3
     echo ""
   fi
 
@@ -55,20 +55,20 @@ main() {
     # based on the throughput of your underlying storage engine. We usually runs like 8 to 16 in parallel on
     # on heavy to medium networks.
     echo "Injecting statedb shards into storage"
-    $dfuseeos -c shard-injector-000.yaml start "$@"
+    $zswlishi -c shard-injector-000.yaml start "$@"
     echo ""
 
-    $dfuseeos -c shard-injector-001.yaml start "$@"
+    $zswlishi -c shard-injector-001.yaml start "$@"
     echo ""
 
-    $dfuseeos -c shard-injector-002.yaml start "$@"
+    $zswlishi -c shard-injector-002.yaml start "$@"
     echo ""
 
     echo "Shard injector is done"
     echo ""
   fi
 
-  exec $dfuseeos -c server.yaml start "$@"
+  exec $zswlishi -c server.yaml start "$@"
 }
 
 usage_error() {
@@ -82,7 +82,7 @@ usage_error() {
 }
 
 usage() {
-  echo "usage: start.sh [-c] [-- ... dfuseeos extra args]"
+  echo "usage: start.sh [-c] [-- ... zswlishi extra args]"
   echo ""
   echo "Start $(basename $ROOT) environment."
   echo ""

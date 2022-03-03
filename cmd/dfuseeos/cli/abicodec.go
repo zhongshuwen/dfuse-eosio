@@ -17,10 +17,10 @@ func init() {
 		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/abicodec.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("abicodec-grpc-listen-addr", ABICodecServingAddr, "Address to listen for incoming gRPC requests")
-			cmd.Flags().String("abicodec-cache-base-url", "{dfuse-data-dir}/storage/abicache", "path where the cache store is state")
+			cmd.Flags().String("abicodec-cache-base-url", "{zswlishi-data-dir}/storage/abicache", "path where the cache store is state")
 			cmd.Flags().String("abicodec-cache-file-name", "abicodec_cache.bin", "path where the cache store is state")
 			cmd.Flags().Bool("abicodec-export-abis-enabled", true, "Enable abis JSON export")
-			cmd.Flags().String("abicodec-export-abis-base-url", "{dfuse-data-dir}/storage/abicache", "path where to put json.zstd abis export")
+			cmd.Flags().String("abicodec-export-abis-base-url", "{zswlishi-data-dir}/storage/abicache", "path where to put json.zstd abis export")
 			cmd.Flags().String("abicodec-export-abis-file-name", "abi-cache.json.zst", "abi cache json filename")
 			return nil
 		},

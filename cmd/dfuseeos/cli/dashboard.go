@@ -12,7 +12,7 @@ func init() {
 	launcher.RegisterApp(&launcher.AppDef{
 		ID:          "dashboard",
 		Title:       "Dashboard",
-		Description: "dfuse for EOSIO - dashboard",
+		Description: "ZSWLiShi - dashboard",
 		MetricsID:   "dashboard",
 		Logger:      launcher.NewLoggingDef("github.com/invisible-train-40/zsw-lishi-launcher/dashboard.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
@@ -29,7 +29,7 @@ func init() {
 				NodeManagerAPIAddr:  viper.GetString("dashboard-eos-node-manager-api-addr"),
 				MetricsHTTPAddr:     viper.GetString("dashboard-metrics-api-addr"),
 				DmeshServiceVersion: viper.GetString("search-common-mesh-service-version"),
-				Title:               "dfuse for EOSIO - dashboard",
+				Title:               "ZSWLiShi - dashboard",
 				BlockExplorerName:   "eosq",
 				HeadBlockNumberApp:  "mindreader",
 			}, &dashboard.Modules{

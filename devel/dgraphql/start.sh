@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 force_injection=
 active_pid=
@@ -27,12 +27,12 @@ main() {
   [[ $1 = "--" ]] && shift
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data 1> /dev/null
+    rm -rf zswlishi-data 1> /dev/null
   fi
 
   set -e
 
-  exec $dfuseeos -c server.yaml start "$@"
+  exec $zswlishi -c server.yaml start "$@"
 }
 
 usage_error() {
@@ -46,13 +46,13 @@ usage_error() {
 }
 
 usage() {
-  echo "usage: start.sh [-c] [-i] [-- ... dfuseeos extra args]"
+  echo "usage: start.sh [-c] [-i] [-- ... zswlishi extra args]"
   echo ""
   echo "Start $(basename $ROOT) environment."
   echo ""
   echo "Options"
   echo "    -c             Clean actual data directory first"
-  echo "    -i             Force injection, not just when no 'dfuse-data' present"
+  echo "    -i             Force injection, not just when no 'zswlishi-data' present"
   echo ""
   echo "Environment"
   echo "    INFO=<app>     Turn info logs for <app> (multiple separated by ','), accepts app name or regexp (.* for all)"

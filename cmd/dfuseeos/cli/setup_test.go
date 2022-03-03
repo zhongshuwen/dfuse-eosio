@@ -28,10 +28,10 @@ func Test_extractCmd(t *testing.T) {
 		return nil
 	}
 
-	rootCmd := &cobra.Command{Use: "dfuseeos", Short: "dfuse for EOSIO"}
-	startCmd := &cobra.Command{Use: "start", Short: "Starts `dfuse for EOSIO` services all at once", RunE: testCmdE}
+	rootCmd := &cobra.Command{Use: "zswlishi", Short: "ZSWLiShi"}
+	startCmd := &cobra.Command{Use: "start", Short: "Starts `ZSWLiShi` services all at once", RunE: testCmdE}
 	initCmd := &cobra.Command{Use: "init", Short: "Initializes dfuse's local environment", RunE: testCmdE}
-	toolCmd := &cobra.Command{Use: "tools", Short: "Developer tools related to dfuseeos", RunE: testCmdE}
+	toolCmd := &cobra.Command{Use: "tools", Short: "Developer tools related to zswlishi", RunE: testCmdE}
 	dbBlkCmd := &cobra.Command{Use: "blk", Short: "Read a Blk", RunE: testCmdE}
 
 	rootCmd.AddCommand(initCmd)
@@ -47,17 +47,17 @@ func Test_extractCmd(t *testing.T) {
 		{
 			name:      "root command",
 			cmd:       rootCmd,
-			expectCmd: []string{"dfuseeos"},
+			expectCmd: []string{"zswlishi"},
 		},
 		{
 			name:      "first tier command",
 			cmd:       startCmd,
-			expectCmd: []string{"dfuseeos", "start"},
+			expectCmd: []string{"zswlishi", "start"},
 		},
 		{
 			name:      "child command",
 			cmd:       dbBlkCmd,
-			expectCmd: []string{"dfuseeos", "tools", "blk"},
+			expectCmd: []string{"zswlishi", "tools", "blk"},
 		},
 	}
 
@@ -74,10 +74,10 @@ func Test_shouldRunSetup(t *testing.T) {
 		return nil
 	}
 
-	rootCmd := &cobra.Command{Use: "dfuseeos", Short: "dfuse for EOSIO"}
-	startCmd := &cobra.Command{Use: "start", Short: "Starts `dfuse for EOSIO` services all at once", RunE: testCmdE}
+	rootCmd := &cobra.Command{Use: "zswlishi", Short: "ZSWLiShi"}
+	startCmd := &cobra.Command{Use: "start", Short: "Starts `ZSWLiShi` services all at once", RunE: testCmdE}
 	initCmd := &cobra.Command{Use: "init", Short: "Initializes dfuse's local environment", RunE: testCmdE}
-	toolCmd := &cobra.Command{Use: "tools", Short: "Developer tools related to dfuseeos", RunE: testCmdE}
+	toolCmd := &cobra.Command{Use: "tools", Short: "Developer tools related to zswlishi", RunE: testCmdE}
 	dbBlkCmd := &cobra.Command{Use: "blk", Short: "Read a Blk", RunE: testCmdE}
 
 	rootCmd.AddCommand(initCmd)
@@ -92,17 +92,17 @@ func Test_shouldRunSetup(t *testing.T) {
 	}{
 		{
 			name:       "root command",
-			cmds:       []string{"dfuseeos"},
+			cmds:       []string{"zswlishi"},
 			expectBool: false,
 		},
 		{
 			name:       "first tier command",
-			cmds:       []string{"dfuseeos", "start"},
+			cmds:       []string{"zswlishi", "start"},
 			expectBool: true,
 		},
 		{
 			name:       "child command",
-			cmds:       []string{"dfuseeos", "tools", "blk"},
+			cmds:       []string{"zswlishi", "tools", "blk"},
 			expectBool: false,
 		},
 	}

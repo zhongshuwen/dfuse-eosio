@@ -21,7 +21,7 @@ func init() {
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("search-forkresolver-grpc-listen-addr", ForkResolverServingAddr, "Address to listen for incoming gRPC requests")
 			cmd.Flags().String("search-forkresolver-http-listen-addr", ForkResolverHTTPServingAddr, "Address to listen for incoming HTTP requests")
-			cmd.Flags().String("search-forkresolver-indices-path", "{dfuse-data-dir}/search/forkresolver", "Location for inflight indices")
+			cmd.Flags().String("search-forkresolver-indices-path", "{zswlishi-data-dir}/search/forkresolver", "Location for inflight indices")
 			return nil
 		},
 		FactoryFunc: func(runtime *launcher.Runtime) (launcher.App, error) {

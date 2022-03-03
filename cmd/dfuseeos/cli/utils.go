@@ -32,7 +32,7 @@ func mustReplaceDataDir(dataDir, in string) string {
 		panic(fmt.Errorf("file path abs: %w", err))
 	}
 
-	in = strings.Replace(in, "{dfuse-data-dir}", d, -1)
+	in = strings.Replace(in, "{zswlishi-data-dir}", d, -1)
 	return in
 }
 
@@ -182,7 +182,7 @@ func maybeCheckNodeosVersion() {
 		if strings.Contains(version.String(), "dm") {
 			cliErrorAndExit(dedentf(`
 				The "nodeos" binary found on your system with version %s is not supported by this
-				version of dfuse for EOSIO. We recently made incompatible changes to the deep mind
+				version of ZSWLiShi. We recently made incompatible changes to the deep mind
 				code found in "nodeos" binary that requires you to upgrade it.
 
 				Follow instructions at https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries

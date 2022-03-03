@@ -36,7 +36,7 @@ jobs:
         run: go test ./...
 
       - name: Build dfuseeos
-        run: go build -o dfuseeos ./cmd/dfuseeos
+        run: go build -o zswlishi ./cmd/dfuseeos
 
       # This one might be a bit more complicated... Unsure how this will behave in Github's workflow environment.
       # - name: Smoke Test

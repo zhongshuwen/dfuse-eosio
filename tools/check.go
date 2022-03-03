@@ -621,7 +621,7 @@ func expectedBlockCount(segment string, fileBlockSize uint32) int {
 }
 
 func checkTrxdbBlocksE(cmd *cobra.Command, args []string) error {
-	// FIXME: Seems `./dfuse-data/...` something doesn't work but `dfuse-data/...` works
+	// FIXME: Seems `./zswlishi-data/...` something doesn't work but `zswlishi-data/...` works
 	dsn := args[0]
 
 	blockRange, err := getBlockRangeFromFlag()

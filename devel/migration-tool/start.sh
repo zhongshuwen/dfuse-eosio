@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 mode=
 active_pid=
 
@@ -25,10 +25,10 @@ main() {
 
   if [[ $mode == "export" ]]; then
     rm -rf migration-data
-    $dfuseeos migrate -s "battlefield-snapshot.bin" "$@"
+    $zswlishi migrate -s "battlefield-snapshot.bin" "$@"
   elif [[ $mode == "import" ]]; then
-    rm -rf dfuse-data
-    $dfuseeos -c booter.yaml start "$@"
+    rm -rf zswlishi-data
+    $zswlishi -c booter.yaml start "$@"
   else
     usage_error "You must specify either '-m export' or '-m import'"
   fi

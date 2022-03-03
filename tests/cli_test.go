@@ -37,9 +37,9 @@ func TestCli(t *testing.T) {
 	}
 
 	// FIXME: Need to find a way to ensure the binary is built and at the latest version, maybe
-	//        we could invoke from the test directly the `go build -o somewhere ./cmd/dfuseeos`
+	//        we could invoke from the test directly the `go build -o somewhere ./cmd/zswlishi`
 	//        ourself?
-	binaryPath, err := filepath.Abs("../dfuseeos")
+	binaryPath, err := filepath.Abs("../zswlishi")
 	require.NoError(t, err)
 
 	dataDir, cleanup := setupExecution(t, "happy-path", "./testdata/start-producer-config.yaml")

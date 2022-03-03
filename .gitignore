@@ -9,7 +9,7 @@ dashboard/client/.npmrc
 .DS_Store
 /bootstrapping/output.log
 /dfuse.yaml
-/dfuse-data
+/zswlishi-data
 /dist
 *SOURCE_ME.sh*
 /dfuseeos

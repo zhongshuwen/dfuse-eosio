@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 read_only=
 
@@ -21,7 +21,7 @@ main() {
   [[ $1 = "--" ]] && shift
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data &> /dev/null || true
+    rm -rf zswlishi-data &> /dev/null || true
   fi
 
   config_file=$(basename $ROOT).yaml
@@ -29,7 +29,7 @@ main() {
     config_file="$(basename $ROOT)-readonly.yaml"
   fi
 
-  exec $dfuseeos -c $config_file start "$@"
+  exec $zswlishi -c $config_file start "$@"
 }
 
 usage_error() {

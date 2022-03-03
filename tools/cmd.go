@@ -4,4 +4,4 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var Cmd = &cobra.Command{Use: "tools", Short: "Developer tools related to dfuseeos"}
+var Cmd = &cobra.Command{Use: "tools", Short: "Developer tools related to zswlishi"}

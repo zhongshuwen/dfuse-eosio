@@ -1,6 +1,6 @@
 @startuml
 
-title General placement of dfuse for EOSIO components
+title General placement of ZSWLiShi components
 
 frame mindreaders {
   node "mindreader 1 + nodeos" as mindreader1

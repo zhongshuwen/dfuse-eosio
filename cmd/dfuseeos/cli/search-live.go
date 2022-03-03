@@ -23,7 +23,7 @@ func init() {
 
 			cmd.Flags().Uint32("search-live-tier-level", 100, "Level of the search tier")
 			cmd.Flags().String("search-live-grpc-listen-addr", LiveServingAddr, "Address to listen for incoming gRPC requests")
-			cmd.Flags().String("search-live-live-indices-path", "{dfuse-data-dir}/search/live", "Location for live indexes (ideally a ramdisk)")
+			cmd.Flags().String("search-live-live-indices-path", "{zswlishi-data-dir}/search/live", "Location for live indexes (ideally a ramdisk)")
 			cmd.Flags().Int("search-live-truncation-threshold", 1, "number of available dmesh peers that should serve irreversible blocks before we truncate them from this backend's memory")
 			cmd.Flags().Duration("search-live-realtime-tolerance", 1*time.Minute, "longest delay to consider this service as real-time(ready) on initialization")
 			cmd.Flags().Duration("search-live-shutdown-delay", 0*time.Second, "On shutdown, time to wait before actually leaving, to try and drain connections")

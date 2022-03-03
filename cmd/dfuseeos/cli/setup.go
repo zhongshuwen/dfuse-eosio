@@ -46,7 +46,7 @@ func setupCmd(cmd *cobra.Command) error {
 		}
 
 		if !exists && isMatchingCommand(cmds, forceConfigOn) {
-			return fmt.Errorf("Config file %q not found. Did you 'dfuseeos init'?", configFile)
+			return fmt.Errorf("Config file %q not found. Did you 'zswlishi init'?", configFile)
 		}
 
 		if exists {

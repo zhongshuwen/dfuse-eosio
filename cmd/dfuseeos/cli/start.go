@@ -40,7 +40,7 @@ import (
 	"go.uber.org/zap"
 )
 
-var StartCmd = &cobra.Command{Use: "start", Short: "Starts `dfuse for EOSIO` services all at once", RunE: dfuseStartE, Args: cobra.ArbitraryArgs}
+var StartCmd = &cobra.Command{Use: "start", Short: "Starts `ZSWLiShi` services all at once", RunE: dfuseStartE, Args: cobra.ArbitraryArgs}
 
 func init() {
 	RootCmd.AddCommand(StartCmd)
@@ -48,10 +48,10 @@ func init() {
 
 func dfuseStartE(cmd *cobra.Command, args []string) (err error) {
 	dataDir := viper.GetString("global-data-dir")
-	userLog.Debug("dfuseeos binary started", zap.String("data_dir", dataDir))
+	userLog.Debug("zswlishi binary started", zap.String("data_dir", dataDir))
 
 	configFile := viper.GetString("global-config-file")
-	userLog.Printf("Starting dfuse for EOSIO with config file '%s'", configFile)
+	userLog.Printf("Starting ZSWLiShi with config file '%s'", configFile)
 
 	err = Start(dataDir, args)
 	if err != nil {

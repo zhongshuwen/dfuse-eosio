@@ -11,7 +11,7 @@ This guide assumes you have `yarn` and `go` installed on your system.
 
   then run the binary with:
 
-      dfuseeos start
+      zswlishi start
 
 - In the second terminal, install dependencies for the `eosq` React app:
 
@@ -23,7 +23,7 @@ This guide assumes you have `yarn` and `go` installed on your system.
 
 - In your browser, connect to your instance via http://localhost:3000.
 
-## Build as single binary within dfuse for EOSIO
+## Build as single binary within ZSWLiShi
 
 - First, you will need to grab https://github.com/GeertJohan/go.rice with `go get github.com/GeertJohan/go.rice/rice`
 
@@ -73,7 +73,7 @@ HTML `index.html` page directly on production.
 ## File structure
 
 - `src` JS code
-- `app` Go code which wraps the React build into a `go` module to be run by `dfuseeos`
+- `app` Go code which wraps the React build into a `go` module to be run by `zswlishi`
 
 ## JS File structure
 

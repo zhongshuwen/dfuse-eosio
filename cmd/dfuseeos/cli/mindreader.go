@@ -41,12 +41,12 @@ func init() {
 			cmd.Flags().Bool("mindreader-connection-watchdog", false, "Force-reconnect dead peers automatically")
 			cmd.Flags().String("mindreader-config-dir", "./mindreader", "Directory for config files. ")
 			cmd.Flags().String("mindreader-nodeos-path", NodeosBinPath, "Path to the nodeos binary. Defaults to the 'nodeos' found in your PATH")
-			cmd.Flags().String("mindreader-data-dir", "{dfuse-data-dir}/mindreader/data", "Directory for data (nodeos blocks and state)")
+			cmd.Flags().String("mindreader-data-dir", "{zswlishi-data-dir}/mindreader/data", "Directory for data (nodeos blocks and state)")
 			cmd.Flags().String("mindreader-trusted-producer", "", "The EOS account name of the Block Producer we trust all blocks from")
 			cmd.Flags().Duration("mindreader-readiness-max-latency", 5*time.Second, "/healthz will return error until nodeos head block time is within that duration to now")
 			cmd.Flags().Bool("mindreader-disable-profiler", true, "Disables the node-manager profiler")
 			cmd.Flags().String("mindreader-snapshot-store-url", SnapshotsURL, "Storage bucket with path prefix where state snapshots should be done. Ex: gs://example/snapshots")
-			cmd.Flags().String("mindreader-working-dir", "{dfuse-data-dir}/mindreader/work", "Path where mindreader will stores its files")
+			cmd.Flags().String("mindreader-working-dir", "{zswlishi-data-dir}/mindreader/work", "Path where mindreader will stores its files")
 			cmd.Flags().String("mindreader-backup-tag", "default", "tag to identify the backup")
 			cmd.Flags().Bool("mindreader-no-blocks-log", true, "always DELETE blocks.log before running (run without any archive)")
 			cmd.Flags().String("mindreader-grpc-listen-addr", MindreaderGRPCAddr, "Address to listen for incoming gRPC requests")
@@ -96,7 +96,7 @@ func init() {
 					userLog.Error(`*********************************************************************************
 * Mindreader failed to start nodeos process
 * To see nodeos logs...
-* DEBUG="mindreader" dfuseeos start
+* DEBUG="mindreader" zswlishi start
 *********************************************************************************`)
 					os.Exit(1)
 				}

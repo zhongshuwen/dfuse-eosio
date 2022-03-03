@@ -37,7 +37,7 @@ func init() {
 			cmd.Flags().Int("search-archive-max-query-threads", 10, "Number of end-user query parallel threads to query 5K-blocks indexes")
 			cmd.Flags().Duration("search-archive-shutdown-delay", 0*time.Second, "On shutdown, time to wait before actually leaving, to try and drain connections")
 			cmd.Flags().String("search-archive-warmup-filepath", "", "Optional filename containing queries to warm-up the search")
-			cmd.Flags().String("search-archive-writable-path", "{dfuse-data-dir}/search/archiver", "Writable base path for storing index files")
+			cmd.Flags().String("search-archive-writable-path", "{zswlishi-data-dir}/search/archiver", "Writable base path for storing index files")
 			return nil
 		},
 		FactoryFunc: func(runtime *launcher.Runtime) (launcher.App, error) {

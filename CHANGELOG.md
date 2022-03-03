@@ -29,7 +29,7 @@ date.
 * Flag `--accounthist-mode` to specific the accounthist mode of operation
 * Added `tools check accounthist-shards` to
 * Flag `--common-include-filter-expr`, `--common-exclude-filter-expr`, `--common-system-actions-include-filter-expr` can optionally specify multiple values, separated by `;;;` and prefixed by `#123;` where 123 is a block number at which we stat applying that filter
-* Added `accounthist` tools allows you to scan and read accounts `dfuseeos tools accounthist read ...` `dfuseeos tools accounthist scan ...`
+* Added `accounthist` tools allows you to scan and read accounts `zswlishi tools accounthist read ...` `zswlishi tools accounthist scan ...`
 * Flag `--search-router-truncation-low-block-num` to make the router aware of lower-block-truncation and serve requests accordingly
 * Flag `--mindreader-oneblock-suffix` that mindreaders can each write their own file per block without competing for writes. https://github.com/dfuse-io/dfuse-eosio/issues/140
 * Flag `--eosws-disabled-messages` a comma separated list of ws messages to disable.
@@ -50,7 +50,7 @@ date.
 * Applying a block filter over previously-filtered-blocks does not panic anymore, it applies the new filter on top of it, only if that specific filter has never been applied before. Applied filters definitions are concatenated in the block metadata, separated by `;;;`
 * Default `trxdb-loader-batch-size` changed to 100, Safe to do so because it does not batch when close to head.
 * Improved relayer mechanics: replaced "max drift" detection by "block hole" detection and recovery action is now to restart the joining source (instead of shutting down the process)
-* Improved `dfuseeos tools check statedb-reproc-injector` output by showing all shard statistics (and not just most highest block).
+* Improved `zswlishi tools check statedb-reproc-injector` output by showing all shard statistics (and not just most highest block).
 * **Breaking Change** Changed `--statedb-enable-pipeline` flag to `--statedb-disable-pipeline` to make it clearer that it should not be disable, if you were using the flag, change the name and invert the logical value (i.e. `--state-enable-pipeline=false` becomes `--state-disable-pipeline=true`)
 
 ### Fixed
@@ -94,7 +94,7 @@ date.
 * Changed `merger-seen-blocks-file` flag to `merger-state-file` to reflect this change.
 * `merger` now properly handles storage backend errors when looking for where to start
 * `mindreader` now automatically produces "merged blocks" instead of "one-block-files" when catching up (based on blocktime or if a blockmeta is reachable at `--common-blockmeta-addr`)
-* `mindreader` now sets optimal EOS VM settings automatically if the platform supports it them when doing `dfuseeos init`.
+* `mindreader` now sets optimal EOS VM settings automatically if the platform supports it them when doing `zswlishi init`.
 * Changed `--abicodec-export-cache-url` flag to `abicodec-export-abis-base-url` and will contain only the URL of the where to export the ABIs in JSON.
 * Changed `--abicodec-export-cache` flag to `abicodec-export-abis-enabled`.
 
@@ -133,7 +133,7 @@ date.
 * Fixed issue with `merger` with a possible panic when reading a one-block-file that is empty, for example on a non-atomic storage backend
 * Fixed issue with `mindreader` not stopping correctly (and showing any error) if the bootstrap phase (ex: restore-from-snapshot) failed.
 * Fixed issue with `pitreos` not taking a backup at all when sparse-file extents checks failed.
-* Fixed issue with `dfuseeos tools check merged-blocks` (start/end block, false valid ranges when the first segment is not 0, etc.)
+* Fixed issue with `zswlishi tools check merged-blocks` (start/end block, false valid ranges when the first segment is not 0, etc.)
 * Improved performance by using value for `bstream.BlockRef` instead of pointers and ensuring we use the cached version.
 * `mindreader` and `node-manager` improved `nodeos` log handling
 
@@ -143,7 +143,7 @@ FluxDB required an architecture re-design to fit with our vision about the tool 
 it is easier to re-use on our other supported chain).
 
 The code that was previously found here has been extracted to its own library (https://github.com/dfuse-io/fluxdb).
-There is now a new app named StateDB (`statedb` is the app identifier) in dfuse for EOSIO that uses FluxDB to
+There is now a new app named StateDB (`statedb` is the app identifier) in ZSWLiShi that uses FluxDB to
 support all previous API endpoints served by the FluxDB app as well as now offering a gRPC interface.
 
 While doing this, we had to change how keys and data were written to the underlying engine. This means that all
@@ -226,12 +226,12 @@ See [release notes](https://github.com/dfuse-io/dfuse-eosio/releases/tag/v0.1.0-
     * NOTE: This doesn't affect what is extracted from the chain, allowing you to re-index selectively without a chain replay.
 
 ### Changed
-* CLI: dfuseeos init now writes dfuse.yaml with the `start` command's flags, also the array of components to start
-* CLI: new `{dfuse-data-dir}` replacement string in config flags, also changed default flag values
+* CLI: zswlishi init now writes dfuse.yaml with the `start` command's flags, also the array of components to start
+* CLI: new `{zswlishi-data-dir}` replacement string in config flags, also changed default flag values
  * `--node-manager-config-dir` now `./producer` (was `manager/config`)
- * `--node-manager-data-dir` now `{dfuse-data-dir}/node-manager/data` (was `managernode/data`)
+ * `--node-manager-data-dir` now `{zswlishi-data-dir}/node-manager/data` (was `managernode/data`)
  * `--mindreader-config-dir` now `./mindreader` (was `mindreadernode/config`)
- * `--mindreader-data-dir` now `{dfuse-data-dir}/mindreader/data` (was `mindreadernode/data`)
+ * `--mindreader-data-dir` now `{zswlishi-data-dir}/mindreader/data` (was `mindreadernode/data`)
 * CLI: regrouped some flags:
  * `--search-indexer-dfuse-hooks-action-name`, `--search-live-dfuse-hooks-action-name`, `--search-forkresolver-dfuse-hooks-action-name` fused into new `--search-common-dfuse-hooks-action-name`.
  * `--search-...-mesh-publish-polling-duration` fused into new `--search-common-mesh-publish-polling-duration`.
@@ -255,9 +255,9 @@ See [release notes](https://github.com/dfuse-io/dfuse-eosio/releases/tag/v0.1.0-
 * Removed `init --reset` option, `dfusebox purge` does it all now.
 
 ### Changed
-* Renamed `dfusebox` to `dfuse for EOSIO`
+* Renamed `dfusebox` to `ZSWLiShi`
   * `dfusebox.yaml` to `dfuse.yaml`
-  * `dfusebox-data` to `dfuse-data`
+  * `dfusebox-data` to `zswlishi-data`
 * `--data-dir` now defaults to `./dfusebox-data`, and is separate from a chain name or the config file location.
 * `dfusebox init` now only generates a `dfusebox.yaml` config file, which can be booted with `dfusebox start`.
 * `dfusebox init` now only has the interactive method. We can later add more programmatic method to boot chains.  With a `dfusebox.yaml` config now, however, we can reuse initializations multiple times.

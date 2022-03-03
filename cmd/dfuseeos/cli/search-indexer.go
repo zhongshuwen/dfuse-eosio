@@ -30,7 +30,7 @@ func init() {
 			cmd.Flags().Bool("search-indexer-verbose", false, "Verbose logging")
 			cmd.Flags().Bool("search-indexer-enable-index-truncation", false, "Enable index truncation, requires a relative --start-block (negative number)")
 			cmd.Flags().Uint64("search-indexer-shard-size", 200, "Number of blocks to store in a given Bleve index")
-			cmd.Flags().String("search-indexer-writable-path", "{dfuse-data-dir}/search/indexer", "Writable base path for storing index files")
+			cmd.Flags().String("search-indexer-writable-path", "{zswlishi-data-dir}/search/indexer", "Writable base path for storing index files")
 			return nil
 		},
 		FactoryFunc: func(runtime *launcher.Runtime) (launcher.App, error) {

@@ -8,4 +8,4 @@ start:
     statedb-enable-reproc-injector-mode: true
     statedb-reproc-injector-shard-index: 1
     statedb-reproc-shard-count: 3
-    statedb-reproc-shard-store-url: "file://{dfuse-data-dir}/storage/statedb-shards"
+    statedb-reproc-shard-store-url: "file://{zswlishi-data-dir}/storage/statedb-shards"

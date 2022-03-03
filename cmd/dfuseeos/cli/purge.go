@@ -38,7 +38,7 @@ func dfusePurgeE(cmd *cobra.Command, args []string) error {
 		return err
 	}
 
-	userLog.Printf("Purged data. Start a fresh instance with 'dfuseeos start'")
+	userLog.Printf("Purged data. Start a fresh instance with 'zswlishi start'")
 
 	return nil
 }

@@ -36,7 +36,7 @@ max-transaction-time = 5000
 abi-serializer-max-time-ms = 500000
 
 # P2P
-agent-name = dfuse for EOSIO (producer)
+agent-name = ZSWLiShi (producer)
 p2p-server-address = 127.0.0.1:9876
 p2p-listen-endpoint = 127.0.0.1:9876
 p2p-max-nodes-per-host = 5
@@ -75,7 +75,7 @@ max-transaction-time = 5000
 # **Important**
 # The dfuse Mindreader 'nodeos' process cannot be used as API node for transactions, it must not receive
 # P2P transactions nor API transactions, that will create conflicts within 'nodeos' that will
-# cause blocks to be mixed and will stop the dfuse for EOSIO process. It's also recommended to not use
+# cause blocks to be mixed and will stop the ZSWLiShi process. It's also recommended to not use
 # it for other API purposes even if it could work.
 #
 # If you require an API node, use dfuse Node Manager which is our 'nodeos' manager (dfuse Mindreader
@@ -87,7 +87,7 @@ p2p-accept-transactions = false
 api-accept-transactions = false
 
 # P2P
-agent-name = dfuse for EOSIO (mindreader)
+agent-name = ZSWLiShi (mindreader)
 p2p-server-address = 127.0.0.1:9877
 p2p-listen-endpoint = 127.0.0.1:9877
 p2p-max-nodes-per-host = 2
@@ -132,7 +132,7 @@ p2p-accept-transactions = false
 api-accept-transactions = false
 
 # P2P
-agent-name = dfuse for EOSIO (mindreader)
+agent-name = ZSWLiShi (mindreader)
 p2p-server-address = 127.0.0.1:9877
 p2p-listen-endpoint = 127.0.0.1:9877
 p2p-max-nodes-per-host = 2

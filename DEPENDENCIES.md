@@ -1,6 +1,6 @@
 # Dependencies
 
-dfuse for EOSIO requires our instrumented `nodeos` binary, a fork
+ZSWLiShi requires our instrumented `nodeos` binary, a fork
 of the standard `EOSIO` software.
 
 You will also want to build both the `dashboard` and the `eosq` apps

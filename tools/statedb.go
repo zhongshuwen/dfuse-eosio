@@ -40,8 +40,8 @@ var statedbIndexPruneCmd = &cobra.Command{
 	Short: "Prune all StateDB Tablet Index(es) before the given height (or HEAD)",
 	Args:  cobra.ExactArgs(1),
 	RunE:  statedbIndexPruneE,
-	Example: ExamplePrefixed("dfuseeos tools state index", `
-		prune --dsn="badger://./dfuse-data/storage/statedb-v1" all --frequency 3
+	Example: ExamplePrefixed("zswlishi tools state index", `
+		prune --dsn="badger://./zswlishi-data/storage/statedb-v1" all --frequency 3
 		prune --dsn="bigkv://gcp_project.gcp_bt_instance/eos-kylin-v1" all --frequency 3
 		prune --dsn="tikv://hostname.local:2379/eos-kylin-v1" all --frequency 3
 	`),
@@ -56,10 +56,10 @@ var statedbShardCleanCmd = &cobra.Command{Use: "clean", Short: "Various operatio
 var statedbShardCleanCheckpointsCmd = &cobra.Command{Use: "checkpoints", Short: "Delete all existing shard checkpoint(s) that can exist", RunE: statedbShardCleanCheckpointsE, Args: cobra.ExactArgs((0))}
 
 func init() {
-	defaultBadger := "badger://dfuse-data/storage/statedb-v1"
+	defaultBadger := "badger://zswlishi-data/storage/statedb-v1"
 	cwd, err := os.Getwd()
 	if err == nil {
-		defaultBadger = "badger://" + cwd + "/dfuse-data/storage/statedb-v1"
+		defaultBadger = "badger://" + cwd + "/zswlishi-data/storage/statedb-v1"
 	}
 
 	statedbCmd.PersistentFlags().String("dsn", defaultBadger, "StateDB KV store DSN")

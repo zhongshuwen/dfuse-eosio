@@ -4,7 +4,7 @@ An historical database for tabular data with loader for EOSIO state table & perm
 
 ## Installation
 
-Install through [dfuse for EOSIO](..)
+Install through [ZSWLiShi](..)
 
 ## Features
 

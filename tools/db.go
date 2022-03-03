@@ -28,7 +28,7 @@ func init() {
 	dbCmd.AddCommand(dbBlkCmd)
 	dbCmd.AddCommand(dbTrxCmd)
 
-	dbCmd.PersistentFlags().String("dsn", "badger:///dfuse-data/kvdb/kvdb_badger.db", "kvStore DSN")
+	dbCmd.PersistentFlags().String("dsn", "badger:///zswlishi-data/kvdb/kvdb_badger.db", "kvStore DSN")
 }
 
 func dbReadBlockE(cmd *cobra.Command, args []string) (err error) {

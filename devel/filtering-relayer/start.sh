@@ -2,7 +2,7 @@
 
 ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-dfuseeos="$ROOT/../dfuseeos"
+zswlishi="$ROOT/../zswlishi"
 clean=
 all=true
 only_filtering=
@@ -30,7 +30,7 @@ main() {
   shift $((OPTIND-1))
 
   if [[ $clean == "true" ]]; then
-    rm -rf dfuse-data &> /dev/null || true
+    rm -rf zswlishi-data &> /dev/null || true
   fi
 
   echo "About to launch 2 apps, press Ctrl+C to terminal all jobs"
@@ -38,11 +38,11 @@ main() {
   sleep 2
 
   if [[ $all == true || $only_global == true ]]; then
-    $dfuseeos -c global.yaml start &
+    $zswlishi -c global.yaml start &
   fi
 
   if [[ $all == true || $only_filtering == true ]]; then
-    $dfuseeos -c filtering.yaml start &
+    $zswlishi -c filtering.yaml start &
   fi
 
   for job in `jobs -p`; do
