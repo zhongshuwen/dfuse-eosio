@@ -6,18 +6,18 @@
 Welcome to this node manager pod, common commands:
  - Show version           dfuseeos --version
 
-Node manager commands (eos-... <tab> to show all):
+Node manager commands (zsw-... <tab> to show all):
  - Check HEAD & LIB info              cleos get info
- - Check if producing                 eos-isproducing
- - Check if has peers                 eos-haspeers
+ - Check if producing                 zsw-isproducing
+ - Check if has peers                 zsw-haspeers
 
- - List all backups                   eos-listbackups
- - Restore from backup                eos-restore-from-pitreos [<backupName>]
- - Restore from snapshot              eos-restore-snapshot [<snapshotName>]
- - Perform a backup                   eos-backup
+ - List all backups                   zsw-listbackups
+ - Restore from backup                zsw-restore-from-pitreos [<backupName>]
+ - Restore from snapshot              zsw-restore-snapshot [<snapshotName>]
+ - Perform a backup                   zsw-backup
 
- - Rewind Nodeos instance to LIB      eos-rewind-to-lib
- - Reset continuity checker file      eos-reset-continuity-check
+ - Rewind Nodeos instance to LIB      zsw-rewind-to-lib
+ - Reset continuity checker file      zsw-reset-continuity-check
 
- - Stop Nodeos instance               eos-maintenance
- - Start or restart Nodeos instance   eos-resume
+ - Stop Nodeos instance               zsw-maintenance
+ - Start or restart Nodeos instance   zsw-resume

@@ -62,7 +62,7 @@ require (
 	github.com/gorilla/mux v1.7.3
 	github.com/gorilla/websocket v1.4.2
 	github.com/graph-gophers/graphql-go v0.0.0-20191115155744-f33e81362277
-	github.com/invisible-train-40/zsw-lishi-launcher v0.0.0-20220227124933-70f828fa974b // indirect
+	github.com/invisible-train-40/zsw-lishi-launcher v0.0.0-20220303074923-0a5b1ebc3166 // indirect
 	github.com/klauspost/compress v1.10.2
 	github.com/lithammer/dedent v1.1.0
 	github.com/logrusorgru/aurora v2.0.3+incompatible
