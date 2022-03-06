@@ -305,7 +305,7 @@ func (db *DB) UpdateNowIrreversibleBlock(ctx context.Context, blk *pbcodec.Block
 		// the filtering rules might exclude the `newaccount`.
 		for _, trxTrace := range blk.TransactionTraces() {
 			for _, act := range trxTrace.ActionTraces {
-				if act.FullName() == "eosio:eosio:newaccount" {
+				if act.FullName() == "zswhq:zswhq:newaccount" {
 					if err := db.putNewAccount(ctx, blk, trxTrace, act); err != nil {
 						return fmt.Errorf("failed to put new account: %w", err)
 					}

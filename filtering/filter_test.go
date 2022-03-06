@@ -119,25 +119,25 @@ func TestBlockFilter(t *testing.T) {
 		{
 			"system action already included are not flagged as system",
 			getFilters(`action == "setabi"`, ``, `action == "setabi"`),
-			ct.TrxTrace(t, ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionData(`{}`))),
+			ct.TrxTrace(t, ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionData(`{}`))),
 			filterMatched, false,
 		},
 		{
 			"system action are included even when not included",
 			getFilters(`action == "anythingelse"`, ``, `action == "setabi"`),
-			ct.TrxTrace(t, ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionData(`{}`))),
+			ct.TrxTrace(t, ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionData(`{}`))),
 			filterMatched, true,
 		},
 		{
 			"system action are included even when excluded",
 			getFilters("*", `action == "setabi"`, `action == "setabi"`),
-			ct.TrxTrace(t, ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionData(`{}`))),
+			ct.TrxTrace(t, ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionData(`{}`))),
 			filterMatched, true,
 		},
 		{
 			"system action are included even when excluded and not included",
 			getFilters(`action == "anythingelse"`, `action == "setabi"`, `action == "setabi"`),
-			ct.TrxTrace(t, ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionData(`{}`))),
+			ct.TrxTrace(t, ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionData(`{}`))),
 			filterMatched, true,
 		},
 	}

@@ -77,8 +77,8 @@ func TestFilteringActionMatcher(t *testing.T) {
 		{
 			"is required system actions but was not system included, still match",
 			ct.Block(t, "00000001aa", ct.FilteredBlock{}, ct.TrxTrace(t,
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionMatched),
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionMatched),
 			)),
 			newAccount,
 			[]uint32{0, 1},
@@ -87,8 +87,8 @@ func TestFilteringActionMatcher(t *testing.T) {
 		{
 			"is required system actions and was system included, still match",
 			ct.Block(t, "00000001aa", ct.FilteredBlock{}, ct.TrxTrace(t,
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionSystemMatched),
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionSystemMatched),
 			)),
 			newAccount,
 			[]uint32{0, 1},
@@ -97,8 +97,8 @@ func TestFilteringActionMatcher(t *testing.T) {
 		{
 			"was system included but is not a required actions when empty, does not match",
 			ct.Block(t, "00000001aa", ct.FilteredBlock{}, ct.TrxTrace(t,
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionSystemMatched),
-				ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionSystemMatched),
 			)),
 			nil,
 			nil,
@@ -107,8 +107,8 @@ func TestFilteringActionMatcher(t *testing.T) {
 		{
 			"was system included but is not a required actions not matching, does not match",
 			ct.Block(t, "00000001aa", ct.FilteredBlock{}, ct.TrxTrace(t,
-				ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionSystemMatched),
-				ct.ActionTrace(t, "eosio:eosio:setabi", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionSystemMatched),
+				ct.ActionTrace(t, "zswhq:zswhq:setabi", ct.ActionSystemMatched),
 			)),
 			newAccount,
 			nil,

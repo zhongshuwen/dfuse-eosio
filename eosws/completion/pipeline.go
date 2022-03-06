@@ -82,7 +82,7 @@ func (p *Pipeline) processExecutedTransactions(transactions []*pbcodec.Transacti
 }
 
 func (p *Pipeline) processExecutedAction(action *pbcodec.ActionTrace) {
-	if action.Action.Name == "newaccount" && action.FullName() == "eosio:eosio:newaccount" {
+	if action.Action.Name == "newaccount" && action.FullName() == "zswhq:zswhq:newaccount" {
 		p.updateCompletion(action)
 	}
 }

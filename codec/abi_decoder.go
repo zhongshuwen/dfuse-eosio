@@ -317,7 +317,7 @@ func (c *ABIDecoder) createLocalABICache(trxID string, operations []abiOperation
 func (c *ABIDecoder) extractABIOperations(trxTrace *pbcodec.TransactionTrace) (out []abiOperation, err error) {
 	for i, actionTrace := range trxTrace.ActionTraces {
 		// If the action trace receipt is `nil`, it means the action failed, in which case, we don't care about those `setabi`
-		if actionTrace.FullName() == "eosio:eosio:setabi" && actionTrace.Receipt != nil {
+		if actionTrace.FullName() == "zswhq:zswhq:setabi" && actionTrace.Receipt != nil {
 			setABI := &system.SetABI{}
 			err := eos.UnmarshalBinary(actionTrace.Action.RawData, setABI)
 			if err != nil {

@@ -211,7 +211,7 @@ func TestABIDecoder(t *testing.T) {
 			blocks: in(
 				testBlock(t, "00000002aa", "00000001aa",
 					trxTrace(t, softFailStatus,
-						actionTrace(t, "eosio:eosio:onerror", 0, 1, nil, ""),
+						actionTrace(t, "zswhq:zswhq:onerror", 0, 1, nil, ""),
 						actionTraceSetABI(t, "test", 1, 2, testABI2),
 						actionTrace(t, "test:test:act2", 2, 3, testABI2, `{"to":1}`),
 						actionTraceSetABI(t, "test", 3, 4, testABI3),
@@ -252,7 +252,7 @@ func TestABIDecoder(t *testing.T) {
 			blocks: in(
 				testBlock(t, "00000002aa", "00000001aa",
 					trxTrace(t, hardFailStatus,
-						actionTrace(t, "eosio:eosio:onerror", 0, 1, nil, ""),
+						actionTrace(t, "zswhq:zswhq:onerror", 0, 1, nil, ""),
 						actionTraceSetABI(t, "test", 1, 2, testABI2),
 						actionTrace(t, "test:test:act2", 2, 3, testABI2, `{"to":1}`),
 						actionTraceSetABI(t, "test", 3, 4, testABI3),
@@ -330,7 +330,7 @@ func TestABIDecoder(t *testing.T) {
 						actionTrace(t, "test:test:act1", 0, 4, testABI1, `{"from":"block2"}`),
 					),
 					trxTrace(t, hardFailStatus,
-						actionTrace(t, "eosio:eosio:onerror", 0, 5, systemABI, `{"trx_id":"abc"}`),
+						actionTrace(t, "zswhq:zswhq:onerror", 0, 5, systemABI, `{"trx_id":"abc"}`),
 					),
 
 					trxOp(t, signedTrx(t,

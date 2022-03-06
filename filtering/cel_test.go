@@ -268,39 +268,39 @@ func TestCELActivation(t *testing.T) {
 		{
 			"auth match, single, single check",
 			`auth.exists(x, x == "zswhq")`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active")), false, 0},
 			shouldMatch,
 		},
 		{
 			"auth match, multi, single check",
 			`auth.exists(x, x == "zswhq")`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
 			shouldMatch,
 		},
 
 		{
 			"auth match, single, multi check",
 			`auth.exists(x, x in ["bob", "zswhq"])`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active")), false, 0},
 			shouldMatch,
 		},
 		{
 			"auth match, multi, multi check",
 			`auth.exists(x, x in ["bob", "other"])`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
 			shouldMatch,
 		},
 
 		{
 			"auth not match, multi, single check",
 			`auth.exists(x, x == "different")`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other")), false, 0},
 			shouldNotMatch,
 		},
 		{
 			"auth not match, multi, multi check",
 			`auth.exists(x, x in ["different", "multi"])`,
-			activationManifest{ct.ActionTrace(t, "eosio:eosio:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
+			activationManifest{ct.ActionTrace(t, "zswhq:zswhq:onblock", ct.Authorizations("eosio@active", "eosio@owner", "other@active")), false, 0},
 			shouldNotMatch,
 		},
 	}
