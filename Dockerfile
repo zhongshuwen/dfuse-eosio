@@ -13,7 +13,7 @@ WORKDIR /work
 RUN echo hi
 ADD go.mod /work
 RUN apt update && apt-get -y install git
-RUN cd /work && echo "中数文历史方案1" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
+RUN cd /work && echo "中数文历史方案2" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
     cd zsw-lishi-launcher && cat go.mod && cd ..&&\
 	grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > zsw-lishi-launcher.hash &&\
     cd zsw-lishi-launcher &&\
@@ -29,7 +29,7 @@ RUN yarn install && yarn build
 
 FROM golang:1.14 as dfuse
 RUN go get -u github.com/GeertJohan/go.rice/rice && export PATH=$PATH:$HOME/bin:/work/go/bin
-RUN echo "中数文" && mkdir -p /work/build
+RUN echo "中数文#1" && mkdir -p /work/build
 ADD . /work
 WORKDIR /work
 COPY --from=eosq      /work/ /work/eosq

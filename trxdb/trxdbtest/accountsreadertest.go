@@ -127,7 +127,7 @@ func TestListAccountNames(t *testing.T, driverFactory DriverFactory) {
 func putAccount(t *testing.T, creator, account string, db trxdb.DB) {
 	blk := ct.Block(t, "00000002aa",
 		ct.TrxTrace(t, ct.TrxID("a1"),
-			ct.ActionTrace(t, "eosio:eosio:newaccount", ct.ActionData(fmt.Sprintf(`
+			ct.ActionTrace(t, "zswhq:zswhq:newaccount", ct.ActionData(fmt.Sprintf(`
 				{
 					"active": {
 						"accounts": [],
