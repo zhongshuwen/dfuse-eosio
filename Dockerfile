@@ -29,7 +29,7 @@ RUN yarn install && yarn build
 
 FROM golang:1.14 as dfuse
 RUN go get -u github.com/GeertJohan/go.rice/rice && export PATH=$PATH:$HOME/bin:/work/go/bin
-RUN mkdir -p /work/build
+RUN echo "中数文" && mkdir -p /work/build
 ADD . /work
 WORKDIR /work
 COPY --from=eosq      /work/ /work/eosq

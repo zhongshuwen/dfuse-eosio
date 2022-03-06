@@ -109,7 +109,7 @@ func (m *BlockMapper) Map(rawBlk *bstream.Block) (*fluxdb.WriteRequest, error) {
 
 			// We always process those regardless of the filtering applied to the block since they are all system actions
 			switch act.SimpleName() {
-			case "eosio:setabi":
+			case "zswhq:setabi":
 				abiEntry, err := NewContractABIEntry(req.BlockRef.Num(), act)
 				if err != nil {
 					return nil, fmt.Errorf("unable to extract abi entry: %w", err)
@@ -122,7 +122,7 @@ func (m *BlockMapper) Map(rawBlk *bstream.Block) (*fluxdb.WriteRequest, error) {
 
 				lastSingletEntryMap[keyForEntry(abiEntry)] = abiEntry
 
-			case "eosio:linkauth":
+			case "zswhq:linkauth":
 				authLinkRow, err := NewInsertAuthLinkRow(blockNum, act)
 				if err != nil {
 					return nil, fmt.Errorf("unable to extract link auth: %w", err)
@@ -130,7 +130,7 @@ func (m *BlockMapper) Map(rawBlk *bstream.Block) (*fluxdb.WriteRequest, error) {
 
 				lastTabletRowMap[keyForRow(authLinkRow)] = authLinkRow
 
-			case "eosio:unlinkauth":
+			case "zswhq:unlinkauth":
 				authLinkRow, err := NewDeleteAuthLinkRow(blockNum, act)
 				if err != nil {
 					return nil, fmt.Errorf("unable to extract unlink auth: %w", err)
