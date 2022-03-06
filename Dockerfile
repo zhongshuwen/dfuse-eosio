@@ -1,4 +1,4 @@
-ARG ZSW_CHAIN_LISHI_DEB_URL="https://github.com/invisible-train-40/zswchain-lishi/releases/download/lishi-zsw-2.0.8-release-v6/zswchain-lishi_2.0.8-dm.12.0_amd64.deb"
+ARG ZSW_CHAIN_LISHI_DEB_URL="https://github.com/invisible-train-40/zswchain-lishi/releases/download/2.0.8-prod-1.1.0/zswchain-lishi_2.0.8-dm.12.0_amd64.deb"
 
 FROM ubuntu:18.04 AS base
 ARG ZSW_CHAIN_LISHI_DEB_URL
@@ -13,7 +13,7 @@ WORKDIR /work
 RUN echo hi
 ADD go.mod /work
 RUN apt update && apt-get -y install git
-RUN cd /work && echo "中数文历史方案" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
+RUN cd /work && echo "中数文历史方案1" && git clone https://github.com/invisible-train-40/zsw-lishi-launcher.git zsw-lishi-launcher &&\
     cd zsw-lishi-launcher && cat go.mod && cd ..&&\
 	grep -w github.com/invisible-train-40/zsw-lishi-launcher go.mod | sed 's/.*-\([a-f0-9]*$\)/\1/' |head -n 1 > zsw-lishi-launcher.hash &&\
     cd zsw-lishi-launcher &&\
