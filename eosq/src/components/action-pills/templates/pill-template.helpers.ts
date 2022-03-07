@@ -316,14 +316,14 @@ export function getNewAccountLevel2Fields(permission: any, parentName: string, t
   if (type === "key") {
     return [
       { name: "permission", type: "bold", value: parentName },
-      { name: "key", type: "plain", value: permission.key },
+      { name: "key", type: "plain", value: (permission.key+"").replace("EOS","ZSW") },
     ]
   }
 
   if (type === "wait") {
     return [
       { name: "permission", type: "bold", value: parentName },
-      { name: "wait", type: "plain", value: permission.key },
+      { name: "wait", type: "plain", value:(permission.key+"").replace("EOS","ZSW") },
     ]
   }
 
@@ -380,7 +380,7 @@ export function getUpdateAuthLevel2Fields(permission: any, data: any, type: stri
   if (type === "key") {
     return [
       { name: "permission", type: "bold", value: data.permission },
-      { name: "key", type: "bold", value: permission.key },
+      { name: "key", type: "bold", value: (permission.key+"").replace("EOS","ZSW")},
       { name: "parent", type: "bold", value: data.parent },
     ]
   }
@@ -451,7 +451,7 @@ export function getInfiniverseDeletePersistLevel1Fields(action: Action<any>) {
 export function getNewAccountFromNameServiceFields(accountName: string) {
   return [
     { name: "account", type: "accountLink", value: accountName },
-    { name: "link", type: "link", value: "https://eosnameservice.io" },
+    { name: "link", type: "link", value: "https://zhongshuwen.com" },
   ]
 }
 
