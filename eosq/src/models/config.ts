@@ -58,7 +58,7 @@ const newDefaultConfig = () => {
     dfuse_auth_endpoint: process.env.REACT_APP_LISHI_AUTH_URL || "null://",
     dfuse_io_api_key: process.env.REACT_APP_LISHI_API_KEY || "web_1234567890abc",
     dfuse_io_endpoint: process.env.REACT_APP_LISHI_API_NETWORK || getHost(),
-    secure: process.env.REACT_APP_LISHI_API_NETWORK_SECURE === "true",
+    secure: process.env.REACT_APP_LISHI_API_NETWORK_SECURE === "true"||window.location.origin.indexOf("https://")===0,
     display_price: false,
 
     available_networks: [
@@ -66,13 +66,13 @@ const newDefaultConfig = () => {
         id: "local",
         is_test: true,
         name: "LAN测试环境",
-        url: "http://"+getHost(),
+        url: window.location.origin,
       },
       {
         id: "zsw-testnet",
         is_test: true,
         name: "国家版权保护联盟链测试环境",
-        url: "https://testnet.explorer.zhongshuwen.com",
+        url: "https://testnet.explorer.chao7.cn",
       },
       {
         id: "zsw-mainnet",

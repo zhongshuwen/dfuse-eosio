@@ -16,8 +16,14 @@
 
     <script>
       window.TopLevelConfig = --== json . ==--;
-      if(window.TopLevelConfig){
-        window.TopLevelConfig.dfuse_io_endpoint=(window.TopLevelConfig.dfuse_io_endpoint==='localhost:8080'?window.location.host:window.TopLevelConfig.dfuse_io_endpoint);
+      if (window.TopLevelConfig) {
+        window.TopLevelConfig.dfuse_io_endpoint = (window.location.host);
+        window.TopLevelConfig.secure = window.location.origin.indexOf("https")===0;
+        if(window.TopLevelConfig.secure){
+          window.TopLevelConfig.available_networks.forEach(function(o){
+            o.url = o.url.replace("http://","https://");
+          });
+        }
       }
     </script>
 
