@@ -7,8 +7,8 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
-	"github.com/dfuse-io/kvdb/store"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/kvdb/store"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"

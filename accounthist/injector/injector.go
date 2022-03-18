@@ -8,15 +8,15 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/metrics"
 
-	"github.com/dfuse-io/dmetrics"
+	"github.com/streamingfast/dmetrics"
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/dstore"
-	"github.com/dfuse-io/kvdb/store"
 	"github.com/dfuse-io/shutter"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/kvdb/store"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	"go.uber.org/zap"
 )

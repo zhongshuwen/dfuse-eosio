@@ -21,10 +21,10 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/dgraphql"
-	"github.com/dfuse-io/dtracing"
-	"github.com/dfuse-io/logging"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/dtracing"
+	"github.com/streamingfast/logging"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

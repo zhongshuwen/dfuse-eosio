@@ -21,9 +21,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/logging"
 	"github.com/francoispqt/gojay"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	"github.com/streamingfast/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	zsw "github.com/zhongshuwen/zswchain-go"

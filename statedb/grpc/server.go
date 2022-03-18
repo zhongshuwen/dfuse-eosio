@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dgrpc"
-	"github.com/dfuse-io/fluxdb"
+	"github.com/streamingfast/dgrpc"
+	"github.com/streamingfast/fluxdb"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/metadata"

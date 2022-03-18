@@ -20,8 +20,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"

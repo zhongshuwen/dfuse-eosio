@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dfuse-io/opaque"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	graphql "github.com/graph-gophers/graphql-go"
+	"github.com/streamingfast/opaque"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

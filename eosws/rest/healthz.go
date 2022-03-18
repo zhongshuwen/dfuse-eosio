@@ -26,10 +26,10 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/hub"
-	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/dstore"
-	"github.com/dfuse-io/logging"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"

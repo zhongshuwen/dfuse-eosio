@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	fluxdbApp "github.com/dfuse-io/fluxdb/app/fluxdb"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	fluxdbApp "github.com/streamingfast/fluxdb/app/fluxdb"
 	statedbApp "github.com/zhongshuwen/dfuse-eosio/statedb/app/statedb"
 )
 

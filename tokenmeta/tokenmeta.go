@@ -8,8 +8,8 @@ import (
 	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/bstream"
-	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/dfuse-io/shutter"
+	pbblockmeta "github.com/invisible-train-40/pbgo/dfuse/blockmeta/v1"
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"

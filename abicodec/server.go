@@ -19,9 +19,9 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/dfuse-io/dgrpc"
-	pbhealth "github.com/dfuse-io/pbgo/grpc/health/v1"
 	"github.com/dfuse-io/shutter"
+	pbhealth "github.com/invisible-train-40/pbgo/grpc/health/v1"
+	"github.com/streamingfast/dgrpc"
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

@@ -8,8 +8,8 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 
-	"github.com/dfuse-io/kvdb/store"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/kvdb/store"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 )
 

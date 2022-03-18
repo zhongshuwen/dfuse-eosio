@@ -20,9 +20,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/dfuse-io/dtracing"
-	"github.com/dfuse-io/logging"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/dtracing"
+	"github.com/streamingfast/logging"
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"

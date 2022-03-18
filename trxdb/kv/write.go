@@ -18,8 +18,8 @@ import (
 	"context"
 	"fmt"
 
-	kvdbstore "github.com/dfuse-io/kvdb/store"
 	"github.com/golang/protobuf/ptypes"
+	kvdbstore "github.com/streamingfast/kvdb/store"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"

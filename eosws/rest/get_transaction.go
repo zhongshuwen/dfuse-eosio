@@ -18,9 +18,9 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dmetering"
 	"github.com/gorilla/mux"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/dmetering"
 	"github.com/streamingfast/validator"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"

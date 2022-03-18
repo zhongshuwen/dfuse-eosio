@@ -20,8 +20,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/dfuse-io/derr"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"

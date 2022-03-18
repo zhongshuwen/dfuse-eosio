@@ -17,9 +17,9 @@ import (
 	"github.com/manifoldco/promptui"
 	"go.uber.org/zap"
 
-	"github.com/dfuse-io/kvdb/store"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/streamingfast/kvdb/store"
 )
 
 var accounthistCmd = &cobra.Command{Use: "accounthist", Short: "Read from account history"}

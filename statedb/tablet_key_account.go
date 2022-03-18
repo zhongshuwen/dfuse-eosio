@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/dfuse-io/fluxdb"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/fluxdb"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 )

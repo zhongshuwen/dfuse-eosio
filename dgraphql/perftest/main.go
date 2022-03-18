@@ -22,7 +22,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dfuse-io/dhammer"
+	"github.com/streamingfast/dhammer"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 )

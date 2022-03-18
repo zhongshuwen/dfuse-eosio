@@ -21,9 +21,9 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/jsonpb"
-	"github.com/dfuse-io/logging"
 	proto "github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	"github.com/streamingfast/logging"
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

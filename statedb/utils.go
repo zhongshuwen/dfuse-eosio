@@ -4,7 +4,7 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/dfuse-io/fluxdb"
+	"github.com/streamingfast/fluxdb"
 	zsw "github.com/zhongshuwen/zswchain-go"
 )
 

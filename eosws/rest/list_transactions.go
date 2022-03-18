@@ -18,8 +18,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dmetering"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/dmetering"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 )
 

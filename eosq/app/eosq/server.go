@@ -29,10 +29,10 @@ import (
 	"sync"
 
 	rice "github.com/GeertJohan/go.rice"
-	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/shutter"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
+	"github.com/streamingfast/derr"
 	"go.uber.org/zap"
 )
 

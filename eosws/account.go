@@ -18,8 +18,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/kvdb"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/kvdb"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"

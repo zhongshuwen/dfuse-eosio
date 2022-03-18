@@ -7,8 +7,8 @@ import (
 	"strings"
 	"testing"
 
-	_ "github.com/dfuse-io/kvdb/store/badger"
-	"github.com/dfuse-io/logging"
+	_ "github.com/streamingfast/kvdb/store/badger"
+	"github.com/streamingfast/logging"
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb/trxdbtest"

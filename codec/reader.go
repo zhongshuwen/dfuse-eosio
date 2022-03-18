@@ -20,8 +20,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/dbin"
-	pbbstream "github.com/dfuse-io/pbgo/dfuse/bstream/v1"
 	"github.com/golang/protobuf/proto"
+	pbbstream "github.com/invisible-train-40/pbgo/dfuse/bstream/v1"
 )
 
 func BlockReaderFactory(reader io.Reader) (bstream.BlockReader, error) {

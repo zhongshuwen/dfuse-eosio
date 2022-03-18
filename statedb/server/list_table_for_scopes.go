@@ -21,12 +21,12 @@ import (
 	"net/url"
 	"sort"
 
-	"github.com/dfuse-io/dhammer"
+	"github.com/streamingfast/dhammer"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	zsw "github.com/zhongshuwen/zswchain-go"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	"github.com/streamingfast/validator"
 	"go.uber.org/zap"
 )

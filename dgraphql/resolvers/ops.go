@@ -21,10 +21,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dfuse-io/derr"
 	commonTypes "github.com/dfuse-io/dgraphql/types"
-	"github.com/dfuse-io/logging"
 	"github.com/graph-gophers/graphql-go"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	"github.com/zhongshuwen/dfuse-eosio/dgraphql/types"
 	abicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

@@ -21,8 +21,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/dfuse-io/fluxdb"
 	"github.com/gavv/httpexpect/v2"
+	"github.com/streamingfast/fluxdb"
 	"github.com/stretchr/testify/require"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

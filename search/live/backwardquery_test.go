@@ -20,10 +20,10 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/dfuse-io/derr"
-	pb "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/dfuse-io/search"
 	searchLive "github.com/dfuse-io/search/live"
+	pb "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/derr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	_ "github.com/zhongshuwen/dfuse-eosio/codec"

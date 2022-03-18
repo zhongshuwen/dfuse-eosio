@@ -3,7 +3,7 @@ package resolvers
 import (
 	"testing"
 
-	"github.com/dfuse-io/dgrpc"
+	"github.com/streamingfast/dgrpc"
 	"github.com/stretchr/testify/require"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 )

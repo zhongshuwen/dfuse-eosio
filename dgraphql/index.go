@@ -17,13 +17,13 @@ package dgraphql
 import (
 	"fmt"
 
-	drateLimiter "github.com/dfuse-io/dauth/ratelimiter"
-	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/dgraphql"
 	dgraphqlApp "github.com/dfuse-io/dgraphql/app/dgraphql"
-	"github.com/dfuse-io/dgrpc"
-	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
+	pbblockmeta "github.com/invisible-train-40/pbgo/dfuse/blockmeta/v1"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	drateLimiter "github.com/streamingfast/dauth/ratelimiter"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/dgrpc"
 	eosResolver "github.com/zhongshuwen/dfuse-eosio/dgraphql/resolvers"
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"

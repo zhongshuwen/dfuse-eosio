@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dgrpc"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/dfuse-io/shutter"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/dgrpc"
 	"github.com/zhongshuwen/dfuse-eosio/abicodec/metrics"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	searchclient "github.com/zhongshuwen/dfuse-eosio/search-client"

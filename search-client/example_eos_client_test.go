@@ -6,9 +6,9 @@ import (
 	"io"
 	"os"
 
-	"github.com/dfuse-io/dgrpc"
-	"github.com/dfuse-io/logging"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
+	"github.com/streamingfast/dgrpc"
+	"github.com/streamingfast/logging"
 	searchclient "github.com/zhongshuwen/dfuse-eosio/search-client"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"

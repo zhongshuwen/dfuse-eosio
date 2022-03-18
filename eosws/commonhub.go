@@ -19,10 +19,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/logging"
 
-	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/shutter"
+	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 )

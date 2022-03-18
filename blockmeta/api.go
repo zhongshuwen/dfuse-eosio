@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/dfuse-io/blockmeta"
-	pbheadinfo "github.com/dfuse-io/pbgo/dfuse/headinfo/v1"
 	"github.com/golang/protobuf/ptypes"
+	pbheadinfo "github.com/invisible-train-40/pbgo/dfuse/headinfo/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )

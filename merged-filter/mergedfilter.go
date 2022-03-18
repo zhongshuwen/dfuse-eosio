@@ -22,9 +22,9 @@ import (
 	"time"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/shutter"
+	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	"github.com/zhongshuwen/dfuse-eosio/filtering"
 	"go.uber.org/zap"

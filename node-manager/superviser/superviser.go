@@ -25,11 +25,11 @@ import (
 	"time"
 
 	"github.com/ShinyTrinkets/overseer"
-	nodeManager "github.com/dfuse-io/node-manager"
-	logplugin "github.com/dfuse-io/node-manager/log_plugin"
-	"github.com/dfuse-io/node-manager/metrics"
-	"github.com/dfuse-io/node-manager/superviser"
 	"github.com/spf13/viper"
+	nodeManager "github.com/zhongshuwen/node-manager"
+	logplugin "github.com/zhongshuwen/node-manager/log_plugin"
+	"github.com/zhongshuwen/node-manager/metrics"
+	"github.com/zhongshuwen/node-manager/superviser"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )

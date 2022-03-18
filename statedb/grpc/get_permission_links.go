@@ -4,9 +4,9 @@ import (
 	"context"
 	"sort"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/logging"
-	pbbstream "github.com/dfuse-io/pbgo/dfuse/bstream/v1"
+	pbbstream "github.com/invisible-train-40/pbgo/dfuse/bstream/v1"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	"go.uber.org/zap"

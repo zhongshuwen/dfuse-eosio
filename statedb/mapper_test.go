@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dfuse-io/fluxdb"
 	"github.com/dfuse-io/jsonpb"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/fluxdb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"

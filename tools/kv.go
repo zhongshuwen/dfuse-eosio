@@ -8,13 +8,13 @@ import (
 	"os"
 
 	"github.com/dfuse-io/jsonpb"
-	"github.com/dfuse-io/kvdb/store"
-	_ "github.com/dfuse-io/kvdb/store/badger"
-	_ "github.com/dfuse-io/kvdb/store/bigkv"
-	_ "github.com/dfuse-io/kvdb/store/tikv"
 	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/streamingfast/kvdb/store"
+	_ "github.com/streamingfast/kvdb/store/badger"
+	_ "github.com/streamingfast/kvdb/store/bigkv"
+	_ "github.com/streamingfast/kvdb/store/tikv"
 	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 	trxdb "github.com/zhongshuwen/dfuse-eosio/trxdb/kv"
 )

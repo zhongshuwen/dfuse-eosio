@@ -24,7 +24,7 @@ import (
 	"time"
 
 	stackdriverPropagation "contrib.go.opencensus.io/exporter/stackdriver/propagation"
-	"github.com/dfuse-io/dmetering"
+	"github.com/streamingfast/dmetering"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/plugin/ochttp"
 	"go.uber.org/zap"

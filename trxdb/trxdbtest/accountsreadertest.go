@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dfuse-io/kvdb"
+	"github.com/streamingfast/kvdb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"

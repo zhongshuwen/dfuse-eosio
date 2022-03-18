@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dfuse-io/kvdb"
+	"github.com/streamingfast/kvdb"
 	zsw "github.com/zhongshuwen/zswchain-go"
 )
 

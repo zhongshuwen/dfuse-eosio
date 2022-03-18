@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/acarl005/stripansi"
-	"github.com/dfuse-io/dgrpc"
 	dashboard "github.com/invisible-train-40/zsw-lishi-launcher/dashboard/pb"
+	"github.com/streamingfast/dgrpc"
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/cmd/dfuseeos/cli"
 	"go.uber.org/zap"

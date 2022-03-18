@@ -19,7 +19,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/dfuse-io/derr"
+	"github.com/streamingfast/derr"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/statedb"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"

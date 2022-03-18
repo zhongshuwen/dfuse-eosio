@@ -8,9 +8,9 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
-	"github.com/dfuse-io/kvdb/store"
-	"github.com/dfuse-io/logging"
 	"github.com/golang/protobuf/proto"
+	"github.com/streamingfast/kvdb/store"
+	"github.com/streamingfast/logging"
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

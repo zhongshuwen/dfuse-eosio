@@ -19,7 +19,7 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/fluxdb"
+	"github.com/streamingfast/fluxdb"
 	"github.com/stretchr/testify/require"
 	zsw "github.com/zhongshuwen/zswchain-go"
 )

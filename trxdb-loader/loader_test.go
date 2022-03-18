@@ -25,7 +25,7 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	_ "github.com/dfuse-io/kvdb/store/badger"
+	_ "github.com/streamingfast/kvdb/store/badger"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	_ "github.com/zhongshuwen/dfuse-eosio/trxdb/kv"

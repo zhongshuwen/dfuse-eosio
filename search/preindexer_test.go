@@ -21,11 +21,11 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/bstream"
-	pbbstream "github.com/dfuse-io/pbgo/dfuse/bstream/v1"
 	"github.com/dfuse-io/search"
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	pbbstream "github.com/invisible-train-40/pbgo/dfuse/bstream/v1"
 	"github.com/stretchr/testify/require"
 	_ "github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

@@ -4,9 +4,9 @@ import (
 	"context"
 	"sort"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/fluxdb"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/fluxdb"
+	"github.com/streamingfast/logging"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 

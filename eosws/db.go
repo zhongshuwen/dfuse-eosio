@@ -27,9 +27,9 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
-	"github.com/dfuse-io/kvdb"
-	"github.com/dfuse-io/logging"
-	"github.com/dfuse-io/opaque"
+	"github.com/streamingfast/kvdb"
+	"github.com/streamingfast/logging"
+	"github.com/streamingfast/opaque"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"

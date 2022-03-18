@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/dfuse-io/kvdb/store"
+	"github.com/streamingfast/kvdb/store"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	zsw "github.com/zhongshuwen/zswchain-go"

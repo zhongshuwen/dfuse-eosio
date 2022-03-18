@@ -21,9 +21,9 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/fluxdb"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/fluxdb"
+	"github.com/streamingfast/logging"
 	"github.com/streamingfast/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	zsw "github.com/zhongshuwen/zswchain-go"

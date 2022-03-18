@@ -11,11 +11,11 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/jsonpb"
-	"github.com/dfuse-io/logging"
-	pbbstream "github.com/dfuse-io/pbgo/dfuse/bstream/v1"
 	"github.com/golang/protobuf/ptypes"
 	pbts "github.com/golang/protobuf/ptypes/timestamp"
+	pbbstream "github.com/invisible-train-40/pbgo/dfuse/bstream/v1"
 	"github.com/mitchellh/go-testing-interface"
+	"github.com/streamingfast/logging"
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"

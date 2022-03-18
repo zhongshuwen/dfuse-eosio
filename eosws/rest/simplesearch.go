@@ -22,9 +22,9 @@ import (
 	"strings"
 
 	"github.com/araddon/dateparse"
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dmetering"
-	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
+	pbblockmeta "github.com/invisible-train-40/pbgo/dfuse/blockmeta/v1"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/dmetering"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	zsw "github.com/zhongshuwen/zswchain-go"

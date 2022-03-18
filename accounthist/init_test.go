@@ -9,16 +9,16 @@ import (
 	"os"
 	"testing"
 
-	"github.com/dfuse-io/kvdb/store"
-	_ "github.com/dfuse-io/kvdb/store/badger"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/kvdb/store"
+	_ "github.com/streamingfast/kvdb/store/badger"
+	"github.com/streamingfast/logging"
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 )
 
 func init() {
 	logging.TestingOverride()
-}
+}w
 
 func getKVTestFactory(t *testing.T) (store.KVStore, func()) {
 	tmp, err := ioutil.TempDir("", "badger")

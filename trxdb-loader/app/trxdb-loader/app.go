@@ -22,10 +22,10 @@ import (
 	"time"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dmetrics"
 	"github.com/dfuse-io/dstore"
-	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/dfuse-io/shutter"
+	pbblockmeta "github.com/invisible-train-40/pbgo/dfuse/blockmeta/v1"
+	"github.com/streamingfast/dmetrics"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	trxdbloader "github.com/zhongshuwen/dfuse-eosio/trxdb-loader"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb-loader/metrics"

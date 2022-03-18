@@ -18,7 +18,7 @@ import (
 	"context"
 	"encoding/json"
 
-	"github.com/dfuse-io/derr"
+	"github.com/streamingfast/derr"
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"

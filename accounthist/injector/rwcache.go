@@ -6,7 +6,7 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 
-	"github.com/dfuse-io/kvdb/store"
+	"github.com/streamingfast/kvdb/store"
 	"go.uber.org/zap"
 )
 

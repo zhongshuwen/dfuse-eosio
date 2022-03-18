@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/bstream"
-	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
+	pbsearch "github.com/invisible-train-40/pbgo/dfuse/search/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 

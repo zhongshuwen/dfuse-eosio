@@ -20,9 +20,9 @@ import (
 	"fmt"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dtracing"
-	"github.com/dfuse-io/fluxdb"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/dtracing"
+	"github.com/streamingfast/fluxdb"
+	"github.com/streamingfast/logging"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/trace"

@@ -1,8 +1,8 @@
 package grpc
 
 import (
-	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/logging"
+	"github.com/streamingfast/derr"
+	"github.com/streamingfast/logging"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	"go.uber.org/zap"

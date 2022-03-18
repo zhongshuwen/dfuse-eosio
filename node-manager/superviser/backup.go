@@ -18,8 +18,8 @@ import (
 	"encoding/hex"
 	"errors"
 
-	"github.com/dfuse-io/node-manager/metrics"
-	"github.com/dfuse-io/node-manager/superviser"
+	"github.com/zhongshuwen/node-manager/metrics"
+	"github.com/zhongshuwen/node-manager/superviser"
 	"go.uber.org/zap"
 )
 
