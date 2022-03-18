@@ -20,11 +20,11 @@ import (
 	"fmt"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/statedb"
 	"github.com/dfuse-io/dtracing"
 	"github.com/dfuse-io/fluxdb"
 	"github.com/dfuse-io/logging"
-	eos "github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
 )

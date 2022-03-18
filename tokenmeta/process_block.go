@@ -4,9 +4,9 @@ import (
 	"encoding/hex"
 
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
-	"github.com/eoscanada/eos-go"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

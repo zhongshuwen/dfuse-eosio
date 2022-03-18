@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
-	"github.com/dfuse-io/dfuse-eosio/accounthist/injector"
 	"github.com/dfuse-io/kvdb/store"
 	_ "github.com/dfuse-io/kvdb/store/badger"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist/injector"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_purgeAccounts(t *testing.T) {

@@ -5,19 +5,19 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist/purger"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist/purger"
+	"github.com/zhongshuwen/zswchain-go"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist/keyer"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist/injector"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist/injector"
 
 	"github.com/manifoldco/promptui"
 	"go.uber.org/zap"
 
 	"github.com/dfuse-io/kvdb/store"
-	"github.com/eoscanada/eos-go"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

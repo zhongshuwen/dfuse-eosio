@@ -3,8 +3,8 @@ package injector
 import (
 	"testing"
 
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
 	"github.com/stretchr/testify/assert"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
 )
 
 func Test_AccountContractLiveShardWithTransfers(t *testing.T) {

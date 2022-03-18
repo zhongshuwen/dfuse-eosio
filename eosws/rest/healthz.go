@@ -27,12 +27,12 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/hub"
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/logging"
 	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
-	eos "github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/eosws"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

@@ -3,10 +3,10 @@ package cli
 import (
 	"strings"
 
-	"github.com/dfuse-io/dfuse-eosio/apiproxy"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/dfuse-eosio/apiproxy"
 )
 
 func init() {
@@ -16,7 +16,7 @@ func init() {
 		Title:       "API Proxy",
 		Description: "Reverse proxies all API services under one port",
 		MetricsID:   "apiproxy",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/apiproxy.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/apiproxy.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("apiproxy-http-listen-addr", APIProxyHTTPListenAddr, "HTTP Listener address")
 			cmd.Flags().String("apiproxy-https-listen-addr", "", "If non-empty, will listen for HTTPS connections on this address")

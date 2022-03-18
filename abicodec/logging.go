@@ -25,7 +25,7 @@ var traceEnabled = false
 var zlog = zap.NewNop()
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/abicodec", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/abicodec", &zlog)
 
 	if os.Getenv("TRACE") == "true" {
 		traceEnabled = true

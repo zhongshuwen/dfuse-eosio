@@ -6,10 +6,10 @@ import (
 	"sort"
 
 	"github.com/dfuse-io/derr"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/dfuse-io/dfuse-eosio/statedb"
 	"github.com/dfuse-io/dhammer"
 	"github.com/dfuse-io/logging"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 )

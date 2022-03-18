@@ -3,10 +3,10 @@ package cli
 import (
 	"fmt"
 
-	boot "github.com/dfuse-io/dfuse-eosio/booter"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	boot "github.com/zhongshuwen/dfuse-eosio/booter"
 )
 
 func init() {

@@ -15,9 +15,9 @@
 package cli
 
 import (
-	_ "github.com/dfuse-io/dfuse-eosio/trxdb-loader"
-	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/logging"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
+	_ "github.com/zhongshuwen/dfuse-eosio/trxdb-loader"
 	"go.uber.org/zap"
 )
 
@@ -25,5 +25,5 @@ var userLog = launcher.UserLog
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/cmd/zswlishi", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/cmd/zswlishi", &zlog)
 }

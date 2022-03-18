@@ -23,11 +23,11 @@ import (
 	"github.com/dfuse-io/bstream/hub"
 	"github.com/dfuse-io/dauth/authenticator"
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/logging"
 	"github.com/gorilla/websocket"
 	"github.com/teris-io/shortid"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"go.uber.org/zap"
 )
 

@@ -11,10 +11,10 @@ import (
 	"time"
 
 	"github.com/acarl005/stripansi"
-	"github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos/cli"
 	"github.com/dfuse-io/dgrpc"
 	dashboard "github.com/invisible-train-40/zsw-lishi-launcher/dashboard/pb"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/cmd/dfuseeos/cli"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

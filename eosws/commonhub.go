@@ -22,9 +22,9 @@ import (
 	"github.com/dfuse-io/logging"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
 	"github.com/dfuse-io/shutter"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 )
 
 type CommonHub struct {

@@ -31,13 +31,13 @@ import (
 	"github.com/blevesearch/bleve/document"
 	"github.com/blevesearch/bleve/index"
 	"github.com/blevesearch/bleve/index/scorch"
-	eosioSearch "github.com/dfuse-io/dfuse-eosio/search"
 	"github.com/dfuse-io/dmesh"
 	pb "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/dfuse-io/search"
 	searchArchive "github.com/dfuse-io/search/archive"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	eosioSearch "github.com/zhongshuwen/dfuse-eosio/search"
 	"google.golang.org/grpc/metadata"
 )
 

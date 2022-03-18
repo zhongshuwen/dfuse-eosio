@@ -23,8 +23,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func TestABIChangeHandler_ProcessBlock(t *testing.T) {

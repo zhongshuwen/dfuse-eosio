@@ -18,7 +18,7 @@ import (
 	"errors"
 	"strconv"
 
-	eos "github.com/eoscanada/eos-go"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 ///

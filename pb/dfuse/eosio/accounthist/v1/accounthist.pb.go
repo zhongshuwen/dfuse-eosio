@@ -6,7 +6,7 @@ package pbaccounthist
 import (
 	context "context"
 	fmt "fmt"
-	v1 "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	v1 "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"

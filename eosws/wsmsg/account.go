@@ -18,8 +18,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
 	"github.com/dfuse-io/validator"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 )
 
 func init() {

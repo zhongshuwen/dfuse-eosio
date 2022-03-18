@@ -5,10 +5,10 @@ import (
 	"time"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/filtering"
-	mergedFilter "github.com/dfuse-io/dfuse-eosio/merged-filter"
 	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/shutter"
+	"github.com/zhongshuwen/dfuse-eosio/filtering"
+	mergedFilter "github.com/zhongshuwen/dfuse-eosio/merged-filter"
 	"go.uber.org/zap"
 )
 

@@ -8,16 +8,16 @@ import (
 	"github.com/dfuse-io/bstream"
 	blockstreamv2 "github.com/dfuse-io/bstream/blockstream/v2"
 	dauthAuthenticator "github.com/dfuse-io/dauth/authenticator"
-	"github.com/dfuse-io/dfuse-eosio/filtering"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/dmetering"
 	"github.com/dfuse-io/dmetrics"
 	firehoseApp "github.com/dfuse-io/firehose/app/firehose"
 	"github.com/dfuse-io/logging"
 	pbbstream "github.com/dfuse-io/pbgo/dfuse/bstream/v1"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/dfuse-eosio/filtering"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 
@@ -27,14 +27,14 @@ var headTimeDriftmetric = metricset.NewHeadTimeDrift("firehose")
 
 func init() {
 	appLogger := zap.NewNop()
-	logging.Register("github.com/dfuse-io/dfuse-eosio/firehose", &appLogger)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/firehose", &appLogger)
 
 	launcher.RegisterApp(&launcher.AppDef{
 		ID:          "firehose",
 		Title:       "Block Firehose",
 		Description: "Provides on-demand filtered blocks, depends on common-blocks-store-url and common-blockstream-addr",
 		MetricsID:   "merged-filter",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/firehose.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/firehose.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("firehose-grpc-listen-addr", FirehoseGRPCServingAddr+"*", "Address on which the firehose will listen")
 			cmd.Flags().StringSlice("firehose-blocks-store-urls", nil, "If non-empty, overrides common-blocks-store-url with a list of blocks stores")

@@ -6,11 +6,11 @@ import (
 	"io"
 	"os"
 
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
-	searchclient "github.com/dfuse-io/dfuse-eosio/search-client"
 	"github.com/dfuse-io/dgrpc"
 	"github.com/dfuse-io/logging"
 	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
+	searchclient "github.com/zhongshuwen/dfuse-eosio/search-client"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"
 )
 

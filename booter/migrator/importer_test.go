@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	bootops "github.com/dfuse-io/eosio-boot/ops"
-	"github.com/eoscanada/eos-go/ecc"
+	"github.com/zhongshuwen/zswchain-go/ecc"
 
 	"github.com/dfuse-io/logging"
 	"github.com/stretchr/testify/assert"

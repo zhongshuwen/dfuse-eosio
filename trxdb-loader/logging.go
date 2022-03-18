@@ -25,7 +25,7 @@ var zlog *zap.Logger
 var traceEnabled = false
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/trxdb-loader", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/trxdb-loader", &zlog)
 
 	if os.Getenv("TRACE") == "true" {
 		traceEnabled = true

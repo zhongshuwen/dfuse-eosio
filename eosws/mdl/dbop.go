@@ -19,8 +19,8 @@ import (
 
 	v0 "github.com/dfuse-io/eosws-go/mdl/v0"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 
 func ToV1DBOps(in []*pbcodec.DBOp) (out []*v1.DBOp) {

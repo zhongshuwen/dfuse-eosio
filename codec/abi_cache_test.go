@@ -7,9 +7,9 @@ import (
 	"path"
 	"testing"
 
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func TestABICache_AddAndFind(t *testing.T) {

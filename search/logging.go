@@ -5,9 +5,9 @@ import (
 	"go.uber.org/zap"
 )
 
-var traceEnabled = logging.IsTraceEnabled("search", "github.com/dfuse-io/dfuse-eosio/search")
+var traceEnabled = logging.IsTraceEnabled("search", "github.com/zhongshuwen/dfuse-eosio/search")
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/search", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/search", &zlog)
 }

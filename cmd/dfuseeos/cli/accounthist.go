@@ -3,9 +3,9 @@ package cli
 import (
 	"fmt"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
-	accounthistApp "github.com/dfuse-io/dfuse-eosio/accounthist/app/accounthist"
+	accounthistApp "github.com/zhongshuwen/dfuse-eosio/accounthist/app/accounthist"
 
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
@@ -19,7 +19,7 @@ func init() {
 		Title:       "Account History Server",
 		Description: "Serves X most recent actions for each account",
 		MetricsID:   "accounthist",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/accounthist/.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/accounthist/.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("accounthist-grpc-listen-addr", AccountHistGRPCServingAddr, "Address to listen for incoming gRPC requests")
 			cmd.Flags().String("accounthist-dsn", AccountHistDSN, "kvdb connection string to the accoun thistory database.")

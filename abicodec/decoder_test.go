@@ -21,9 +21,9 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/dstore"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func TestDecoder_DecodeAction(t *testing.T) {

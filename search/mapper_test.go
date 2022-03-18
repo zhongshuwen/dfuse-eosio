@@ -12,12 +12,12 @@ import (
 	"time"
 
 	"github.com/andreyvit/diff"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/jsonpb"
-	eos "github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

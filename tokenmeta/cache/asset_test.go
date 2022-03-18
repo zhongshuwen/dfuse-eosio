@@ -3,8 +3,8 @@ package cache
 import (
 	"testing"
 
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_SortOwnedAssetSymbolAlpha(t *testing.T) {

@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 
@@ -162,7 +162,7 @@ func transformInPlaceV2(block *pbcodec.Block, include, exclude, systemActions *C
 
 	block.FilteringApplied = true
 
-	// more explanation here https://github.com/dfuse-io/dfuse-eosio/issues/133
+	// more explanation here https://github.com/zhongshuwen/dfuse-eosio/issues/133
 	block.FilteringIncludeFilterExpr = combineFilters(block.FilteringIncludeFilterExpr, include)
 	block.FilteringExcludeFilterExpr = combineFilters(block.FilteringExcludeFilterExpr, exclude)
 	block.FilteringSystemActionsIncludeFilterExpr = combineFilters(block.FilteringSystemActionsIncludeFilterExpr, systemActions)

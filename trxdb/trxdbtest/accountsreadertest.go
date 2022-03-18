@@ -20,13 +20,13 @@ import (
 	"fmt"
 	"testing"
 
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
 	"github.com/dfuse-io/kvdb"
-	"github.com/eoscanada/eos-go"
-	"github.com/eoscanada/eos-go/system"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
+	"github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/system"
 )
 
 var accountsReaderTest = []DriverTestFunc{

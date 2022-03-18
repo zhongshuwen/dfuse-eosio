@@ -5,7 +5,7 @@ import (
 
 	"github.com/dfuse-io/eosio-boot/config"
 	bootops "github.com/dfuse-io/eosio-boot/ops"
-	"github.com/eoscanada/eos-go/ecc"
+	"github.com/zhongshuwen/zswchain-go/ecc"
 )
 
 func init() {

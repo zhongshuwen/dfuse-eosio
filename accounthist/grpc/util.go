@@ -1,6 +1,6 @@
 package grpc
 
-import "github.com/eoscanada/eos-go"
+import "github.com/zhongshuwen/zswchain-go"
 
 type EOSName uint64
 

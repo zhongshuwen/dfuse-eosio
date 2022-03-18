@@ -19,8 +19,8 @@ import (
 	"fmt"
 
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/fluxdb"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

@@ -4,10 +4,10 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/bstream"
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func TestDefaultCache_AccountBalances(t *testing.T) {

@@ -18,8 +18,8 @@ import (
 	"context"
 
 	"github.com/dfuse-io/derr"
-	eos "github.com/eoscanada/eos-go"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

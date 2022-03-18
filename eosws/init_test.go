@@ -20,14 +20,14 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/codec"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/jsonpb"
 	"github.com/dfuse-io/logging"
-	"github.com/eoscanada/eos-go"
 	proto "github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/codec"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

@@ -19,11 +19,11 @@ import (
 	"testing"
 	"time"
 
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/kvdb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 
 var noon = time.Date(2020, time.February, 02, 12, 0, 0, 0, time.UTC)

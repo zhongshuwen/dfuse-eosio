@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"strings"
 
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
 	"github.com/dfuse-io/dhammer"
-	"github.com/eoscanada/eos-go"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

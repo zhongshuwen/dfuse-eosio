@@ -8,5 +8,5 @@ import (
 var zlog = zap.NewNop()
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/tokenmeta/cache", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache", &zlog)
 }

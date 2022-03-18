@@ -20,10 +20,10 @@ import (
 	"math"
 
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/eoscanada/eos-go"
-	"github.com/eoscanada/eos-go/system"
 	"github.com/lytics/ordpool"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
 

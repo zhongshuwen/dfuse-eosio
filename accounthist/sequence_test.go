@@ -5,9 +5,9 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/kvdb/store"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func TestShardNewestSequenceData(t *testing.T) {

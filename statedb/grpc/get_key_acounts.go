@@ -10,8 +10,8 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/dfuse-io/dfuse-eosio/statedb"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
 )
 
 func (s *Server) GetKeyAccounts(ctx context.Context, request *pbstatedb.GetKeyAccountsRequest) (*pbstatedb.GetKeyAccountsResponse, error) {

@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/dhammer"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 )
 
 var concurrentBatches = flag.Int("concurrent-batches", 2, "concurrent threads")

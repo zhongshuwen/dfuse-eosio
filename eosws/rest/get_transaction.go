@@ -20,10 +20,10 @@ import (
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/dmetering"
-	"github.com/dfuse-io/dfuse-eosio/eosws"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
 	"github.com/dfuse-io/validator"
 	"github.com/gorilla/mux"
+	"github.com/zhongshuwen/dfuse-eosio/eosws"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 )
 
 func GetTransactionHandler(db eosws.DB) http.Handler {

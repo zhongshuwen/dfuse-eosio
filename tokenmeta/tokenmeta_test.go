@@ -3,8 +3,8 @@ package tokenmeta
 import (
 	"testing"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/stretchr/testify/assert"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 
 func TestTokenMeta_shouldProcessDbop(t *testing.T) {

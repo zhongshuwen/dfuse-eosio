@@ -30,11 +30,11 @@ import (
 	_ "net/http/pprof"
 
 	"github.com/andreyvit/diff"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/jsonpb"
 	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

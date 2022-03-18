@@ -25,8 +25,6 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
-	pbsearcheos "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	"github.com/dfuse-io/dmetering"
 	"github.com/dfuse-io/dtracing"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
@@ -34,6 +32,8 @@ import (
 	"github.com/dfuse-io/opaque"
 	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
+	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/metadata"
 )

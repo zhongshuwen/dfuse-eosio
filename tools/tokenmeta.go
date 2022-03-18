@@ -6,12 +6,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/eoscanada/eos-go"
-
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/zswchain-go"
 
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
 	"github.com/spf13/cobra"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
 	"go.uber.org/zap"
 )
 

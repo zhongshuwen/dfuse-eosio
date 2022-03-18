@@ -7,8 +7,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/eoscanada/eos-go"
-	eossnapshot "github.com/eoscanada/eos-go/snapshot"
+	"github.com/zhongshuwen/zswchain-go"
+	eossnapshot "github.com/zhongshuwen/zswchain-go/snapshot"
 	"go.uber.org/zap"
 )
 

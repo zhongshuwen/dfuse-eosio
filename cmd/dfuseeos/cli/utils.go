@@ -165,7 +165,7 @@ func maybeCheckNodeosVersion() {
 			- It's installed but execution of "nodeos --version" failed
 
 			Make sure you have a dfuse instrumented 'nodeos' binary, follow instructions
-			at https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
+			at https://github.com/zhongshuwen/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
 			to find how to install it.
 
 			If you have your dfuse instrumented 'nodeos' binary outside your PATH, use --nodeos-path=<location>
@@ -185,7 +185,7 @@ func maybeCheckNodeosVersion() {
 				version of ZSWLiShi. We recently made incompatible changes to the deep mind
 				code found in "nodeos" binary that requires you to upgrade it.
 
-				Follow instructions at https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
+				Follow instructions at https://github.com/zhongshuwen/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
 				to find the latest version to install for your platform.
 
 				If you think this is a mistake, you can re-run this command adding --skip-checks, which
@@ -199,7 +199,7 @@ func maybeCheckNodeosVersion() {
 			PATH environment variable?
 
 			Make sure you have a dfuse instrumented 'nodeos' binary, follow instructions
-			at https://github.com/dfuse-io/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
+			at https://github.com/zhongshuwen/dfuse-eosio/blob/develop/DEPENDENCIES.md#dfuse-instrumented-eosio-prebuilt-binaries
 			to find how to install it.
 
 			If you have your dfuse instrumented 'nodeos' binary outside your PATH, use --nodeos-path=<location>

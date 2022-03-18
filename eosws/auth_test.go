@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 	"go.uber.org/zap"
 )
 

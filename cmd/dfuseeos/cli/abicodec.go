@@ -1,10 +1,10 @@
 package cli
 
 import (
-	abicodecApp "github.com/dfuse-io/dfuse-eosio/abicodec/app/abicodec"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	abicodecApp "github.com/zhongshuwen/dfuse-eosio/abicodec/app/abicodec"
 )
 
 func init() {
@@ -14,7 +14,7 @@ func init() {
 		Title:       "ABI codec",
 		Description: "Decodes binary data against ABIs for different contracts",
 		MetricsID:   "abicodec",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/abicodec.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/abicodec.*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("abicodec-grpc-listen-addr", ABICodecServingAddr, "Address to listen for incoming gRPC requests")
 			cmd.Flags().String("abicodec-cache-base-url", "{zswlishi-data-dir}/storage/abicache", "path where the cache store is state")

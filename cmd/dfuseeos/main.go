@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/dfuse-io/dfuse-eosio/cmd/dfuseeos/cli"
+	"github.com/zhongshuwen/dfuse-eosio/cmd/dfuseeos/cli"
 )
 
 var version = "dev"

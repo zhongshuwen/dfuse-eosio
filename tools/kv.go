@@ -7,8 +7,6 @@ import (
 	"fmt"
 	"os"
 
-	pbtrxdb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
-	trxdb "github.com/dfuse-io/dfuse-eosio/trxdb/kv"
 	"github.com/dfuse-io/jsonpb"
 	"github.com/dfuse-io/kvdb/store"
 	_ "github.com/dfuse-io/kvdb/store/badger"
@@ -17,6 +15,8 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
+	trxdb "github.com/zhongshuwen/dfuse-eosio/trxdb/kv"
 )
 
 var kvCmd = &cobra.Command{Use: "kv", Short: "Read from a kvStore"}

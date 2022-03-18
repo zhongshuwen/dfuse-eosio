@@ -18,7 +18,7 @@ import (
 	"context"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 )
 
 type Emitter interface {

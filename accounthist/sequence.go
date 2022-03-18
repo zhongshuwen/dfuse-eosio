@@ -5,8 +5,8 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	pbaccounthist "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	"github.com/golang/protobuf/proto"
+	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 
 	"github.com/dfuse-io/kvdb/store"
 	"go.uber.org/zap"

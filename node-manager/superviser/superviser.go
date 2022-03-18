@@ -29,8 +29,8 @@ import (
 	logplugin "github.com/dfuse-io/node-manager/log_plugin"
 	"github.com/dfuse-io/node-manager/metrics"
 	"github.com/dfuse-io/node-manager/superviser"
-	"github.com/eoscanada/eos-go"
 	"github.com/spf13/viper"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

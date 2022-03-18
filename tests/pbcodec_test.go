@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"testing"
 
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/stretchr/testify/assert"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 
 // Those tests requires `codec/testing` package which depends on `codec`, so they

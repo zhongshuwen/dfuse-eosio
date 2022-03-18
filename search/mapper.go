@@ -9,8 +9,8 @@ import (
 	"github.com/blevesearch/bleve/document"
 	"github.com/blevesearch/bleve/mapping"
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/search"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

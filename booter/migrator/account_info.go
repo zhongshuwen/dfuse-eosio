@@ -1,8 +1,6 @@
 package migrator
 
-import (
-	"github.com/eoscanada/eos-go"
-)
+import "github.com/zhongshuwen/zswchain-go"
 
 type PermissionObject struct {
 	// Parent of this permission object

@@ -21,14 +21,14 @@ import (
 	"testing"
 
 	"github.com/dfuse-io/derr"
-	_ "github.com/dfuse-io/dfuse-eosio/codec"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eosSearch "github.com/dfuse-io/dfuse-eosio/search"
 	pb "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/dfuse-io/search"
 	searchLive "github.com/dfuse-io/search/live"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	_ "github.com/zhongshuwen/dfuse-eosio/codec"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	eosSearch "github.com/zhongshuwen/dfuse-eosio/search"
 	"google.golang.org/grpc/codes"
 )
 

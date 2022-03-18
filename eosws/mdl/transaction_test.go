@@ -22,11 +22,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/jsonpb"
 	proto "github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 )
 
 func Benchmark_ToV1TransactionTrace(b *testing.B) {

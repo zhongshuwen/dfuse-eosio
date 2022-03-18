@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
 	"github.com/dfuse-io/kvdb/store"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 	"go.uber.org/zap"
 )
 

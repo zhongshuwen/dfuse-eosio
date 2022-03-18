@@ -18,9 +18,9 @@ import (
 	"errors"
 	"testing"
 
-	pbtrxdb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 )
 
 func TestNewIndexableCategories(t *testing.T) {

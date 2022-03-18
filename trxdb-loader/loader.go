@@ -23,14 +23,14 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/blockstream"
 	"github.com/dfuse-io/bstream/forkable"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
-	"github.com/dfuse-io/dfuse-eosio/trxdb-loader/metrics"
 	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/kvdb"
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/dfuse-io/shutter"
-	eosgo "github.com/eoscanada/eos-go"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb-loader/metrics"
+	eosgo "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

@@ -17,9 +17,9 @@ package dgraphql
 import (
 	"testing"
 
-	"github.com/dfuse-io/dfuse-eosio/dgraphql/resolvers"
 	"github.com/dfuse-io/dgraphql"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/dgraphql/resolvers"
 )
 
 func TestSchema(t *testing.T) {

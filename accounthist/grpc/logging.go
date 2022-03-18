@@ -8,5 +8,5 @@ import (
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/accounthist/grpc", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/accounthist/grpc", &zlog)
 }

@@ -21,9 +21,9 @@ import (
 	"net/url"
 	"sort"
 
-	"github.com/dfuse-io/dfuse-eosio/statedb"
 	"github.com/dfuse-io/dhammer"
-	eos "github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
+	eos "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/logging"

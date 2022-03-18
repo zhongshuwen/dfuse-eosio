@@ -5,30 +5,30 @@ import (
 	"os"
 	"time"
 
-	"github.com/dfuse-io/dfuse-eosio/node-manager/superviser"
-	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/dfuse-io/logging"
 	nodeManager "github.com/dfuse-io/node-manager"
 	nodeManagerApp "github.com/dfuse-io/node-manager/app/node_manager"
 	"github.com/dfuse-io/node-manager/metrics"
 	"github.com/dfuse-io/node-manager/operator"
 	"github.com/dfuse-io/node-manager/profiler"
+	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/dfuse-eosio/node-manager/superviser"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
 
 func init() {
 	appLogger := zap.NewNop()
-	logging.Register("github.com/dfuse-io/dfuse-eosio/node-manager", &appLogger)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/node-manager", &appLogger)
 
 	launcher.RegisterApp(&launcher.AppDef{
 		ID:          "node-manager",
 		Title:       "Node manager",
 		Description: "Block producing node",
 		MetricsID:   "producer",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/node-manager.*", []zapcore.Level{zap.WarnLevel, zap.WarnLevel, zap.InfoLevel, zap.DebugLevel}),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/node-manager.*", []zapcore.Level{zap.WarnLevel, zap.WarnLevel, zap.InfoLevel, zap.DebugLevel}),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("node-manager-http-listen-addr", NodeManagerHTTPServingAddr, "The dfuse Node Manager API address")
 			cmd.Flags().String("node-manager-nodeos-api-addr", NodeosAPIAddr, "Target API address to communicate with underlying superviser")

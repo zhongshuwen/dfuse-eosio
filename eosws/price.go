@@ -24,8 +24,8 @@ import (
 	"github.com/tidwall/gjson"
 	"go.uber.org/zap"
 
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 )
 
 type PriceHub struct {

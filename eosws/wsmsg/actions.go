@@ -18,10 +18,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	v0 "github.com/dfuse-io/eosws-go/mdl/v0"
 	"time"
 
-	eos "github.com/eoscanada/eos-go"
+	v0 "github.com/dfuse-io/eosws-go/mdl/v0"
+
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 func init() {

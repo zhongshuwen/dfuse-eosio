@@ -18,7 +18,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dfuse-io/dfuse-eosio/eosws/statedb"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/statedb"
 )
 
 func init() {

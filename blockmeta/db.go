@@ -20,7 +20,7 @@ import (
 
 	"github.com/dfuse-io/blockmeta"
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"
 )
 

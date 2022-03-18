@@ -3,8 +3,8 @@ package cache
 import (
 	"testing"
 
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/stretchr/testify/assert"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 )
 
 func Test_SortTokensSymbolAlpha(t *testing.T) {

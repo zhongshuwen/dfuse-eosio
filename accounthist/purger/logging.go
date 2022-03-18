@@ -11,5 +11,5 @@ var traceEnabled = os.Getenv("TRACE") == "true"
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/accounthist/purger", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/accounthist/purger", &zlog)
 }

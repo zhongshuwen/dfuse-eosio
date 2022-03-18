@@ -24,13 +24,13 @@ import (
 
 	"github.com/dfuse-io/dauth/authenticator"
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
 	"github.com/dfuse-io/dmetering"
 	"github.com/dfuse-io/dtracing"
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/shutter"
 	"github.com/gorilla/websocket"
 	"github.com/tidwall/gjson"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
 )

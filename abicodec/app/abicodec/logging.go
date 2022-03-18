@@ -22,5 +22,5 @@ import (
 var zlog = zap.NewNop()
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/abicodec/app/abicodec", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/abicodec/app/abicodec", &zlog)
 }

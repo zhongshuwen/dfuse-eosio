@@ -3,10 +3,10 @@ package cli
 import (
 	"math"
 
-	trxdbLoaderApp "github.com/dfuse-io/dfuse-eosio/trxdb-loader/app/trxdb-loader"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	trxdbLoaderApp "github.com/zhongshuwen/dfuse-eosio/trxdb-loader/app/trxdb-loader"
 )
 
 func init() {
@@ -15,7 +15,7 @@ func init() {
 		Title:       "DB loader",
 		Description: "Main blocks and transactions database",
 		MetricsID:   "trxdb-loader",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/(trxdb|trxdb-loader).*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/(trxdb|trxdb-loader).*", nil),
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("trxdb-loader-processing-type", "live", "The actual processing type to perform, either `live`, `batch` or `patch`")
 			cmd.Flags().Uint64("trxdb-loader-batch-size", 100, "Max number of blocks batched together for database write. Blocks are not batched when close (<25sec) to head.")

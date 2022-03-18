@@ -19,11 +19,11 @@ import (
 	"time"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
 	"github.com/dfuse-io/kvdb"
-	eos "github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 var AccountGetterInstance AccountGetter

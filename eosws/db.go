@@ -26,14 +26,14 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
 	"github.com/dfuse-io/kvdb"
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/opaque"
-	"github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

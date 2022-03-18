@@ -17,8 +17,8 @@ package trxdb
 import (
 	"fmt"
 
-	pbtrxdb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 	"github.com/golang/protobuf/proto"
+	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 	"go.uber.org/zap"
 )
 

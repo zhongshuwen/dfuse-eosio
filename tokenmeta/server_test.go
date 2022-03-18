@@ -3,10 +3,10 @@ package tokenmeta
 import (
 	"testing"
 
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_tokenMatchFilters(t *testing.T) {

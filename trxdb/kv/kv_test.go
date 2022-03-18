@@ -7,11 +7,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
-	"github.com/dfuse-io/dfuse-eosio/trxdb/trxdbtest"
 	_ "github.com/dfuse-io/kvdb/store/badger"
 	"github.com/dfuse-io/logging"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb/trxdbtest"
 	"go.uber.org/zap"
 )
 

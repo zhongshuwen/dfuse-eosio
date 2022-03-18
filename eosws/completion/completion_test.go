@@ -21,7 +21,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 
 	"github.com/stretchr/testify/assert"
 )

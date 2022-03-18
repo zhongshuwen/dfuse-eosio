@@ -3,9 +3,8 @@ package accounthist
 import (
 	"fmt"
 
-	"github.com/eoscanada/eos-go"
-
-	"github.com/dfuse-io/dfuse-eosio/accounthist/keyer"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 type AccountContractKey struct {

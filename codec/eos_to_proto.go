@@ -24,11 +24,11 @@ import (
 	"time"
 	"unicode/utf8"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/eoscanada/eos-go"
-	"github.com/eoscanada/eos-go/ecc"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/ecc"
 	"go.uber.org/zap"
 )
 

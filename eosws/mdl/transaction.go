@@ -21,13 +21,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/dfuse-io/dfuse-eosio/codec"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	v0 "github.com/dfuse-io/eosws-go/mdl/v0"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
-	eos "github.com/eoscanada/eos-go"
 	"github.com/golang-collections/collections/stack"
 	"github.com/tidwall/sjson"
+	"github.com/zhongshuwen/dfuse-eosio/codec"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 // TransactionList represents a list of TransactionLifecycle with some cursor

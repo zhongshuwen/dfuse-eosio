@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/eoscanada/eos-go"
 	eoscvault "github.com/eoscanada/eosc/vault"
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func (b *booter) newKeyBagFromVault(vaultFile string) (*eos.KeyBag, error) {

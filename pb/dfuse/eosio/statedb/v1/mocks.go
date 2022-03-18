@@ -14,7 +14,7 @@ import (
 var zlog = zap.NewNop()
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1/statedb", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1/statedb", &zlog)
 }
 
 type MockStateClient struct {

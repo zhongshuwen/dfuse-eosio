@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"strconv"
 
-	eos "github.com/eoscanada/eos-go"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 type KeyConverter interface {

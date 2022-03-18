@@ -5,12 +5,12 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 
-	pbaccounthist "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/kvdb/store"
 	"github.com/golang/protobuf/proto"
+	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

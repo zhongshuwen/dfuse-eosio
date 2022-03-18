@@ -6,12 +6,12 @@ import (
 	"os"
 	"time"
 
-	"github.com/dfuse-io/dfuse-eosio/codec"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/jsonpb"
-	"github.com/eoscanada/eos-go"
-	"github.com/eoscanada/eos-go/ecc"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/zhongshuwen/dfuse-eosio/codec"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/ecc"
 )
 
 func testBlock1() *pbcodec.Block {

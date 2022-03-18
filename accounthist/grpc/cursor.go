@@ -1,6 +1,6 @@
 package grpc
 
-import pbaccounthist "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
+import pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 
 const CursorMagicValue = 4374
 

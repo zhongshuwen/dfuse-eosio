@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sort"
 
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/eoscanada/eos-go"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 type Producer struct {

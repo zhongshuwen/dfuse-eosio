@@ -20,8 +20,8 @@ import (
 	"net/url"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws"
-	"github.com/dfuse-io/dfuse-eosio/eosws/completion"
+	"github.com/zhongshuwen/dfuse-eosio/eosws"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/completion"
 )
 
 const minPrefixLength = 1

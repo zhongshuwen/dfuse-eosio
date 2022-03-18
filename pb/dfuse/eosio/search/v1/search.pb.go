@@ -5,7 +5,7 @@ package pbsearcheos
 
 import (
 	fmt "fmt"
-	v1 "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	v1 "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	proto "github.com/golang/protobuf/proto"
 	math "math"
 )

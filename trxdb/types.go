@@ -19,7 +19,7 @@ import (
 	"regexp"
 	"strings"
 
-	pbtrxdb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
+	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
 )
 
 var NoIndexing IndexableCategories = nil

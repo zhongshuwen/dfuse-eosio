@@ -26,17 +26,17 @@ import (
 	"strings"
 	"testing"
 
-	_ "github.com/dfuse-io/dfuse-eosio/codec"
 	_ "github.com/dfuse-io/kvdb/store/badger"
+	_ "github.com/zhongshuwen/dfuse-eosio/codec"
 
 	"github.com/dfuse-io/bstream"
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/fluxdb/store"
 	fluxdbKV "github.com/dfuse-io/fluxdb/store/kv"
 	"github.com/dfuse-io/logging"
 	"github.com/gavv/httpexpect/v2"
 	"github.com/stretchr/testify/require"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

@@ -19,9 +19,9 @@ import (
 	"testing"
 	"time"
 
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/dstore"
 	"github.com/stretchr/testify/assert"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 )
 
 func Test_onGetHeadInfo(t *testing.T) {

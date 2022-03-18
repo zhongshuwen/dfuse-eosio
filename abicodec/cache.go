@@ -27,7 +27,7 @@ import (
 	"time"
 
 	"github.com/dfuse-io/dstore"
-	"github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

@@ -5,9 +5,8 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
-
-	"github.com/eoscanada/eos-go"
 )
 
 type tableScope struct {

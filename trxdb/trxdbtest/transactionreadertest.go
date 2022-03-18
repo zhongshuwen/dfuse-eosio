@@ -19,11 +19,11 @@ import (
 	"fmt"
 	"testing"
 
-	ct "github.com/dfuse-io/dfuse-eosio/codec/testing"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 )
 
 var transactionReaderTests = []DriverTestFunc{

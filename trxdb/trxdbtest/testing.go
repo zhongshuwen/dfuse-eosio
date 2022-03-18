@@ -22,9 +22,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
 	"github.com/golang/protobuf/ptypes"
 	tspb "github.com/golang/protobuf/ptypes/timestamp"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 )
 
 type DriverCleanupFunc func()

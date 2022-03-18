@@ -1,10 +1,10 @@
 package cli
 
 import (
-	eosqApp "github.com/dfuse-io/dfuse-eosio/eosq/app/eosq"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	eosqApp "github.com/zhongshuwen/dfuse-eosio/eosq/app/eosq"
 )
 
 const defaultEosqAvailableNetworks = `[{ "id": "local", "is_test": true, "logo": "/images/eos-mainnet.png", "name": "Local Network", "url": "http://localhost:8080" }]`
@@ -16,7 +16,7 @@ func init() {
 		Title:       "Eosq",
 		Description: "EOSIO Block Explorer",
 		MetricsID:   "eosq",
-		Logger:      launcher.NewLoggingDef("github.com/dfuse-io/dfuse-eosio/eosq.*", nil),
+		Logger:      launcher.NewLoggingDef("github.com/zhongshuwen/dfuse-eosio/eosq.*", nil),
 		InitFunc:    nil,
 		RegisterFlags: func(cmd *cobra.Command) error {
 			cmd.Flags().String("eosq-http-listen-addr", EosqHTTPServingAddr, "Auth URL used to configure the dfuse js client")

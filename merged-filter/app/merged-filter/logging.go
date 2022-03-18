@@ -22,5 +22,5 @@ import (
 var zlog *zap.Logger
 
 func init() {
-	logging.Register("github.com/dfuse-io/dfuse-eosio/merged-filter/app/merged-filter", &zlog)
+	logging.Register("github.com/zhongshuwen/dfuse-eosio/merged-filter/app/merged-filter", &zlog)
 }

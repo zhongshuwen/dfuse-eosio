@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/dfuse-io/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/dfuse-eosio/accounthist"
+	"github.com/zhongshuwen/zswchain-go"
 
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/assert"
 )
 

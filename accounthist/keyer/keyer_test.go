@@ -4,8 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_encodeTokenPrefixKey(t *testing.T) {

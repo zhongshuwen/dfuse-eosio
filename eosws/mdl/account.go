@@ -17,9 +17,9 @@ package mdl
 import (
 	"time"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/ptypes"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 func ToV1Account(in *pbcodec.AccountCreationRef) *Account {

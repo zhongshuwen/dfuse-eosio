@@ -10,10 +10,10 @@ import (
 	"path/filepath"
 	"time"
 
-	_ "github.com/dfuse-io/dfuse-eosio/booter/migrator"
 	eosboot "github.com/dfuse-io/eosio-boot"
 	"github.com/dfuse-io/shutter"
-	"github.com/eoscanada/eos-go"
+	_ "github.com/zhongshuwen/dfuse-eosio/booter/migrator"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

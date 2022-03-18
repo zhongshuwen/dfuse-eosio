@@ -27,15 +27,15 @@ import (
 	"github.com/dfuse-io/dmetrics"
 
 	"github.com/dfuse-io/derr"
-	pbabicodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
 	"github.com/dfuse-io/dgrpc"
 	"github.com/dfuse-io/dstore"
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	pbhealth "github.com/dfuse-io/pbgo/grpc/health/v1"
 	"github.com/dfuse-io/shutter"
+	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
 	"go.uber.org/zap"
 )
 

@@ -21,8 +21,8 @@ import (
 	"fmt"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/statedb"
-	eos "github.com/eoscanada/eos-go"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 //

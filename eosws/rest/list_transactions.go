@@ -19,8 +19,8 @@ import (
 	"strconv"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws"
 	"github.com/dfuse-io/dmetering"
+	"github.com/zhongshuwen/dfuse-eosio/eosws"
 )
 
 func ListTransactionsHandler(db eosws.DB) http.Handler {

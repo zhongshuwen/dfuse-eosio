@@ -7,8 +7,8 @@ import (
 
 	"github.com/dfuse-io/blockmeta"
 	pbheadinfo "github.com/dfuse-io/pbgo/dfuse/headinfo/v1"
-	"github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

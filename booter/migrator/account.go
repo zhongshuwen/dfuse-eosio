@@ -8,8 +8,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/eoscanada/eos-go"
-	"github.com/eoscanada/eos-go/system"
+	"github.com/zhongshuwen/zswchain-go"
+	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
 

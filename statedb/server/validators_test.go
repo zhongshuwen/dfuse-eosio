@@ -22,9 +22,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/eoscanada/eos-go/ecc"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/zswchain-go/ecc"
 )
 
 type bodyValidatorTestCase struct {

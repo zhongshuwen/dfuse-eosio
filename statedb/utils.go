@@ -5,7 +5,7 @@ import (
 	"errors"
 
 	"github.com/dfuse-io/fluxdb"
-	eos "github.com/eoscanada/eos-go"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 var bigEndian = binary.BigEndian

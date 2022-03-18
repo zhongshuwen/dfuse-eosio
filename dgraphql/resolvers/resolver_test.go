@@ -20,9 +20,6 @@ import (
 	"os"
 	"testing"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbsearcheos "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/search/v1"
-	"github.com/dfuse-io/dfuse-eosio/trxdb"
 	"github.com/dfuse-io/dgraphql"
 	"github.com/dfuse-io/dtracing"
 	"github.com/dfuse-io/logging"
@@ -30,6 +27,9 @@ import (
 	"github.com/golang/protobuf/ptypes"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
+	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"
 )
 

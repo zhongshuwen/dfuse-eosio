@@ -14,7 +14,7 @@
 
 package mdl
 
-import "github.com/eoscanada/eos-go/forum"
+import "github.com/zhongshuwen/zswchain-go/forum"
 
 type Proposition struct {
 	Title string        `json:"title"`

@@ -24,15 +24,15 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/jsonpb"
-	eos "github.com/eoscanada/eos-go"
 	proto "github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_onGetTableRows(t *testing.T) {

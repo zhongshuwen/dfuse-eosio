@@ -3,11 +3,11 @@ package statedb
 import (
 	"fmt"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/fluxdb"
-	"github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/proto"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 const ctscpCollection = 0xB200

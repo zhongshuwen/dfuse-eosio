@@ -30,15 +30,15 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/hub"
 	"github.com/dfuse-io/dauth/authenticator"
-	"github.com/dfuse-io/dfuse-eosio/codec"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbstatedb "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/dfuse-io/dstore"
-	eos "github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/gorilla/websocket"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/sjson"
+	"github.com/zhongshuwen/dfuse-eosio/codec"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestOnGetActionsTraces(t *testing.T) {

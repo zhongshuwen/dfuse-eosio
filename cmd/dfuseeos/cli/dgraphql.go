@@ -1,11 +1,11 @@
 package cli
 
 import (
-	dgraphqlEosio "github.com/dfuse-io/dfuse-eosio/dgraphql"
 	dgraphqlApp "github.com/dfuse-io/dgraphql/app/dgraphql"
 	"github.com/invisible-train-40/zsw-lishi-launcher/launcher"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	dgraphqlEosio "github.com/zhongshuwen/dfuse-eosio/dgraphql"
 )
 
 func init() {

@@ -20,8 +20,8 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/fluxdb"
-	"github.com/eoscanada/eos-go"
 	"github.com/stretchr/testify/require"
+	eos "github.com/zhongshuwen/zswchain-go"
 )
 
 func writeBatchOfRequests(t *testing.T, db *fluxdb.FluxDB, requests ...*fluxdb.WriteRequest) {

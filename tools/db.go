@@ -5,14 +5,14 @@ import (
 	"fmt"
 	"strconv"
 
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	trxdb "github.com/dfuse-io/dfuse-eosio/trxdb"
 	"github.com/dfuse-io/kvdb"
 	_ "github.com/dfuse-io/kvdb/store/badger"
 	_ "github.com/dfuse-io/kvdb/store/bigkv"
 	_ "github.com/dfuse-io/kvdb/store/tikv"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	trxdb "github.com/zhongshuwen/dfuse-eosio/trxdb"
 )
 
 var dbCmd = &cobra.Command{Use: "db", Short: "Read from EOS db"}

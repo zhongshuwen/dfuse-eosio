@@ -21,11 +21,11 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/dfuse-io/logging"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"go.uber.org/zap"
 )
 

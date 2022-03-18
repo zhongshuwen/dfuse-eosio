@@ -4,10 +4,10 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/bstream"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbsearcheos "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 )
 
 type SearchMatch struct {

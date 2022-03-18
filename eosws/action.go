@@ -21,12 +21,12 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/eosws/mdl"
-	"github.com/dfuse-io/dfuse-eosio/eosws/metrics"
-	"github.com/dfuse-io/dfuse-eosio/eosws/wsmsg"
-	pbcodec "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	_ "github.com/eoscanada/eos-go/forum"
 	"github.com/golang/protobuf/ptypes"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
+	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
+	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
+	_ "github.com/zhongshuwen/zswchain-go/forum"
 )
 
 func (ws *WSConn) onGetActionTraces(ctx context.Context, msg *wsmsg.GetActionTraces) {

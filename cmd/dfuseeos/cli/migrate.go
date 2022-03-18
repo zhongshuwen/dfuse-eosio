@@ -15,9 +15,9 @@
 package cli
 
 import (
-	"github.com/dfuse-io/dfuse-eosio/booter/migrator"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"github.com/zhongshuwen/dfuse-eosio/booter/migrator"
 )
 
 var migrateCmd = &cobra.Command{Use: "migrate", Short: "Create chain migration data", RunE: dfuseMigrateE}

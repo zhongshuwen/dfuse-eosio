@@ -3,9 +3,9 @@ package resolvers
 import (
 	"testing"
 
-	pbaccounthist "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	"github.com/dfuse-io/dgrpc"
 	"github.com/stretchr/testify/require"
+	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 )
 
 func TestRoot_CheckAccounthistServiceAvailability(t *testing.T) {

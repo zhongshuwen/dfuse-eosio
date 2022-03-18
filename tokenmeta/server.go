@@ -6,12 +6,12 @@ import (
 	"net"
 	"time"
 
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/dfuse-io/dfuse-eosio/tokenmeta/cache"
 	"github.com/dfuse-io/dgrpc"
 	pbhealth "github.com/dfuse-io/pbgo/grpc/health/v1"
 	"github.com/dfuse-io/shutter"
-	"github.com/eoscanada/eos-go"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
+	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
+	"github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 )

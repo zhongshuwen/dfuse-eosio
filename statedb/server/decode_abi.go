@@ -22,11 +22,11 @@ import (
 	"net/url"
 
 	"github.com/dfuse-io/derr"
-	"github.com/dfuse-io/dfuse-eosio/statedb"
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
-	eos "github.com/eoscanada/eos-go"
 	"github.com/francoispqt/gojay"
+	"github.com/zhongshuwen/dfuse-eosio/statedb"
+	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 

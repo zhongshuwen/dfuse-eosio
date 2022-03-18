@@ -6,13 +6,13 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/bstream"
-	"github.com/dfuse-io/dfuse-eosio/dgraphql/types"
-	pbtokenmeta "github.com/dfuse-io/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/dfuse-io/dgraphql"
 	commonTypes "github.com/dfuse-io/dgraphql/types"
 	"github.com/dfuse-io/dmetering"
-	"github.com/eoscanada/eos-go"
 	"github.com/golang/protobuf/proto"
+	"github.com/zhongshuwen/dfuse-eosio/dgraphql/types"
+	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
+	"github.com/zhongshuwen/zswchain-go"
 )
 
 var accountBalanceCursorDecoder = dgraphql.NewOpaqueProtoCursorDecoder(func() proto.Message { return &pbtokenmeta.AccountBalanceCursor{} })
