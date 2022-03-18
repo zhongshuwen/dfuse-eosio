@@ -24,9 +24,9 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
-	"github.com/dfuse-io/dstore"
 	"github.com/dfuse-io/jsonpb"
 	proto "github.com/golang/protobuf/proto"
+	"github.com/streamingfast/dstore"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"

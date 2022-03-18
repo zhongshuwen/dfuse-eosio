@@ -23,9 +23,9 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/dmetrics"
-	"github.com/dfuse-io/dstore"
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/dfuse-io/shutter"
+	"github.com/streamingfast/dstore"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	trxdbloader "github.com/zhongshuwen/dfuse-eosio/trxdb-loader"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb-loader/metrics"
