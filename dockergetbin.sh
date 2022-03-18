@@ -27,7 +27,7 @@ pushall(){
 copybinfiles() {
   copyfilefromdockerimage "$ZSW_LISHI_NODE_BASE_IMAGE_NAME" "/app/zswlishi" "./"
 }
-buildlishinodebaseimage
+#buildlishinodebaseimage
 copybinfiles
 
 pushall
