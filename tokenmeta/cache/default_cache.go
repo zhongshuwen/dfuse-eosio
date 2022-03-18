@@ -197,7 +197,7 @@ func (c *DefaultCache) AccountBalances(account zsw.AccountName, opts ...AccountB
 						Owner: ass.Owner,
 						Asset: &zsw.ExtendedAsset{
 							Contract: ass.Asset.Contract,
-							Asset:    zsw.NewEOSAsset(int64(ass.Asset.Asset.Amount) + value),
+							Asset:    zsw.NewZSWAsset(int64(ass.Asset.Asset.Amount) + value),
 						},
 					})
 					continue
@@ -241,7 +241,7 @@ func (c *DefaultCache) TokenBalances(contract zsw.AccountName, opts ...TokenBala
 						Owner: ass.Owner,
 						Asset: &zsw.ExtendedAsset{
 							Contract: contract,
-							Asset:    zsw.NewEOSAsset(int64(ass.Asset.Asset.Amount) + c.getStakeForAccount(ass.Owner)),
+							Asset:    zsw.NewZSWAsset(int64(ass.Asset.Asset.Amount) + c.getStakeForAccount(ass.Owner)),
 						},
 					})
 					continue
