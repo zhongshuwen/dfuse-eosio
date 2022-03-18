@@ -11,7 +11,7 @@ import (
 	"github.com/dfuse-io/shutter"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 )
@@ -94,7 +94,7 @@ func (s *Server) GetTokens(ctx context.Context, in *pbtokenmeta.GetTokensRequest
 
 	tokens := []*pbtokenmeta.Token{}
 	for _, t := range s.cache.Tokens() {
-		if matchFilters(eos.AccountName(t.Contract), t.Symbol, in.FilterTokenContracts, in.FilterTokenSymbols) {
+		if matchFilters(zsw.AccountName(t.Contract), t.Symbol, in.FilterTokenContracts, in.FilterTokenSymbols) {
 			tokens = append(tokens, t)
 		}
 	}
@@ -131,7 +131,7 @@ func (s *Server) GetAccountBalances(ctx context.Context, in *pbtokenmeta.GetAcco
 	}
 
 	assets := []*cache.OwnedAsset{}
-	for _, a := range s.cache.AccountBalances(eos.AccountName(in.Account), options...) {
+	for _, a := range s.cache.AccountBalances(zsw.AccountName(in.Account), options...) {
 		if matchFilters(a.Asset.Contract, a.Asset.Asset.Symbol.Symbol, in.FilterTokenContracts, in.FilterTokenSymbols) {
 			assets = append(assets, a)
 		}
@@ -185,7 +185,7 @@ func (s *Server) GetTokenBalances(ctx context.Context, in *pbtokenmeta.GetTokenB
 		options = append(options, cache.EOSIncludeStakedTokOpt)
 	}
 	assets := []*cache.OwnedAsset{}
-	for _, a := range s.cache.TokenBalances(eos.AccountName(in.TokenContract), options...) {
+	for _, a := range s.cache.TokenBalances(zsw.AccountName(in.TokenContract), options...) {
 		if matchFilters(a.Asset.Contract, a.Asset.Asset.Symbol.Symbol, []string{}, in.FilterTokenSymbols) {
 			if stringInFilter(string(a.Owner), in.FilterHolderAccounts) {
 				assets = append(assets, a)
@@ -222,7 +222,7 @@ func (s *Server) GetTokenBalances(ctx context.Context, in *pbtokenmeta.GetTokenB
 	return out, nil
 }
 
-func matchFilters(contract eos.AccountName, symbol string, contractFilter []string, symbolFilter []string) bool {
+func matchFilters(contract zsw.AccountName, symbol string, contractFilter []string, symbolFilter []string) bool {
 	if !stringInFilter(symbol, symbolFilter) {
 		return false
 	}

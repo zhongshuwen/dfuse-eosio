@@ -27,7 +27,7 @@ import (
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func SimpleSearchHandler(db eosws.DB, blockmetaClient *pbblockmeta.Client) http.Handler {
@@ -139,7 +139,7 @@ func SimpleSearchHandler(db eosws.DB, blockmetaClient *pbblockmeta.Client) http.
 			if err == nil {
 
 				account := mdl.ToV1Account(acctResponse)
-				account.AccountResp.AccountName = eos.AccountName(acctResponse.Account)
+				account.AccountResp.AccountName = zsw.AccountName(acctResponse.Account)
 
 				eosws.WriteJSON(w, r, map[string]interface{}{
 					"type": "account",

@@ -7,7 +7,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 )
 
@@ -85,7 +85,7 @@ type ContractABIOption bool
 
 var ContractABIPackedOnly = ContractABIOption(true)
 
-func (r *ContractABIEntry) ABI(options ...ContractABIOption) (abi *eos.ABI, rawBytes []byte, err error) {
+func (r *ContractABIEntry) ABI(options ...ContractABIOption) (abi *zsw.ABI, rawBytes []byte, err error) {
 	if r == nil {
 		return nil, nil, nil
 	}
@@ -100,8 +100,8 @@ func (r *ContractABIEntry) ABI(options ...ContractABIOption) (abi *eos.ABI, rawB
 		return nil, rawABI, nil
 	}
 
-	abi = new(eos.ABI)
-	if err := eos.UnmarshalBinary(rawABI, abi); err != nil {
+	abi = new(zsw.ABI)
+	if err := zsw.UnmarshalBinary(rawABI, abi); err != nil {
 		return nil, rawABI, errABIUnmarshal
 	}
 

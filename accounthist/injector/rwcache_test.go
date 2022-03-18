@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/stretchr/testify/assert"
 )
@@ -16,9 +16,9 @@ func TestRWCache(t *testing.T) {
 	rwCache := NewRWCache(kvStore)
 	ctx := context.Background()
 
-	accountMama := eos.MustStringToName("mama")
-	accountPapa := eos.MustStringToName("papa")
-	accountDada := eos.MustStringToName("dada")
+	accountMama := zsw.MustStringToName("mama")
+	accountPapa := zsw.MustStringToName("papa")
+	accountDada := zsw.MustStringToName("dada")
 
 	rwCache.Put(ctx, accounthist.AccountFacet(accountMama).Row(0, 0), []byte{0xaa})
 	rwCache.Put(ctx, accounthist.AccountFacet(accountMama).Row(0, 2), []byte{0xaa})

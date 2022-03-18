@@ -27,7 +27,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -181,7 +181,7 @@ func (s *dummySource) SetLogger(logger *zap.Logger) {}
 func txpushTestBlock(t *testing.T, id, previousID, producer, trxID string) *bstream.Block {
 	pbblock := &pbcodec.Block{
 		Id:     id,
-		Number: eos.BlockNum(id),
+		Number: zsw.BlockNum(id),
 		Header: &pbcodec.BlockHeader{
 			Previous:  previousID,
 			Producer:  producer,

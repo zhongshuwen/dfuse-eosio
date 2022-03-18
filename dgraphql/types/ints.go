@@ -18,7 +18,7 @@ import (
 	"errors"
 	"strconv"
 
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 ///
@@ -29,7 +29,7 @@ type Int64 int64
 
 // ToInt64 does EOS-style decoding of an int64, and returns a Int64 from this package.
 func ToInt64(rawJSON string) Int64 {
-	var res eos.Int64
+	var res zsw.Int64
 	_ = res.UnmarshalJSON([]byte(rawJSON))
 	return Int64(res)
 
@@ -88,7 +88,7 @@ type Uint64 uint64
 
 // ToUint64 does EOS-style decoding of an uint64, and returns a Uint64 from this package.
 func ToUint64(rawJSON string) Uint64 {
-	var res eos.Uint64
+	var res zsw.Uint64
 	_ = res.UnmarshalJSON([]byte(rawJSON))
 	return Uint64(res)
 

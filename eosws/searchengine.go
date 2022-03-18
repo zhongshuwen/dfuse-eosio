@@ -33,7 +33,6 @@ import (
 	pbsearch "github.com/dfuse-io/pbgo/dfuse/search/v1"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
-	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/metadata"
 )
@@ -191,7 +190,7 @@ func (s *SearchEngine) fillSearchClientResponse(
 			return nil, err
 		}
 
-		eosMatch := eosMatchAny.Message.(*pbsearcheos.Match)
+		eosMatch := eosMatchAny.Message.(*pbsearchzsw.Match)
 
 		actions[match.TrxIdPrefix] = eosMatch.ActionIndexes
 		trxIDS[i] = match.TrxIdPrefix

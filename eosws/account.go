@@ -23,39 +23,39 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 var AccountGetterInstance AccountGetter
 
 type AccountGetter interface {
-	GetAccount(ctx context.Context, name string) (out *eos.AccountResp, err error)
+	GetAccount(ctx context.Context, name string) (out *zsw.AccountResp, err error)
 }
 
 type APIAccountGetter struct {
-	api        *eos.API
-	coreSymbol eos.Symbol
+	api        *zsw.API
+	coreSymbol zsw.Symbol
 }
 
-func (g *APIAccountGetter) GetAccount(ctx context.Context, name string) (out *eos.AccountResp, err error) {
-	var options []eos.GetAccountOption
+func (g *APIAccountGetter) GetAccount(ctx context.Context, name string) (out *zsw.AccountResp, err error) {
+	var options []zsw.GetAccountOption
 
 	// For now, we pass the option only if different than the "default". But the default makes sense only in regards
 	// to the chain. So ideally, we would pass the parameter always. The parameter is however not totally documented
 	// so we play on the safe side and simulate the behavior when core symbol was not available.
 	if g.coreSymbol.Precision != 4 || g.coreSymbol.Symbol != "EOS" {
-		options = []eos.GetAccountOption{eos.WithCoreSymbol(g.coreSymbol)}
+		options = []zsw.GetAccountOption{zsw.WithCoreSymbol(g.coreSymbol)}
 	}
 
-	out, err = g.api.GetAccount(ctx, eos.AccountName(name), options...)
-	if err == eos.ErrNotFound {
+	out, err = g.api.GetAccount(ctx, zsw.AccountName(name), options...)
+	if err == zsw.ErrNotFound {
 		return nil, DBAccountNotFoundError(ctx, name)
 	}
 
 	return
 }
 
-func NewApiAccountGetter(api *eos.API, coreSymbol eos.Symbol) *APIAccountGetter {
+func NewApiAccountGetter(api *zsw.API, coreSymbol zsw.Symbol) *APIAccountGetter {
 	return &APIAccountGetter{
 		api:        api,
 		coreSymbol: coreSymbol,

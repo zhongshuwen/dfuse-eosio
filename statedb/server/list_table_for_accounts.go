@@ -23,7 +23,7 @@ import (
 
 	"github.com/dfuse-io/dhammer"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/logging"
@@ -77,7 +77,7 @@ func (srv *EOSServer) listTablesRowsForAccountsHandler(w http.ResponseWriter, r 
 			return nil, fmt.Errorf("unable to read contract state tablet %q: %w", tablet, err)
 		}
 
-		var abi *eos.ABI
+		var abi *zsw.ABI
 		if serializationInfo != nil && request.WithABI {
 			abi = serializationInfo.abi
 		}

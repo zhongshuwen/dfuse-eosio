@@ -27,7 +27,7 @@ import (
 	"github.com/gavv/httpexpect/v2"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -40,12 +40,12 @@ func (l *exceptLogger) Logf(fmt string, args ...interface{}) {
 	(*zap.SugaredLogger)(l).Debugf(fmt, args...)
 }
 
-func readABI(t *testing.T, abiFile string) (out *eos.ABI) {
+func readABI(t *testing.T, abiFile string) (out *zsw.ABI) {
 	path := path.Join("testdata", abiFile)
 	abiJSON, err := ioutil.ReadFile(path)
 	require.NoError(t, err)
 
-	out = new(eos.ABI)
+	out = new(zsw.ABI)
 	err = json.Unmarshal(abiJSON, out)
 	require.NoError(t, err)
 

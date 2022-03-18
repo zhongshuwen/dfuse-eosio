@@ -4,12 +4,12 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_encodeTokenPrefixKey(t *testing.T) {
-	mamaUint, _ := eos.StringToName("mama")
-	contractUint, _ := eos.StringToName("battlefieldt")
+	mamaUint, _ := zsw.StringToName("mama")
+	contractUint, _ := zsw.StringToName("battlefieldt")
 
 	key := EncodeAccountContractKey(mamaUint, contractUint, 1, uint64(1))
 	assert.Equal(t,
@@ -23,8 +23,8 @@ func Test_encodeTokenPrefixKey(t *testing.T) {
 		key,
 	)
 
-	papaUint, _ := eos.StringToName("papa")
-	contractBUint, _ := eos.StringToName("battlefield")
+	papaUint, _ := zsw.StringToName("papa")
+	contractBUint, _ := zsw.StringToName("battlefield")
 
 	key = EncodeAccountContractKey(papaUint, contractBUint, 1, uint64(1))
 	assert.Equal(t,
@@ -47,8 +47,8 @@ func Test_encodeTokenKey(t *testing.T) {
 		0x01,
 		0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe,
 	})
-	mamaUint, _ := eos.StringToName("mama")
-	contractUint, _ := eos.StringToName("battlefieldt")
+	mamaUint, _ := zsw.StringToName("mama")
+	contractUint, _ := zsw.StringToName("battlefieldt")
 	assert.Equal(t, mamaUint, account)
 	assert.Equal(t, contractUint, contract)
 	assert.Equal(t, byte(1), shardNum)
@@ -56,7 +56,7 @@ func Test_encodeTokenKey(t *testing.T) {
 }
 
 func Test_encodeAccountKey(t *testing.T) {
-	mamaUint, _ := eos.StringToName("mama")
+	mamaUint, _ := zsw.StringToName("mama")
 	key1Bytes := EncodeAccountKey(mamaUint, 1, uint64(1))
 	assert.Equal(t,
 		[]byte{
@@ -68,7 +68,7 @@ func Test_encodeAccountKey(t *testing.T) {
 		key1Bytes,
 	)
 
-	b1Uint, _ := eos.StringToName("b1")
+	b1Uint, _ := zsw.StringToName("b1")
 	key1Bytes = EncodeAccountKey(b1Uint, 2, uint64(256))
 	assert.Equal(t,
 		[]byte{
@@ -88,7 +88,7 @@ func Test_decodeAccountKeySeqNum(t *testing.T) {
 		0x01,
 		0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe,
 	})
-	mamaUint, _ := eos.StringToName("mama")
+	mamaUint, _ := zsw.StringToName("mama")
 	assert.Equal(t, mamaUint, account)
 	assert.Equal(t, byte(1), shardNum)
 	assert.Equal(t, uint64(1), ordinalNum)
@@ -99,7 +99,7 @@ func Test_decodeAccountKeySeqNum(t *testing.T) {
 		0x02,
 		0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfe, 0xff,
 	})
-	eoscanadacomUint, _ := eos.StringToName("eoscanadacom")
+	eoscanadacomUint, _ := zsw.StringToName("eoscanadacom")
 	assert.Equal(t, eoscanadacomUint, account)
 	assert.Equal(t, byte(2), shardNum)
 	assert.Equal(t, uint64(256), ordinalNum)

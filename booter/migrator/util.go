@@ -8,15 +8,15 @@ import (
 	"os"
 
 	rice "github.com/GeertJohan/go.rice"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
-var AN = eos.AN
-var PN = eos.PN
-var ActN = eos.ActN
+var AN = zsw.AN
+var PN = zsw.PN
+var ActN = zsw.ActN
 
-func TN(in string) eos.TableName { return eos.TableName(in) }
-func SN(in string) eos.ScopeName { return eos.ScopeName(in) }
+func TN(in string) zsw.TableName { return zsw.TableName(in) }
+func SN(in string) zsw.ScopeName { return zsw.ScopeName(in) }
 
 func readBoxFile(box *rice.Box, filename string) ([]byte, error) {
 	f, err := box.Open(filename)
@@ -59,23 +59,23 @@ func fileExists(path string) bool {
 }
 
 func mustExtractIndexNumber(tableName string) (table string, index uint64) {
-	name, err := eos.StringToName(tableName)
+	name, err := zsw.StringToName(tableName)
 	if err != nil {
 		panic(fmt.Sprintf("unable to convert table name %q to uint64: %s", name, err))
 	}
 	// The last 4 bits of a tableName represents the count of the index
-	return eos.NameToString(name & 0xfffffffffffffff0), (name & 0x0f)
+	return zsw.NameToString(name & 0xfffffffffffffff0), (name & 0x0f)
 }
 
 func mustCreateIndexTable(tableName string, indexId uint64) (table string) {
-	name, err := eos.StringToName(tableName)
+	name, err := zsw.StringToName(tableName)
 	if err != nil {
 		panic(fmt.Sprintf("unable to convert table name %q to uint64: %s", name, err))
 	}
-	return eos.NameToString((name & 0xfffffffffffffff0) | (indexId & 0x0f))
+	return zsw.NameToString((name & 0xfffffffffffffff0) | (indexId & 0x0f))
 }
 
-func findTableDefInABI(abi *eos.ABI, table eos.TableName) *eos.TableDef {
+func findTableDefInABI(abi *zsw.ABI, table zsw.TableName) *zsw.TableDef {
 	for _, t := range abi.Tables {
 		if t.Name == table {
 			return &t
@@ -88,14 +88,14 @@ var primKeyEntropyFunc = func() uint64 {
 	return uint64(rand.Intn(20) + 2)
 }
 
-func mustIncrementPrimKey(primKey string) eos.Name {
+func mustIncrementPrimKey(primKey string) zsw.Name {
 	// stringToName can never panic
-	i, err := eos.StringToName(primKey)
+	i, err := zsw.StringToName(primKey)
 	if err != nil {
 		panic(fmt.Sprintf("unable to convert table primary key %q to uint64: %s", primKey, err))
 	}
 
-	return eos.Name(eos.NameToString(i + primKeyEntropyFunc()))
+	return zsw.Name(zsw.NameToString(i + primKeyEntropyFunc()))
 }
 
 func s(str string) *string {

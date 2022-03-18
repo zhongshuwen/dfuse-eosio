@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/trace"
 )
 
@@ -38,18 +38,18 @@ func NewParameterizedTestContext(hexTraceID string, spanName string) context.Con
 }
 
 type TestABIGetter struct {
-	abis map[eos.AccountName]*eos.ABI
+	abis map[zsw.AccountName]*zsw.ABI
 }
 
 func NewTestABIGetter() *TestABIGetter {
 	return &TestABIGetter{
-		abis: map[eos.AccountName]*eos.ABI{},
+		abis: map[zsw.AccountName]*zsw.ABI{},
 	}
 }
 
-func (g *TestABIGetter) SetABIForAccount(abiString string, account eos.AccountName) {
+func (g *TestABIGetter) SetABIForAccount(abiString string, account zsw.AccountName) {
 
-	abi, err := eos.NewABI(strings.NewReader(abiString))
+	abi, err := zsw.NewABI(strings.NewReader(abiString))
 	if err != nil {
 		panic(err)
 	}
@@ -57,7 +57,7 @@ func (g *TestABIGetter) SetABIForAccount(abiString string, account eos.AccountNa
 	g.abis[account] = abi
 }
 
-func (g *TestABIGetter) GetABI(ctx context.Context, blockNum uint32, account eos.AccountName) (*eos.ABI, error) {
+func (g *TestABIGetter) GetABI(ctx context.Context, blockNum uint32, account zsw.AccountName) (*zsw.ABI, error) {
 	return g.abis[account], nil
 }
 
@@ -69,7 +69,7 @@ func NewTestAccountGetter() *TestAccountGetter {
 	return &TestAccountGetter{}
 }
 
-func (g *TestAccountGetter) GetAccount(ctx context.Context, name string) (out *eos.AccountResp, err error) {
+func (g *TestAccountGetter) GetAccount(ctx context.Context, name string) (out *zsw.AccountResp, err error) {
 	if g.jsonData == "" {
 		return nil, fmt.Errorf("simulated error")
 	}

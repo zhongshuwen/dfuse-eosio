@@ -42,10 +42,9 @@ import (
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -698,7 +697,7 @@ func (t *SearchTransactionBackwardResponse) IrreversibleBlockNum() commonTypes.U
 	return commonTypes.Uint32(t.irreversibleBlockNum)
 }
 func (t *SearchTransactionBackwardResponse) IsIrreversible() bool {
-	return t.irreversibleBlockNum == eos.BlockNum(t.blockID)
+	return t.irreversibleBlockNum == zsw.BlockNum(t.blockID)
 }
 
 func (t *SearchTransactionBackwardResponse) Block() *BlockHeader {
@@ -708,7 +707,7 @@ func (t *SearchTransactionBackwardResponse) Block() *BlockHeader {
 	// attached already, because it was included in live search results.
 	return &BlockHeader{
 		blockID:  t.blockID,
-		blockNum: commonTypes.Uint32(eos.BlockNum(t.blockID)),
+		blockNum: commonTypes.Uint32(zsw.BlockNum(t.blockID)),
 		h:        t.blockHeader,
 	}
 }
@@ -907,11 +906,11 @@ func upgradeToProducerAuthoritySchedule(old *pbcodec.ProducerSchedule) *pbcodec.
 	}
 }
 
-func (t BlockHeader) findProducerScheduleChangeExtension() (*eos.ProducerScheduleChangeExtension, error) {
+func (t BlockHeader) findProducerScheduleChangeExtension() (*zsw.ProducerScheduleChangeExtension, error) {
 	for _, e := range t.h.HeaderExtensions {
-		if e.Type == uint32(eos.EOS_ProducerScheduleChangeExtension) {
-			extension := &eos.ProducerScheduleChangeExtension{}
-			err := eos.UnmarshalBinary(e.Data, extension)
+		if e.Type == uint32(zsw.EOS_ProducerScheduleChangeExtension) {
+			extension := &zsw.ProducerScheduleChangeExtension{}
+			err := zsw.UnmarshalBinary(e.Data, extension)
 			if err != nil {
 				return nil, fmt.Errorf("unable to decode binary extension correctly: %s", err)
 			}
@@ -1229,12 +1228,12 @@ type PermissionLevel struct {
 func (t *PermissionLevel) Actor() string      { return t.pl.Actor }
 func (t *PermissionLevel) Permission() string { return t.pl.Permission }
 
-func searchSpecificMatchToEOSMatch(match *pbsearch.SearchMatch) (*pbsearcheos.Match, error) {
+func searchSpecificMatchToEOSMatch(match *pbsearch.SearchMatch) (*pbsearchzsw.Match, error) {
 	var eosMatchAny ptypes.DynamicAny
 	err := ptypes.UnmarshalAny(match.GetChainSpecific(), &eosMatchAny)
 	if err != nil {
 		return nil, err
 	}
 
-	return eosMatchAny.Message.(*pbsearcheos.Match), nil
+	return eosMatchAny.Message.(*pbsearchzsw.Match), nil
 }

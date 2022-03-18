@@ -32,7 +32,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_onGetTableRows(t *testing.T) {
@@ -80,7 +80,7 @@ func Test_onGetTableRows(t *testing.T) {
 }
 `))}},
 			stateDBResponse:   `{"last_irreversible_block_id":"00000001a","last_irreversible_block_num":1,"up_to_block_id":"00000001a","up_to_block_num":1,"rows":[{"key":"a","payer":"zswhq","json":"{\"foo\":\"bar\"}"}]}`,
-			abiForAccountName: &ABIAccountName{accountName: eos.AccountName("account.1"), abiString: `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`},
+			abiForAccountName: &ABIAccountName{accountName: zsw.AccountName("account.1"), abiString: `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`},
 			msg:               `{"type":"get_table_rows","req_id":"abc","listen":false,"fetch":true,"data":{"code":"account.1","scope":"scope.1","table":"table.name.1","json":true}}`,
 			expectedOutput:    []string{`{"type":"table_snapshot","req_id":"abc","data":{"rows":[{"foo":"bar"}]}}`},
 		},
@@ -127,7 +127,7 @@ func Test_onGetTableRows(t *testing.T) {
 }
 
 func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
-	scope := eos.Name("zswhq")
+	scope := zsw.Name("zswhq")
 
 	msg := &wsmsg.GetTableRows{
 		CommonIn: wsmsg.CommonIn{
@@ -144,7 +144,7 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 	}
 
 	abiString := `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
-	abi, err := eos.NewABI(strings.NewReader(abiString))
+	abi, err := zsw.NewABI(strings.NewReader(abiString))
 	require.NoError(t, err)
 
 	cases := []struct {
@@ -193,7 +193,7 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 
 			require.NoError(t, err)
 			emitter := NewTestEmitter(context.Background(), nil)
-			handler := newTableDeltaHandler(context.Background(), msg, emitter, zlog, func() *eos.ABI {
+			handler := newTableDeltaHandler(context.Background(), msg, emitter, zlog, func() *zsw.ABI {
 				return abi
 			})
 			err = handler.ProcessBlock(c.block, fobj)
@@ -206,7 +206,7 @@ func TestTableDeltaHandler_ProcessBlock(t *testing.T) {
 func Test_dbopsFromBlock(t *testing.T) {
 
 	abiString := `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
-	abi, err := eos.NewABI(strings.NewReader(abiString))
+	abi, err := zsw.NewABI(strings.NewReader(abiString))
 	assert.NoError(t, err)
 
 	goodBlock := testBlock(t, "00000002a0", "00000001a0", "zswhq", 1, `{"id": "abcd","db_ops":[{
@@ -235,7 +235,7 @@ func Test_dbopsFromBlock(t *testing.T) {
 		"new_data": "096e65772e76616c7565"
 	}]}`)
 
-	scope := eos.Name("zswhq")
+	scope := zsw.Name("zswhq")
 
 	msg := &wsmsg.GetTableRows{
 		Data: wsmsg.GetTableRowsData{
@@ -338,7 +338,7 @@ func Test_dbopsFromBlock(t *testing.T) {
 func TestToV1DBOp(t *testing.T) {
 
 	abiString := `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
-	abi, err := eos.NewABI(strings.NewReader(abiString))
+	abi, err := zsw.NewABI(strings.NewReader(abiString))
 	assert.NoError(t, err)
 
 	cases := []struct {
@@ -375,7 +375,7 @@ func TestToV1DBOp(t *testing.T) {
 		t.Run(c.name, func(t *testing.T) {
 			rowData, err := hex.DecodeString(c.rowHexData)
 			require.NoError(t, err)
-			v1DBRow := newDBRow(rowData, eos.TableName("table_name_1"), abi, "payer.1", c.asJSON, zlog)
+			v1DBRow := newDBRow(rowData, zsw.TableName("table_name_1"), abi, "payer.1", c.asJSON, zlog)
 			require.Equal(t, c.expectedJSON, v1DBRow.JSON)
 			require.Equal(t, c.expectedHex, v1DBRow.Hex)
 			require.True(t, strings.HasPrefix(v1DBRow.Error, c.expectedErrorPrefix))

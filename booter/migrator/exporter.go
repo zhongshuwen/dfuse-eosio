@@ -7,7 +7,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	eossnapshot "github.com/zhongshuwen/zswchain-go/snapshot"
 	"go.uber.org/zap"
 )
@@ -17,8 +17,8 @@ type exporter struct {
 	logger        *zap.Logger
 	outputDataDir string
 
-	accounts      map[eos.AccountName]*Account
-	codeSequences map[string][]eos.AccountName
+	accounts      map[zsw.AccountName]*Account
+	codeSequences map[string][]zsw.AccountName
 
 	tableScopes  map[string]*tableScope // (account:table:scope)
 	currentTable *eossnapshot.TableIDObject
@@ -41,8 +41,8 @@ func NewExporter(snapshotPath, dataDir string, opts ...Option) (*exporter, error
 	e := &exporter{
 		snapshotPath:  snapshotPath,
 		outputDataDir: dataDir,
-		accounts:      map[eos.AccountName]*Account{},
-		codeSequences: map[string][]eos.AccountName{},
+		accounts:      map[zsw.AccountName]*Account{},
+		codeSequences: map[string][]zsw.AccountName{},
 		tableScopes:   map[string]*tableScope{},
 	}
 
@@ -188,7 +188,7 @@ func (e *exporter) processAccountMetadataObject(obj interface{}) error {
 	}
 	accounts, found := e.codeSequences[codeKey]
 	if !found {
-		accounts = []eos.AccountName{}
+		accounts = []zsw.AccountName{}
 		e.codeSequences[codeKey] = accounts
 	}
 
@@ -244,8 +244,8 @@ func (e *exporter) newAccount(acc eossnapshot.AccountObject) (*Account, error) {
 	if len(acc.RawABI) > 0 {
 		account.ctr = NewContract(acc.RawABI, nil)
 
-		abi := new(eos.ABI)
-		err = eos.UnmarshalBinary(acc.RawABI, abi)
+		abi := new(zsw.ABI)
+		err = zsw.UnmarshalBinary(acc.RawABI, abi)
 		if err != nil {
 			e.logger.Warn("unable to decode ABI",
 				zap.String("account", string(acc.Name)),
@@ -471,7 +471,7 @@ func (e *exporter) processContractRow(obj *eossnapshot.KeyValueObject) error {
 	return nil
 }
 
-func (e *exporter) decodeTableRow(abi *eos.ABI, obj *eossnapshot.KeyValueObject) ([]byte, error) {
+func (e *exporter) decodeTableRow(abi *zsw.ABI, obj *eossnapshot.KeyValueObject) ([]byte, error) {
 	tableName := TN(e.currentTable.TableName)
 	tablDef := findTableDefInABI(abi, tableName)
 	if tablDef == nil {
@@ -518,7 +518,7 @@ func tableScopeKey(Account, TableName, Scope string) string {
 	return fmt.Sprintf("%s:%s:%s", Account, TableName, Scope)
 }
 
-func (e *exporter) exportAccount(accountName eos.AccountName, account *Account) error {
+func (e *exporter) exportAccount(accountName zsw.AccountName, account *Account) error {
 	if traceEnable {
 		e.logger.Debug("exporting account", zap.String("account", string(accountName)))
 	}

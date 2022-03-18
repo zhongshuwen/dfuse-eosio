@@ -22,7 +22,7 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 //
@@ -73,12 +73,12 @@ type tableRow struct {
 }
 
 type readTableRowResponse struct {
-	ABI *eos.ABI  `json:"abi"`
+	ABI *zsw.ABI  `json:"abi"`
 	Row *tableRow `json:"row"`
 }
 
 type readTableResponse struct {
-	ABI  *eos.ABI    `json:"abi"`
+	ABI  *zsw.ABI    `json:"abi"`
 	Rows []*tableRow `json:"rows"`
 }
 
@@ -146,7 +146,7 @@ func convertKey(key []byte, keyConverter KeyConverter) (string, error) {
 }
 
 func bytesToName(bytes []byte) string {
-	return eos.NameToString(binary.BigEndian.Uint64(bytes))
+	return zsw.NameToString(binary.BigEndian.Uint64(bytes))
 }
 
 // hexBytes is used within JSON exchange object to serialize as an hexadecimal

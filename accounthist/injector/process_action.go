@@ -6,7 +6,7 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -24,7 +24,7 @@ func (i *Injector) processAction(ctx context.Context, blk *bstream.Block, act *p
 	}
 
 	for acct := range accts {
-		acctUint := eos.MustStringToName(acct)
+		acctUint := zsw.MustStringToName(acct)
 
 		facet := i.facetFactory.NewFacet(blk, act, acctUint)
 

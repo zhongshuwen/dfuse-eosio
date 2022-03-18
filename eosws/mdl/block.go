@@ -19,7 +19,7 @@ import (
 
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 // BlockSummary is the dfuse summary information for a given block
@@ -29,8 +29,8 @@ type BlockSummary struct {
 	ID               string                `json:"id"`
 	BlockNum         uint32                `json:"block_num"`
 	Irreversible     bool                  `json:"irreversible"`
-	Header           *eos.BlockHeader      `json:"header"`
-	ActiveSchedule   *eos.ProducerSchedule `json:"active_schedule"`
+	Header           *zsw.BlockHeader      `json:"header"`
+	ActiveSchedule   *zsw.ProducerSchedule `json:"active_schedule"`
 	TransactionCount int                   `json:"transaction_count"`
 	SiblingBlocks    []*BlockSummary       `json:"sibling_blocks"`
 	DPoSLIBNum       uint32                `json:"dpos_lib_num"`

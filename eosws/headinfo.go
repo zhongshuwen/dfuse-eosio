@@ -23,7 +23,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
 )
@@ -63,7 +63,7 @@ func NewHeadInfoHub(initialStartBlock string, initialLIB string, subscriptionHub
 
 func (h *HeadInfoHub) Launch(ctx context.Context) {
 	libRef := bstream.NewBlockRefFromID(h.currentLIB.Load())
-	startBlock := eos.BlockNum(h.initialStartBlock)
+	startBlock := zsw.BlockNum(h.initialStartBlock)
 
 	handler := bstream.HandlerFunc(func(block *bstream.Block, obj interface{}) error {
 		fObj := obj.(*forkable.ForkableObject)

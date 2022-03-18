@@ -21,7 +21,7 @@ import (
 	"github.com/spf13/viper"
 	"github.com/streamingfast/dstore"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 var showValue = false
@@ -711,7 +711,7 @@ func heightToBytes(heights ...string) (out []byte, err error) {
 }
 
 func mustExtendedStringToName(name string) uint64 {
-	val, err := eos.ExtendedStringToName(name)
+	val, err := zsw.ExtendedStringToName(name)
 	if err != nil {
 		panic(err)
 	}

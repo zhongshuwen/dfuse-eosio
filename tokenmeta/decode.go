@@ -8,12 +8,12 @@ import (
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
 type accountsDbRow struct {
-	Balance eos.Asset `json:"balance"`
+	Balance zsw.Asset `json:"balance"`
 }
 
 func (a *accountsDbRow) valid() bool {
@@ -24,10 +24,10 @@ func (a *accountsDbRow) valid() bool {
 }
 
 type EOSStakeDbRow struct {
-	CPUWeight eos.Asset       `json:"cpu_weight"`
-	NetWeight eos.Asset       `json:"net_weight"`
-	To        eos.AccountName `json:"to"`
-	From      eos.AccountName `json:"from"`
+	CPUWeight zsw.Asset       `json:"cpu_weight"`
+	NetWeight zsw.Asset       `json:"net_weight"`
+	To        zsw.AccountName `json:"to"`
+	From      zsw.AccountName `json:"from"`
 }
 
 func (a *EOSStakeDbRow) valid() bool {
@@ -41,9 +41,9 @@ func (a *EOSStakeDbRow) valid() bool {
 }
 
 type statDbRow struct {
-	Issuer    eos.AccountName `json:"issuer"`
-	MaxSupply eos.Asset       `json:"max_supply"`
-	Supply    eos.Asset       `json:"supply"`
+	Issuer    zsw.AccountName `json:"issuer"`
+	MaxSupply zsw.Asset       `json:"max_supply"`
+	Supply    zsw.Asset       `json:"supply"`
 }
 
 func (s *statDbRow) valid() bool {
@@ -57,11 +57,11 @@ func (s *statDbRow) valid() bool {
 }
 
 type abiItem struct {
-	abi      *eos.ABI
+	abi      *zsw.ABI
 	blockNum uint32
 }
 
-func (t *TokenMeta) getABI(contract eos.AccountName, blockNum uint32) (*eos.ABI, error) {
+func (t *TokenMeta) getABI(contract zsw.AccountName, blockNum uint32) (*zsw.ABI, error) {
 	if abiItem, ok := t.abisCache[string(contract)]; ok {
 		return abiItem.abi, nil
 	}
@@ -75,7 +75,7 @@ func (t *TokenMeta) getABI(contract eos.AccountName, blockNum uint32) (*eos.ABI,
 		return nil, fmt.Errorf("unable to get abi for contract %q: %w", string(contract), err)
 	}
 
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	err = json.Unmarshal([]byte(resp.JsonPayload), &abi)
 	if err != nil {
 		return nil, fmt.Errorf("unable to decode abi for contract %q: %w", string(contract), err)
@@ -90,7 +90,7 @@ func (t *TokenMeta) getABI(contract eos.AccountName, blockNum uint32) (*eos.ABI,
 	return abi, nil
 }
 
-func getStakeEntryFromDBRow(contract eos.AccountName, scope string, dbRow json.RawMessage) (*cache.EOSStakeEntry, error) {
+func getStakeEntryFromDBRow(contract zsw.AccountName, scope string, dbRow json.RawMessage) (*cache.EOSStakeEntry, error) {
 	stakeRow := &EOSStakeDbRow{}
 	err := json.Unmarshal(dbRow, &stakeRow)
 	if err != nil {
@@ -99,7 +99,7 @@ func getStakeEntryFromDBRow(contract eos.AccountName, scope string, dbRow json.R
 	if !stakeRow.valid() {
 		return nil, fmt.Errorf("invalid stake row: %s", string(dbRow))
 	}
-	if stakeRow.From != eos.AccountName(scope) {
+	if stakeRow.From != zsw.AccountName(scope) {
 		zlog.Warn("failed assumption: EOS stake FROM is not == scope",
 			zap.String("contract", string(contract)),
 			zap.String("scope", scope),
@@ -115,7 +115,7 @@ func getStakeEntryFromDBRow(contract eos.AccountName, scope string, dbRow json.R
 	}, nil
 }
 
-func getAccountBalanceFromDBRow(contract eos.AccountName, symbol *eos.Symbol, scope string, dbRow json.RawMessage) (*pbtokenmeta.AccountBalance, error) {
+func getAccountBalanceFromDBRow(contract zsw.AccountName, symbol *zsw.Symbol, scope string, dbRow json.RawMessage) (*pbtokenmeta.AccountBalance, error) {
 	accountRow := &accountsDbRow{}
 	err := json.Unmarshal(dbRow, &accountRow)
 	if err != nil {
@@ -135,7 +135,7 @@ func getAccountBalanceFromDBRow(contract eos.AccountName, symbol *eos.Symbol, sc
 	}, nil
 }
 
-func getTokenFromDBRow(contract eos.AccountName, symbol *eos.Symbol, dbRow json.RawMessage) (*pbtokenmeta.Token, error) {
+func getTokenFromDBRow(contract zsw.AccountName, symbol *zsw.Symbol, dbRow json.RawMessage) (*pbtokenmeta.Token, error) {
 	statRow := &statDbRow{}
 	err := json.Unmarshal(dbRow, &statRow)
 	if err != nil {
@@ -143,7 +143,7 @@ func getTokenFromDBRow(contract eos.AccountName, symbol *eos.Symbol, dbRow json.
 	}
 
 	if symbol == nil {
-		symbol = &eos.Symbol{
+		symbol = &zsw.Symbol{
 			Precision: statRow.Supply.Symbol.Precision,
 			Symbol:    statRow.Supply.Symbol.Symbol,
 		}
@@ -164,7 +164,7 @@ func getTokenFromDBRow(contract eos.AccountName, symbol *eos.Symbol, dbRow json.
 	}, nil
 }
 
-func decodeTableRow(data []byte, tableName eos.TableName, abi *eos.ABI) (json.RawMessage, error) {
+func decodeTableRow(data []byte, tableName zsw.TableName, abi *zsw.ABI) (json.RawMessage, error) {
 	out, err := abi.DecodeTableRow(tableName, data)
 	if err != nil {
 		return nil, err

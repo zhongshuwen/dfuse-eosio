@@ -22,16 +22,16 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type ABIChangeHandler struct {
 	stack ABIStack
-	code  eos.AccountName
+	code  zsw.AccountName
 	next  bstream.Handler
 }
 
-func NewABIChangeHandler(abiGetter ABIGetter, blockNum uint32, code eos.AccountName, next bstream.Handler, ctx context.Context) (*ABIChangeHandler, error) {
+func NewABIChangeHandler(abiGetter ABIGetter, blockNum uint32, code zsw.AccountName, next bstream.Handler, ctx context.Context) (*ABIChangeHandler, error) {
 	abiStack := ABIStack{}
 	abi, err := abiGetter.GetABI(ctx, blockNum, code)
 	if err != nil {
@@ -63,7 +63,7 @@ func (h *ABIChangeHandler) ProcessBlock(block *bstream.Block, obj interface{}) e
 		case forkable.StepNew, forkable.StepRedo:
 			h.stack = h.stack.Push(abi)
 		case forkable.StepUndo:
-			var poppedABI *eos.ABI
+			var poppedABI *zsw.ABI
 			h.stack, poppedABI = h.stack.Pop()
 			if poppedABI.Version != abi.Version {
 				return fmt.Errorf("popped abi version differ from abi version from block")
@@ -74,17 +74,17 @@ func (h *ABIChangeHandler) ProcessBlock(block *bstream.Block, obj interface{}) e
 	return h.next.ProcessBlock(block, obj)
 }
 
-func (h *ABIChangeHandler) CurrentABI() *eos.ABI {
+func (h *ABIChangeHandler) CurrentABI() *zsw.ABI {
 	return h.stack.Peek()
 }
 
-type ABIStack []*eos.ABI
+type ABIStack []*zsw.ABI
 
-func (s ABIStack) Push(abi *eos.ABI) ABIStack {
+func (s ABIStack) Push(abi *zsw.ABI) ABIStack {
 	return append(s, abi)
 }
 
-func (s ABIStack) Pop() (ABIStack, *eos.ABI) {
+func (s ABIStack) Pop() (ABIStack, *zsw.ABI) {
 	if len(s) == 0 {
 		return s, nil
 	}
@@ -93,7 +93,7 @@ func (s ABIStack) Pop() (ABIStack, *eos.ABI) {
 	return s[:n], abi
 }
 
-func (s ABIStack) Peek() *eos.ABI {
+func (s ABIStack) Peek() *zsw.ABI {
 	if len(s) == 0 {
 		return nil
 	}
@@ -102,12 +102,12 @@ func (s ABIStack) Peek() *eos.ABI {
 	return popABI
 }
 
-func abiFromBlock(blk *pbcodec.Block, code eos.AccountName) (*eos.ABI, error) {
+func abiFromBlock(blk *pbcodec.Block, code zsw.AccountName) (*zsw.ABI, error) {
 	for _, trxTrace := range blk.TransactionTraces() {
 		for _, actionTrace := range trxTrace.ActionTraces {
 			// We process action trace regardless of the block filtering applied
 			if actionTrace.Receiver == "zswhq" && actionTrace.Action.Account == "zswhq" && actionTrace.Action.Name == "setabi" {
-				candidateCode := eos.AccountName(actionTrace.GetData("account").String())
+				candidateCode := zsw.AccountName(actionTrace.GetData("account").String())
 				if code != candidateCode {
 					continue
 				}
@@ -117,8 +117,8 @@ func abiFromBlock(blk *pbcodec.Block, code eos.AccountName) (*eos.ABI, error) {
 					return nil, fmt.Errorf("unable to transform ABI hex data into bytes: %s", err)
 				}
 
-				var abi *eos.ABI
-				err = eos.NewDecoder(abiBytes).Decode(&abi)
+				var abi *zsw.ABI
+				err = zsw.NewDecoder(abiBytes).Decode(&abi)
 				if err != nil {
 					return nil, fmt.Errorf("unable to decode action ABI hex data: %s", err)
 				}

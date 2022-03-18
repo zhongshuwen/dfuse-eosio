@@ -25,7 +25,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -97,7 +97,7 @@ func (srv *EOSServer) listLinkedPermissionsHandler(w http.ResponseWriter, r *htt
 
 type listLinkedPermissionsRequest struct {
 	BlockNum uint64          `json:"block_num"`
-	Account  eos.AccountName `json:"account"`
+	Account  zsw.AccountName `json:"account"`
 }
 
 type listLinkedPermissionsResponse struct {
@@ -124,6 +124,6 @@ func extractGetLinkedPermissionsRequest(r *http.Request) *listLinkedPermissionsR
 
 	return &listLinkedPermissionsRequest{
 		BlockNum: uint64(blockNum64),
-		Account:  eos.AccountName(r.FormValue("account")),
+		Account:  zsw.AccountName(r.FormValue("account")),
 	}
 }

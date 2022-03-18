@@ -17,7 +17,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -197,7 +197,7 @@ func deosTestBlock(t *testing.T, id string, blockCustomizer func(block *pbcodec.
 
 	pbblock := &pbcodec.Block{
 		Id:                          id,
-		Number:                      eos.BlockNum(id),
+		Number:                      zsw.BlockNum(id),
 		UnfilteredTransactionTraces: trxTraces,
 	}
 

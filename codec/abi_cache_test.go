@@ -9,7 +9,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestABICache_AddAndFind(t *testing.T) {
@@ -61,7 +61,7 @@ func TestABICache_Truncate(t *testing.T) {
 
 	type abiAdder func(cache *ABICache)
 
-	addAbi := func(contract string, globalSequence uint64, abi *eos.ABI) abiAdder {
+	addAbi := func(contract string, globalSequence uint64, abi *zsw.ABI) abiAdder {
 		return func(cache *ABICache) {
 			err := cache.addABI(contract, globalSequence, abi)
 			require.NoError(t, err)
@@ -71,7 +71,7 @@ func TestABICache_Truncate(t *testing.T) {
 	type expectFindAbi struct {
 		contract       string
 		globalSequence uint64
-		abi            *eos.ABI
+		abi            *zsw.ABI
 	}
 
 	tests := []struct {
@@ -263,12 +263,12 @@ func TestABICache_Truncate(t *testing.T) {
 	}
 }
 
-func readABI(t *testing.T, abiFile string) (out *eos.ABI) {
+func readABI(t *testing.T, abiFile string) (out *zsw.ABI) {
 	path := path.Join("testdata", "abi", abiFile)
 	abiJSON, err := ioutil.ReadFile(path)
 	require.NoError(t, err)
 
-	out = new(eos.ABI)
+	out = new(zsw.ABI)
 	err = json.Unmarshal(abiJSON, out)
 	require.NoError(t, err)
 

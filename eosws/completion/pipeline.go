@@ -19,7 +19,7 @@ import (
 	"github.com/dfuse-io/bstream/forkable"
 	"github.com/dfuse-io/bstream/hub"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
@@ -42,7 +42,7 @@ func NewPipeline(completionInstance Completion, initialStartBlock string, initia
 
 func (p *Pipeline) Launch() {
 	libID := p.initialLIB
-	startBlock := eos.BlockNum(p.initialStartBlock)
+	startBlock := zsw.BlockNum(p.initialStartBlock)
 
 	handler := bstream.HandlerFunc(func(block *bstream.Block, obj interface{}) error {
 		fObj := obj.(*forkable.ForkableObject)

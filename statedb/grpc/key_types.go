@@ -5,7 +5,7 @@ import (
 	"encoding/hex"
 	"strconv"
 
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type KeyConverter interface {
@@ -35,17 +35,17 @@ func (c *Uint64KeyConverter) ToString(key uint64) (string, error) {
 type NameKeyConverter struct{}
 
 func (c *NameKeyConverter) FromString(key string) (uint64, error) {
-	return eos.ExtendedStringToName(key)
+	return zsw.ExtendedStringToName(key)
 }
 
 func (c *NameKeyConverter) ToString(key uint64) (string, error) {
-	return eos.NameToString(key), nil
+	return zsw.NameToString(key), nil
 }
 
 type SymbolKeyConverter struct{}
 
 func (c *SymbolKeyConverter) FromString(key string) (uint64, error) {
-	symbol, err := eos.StringToSymbol(key)
+	symbol, err := zsw.StringToSymbol(key)
 	if err != nil {
 		return 0, err
 	}
@@ -54,13 +54,13 @@ func (c *SymbolKeyConverter) FromString(key string) (uint64, error) {
 }
 
 func (c *SymbolKeyConverter) ToString(key uint64) (string, error) {
-	return eos.NewSymbolFromUint64(key).String(), nil
+	return zsw.NewSymbolFromUint64(key).String(), nil
 }
 
 type SymbolCodeKeyConverter struct{}
 
 func (c *SymbolCodeKeyConverter) FromString(key string) (uint64, error) {
-	symbolCode, err := eos.StringToSymbolCode(key)
+	symbolCode, err := zsw.StringToSymbolCode(key)
 	if err != nil {
 		return 0, err
 	}
@@ -69,7 +69,7 @@ func (c *SymbolCodeKeyConverter) FromString(key string) (uint64, error) {
 }
 
 func (c *SymbolCodeKeyConverter) ToString(key uint64) (string, error) {
-	return eos.SymbolCode(key).String(), nil
+	return zsw.SymbolCode(key).String(), nil
 }
 
 type HexKeyConverter struct{}

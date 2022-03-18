@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/purger"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 
@@ -172,7 +172,7 @@ func readAccountE(cmd *cobra.Command, args []string) (err error) {
 	}
 
 	account := args[0]
-	accountUint, err := eos.StringToName(account)
+	accountUint, err := zsw.StringToName(account)
 	if err != nil {
 		return fmt.Errorf("unable to encode string %s to eos name (utin64): %w", account, err)
 	}

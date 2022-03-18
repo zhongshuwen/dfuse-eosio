@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/dfuse-io/kvdb/store"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -41,7 +41,7 @@ func ScanFacets(
 
 		err := facetFunc(facetKey, shardNum, ordinalNum)
 		if err != nil {
-			return fmt.Errorf("handle facet failed for account %s at shard %d with ordinal number: %d: %w", eos.NameToString(facetKey.Account()), int(shardNum), ordinalNum, err)
+			return fmt.Errorf("handle facet failed for account %s at shard %d with ordinal number: %d: %w", zsw.NameToString(facetKey.Account()), int(shardNum), ordinalNum, err)
 		}
 
 		currentKey = store.Key(facetKey.Bytes()).PrefixNext()

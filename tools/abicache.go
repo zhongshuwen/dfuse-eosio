@@ -27,7 +27,7 @@ import (
 	"github.com/streamingfast/dstore"
 	"github.com/zhongshuwen/dfuse-eosio/abicodec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	eossnapshot "github.com/zhongshuwen/zswchain-go/snapshot"
 	"go.uber.org/zap"
 	"golang.org/x/oauth2"
@@ -250,8 +250,8 @@ func (e *exporter) handleABIAction(blockRef bstream.BlockRef, trxID string, acti
 		return nil // do not return the error. Worker will retry otherwise
 	}
 
-	var abi *eos.ABI
-	err = eos.UnmarshalBinary(abiData, &abi)
+	var abi *zsw.ABI
+	err = zsw.UnmarshalBinary(abiData, &abi)
 	if err != nil {
 		abiHexCutAt := math.Min(50, float64(len(hexData)))
 
@@ -355,9 +355,9 @@ func (e *exporter) processSnapshotAccountObject(obj interface{}) (err error) {
 	}
 
 	zlog.Info("adding ABI", zap.Stringer("contract", acc.Name))
-	abi := new(eos.ABI)
+	abi := new(zsw.ABI)
 
-	err = eos.UnmarshalBinary(acc.RawABI, abi)
+	err = zsw.UnmarshalBinary(acc.RawABI, abi)
 	if err != nil {
 		return nil
 	}

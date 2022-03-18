@@ -7,7 +7,7 @@ import (
 
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -18,12 +18,12 @@ type contractStats struct {
 }
 
 func getTokenContractStats(account string, rawABI []byte, isJsonEncoded bool) (*contractStats, error) {
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	var err error
 	if isJsonEncoded {
 		err = json.Unmarshal(rawABI, &abi)
 	} else {
-		err = eos.UnmarshalBinary(rawABI, &abi)
+		err = zsw.UnmarshalBinary(rawABI, &abi)
 	}
 
 	if err != nil {
@@ -78,8 +78,8 @@ func getTokenContractStats(account string, rawABI []byte, isJsonEncoded bool) (*
 
 }
 
-func processContract(ctx context.Context, tokenContract eos.AccountName, startBlockNum uint32, stateClient pbstatedb.StateClient) (tokens []*pbtokenmeta.Token, balances []*pbtokenmeta.AccountBalance, err error) {
-	var symcodes []eos.SymbolCode
+func processContract(ctx context.Context, tokenContract zsw.AccountName, startBlockNum uint32, stateClient pbstatedb.StateClient) (tokens []*pbtokenmeta.Token, balances []*pbtokenmeta.AccountBalance, err error) {
+	var symcodes []zsw.SymbolCode
 	symcodes, err = getSymbolFromStateDB(ctx, stateClient, tokenContract, startBlockNum)
 	if err != nil {
 		return

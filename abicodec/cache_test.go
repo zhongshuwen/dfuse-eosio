@@ -25,7 +25,7 @@ import (
 	"github.com/streamingfast/dstore"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -36,8 +36,8 @@ func init() {
 	}
 }
 
-func NewTestABI(version string) *eos.ABI {
-	return &eos.ABI{Version: version}
+func NewTestABI(version string) *zsw.ABI {
+	return &zsw.ABI{Version: version}
 }
 
 func TestABICache_SetABIAtBlockNum(t *testing.T) {
@@ -335,8 +335,8 @@ func TestDefaultCache_Save_Load(t *testing.T) {
 	abiData, err := hex.DecodeString("0e656f73696f3a3a6162692f312e300110657468657265756d5f6164647265737306737472696e6702076164647265737300030269640675696e74363410657468657265756d5f6164647265737310657468657265756d5f616464726573730762616c616e636505617373657403616464000210657468657265756d5f6164647265737310657468657265756d5f616464726573730762616c616e63650561737365740100000000000052320361646400010000c00a637553320369363401026964010675696e7436340761646472657373000000")
 	require.NoError(t, err)
 
-	var abi *eos.ABI
-	err = eos.UnmarshalBinary(abiData, &abi)
+	var abi *zsw.ABI
+	err = zsw.UnmarshalBinary(abiData, &abi)
 	require.NoError(t, err)
 
 	spew.Dump(abi)
@@ -384,8 +384,8 @@ func TestDefaultCache_Large_Save_Load(t *testing.T) {
 	abiData, err := hex.DecodeString("0e656f73696f3a3a6162692f312e300110657468657265756d5f6164647265737306737472696e6702076164647265737300030269640675696e74363410657468657265756d5f6164647265737310657468657265756d5f616464726573730762616c616e636505617373657403616464000210657468657265756d5f6164647265737310657468657265756d5f616464726573730762616c616e63650561737365740100000000000052320361646400010000c00a637553320369363401026964010675696e7436340761646472657373000000")
 	require.NoError(t, err)
 
-	var abi *eos.ABI
-	err = eos.UnmarshalBinary(abiData, &abi)
+	var abi *zsw.ABI
+	err = zsw.UnmarshalBinary(abiData, &abi)
 	require.NoError(t, err)
 
 	for i := 1; i < 10000; i++ {

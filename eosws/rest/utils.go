@@ -25,7 +25,7 @@ import (
 
 	stackdriverPropagation "contrib.go.opencensus.io/exporter/stackdriver/propagation"
 	"github.com/dfuse-io/dmetering"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/plugin/ochttp"
 	"go.uber.org/zap"
 )
@@ -212,7 +212,7 @@ func NewReverseProxy(target *url.URL, stripQuerystring bool, dmeteringKind strin
 	}
 }
 
-func decodeErrorBody(body []byte) (apiErr *eos.APIError) {
+func decodeErrorBody(body []byte) (apiErr *zsw.APIError) {
 	if err := json.Unmarshal(body, &apiErr); err != nil {
 		return nil
 	}

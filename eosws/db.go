@@ -33,7 +33,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -227,7 +227,7 @@ func (db *TRXDB) ListMostRecentTransactions(ctx context.Context, startKey string
 		if err != nil {
 			return nil, err
 		}
-		nextBlockNum = eos.BlockNum(blockID)
+		nextBlockNum = zsw.BlockNum(blockID)
 		startBlockID = blockID
 		startTrxIndex = trxIndex
 	}
@@ -307,7 +307,7 @@ func (db *TRXDB) ListMostRecentTransactions(ctx context.Context, startKey string
 
 			}
 
-			nextBlockNum = eos.BlockNum(blk.Id) - 1
+			nextBlockNum = zsw.BlockNum(blk.Id) - 1
 			//nextPrefix = kvdb.ReversedBlockID(kvdb.IncreaseBlockIDSuffix(blk.Id))
 		}
 
@@ -350,7 +350,7 @@ func (db *TRXDB) ListMostRecentTransactions(ctx context.Context, startKey string
 
 func (db *TRXDB) GetBlock(ctx context.Context, id string) (out *pbcodec.BlockWithRefs, err error) {
 	out, err = db.DBReader.GetBlock(ctx, id)
-	if err == eos.ErrNotFound {
+	if err == zsw.ErrNotFound {
 		return nil, DBBlockNotFoundError(ctx, id)
 	}
 

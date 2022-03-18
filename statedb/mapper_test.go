@@ -25,11 +25,11 @@ import (
 	"github.com/stretchr/testify/require"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestBlockMapper(t *testing.T) {
-	validABI := &eos.ABI{}
+	validABI := &zsw.ABI{}
 
 	tests := []struct {
 		name            string

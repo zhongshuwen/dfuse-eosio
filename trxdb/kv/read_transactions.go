@@ -10,7 +10,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type TrxEventType int
@@ -170,7 +170,7 @@ func (db *DB) getTransactionEvents(ctx context.Context, idPrefixes []string, eve
 			ev := &pbcodec.TransactionEvent{
 				Id:       trxID,
 				BlockId:  blockID,
-				BlockNum: eos.BlockNum(blockID),
+				BlockNum: zsw.BlockNum(blockID),
 			}
 			ev.Event = &pbcodec.TransactionEvent_InternalAddition{
 				InternalAddition: &pbcodec.TransactionEvent_AddedInternally{
@@ -192,7 +192,7 @@ func (db *DB) getTransactionEvents(ctx context.Context, idPrefixes []string, eve
 			ev := &pbcodec.TransactionEvent{
 				Id:       trxID,
 				BlockId:  blockID,
-				BlockNum: eos.BlockNum(blockID),
+				BlockNum: zsw.BlockNum(blockID),
 			}
 
 			if row.Receipt != nil {
@@ -226,7 +226,7 @@ func (db *DB) getTransactionEvents(ctx context.Context, idPrefixes []string, eve
 			ev := &pbcodec.TransactionEvent{
 				Id:       trxID,
 				BlockId:  blockID,
-				BlockNum: eos.BlockNum(blockID),
+				BlockNum: zsw.BlockNum(blockID),
 			}
 
 			codec.ReduplicateTransactionTrace(row.TrxTrace)
@@ -252,7 +252,7 @@ func (db *DB) getTransactionEvents(ctx context.Context, idPrefixes []string, eve
 			ev := &pbcodec.TransactionEvent{
 				Id:       trxID,
 				BlockId:  blockID,
-				BlockNum: eos.BlockNum(blockID),
+				BlockNum: zsw.BlockNum(blockID),
 			}
 
 			if row.CreatedBy != nil {

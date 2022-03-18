@@ -26,7 +26,7 @@ import (
 
 	"github.com/tidwall/gjson"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -470,7 +470,7 @@ func (ctx *parseCtx) readAcceptedBlock(line string) (*pbcodec.Block, error) {
 		return nil, fmt.Errorf("unable to decode block %d state hex: %w", blockNum, err)
 	}
 
-	blockState := &eos.BlockState{}
+	blockState := &zsw.BlockState{}
 	err = unmarshalBinary(blockStateHex, blockState)
 	if err != nil {
 		return nil, fmt.Errorf("unmarshalling binary block state: %w", err)
@@ -587,7 +587,7 @@ func (ctx *parseCtx) readAppliedTransaction(line string) error {
 		return fmt.Errorf("unable to decode transaction trace hex at block num %d: %w", blockNum, err)
 	}
 
-	trxTrace := &eos.TransactionTrace{}
+	trxTrace := &zsw.TransactionTrace{}
 	err = unmarshalBinary(trxTraceHex, trxTrace)
 	if err != nil {
 		return fmt.Errorf("unmarshalling binary transaction trace: %w", err)
@@ -741,21 +741,21 @@ func (ctx *parseCtx) readCreateOrCancelDTrxOp(tag string, line string) error {
 		return fmt.Errorf("unable to decode signed transaction hex: %w", err)
 	}
 
-	var signedTrx *eos.SignedTransaction
+	var signedTrx *zsw.SignedTransaction
 	if op == pbcodec.DTrxOp_OPERATION_PUSH_CREATE {
-		signedTrx = new(eos.SignedTransaction)
+		signedTrx = new(zsw.SignedTransaction)
 		err = unmarshalBinary(trxHex, signedTrx)
 		if err != nil {
 			return fmt.Errorf("unmarshal binary signed transaction: %w", err)
 		}
 	} else {
-		trx := &eos.Transaction{}
+		trx := &zsw.Transaction{}
 		err = unmarshalBinary(trxHex, trx)
 		if err != nil {
 			return fmt.Errorf("unmarshal binary transaction: %w", err)
 		}
 
-		signedTrx = &eos.SignedTransaction{
+		signedTrx = &zsw.SignedTransaction{
 			Transaction: trx,
 		}
 	}
@@ -1255,7 +1255,7 @@ func (ctx *parseCtx) readTrxOp(line string) error {
 		return fmt.Errorf("unable to decode signed transaction %s hex: %w", trxID, err)
 	}
 
-	trx := &eos.SignedTransaction{}
+	trx := &zsw.SignedTransaction{}
 	err = unmarshalBinary(trxHex, trx)
 	if err != nil {
 		return fmt.Errorf("unmarshal binary signed transaction %s: %w", trxID, err)
@@ -1272,7 +1272,7 @@ func (ctx *parseCtx) readTrxOp(line string) error {
 }
 
 func unmarshalBinary(data []byte, v interface{}) error {
-	decoder := eos.NewDecoder(data)
+	decoder := zsw.NewDecoder(data)
 	decoder.DecodeActions(false)
 	decoder.DecodeP2PMessage(false)
 

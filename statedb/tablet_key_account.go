@@ -8,7 +8,7 @@ import (
 	"github.com/dfuse-io/fluxdb"
 	"github.com/golang/protobuf/proto"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 const kaCollection = 0xB300
@@ -99,7 +99,7 @@ func (r *KeyAccountRow) Payer() (string, error) {
 		return "", err
 	}
 
-	return eos.NameToString(pb.Payer), nil
+	return zsw.NameToString(pb.Payer), nil
 }
 
 func (r *KeyAccountRow) Explode() (account, permission string) {

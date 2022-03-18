@@ -19,7 +19,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/atomic"
 	"go.uber.org/zap"
@@ -302,16 +302,16 @@ func ActionTraceFail(t testing.T, tripletName string, components ...interface{})
 	return out
 }
 
-func ActionTraceSetABI(t testing.T, account string, abi *eos.ABI, components ...interface{}) *pbcodec.ActionTrace {
+func ActionTraceSetABI(t testing.T, account string, abi *zsw.ABI, components ...interface{}) *pbcodec.ActionTrace {
 	var abiHex []byte
 	var err error
 	if abi != nil {
-		abiHex, err = eos.MarshalBinary(abi)
+		abiHex, err = zsw.MarshalBinary(abi)
 		require.NoError(t, err)
 	}
 
-	setABI := &system.SetABI{Account: eos.AccountName(account), ABI: eos.HexBytes(abiHex)}
-	rawData, err := eos.MarshalBinary(setABI)
+	setABI := &system.SetABI{Account: zsw.AccountName(account), ABI: zsw.HexBytes(abiHex)}
+	rawData, err := zsw.MarshalBinary(setABI)
 	require.NoError(t, err)
 
 	jsonData, err := json.Marshal(setABI)
@@ -365,7 +365,7 @@ func transformActionTrace(t testing.T, actTrace *pbcodec.ActionTrace, components
 	return actTrace
 }
 
-func CFAAction(t testing.T, pairName string, abi *eos.ABI, data string) ContextFreeAction {
+func CFAAction(t testing.T, pairName string, abi *zsw.ABI, data string) ContextFreeAction {
 	return ContextFreeAction(Action(t, pairName, abi, data))
 }
 
@@ -413,7 +413,7 @@ func Action(t testing.T, pairName string, components ...interface{}) *pbcodec.Ac
 	var rawData []byte
 	if abi != nil && data != "" {
 		var err error
-		rawData, err = abi.EncodeAction(eos.ActionName(actionName), []byte(data))
+		rawData, err = abi.EncodeAction(zsw.ActionName(actionName), []byte(data))
 		require.NoError(t, err)
 	}
 
@@ -428,7 +428,7 @@ func Action(t testing.T, pairName string, components ...interface{}) *pbcodec.Ac
 		switch v := component.(type) {
 		case actionComponent:
 			v.apply(action)
-		case *eos.ABI:
+		case *zsw.ABI:
 		case ActionData:
 		case actionMatched:
 		case GlobalSequence:
@@ -441,9 +441,9 @@ func Action(t testing.T, pairName string, components ...interface{}) *pbcodec.Ac
 	return action
 }
 
-func findABIComponent(components []interface{}) *eos.ABI {
-	if component := findComponent(components, func(component interface{}) bool { _, ok := component.(*eos.ABI); return ok }); component != nil {
-		return component.(*eos.ABI)
+func findABIComponent(components []interface{}) *zsw.ABI {
+	if component := findComponent(components, func(component interface{}) bool { _, ok := component.(*zsw.ABI); return ok }); component != nil {
+		return component.(*zsw.ABI)
 	}
 
 	return nil
@@ -559,10 +559,10 @@ func DBOp(t testing.T, op string, path string, payer string, data string, compon
 		dbOp.NewPayer = payers[1]
 	}
 
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	for _, component := range components {
 		switch v := component.(type) {
-		case *eos.ABI:
+		case *zsw.ABI:
 			abi = v
 		default:
 			failInvalidComponent(t, "db op", component)
@@ -571,7 +571,7 @@ func DBOp(t testing.T, op string, path string, payer string, data string, compon
 
 	dataToBinary := func(content string) []byte {
 		if abi != nil {
-			data, err := abi.EncodeTable(eos.TableName(dbOp.TableName), []byte(content))
+			data, err := abi.EncodeTable(zsw.TableName(dbOp.TableName), []byte(content))
 			require.NoError(t, err)
 
 			return data

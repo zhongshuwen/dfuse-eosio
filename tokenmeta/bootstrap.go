@@ -10,7 +10,7 @@ import (
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -73,7 +73,7 @@ func Bootstrap(abisFileContent []byte, stateClient pbstatedb.StateClient, bootst
 	return tokens, balances, stakeds, startBlock, nil
 }
 
-func parseContractFromABIs(cnt []byte) (out []eos.AccountName) {
+func parseContractFromABIs(cnt []byte) (out []zsw.AccountName) {
 	var accounts, withTableAccounts, withTableStat, tokenContracts int
 	gjson.GetBytes(cnt, "Abis").ForEach(func(k, v gjson.Result) bool {
 		accounts++
@@ -111,7 +111,7 @@ func parseContractFromABIs(cnt []byte) (out []eos.AccountName) {
 		}
 
 		if contractStats.isTokenContract {
-			out = append(out, eos.AccountName(account))
+			out = append(out, zsw.AccountName(account))
 			tokenContracts++
 		}
 		return true

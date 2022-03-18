@@ -17,7 +17,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
@@ -31,7 +31,7 @@ func TestABIDecoder(t *testing.T) {
 
 	type testData struct {
 		name         string
-		abiDumps     map[string]*eos.ABI
+		abiDumps     map[string]*zsw.ABI
 		blocks       []*pbcodec.Block
 		expectations []expectation
 	}
@@ -229,7 +229,7 @@ func TestABIDecoder(t *testing.T) {
 
 		{
 			name: "soft_fail, with abi dumps, single action global sequence 0, still records ABI",
-			abiDumps: map[string]*eos.ABI{
+			abiDumps: map[string]*zsw.ABI{
 				"zswhq.token": tokenABI2,
 			},
 			blocks: in(
@@ -413,7 +413,7 @@ func TestABIDecoder(t *testing.T) {
 			decoder := newABIDecoder()
 
 			for contract, abi := range test.abiDumps {
-				abiBinary, err := eos.MarshalBinary(abi)
+				abiBinary, err := zsw.MarshalBinary(abi)
 				require.NoError(t, err)
 
 				decoder.addInitialABI(contract, base64.RawStdEncoding.EncodeToString(abiBinary))
@@ -486,7 +486,7 @@ func fullMatchRegex(regex *regexp.Regexp, content string) []string {
 func testBlock(t *testing.T, blkID string, previousBlkID string, elements ...interface{}) *pbcodec.Block {
 	pbblock := &pbcodec.Block{
 		Id:     blkID,
-		Number: eos.BlockNum(blkID),
+		Number: zsw.BlockNum(blkID),
 	}
 
 	blockTime, err := time.Parse(time.RFC3339, "2006-01-02T15:04:05.5Z")
@@ -564,7 +564,7 @@ func trx(t *testing.T, elements ...interface{}) *pbcodec.Transaction {
 	return trx
 }
 
-func actionTrace(t *testing.T, tripletName string, executionIndex uint32, globalSequence uint64, abi *eos.ABI, data string) *pbcodec.ActionTrace {
+func actionTrace(t *testing.T, tripletName string, executionIndex uint32, globalSequence uint64, abi *zsw.ABI, data string) *pbcodec.ActionTrace {
 	parts := strings.Split(tripletName, ":")
 	receiver := parts[0]
 	account := parts[1]
@@ -581,19 +581,19 @@ func actionTrace(t *testing.T, tripletName string, executionIndex uint32, global
 	}
 }
 
-func actionTraceFail(t *testing.T, tripletName string, executionIndex uint32, abi *eos.ABI, data string) *pbcodec.ActionTrace {
+func actionTraceFail(t *testing.T, tripletName string, executionIndex uint32, abi *zsw.ABI, data string) *pbcodec.ActionTrace {
 	out := actionTrace(t, tripletName, executionIndex, 0, abi, data)
 	out.Receipt = nil
 
 	return out
 }
 
-func actionTraceSetABI(t *testing.T, account string, executionIndex uint32, globalSequence uint64, abi *eos.ABI) *pbcodec.ActionTrace {
-	abiData, err := eos.MarshalBinary(abi)
+func actionTraceSetABI(t *testing.T, account string, executionIndex uint32, globalSequence uint64, abi *zsw.ABI) *pbcodec.ActionTrace {
+	abiData, err := zsw.MarshalBinary(abi)
 	require.NoError(t, err)
 
-	setABI := &system.SetABI{Account: eos.AccountName(account), ABI: eos.HexBytes(abiData)}
-	rawData, err := eos.MarshalBinary(setABI)
+	setABI := &system.SetABI{Account: zsw.AccountName(account), ABI: zsw.HexBytes(abiData)}
+	rawData, err := zsw.MarshalBinary(setABI)
 	require.NoError(t, err)
 
 	return &pbcodec.ActionTrace{
@@ -611,11 +611,11 @@ func actionTraceSetABI(t *testing.T, account string, executionIndex uint32, glob
 	}
 }
 
-func cfaAction(t *testing.T, pairName string, abi *eos.ABI, data string) ContextFreeAction {
+func cfaAction(t *testing.T, pairName string, abi *zsw.ABI, data string) ContextFreeAction {
 	return ContextFreeAction(action(t, pairName, abi, data))
 }
 
-func action(t *testing.T, pairName string, abi *eos.ABI, data string) *pbcodec.Action {
+func action(t *testing.T, pairName string, abi *zsw.ABI, data string) *pbcodec.Action {
 	parts := strings.Split(pairName, ":")
 	account := parts[0]
 	actionName := parts[1]
@@ -623,7 +623,7 @@ func action(t *testing.T, pairName string, abi *eos.ABI, data string) *pbcodec.A
 	var rawData []byte
 	if abi != nil && data != "" {
 		var err error
-		rawData, err = abi.EncodeAction(eos.ActionName(actionName), []byte(data))
+		rawData, err = abi.EncodeAction(zsw.ActionName(actionName), []byte(data))
 		require.NoError(t, err)
 	}
 

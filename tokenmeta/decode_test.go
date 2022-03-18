@@ -7,15 +7,15 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 	tests := []struct {
 		name        string
 		scope       string
-		contract    eos.AccountName
-		symbol      *eos.Symbol
+		contract    zsw.AccountName
+		symbol      *zsw.Symbol
 		dbRow       json.RawMessage
 		expectValue *pbtokenmeta.AccountBalance
 		expectError bool
@@ -24,7 +24,7 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 			name:     "simple raw message",
 			scope:    "eoscanadacom",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
@@ -41,7 +41,7 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 			name:     "invalid raw message",
 			scope:    "eoscanadacom",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
@@ -52,7 +52,7 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 			name:     "invalid balance in raw message",
 			scope:    "eoscanadacom",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
@@ -78,8 +78,8 @@ func TestAbi_getAccountBalanceFromDBRow(t *testing.T) {
 func TestAbi_getTokenFromDBRow(t *testing.T) {
 	tests := []struct {
 		name        string
-		contract    eos.AccountName
-		symbol      *eos.Symbol
+		contract    zsw.AccountName
+		symbol      *zsw.Symbol
 		dbRow       json.RawMessage
 		expectValue *pbtokenmeta.Token
 		expectError bool
@@ -87,7 +87,7 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 		{
 			name:     "updating an existing token",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
@@ -119,7 +119,7 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 		{
 			name:     "invalid raw message",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},
@@ -129,7 +129,7 @@ func TestAbi_getTokenFromDBRow(t *testing.T) {
 		{
 			name:     "invalid balance in raw message",
 			contract: "zswhq.token",
-			symbol: &eos.Symbol{
+			symbol: &zsw.Symbol{
 				Precision: 4,
 				Symbol:    "EOS",
 			},

@@ -4,7 +4,7 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/keyer"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type AccountFactory struct {
@@ -40,7 +40,7 @@ func (f *AccountContractFactory) Collection() byte {
 }
 
 func (f *AccountContractFactory) NewFacet(blk *bstream.Block, act *pbcodec.ActionTrace, account uint64) Facet {
-	contractUint := eos.MustStringToName(act.Action.Account)
+	contractUint := zsw.MustStringToName(act.Action.Account)
 	return &AccountContractKey{
 		account:  account,
 		contract: contractUint,

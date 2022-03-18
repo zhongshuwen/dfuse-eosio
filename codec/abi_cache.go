@@ -18,7 +18,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -47,7 +47,7 @@ type ABICache struct {
 	//
 	// **Important** The second inner map is un-ordered, to retrieve correct ABI based on sequential
 	//               ordering, you must use `abisOrdering` element.
-	abis map[string]map[uint64]*eos.ABI
+	abis map[string]map[uint64]*zsw.ABI
 
 	// Represents the ABIs ordering values based on `globalSequence`. The map structure is for each
 	// `contract`, keep a slice of ordered ABI global sequence number
@@ -59,7 +59,7 @@ type ABICache struct {
 
 func newABICache() *ABICache {
 	return &ABICache{
-		abis:         map[string]map[uint64]*eos.ABI{},
+		abis:         map[string]map[uint64]*zsw.ABI{},
 		abisOrdering: map[string][]uint64{},
 	}
 }
@@ -70,7 +70,7 @@ func newABICache() *ABICache {
 // argument is greater than 450.
 //
 // If the invariant is not respected, an error is returned.
-func (c *ABICache) addABI(contract string, globalSequence uint64, abi *eos.ABI) error {
+func (c *ABICache) addABI(contract string, globalSequence uint64, abi *zsw.ABI) error {
 	zlog.Debug("adding new abi", zap.String("account", contract), zap.Uint64("global_sequence", globalSequence))
 	contractOrdering, found := c.abisOrdering[contract]
 	if found && len(contractOrdering) > 0 && contractOrdering[len(contractOrdering)-1] > globalSequence {
@@ -79,7 +79,7 @@ func (c *ABICache) addABI(contract string, globalSequence uint64, abi *eos.ABI) 
 
 	contractAbis, found := c.abis[contract]
 	if !found {
-		contractAbis = map[uint64]*eos.ABI{}
+		contractAbis = map[uint64]*zsw.ABI{}
 		c.abis[contract] = contractAbis
 	}
 
@@ -91,7 +91,7 @@ func (c *ABICache) addABI(contract string, globalSequence uint64, abi *eos.ABI) 
 
 // findABI for the given `contract` at which `globalSequence` was the most
 // recent active ABI.
-func (c *ABICache) findABI(contract string, globalSequence uint64) *eos.ABI {
+func (c *ABICache) findABI(contract string, globalSequence uint64) *zsw.ABI {
 	if c == nil {
 		return nil
 	}

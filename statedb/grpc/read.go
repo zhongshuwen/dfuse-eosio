@@ -12,7 +12,7 @@ import (
 	"github.com/dfuse-io/logging"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
@@ -187,7 +187,7 @@ func (s *Server) readContractStateTableRow(
 }
 
 type rowSerializationInfo struct {
-	abi           *eos.ABI
+	abi           *zsw.ABI
 	abiAtBlockNum uint64
 	tableTypeName string
 }
@@ -215,9 +215,9 @@ func (s *Server) newRowSerializationInfo(ctx context.Context, contract, table st
 		return nil, statedb.DataABINotFoundError(ctx, contract, blockNum)
 	}
 
-	tableDef := abi.TableForName(eos.TableName(table))
+	tableDef := abi.TableForName(zsw.TableName(table))
 	if tableDef == nil {
-		return nil, statedb.DataTableNotFoundError(ctx, eos.AccountName(contract), eos.TableName(table))
+		return nil, statedb.DataTableNotFoundError(ctx, zsw.AccountName(contract), zsw.TableName(table))
 	}
 
 	return &rowSerializationInfo{
@@ -275,7 +275,7 @@ func convertKey(key []byte, keyConverter KeyConverter) (string, error) {
 }
 
 func bytesToName(bytes []byte) string {
-	return eos.NameToString(binary.BigEndian.Uint64(bytes))
+	return zsw.NameToString(binary.BigEndian.Uint64(bytes))
 }
 
 func toContractStatePrimaryKey(in string, converter KeyConverter) (out statedb.ContractStatePrimaryKey, err error) {

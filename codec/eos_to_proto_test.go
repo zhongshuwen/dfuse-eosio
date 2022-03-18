@@ -23,7 +23,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestActionToDEOS(t *testing.T) {
@@ -80,7 +80,7 @@ func TestActionToDEOS(t *testing.T) {
 
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
-			a := &eos.Action{}
+			a := &zsw.Action{}
 			err := json.Unmarshal([]byte(c.json), &a)
 			require.NoError(t, err)
 

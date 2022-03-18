@@ -18,7 +18,7 @@ import (
 	"context"
 
 	"github.com/dfuse-io/derr"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 // App Errors
@@ -63,14 +63,14 @@ func DataPublicKeyNotFoundError(ctx context.Context, publicKey string) *derr.Err
 	)
 }
 
-func DataTableNotFoundError(ctx context.Context, account eos.AccountName, table eos.TableName) *derr.ErrorResponse {
+func DataTableNotFoundError(ctx context.Context, account zsw.AccountName, table zsw.TableName) *derr.ErrorResponse {
 	return derr.HTTPBadRequestError(ctx, nil, derr.C("data_table_not_found_error"), "Table does not exist in ABI at this block height.",
 		"account", account,
 		"table", table,
 	)
 }
 
-func DataRowNotFoundError(ctx context.Context, account eos.AccountName, table eos.TableName, scope eos.AccountName, primaryKey string) *derr.ErrorResponse {
+func DataRowNotFoundError(ctx context.Context, account zsw.AccountName, table zsw.TableName, scope zsw.AccountName, primaryKey string) *derr.ErrorResponse {
 	return derr.HTTPBadRequestError(ctx, nil, derr.C("data_row_not_found_error"), "Row does not exist in table at this block height.",
 		"account", account,
 		"scope", scope,

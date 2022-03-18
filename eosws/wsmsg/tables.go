@@ -21,7 +21,7 @@ import (
 
 	"github.com/dfuse-io/bstream/forkable"
 	v1 "github.com/dfuse-io/eosws-go/mdl/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func init() {
@@ -34,9 +34,9 @@ func init() {
 type GetTableRowsData struct {
 	JSON bool `json:"json,omitempty"`
 
-	Code      eos.AccountName `json:"code"`
-	Scope     *eos.Name       `json:"scope"`
-	TableName eos.TableName   `json:"table"`
+	Code      zsw.AccountName `json:"code"`
+	Scope     *zsw.Name       `json:"scope"`
+	TableName zsw.TableName   `json:"table"`
 }
 
 type GetTableRows struct {

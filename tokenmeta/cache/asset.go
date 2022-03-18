@@ -4,12 +4,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type OwnedAsset struct {
-	Owner eos.AccountName    // ex: eoscanadadad
-	Asset *eos.ExtendedAsset // ex: 1.23 EOS (zswhq.token)
+	Owner zsw.AccountName    // ex: eoscanadadad
+	Asset *zsw.ExtendedAsset // ex: 1.23 EOS (zswhq.token)
 }
 
 type OwnedAssetSorter func([]*OwnedAsset, SortingOrder) []*OwnedAsset

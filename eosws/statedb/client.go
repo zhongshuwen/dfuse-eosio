@@ -21,7 +21,7 @@ import (
 	"sort"
 
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type Producer struct {
@@ -32,7 +32,7 @@ type Producer struct {
 	URL          string  `json:"url"`
 	UnpaidBlocks int     `json:"unpaid_blocks"`
 	Location     int     `json:"location"`
-	//LastClaimTime eos.JSONFloat64 `json:"last_claim_time"`
+	//LastClaimTime zsw.JSONFloat64 `json:"last_claim_time"`
 }
 
 type Global struct {
@@ -54,17 +54,17 @@ type Global struct {
 	MaxInlineActionDepth           int       `json:"max_inline_action_depth"`
 	MaxAuthorityDepth              int       `json:"max_authority_depth"`
 	MaxRAMSize                     string    `json:"max_ram_size"`
-	TotalRAMBytesReserved          eos.Int64 `json:"total_ram_bytes_reserved"`
-	TotalRAMStake                  eos.Int64 `json:"total_ram_stake"`
+	TotalRAMBytesReserved          zsw.Int64 `json:"total_ram_bytes_reserved"`
+	TotalRAMStake                  zsw.Int64 `json:"total_ram_stake"`
 	LastProducerScheduleUpdate     string    `json:"last_producer_schedule_update"`
 	//LastPervoteBucketFill          int64     `json:"last_pervote_bucket_fill,string"`
-	PervoteBucket       eos.Int64   `json:"pervote_bucket"`
-	PerblockBucket      eos.Int64   `json:"perblock_bucket"`
-	TotalUnpaidBlocks   eos.Int64   `json:"total_unpaid_blocks"`
-	TotalActivatedStake eos.Float64 `json:"total_activated_stake"`
+	PervoteBucket       zsw.Int64   `json:"pervote_bucket"`
+	PerblockBucket      zsw.Int64   `json:"perblock_bucket"`
+	TotalUnpaidBlocks   zsw.Int64   `json:"total_unpaid_blocks"`
+	TotalActivatedStake zsw.Float64 `json:"total_activated_stake"`
 	//ThreshActivatedStakeTime       int64     `json:"thresh_activated_stake_time,string"`
-	LastProducerScheduleSize eos.Int64   `json:"last_producer_schedule_size"`
-	TotalProducerVoteWeight  eos.Float64 `json:"total_producer_vote_weight"`
+	LastProducerScheduleSize zsw.Int64   `json:"last_producer_schedule_size"`
+	TotalProducerVoteWeight  zsw.Float64 `json:"total_producer_vote_weight"`
 	LastNameClose            string      `json:"last_name_close"`
 }
 

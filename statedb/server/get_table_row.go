@@ -24,7 +24,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -69,7 +69,7 @@ func (srv *EOSServer) getTableRowHandler(w http.ResponseWriter, r *http.Request)
 		writeError(ctx, w, fmt.Errorf("creating table row failed: %w", err))
 		return
 	}
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	if serializationInfo != nil {
 		abi = serializationInfo.abi
 	}
@@ -95,7 +95,7 @@ type getTableRowRequest struct {
 
 type getTableRowResponse struct {
 	*commonStateResponse
-	ABI *eos.ABI  `json:"abi,omitempty"`
+	ABI *zsw.ABI  `json:"abi,omitempty"`
 	Row *tableRow `json:"row,omitempty"`
 }
 

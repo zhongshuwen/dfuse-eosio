@@ -22,7 +22,7 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/lytics/ordpool"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
@@ -109,10 +109,10 @@ func (c *ABIDecoder) addInitialABI(contract string, b64ABI string) error {
 		return fmt.Errorf("unable to decode ABI hex data for contract %s: %w", contract, err)
 	}
 
-	abi := &eos.ABI{}
+	abi := &zsw.ABI{}
 	abi.SetFitNodeos(true)
 
-	err = eos.UnmarshalBinary(rawABI, abi)
+	err = zsw.UnmarshalBinary(rawABI, abi)
 	if err != nil {
 		zlog.Info("skipping initial ABI since content cannot be unmarshalled correctly", zap.String("contract", contract))
 		return nil
@@ -284,7 +284,7 @@ type abiOperation struct {
 	account        string
 	actionIndex    int
 	globalSequence uint64
-	abi            *eos.ABI
+	abi            *zsw.ABI
 }
 
 func (c *ABIDecoder) commitABIs(trxID string, operations []abiOperation) error {
@@ -319,14 +319,14 @@ func (c *ABIDecoder) extractABIOperations(trxTrace *pbcodec.TransactionTrace) (o
 		// If the action trace receipt is `nil`, it means the action failed, in which case, we don't care about those `setabi`
 		if actionTrace.FullName() == "zswhq:zswhq:setabi" && actionTrace.Receipt != nil {
 			setABI := &system.SetABI{}
-			err := eos.UnmarshalBinary(actionTrace.Action.RawData, setABI)
+			err := zsw.UnmarshalBinary(actionTrace.Action.RawData, setABI)
 			if err != nil {
 				return nil, fmt.Errorf("unable to read action trace 'setabi' at index %d in transaction %s: %w", i, trxTrace.Id, err)
 			}
 
-			// All sort of garbage can be in this field, skip if we cannot properly decode to an eos.ABI object
-			abi := &eos.ABI{}
-			err = eos.UnmarshalBinary(setABI.ABI, abi)
+			// All sort of garbage can be in this field, skip if we cannot properly decode to an zsw.ABI object
+			abi := &zsw.ABI{}
+			err = zsw.UnmarshalBinary(setABI.ABI, abi)
 			if err != nil {
 				zlog.Info("skipping action trace 'setabi' since abi content cannot be unmarshalled correctly", zap.Int("action_index", i), zap.String("trx_id", trxTrace.Id))
 				continue
@@ -474,7 +474,7 @@ func (d *ABIDecoder) decodeAction(action *pbcodec.Action, globalSequence uint64,
 		return nil
 	}
 
-	actionDef := abi.ActionForName(eos.ActionName(action.Name))
+	actionDef := abi.ActionForName(zsw.ActionName(action.Name))
 	if actionDef == nil {
 		if traceEnabled {
 			zlog.Debug("skipping action since action was not in ABI", zap.String("action", action.SimpleName()), zap.Uint64("global_sequence", globalSequence))
@@ -486,7 +486,7 @@ func (d *ABIDecoder) decodeAction(action *pbcodec.Action, globalSequence uint64,
 		zlog.Debug("found ABI and action definition, performing decoding", zap.String("action", action.SimpleName()), zap.Uint64("global_sequence", globalSequence))
 	}
 
-	decoder := eos.NewDecoder(action.RawData)
+	decoder := zsw.NewDecoder(action.RawData)
 	jsonData, err := abi.Decode(decoder, actionDef.Type)
 	if err != nil {
 		// Sadly, anything can make up the hex data of an action, so it could be pure garbage that does not fit against
@@ -511,7 +511,7 @@ func (d *ABIDecoder) decodeAction(action *pbcodec.Action, globalSequence uint64,
 	return nil
 }
 
-func (d *ABIDecoder) findABI(contract string, globalSequence uint64, localCache *ABICache) *eos.ABI {
+func (d *ABIDecoder) findABI(contract string, globalSequence uint64, localCache *ABICache) *zsw.ABI {
 	if localCache != emptyCache {
 		localCache.RLock()
 		defer localCache.RUnlock()
@@ -529,14 +529,14 @@ func (d *ABIDecoder) findABI(contract string, globalSequence uint64, localCache 
 }
 
 type eosioTokenTransfer struct {
-	From     eos.Name  `json:"from"`
-	To       eos.Name  `json:"to"`
-	Quantity eos.Asset `json:"quantity"`
+	From     zsw.Name  `json:"from"`
+	To       zsw.Name  `json:"to"`
+	Quantity zsw.Asset `json:"quantity"`
 	Memo     string    `json:"memo"`
 }
 
 func decodeTransfer(data []byte) (string, error) {
-	decoder := eos.NewDecoder(data)
+	decoder := zsw.NewDecoder(data)
 	from, err := decoder.ReadName()
 	if err != nil {
 		return "", fmt.Errorf(`unable to read transfer field "from": %w`, err)

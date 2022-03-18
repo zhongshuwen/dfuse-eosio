@@ -24,7 +24,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -61,7 +61,7 @@ func (srv *EOSServer) listTableRowsHandler(w http.ResponseWriter, r *http.Reques
 		return
 	}
 
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	if serializationInfo != nil && request.WithABI {
 		abi = serializationInfo.abi
 	}

@@ -9,21 +9,21 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
 type DefaultCache struct {
 	// zswhq.token -> [WAX, EOS]
-	TokensInContract map[eos.AccountName][]*pbtokenmeta.Token `json:"tokens_in_contract"`
+	TokensInContract map[zsw.AccountName][]*pbtokenmeta.Token `json:"tokens_in_contract"`
 
 	// tokencontract-centric: zswhq.token -> eoscanadadad -> [23 WAX, 22 EOS]
-	Balances map[eos.AccountName]map[eos.AccountName][]*OwnedAsset `json:"balances"`
+	Balances map[zsw.AccountName]map[zsw.AccountName][]*OwnedAsset `json:"balances"`
 
 	AtBlock        *Block `json:"at_block"`
 	blocklevelLock sync.RWMutex
 	cacheFilePath  string
-	EOSStake       map[eos.AccountName]*EOSStake `json:"eos_stake"`
+	EOSStake       map[zsw.AccountName]*EOSStake `json:"eos_stake"`
 	HeadBlockTime  time.Time
 }
 
@@ -32,23 +32,23 @@ type Block struct {
 	Num uint64 `json:"num"`
 }
 type EOSStake struct {
-	TotalNet eos.Int64                          `json:"total_net"`
-	TotalCpu eos.Int64                          `json:"total_cpu"`
-	Entries  map[eos.AccountName]*EOSStakeEntry `json:"stake_entries"`
+	TotalNet zsw.Int64                          `json:"total_net"`
+	TotalCpu zsw.Int64                          `json:"total_cpu"`
+	Entries  map[zsw.AccountName]*EOSStakeEntry `json:"stake_entries"`
 }
 
 type EOSStakeEntry struct {
-	To   eos.AccountName `json:"to"`
-	From eos.AccountName `json:"from"`
-	Net  eos.Int64       `json:"net"`
-	Cpu  eos.Int64       `json:"cpu"`
+	To   zsw.AccountName `json:"to"`
+	From zsw.AccountName `json:"from"`
+	Net  zsw.Int64       `json:"net"`
+	Cpu  zsw.Int64       `json:"cpu"`
 }
 
 func NewDefaultCache(cacheFilePath string) *DefaultCache {
 	return &DefaultCache{
-		EOSStake:         make(map[eos.AccountName]*EOSStake),
-		TokensInContract: make(map[eos.AccountName][]*pbtokenmeta.Token),
-		Balances:         make(map[eos.AccountName]map[eos.AccountName][]*OwnedAsset),
+		EOSStake:         make(map[zsw.AccountName]*EOSStake),
+		TokensInContract: make(map[zsw.AccountName][]*pbtokenmeta.Token),
+		Balances:         make(map[zsw.AccountName]map[zsw.AccountName][]*OwnedAsset),
 		cacheFilePath:    cacheFilePath,
 	}
 }
@@ -141,7 +141,7 @@ func (c *DefaultCache) Tokens() (tokens []*pbtokenmeta.Token) {
 	return
 }
 
-func (c *DefaultCache) TokenContract(contract eos.AccountName, code eos.SymbolCode) *pbtokenmeta.Token {
+func (c *DefaultCache) TokenContract(contract zsw.AccountName, code zsw.SymbolCode) *pbtokenmeta.Token {
 	c.blocklevelLock.RLock()
 	defer c.blocklevelLock.RUnlock()
 
@@ -156,7 +156,7 @@ func (c *DefaultCache) TokenContract(contract eos.AccountName, code eos.SymbolCo
 
 }
 
-func (c *DefaultCache) IsTokenContract(contract eos.AccountName) bool {
+func (c *DefaultCache) IsTokenContract(contract zsw.AccountName) bool {
 	c.blocklevelLock.RLock()
 	defer c.blocklevelLock.RUnlock()
 
@@ -166,7 +166,7 @@ func (c *DefaultCache) IsTokenContract(contract eos.AccountName) bool {
 	return false
 }
 
-func (c *DefaultCache) hasSymbolForContract(contract eos.AccountName, symbol string) bool {
+func (c *DefaultCache) hasSymbolForContract(contract zsw.AccountName, symbol string) bool {
 	if _, ok := c.TokensInContract[contract]; !ok {
 		return false
 	}
@@ -180,7 +180,7 @@ func (c *DefaultCache) hasSymbolForContract(contract eos.AccountName, symbol str
 	return false
 }
 
-func (c *DefaultCache) AccountBalances(account eos.AccountName, opts ...AccountBalanceOption) (ownedAssets []*OwnedAsset) {
+func (c *DefaultCache) AccountBalances(account zsw.AccountName, opts ...AccountBalanceOption) (ownedAssets []*OwnedAsset) {
 	c.blocklevelLock.RLock()
 	defer c.blocklevelLock.RUnlock()
 
@@ -195,9 +195,9 @@ func (c *DefaultCache) AccountBalances(account eos.AccountName, opts ...AccountB
 
 					ownedAssets = append(ownedAssets, &OwnedAsset{
 						Owner: ass.Owner,
-						Asset: &eos.ExtendedAsset{
+						Asset: &zsw.ExtendedAsset{
 							Contract: ass.Asset.Contract,
-							Asset:    eos.NewEOSAsset(int64(ass.Asset.Asset.Amount) + value),
+							Asset:    zsw.NewEOSAsset(int64(ass.Asset.Asset.Amount) + value),
 						},
 					})
 					continue
@@ -227,7 +227,7 @@ func hasTokenBalanceOption(opts []TokenBalanceOption, opt TokenBalanceOption) bo
 	return false
 }
 
-func (c *DefaultCache) TokenBalances(contract eos.AccountName, opts ...TokenBalanceOption) (tokenBalances []*OwnedAsset) {
+func (c *DefaultCache) TokenBalances(contract zsw.AccountName, opts ...TokenBalanceOption) (tokenBalances []*OwnedAsset) {
 	c.blocklevelLock.RLock()
 	defer c.blocklevelLock.RUnlock()
 
@@ -239,9 +239,9 @@ func (c *DefaultCache) TokenBalances(contract eos.AccountName, opts ...TokenBala
 					hasTokenBalanceOption(opts, EOSIncludeStakedTokOpt) {
 					tokenBalances = append(tokenBalances, &OwnedAsset{
 						Owner: ass.Owner,
-						Asset: &eos.ExtendedAsset{
+						Asset: &zsw.ExtendedAsset{
 							Contract: contract,
-							Asset:    eos.NewEOSAsset(int64(ass.Asset.Asset.Amount) + c.getStakeForAccount(ass.Owner)),
+							Asset:    zsw.NewEOSAsset(int64(ass.Asset.Asset.Amount) + c.getStakeForAccount(ass.Owner)),
 						},
 					})
 					continue
@@ -264,7 +264,7 @@ func (c *DefaultCache) setBalance(ownedAsset *OwnedAsset) error {
 
 	contractAssetsByOwner, ok := c.Balances[ownedAsset.Asset.Contract]
 	if !ok {
-		c.Balances[ownedAsset.Asset.Contract] = map[eos.AccountName][]*OwnedAsset{}
+		c.Balances[ownedAsset.Asset.Contract] = map[zsw.AccountName][]*OwnedAsset{}
 		contractAssetsByOwner = c.Balances[ownedAsset.Asset.Contract]
 	}
 
@@ -299,7 +299,7 @@ func (c *DefaultCache) setStake(
 		c.EOSStake[stake.From] = &EOSStake{
 			TotalNet: stake.Net,
 			TotalCpu: stake.Cpu,
-			Entries: map[eos.AccountName]*EOSStakeEntry{
+			Entries: map[zsw.AccountName]*EOSStakeEntry{
 				stake.To: stake,
 			},
 		}
@@ -307,7 +307,7 @@ func (c *DefaultCache) setStake(
 	return nil
 }
 
-func (c *DefaultCache) getStakeForAccount(account eos.AccountName) int64 {
+func (c *DefaultCache) getStakeForAccount(account zsw.AccountName) int64 {
 	if stakeEntry, ok := c.EOSStake[account]; ok {
 		return int64(stakeEntry.TotalNet + stakeEntry.TotalCpu)
 	}
@@ -342,7 +342,7 @@ func (c *DefaultCache) removeBalance(ownedAsset *OwnedAsset) error {
 	return fmt.Errorf("removeBalance: token symbol %s not found in cache for owner %s in token contract %s", ownedAsset.Asset.Asset.Symbol, ownedAsset.Owner, ownedAsset.Asset.Contract)
 }
 
-func (c *DefaultCache) setTokenHolders(delta int, tokenSymbol string, tokenContract eos.AccountName) error {
+func (c *DefaultCache) setTokenHolders(delta int, tokenSymbol string, tokenContract zsw.AccountName) error {
 	tokens, ok := c.TokensInContract[tokenContract]
 	if !ok {
 		return fmt.Errorf("cannot set holders, tokenContract %s does not exist in map", tokenContract)
@@ -371,7 +371,7 @@ func (c *DefaultCache) setTokenHolders(delta int, tokenSymbol string, tokenContr
 }
 
 func (c *DefaultCache) setToken(token *pbtokenmeta.Token) error {
-	tokens := c.TokensInContract[eos.AccountName(token.Contract)]
+	tokens := c.TokensInContract[zsw.AccountName(token.Contract)]
 	var previousTokenHolders uint64
 	var updatedTokensInContract []*pbtokenmeta.Token
 	for _, t := range tokens {
@@ -382,11 +382,11 @@ func (c *DefaultCache) setToken(token *pbtokenmeta.Token) error {
 		}
 	}
 	token.Holders = previousTokenHolders
-	c.TokensInContract[eos.AccountName(token.Contract)] = append(updatedTokensInContract, token)
+	c.TokensInContract[zsw.AccountName(token.Contract)] = append(updatedTokensInContract, token)
 	return nil
 }
 
-func (c *DefaultCache) setContract(contractName eos.AccountName) error {
+func (c *DefaultCache) setContract(contractName zsw.AccountName) error {
 	_, found := c.TokensInContract[contractName]
 	if found {
 		return fmt.Errorf("cannot re-add a known contract: %s", contractName)
@@ -424,7 +424,7 @@ func (c *DefaultCache) Apply(mutationsBatch *MutationsBatch, processedBlock bstr
 		case SetStakeMutation:
 			err = c.setStake(mut.Args[0].(*EOSStakeEntry))
 		case SetContractMutation:
-			err = c.setContract(mut.Args[0].(eos.AccountName))
+			err = c.setContract(mut.Args[0].(zsw.AccountName))
 		}
 		if err != nil {
 			errors = append(errors, err)

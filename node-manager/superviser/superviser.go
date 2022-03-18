@@ -30,7 +30,7 @@ import (
 	"github.com/dfuse-io/node-manager/metrics"
 	"github.com/dfuse-io/node-manager/superviser"
 	"github.com/spf13/viper"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -38,12 +38,12 @@ type NodeosSuperviser struct {
 	*superviser.Superviser
 	name string
 
-	api          *eos.API
+	api          *zsw.API
 	blocksDir    string
 	options      *SuperviserOptions
 	snapshotsDir string
 
-	chainID       eos.SHA256Bytes
+	chainID       zsw.SHA256Bytes
 	lastBlockSeen uint32
 
 	producerHostname    string
@@ -129,7 +129,7 @@ func NewSuperviser(debugDeepMind bool, headBlockUpdateFunc nodeManager.HeadBlock
 	s := &NodeosSuperviser{
 		// The arguments field is actually `nil` because arguments are re-computed upon each start
 		Superviser:          superviser.New(logger, options.BinPath, nil),
-		api:                 eos.New(fmt.Sprintf("http://%s", options.LocalNodeEndpoint)),
+		api:                 zsw.New(fmt.Sprintf("http://%s", options.LocalNodeEndpoint)),
 		blocksDir:           filepath.Join(options.DataDir, "blocks"),
 		producerHostname:    options.ProducerHostname,
 		snapshotsDir:        path.Join(options.DataDir, "snapshots"),

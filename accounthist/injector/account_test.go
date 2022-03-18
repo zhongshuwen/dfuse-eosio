@@ -183,6 +183,6 @@ func Test_Account_Sharding(t *testing.T) {
 //		),
 //	)
 //
-//	_, err := service.shardNewestSequenceData(context.Background(), eos.MustStringToName("a"), 1, service.processSequenceDataKeyValue)
+//	_, err := service.shardNewestSequenceData(context.Background(), zsw.MustStringToName("a"), 1, service.processSequenceDataKeyValue)
 //	assert.Error(t, err, store.ErrNotFound)
 //}

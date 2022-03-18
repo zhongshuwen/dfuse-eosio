@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/viper"
 	dblockmeta "github.com/zhongshuwen/dfuse-eosio/blockmeta"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func init() {
@@ -33,13 +33,13 @@ func init() {
 				if !strings.HasPrefix(addr, "http") {
 					addr = "http://" + addr
 				}
-				dblockmeta.APIs = append(dblockmeta.APIs, eos.New(addr))
+				dblockmeta.APIs = append(dblockmeta.APIs, zsw.New(addr))
 			}
 			for _, addr := range viper.GetStringSlice("blockmeta-eos-api-extra-addr") {
 				if !strings.HasPrefix(addr, "http") {
 					addr = "http://" + addr
 				}
-				dblockmeta.ExtraAPIs = append(dblockmeta.ExtraAPIs, eos.New(addr))
+				dblockmeta.ExtraAPIs = append(dblockmeta.ExtraAPIs, zsw.New(addr))
 			}
 
 			dfuseDataDir := runtime.AbsDataDir

@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/bstream"
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
@@ -17,9 +17,9 @@ import (
 	"go.uber.org/zap"
 )
 
-const AccountsTable eos.TableName = eos.TableName("accounts")
-const StatTable eos.TableName = eos.TableName("stat")
-const EOSStakeTable eos.TableName = eos.TableName("delband")
+const AccountsTable zsw.TableName = zsw.TableName("accounts")
+const StatTable zsw.TableName = zsw.TableName("stat")
+const EOSStakeTable zsw.TableName = zsw.TableName("delband")
 
 var maxStateDBRetry = 5
 
@@ -56,7 +56,7 @@ func NewTokenMeta(
 	}
 }
 
-func (t *TokenMeta) decodeDBOpToRow(data []byte, tableName eos.TableName, contract eos.AccountName, blocknum uint32) (json.RawMessage, error) {
+func (t *TokenMeta) decodeDBOpToRow(data []byte, tableName zsw.TableName, contract zsw.AccountName, blocknum uint32) (json.RawMessage, error) {
 	abi, err := t.getABI(contract, blocknum)
 	if err != nil {
 		return nil, fmt.Errorf("cannot get ABI: %w", err)
@@ -105,8 +105,8 @@ func shouldProcessAction(actTrace *pbcodec.ActionTrace, actionMatcher pbcodec.Fi
 	return actTrace.Action.Name == "setabi"
 }
 
-func TokenToEOSSymbol(e *pbtokenmeta.Token) *eos.Symbol {
-	return &eos.Symbol{
+func TokenToEOSSymbol(e *pbtokenmeta.Token) *zsw.Symbol {
+	return &zsw.Symbol{
 		Precision: uint8(e.Precision),
 		Symbol:    e.Symbol,
 	}

@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_shardSummary(t *testing.T) {
@@ -34,7 +34,7 @@ func Test_shardSummary(t *testing.T) {
 		),
 	)
 
-	summary, err := s.FacetShardsSummary(context.Background(), accounthist.AccountFacet(eos.MustStringToName("a")))
+	summary, err := s.FacetShardsSummary(context.Background(), accounthist.AccountFacet(zsw.MustStringToName("a")))
 	require.NoError(t, err)
 	assert.Equal(t, []*FacetShardSummary{
 		{ShardNum: 0, SeqData: accounthist.SequenceData{CurrentOrdinal: 5, LastGlobalSeq: 7}},

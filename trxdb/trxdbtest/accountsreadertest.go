@@ -25,7 +25,7 @@ import (
 	"github.com/stretchr/testify/require"
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 )
 
@@ -160,7 +160,7 @@ func putAccount(t *testing.T, creator, account string, db trxdb.DB) {
 
 	var newAccount *system.NewAccount
 	require.NoError(t, json.Unmarshal([]byte(blk.TransactionTraces()[0].ActionTraces[0].Action.JsonData), &newAccount))
-	data, err := eos.MarshalBinary(newAccount)
+	data, err := zsw.MarshalBinary(newAccount)
 	require.NoError(t, err)
 	blk.TransactionTraces()[0].ActionTraces[0].Action.RawData = data
 

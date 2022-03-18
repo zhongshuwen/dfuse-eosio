@@ -11,7 +11,7 @@ import (
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -27,7 +27,7 @@ func isRetryableStateDBError(err error) bool {
 	return false
 }
 
-func getSymbolFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, account eos.AccountName, startBlockNum uint32) (out []eos.SymbolCode, err error) {
+func getSymbolFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, account zsw.AccountName, startBlockNum uint32) (out []zsw.SymbolCode, err error) {
 	zlog.Debug("getting symbols for contract from statedb",
 		zap.String("token_contract", string(account)),
 		zap.Uint32("start_block_num", startBlockNum),
@@ -39,7 +39,7 @@ func getSymbolFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient
 	}
 
 	for _, s := range scopes {
-		symCode, err := eos.NameToSymbolCode(eos.Name(s))
+		symCode, err := zsw.NameToSymbolCode(zsw.Name(s))
 		if err != nil {
 			zlog.Warn("stat scope to symbol list", zap.Error(err))
 			// we should just skip this token
@@ -52,7 +52,7 @@ func getSymbolFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient
 
 var errDecodeAccountRow = errors.New("decode account row")
 
-func getTokenBalancesFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, contract eos.AccountName, startBlockNum uint32) (out []*pbtokenmeta.AccountBalance, err error) {
+func getTokenBalancesFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, contract zsw.AccountName, startBlockNum uint32) (out []*pbtokenmeta.AccountBalance, err error) {
 	zlog.Debug("getting token balances for a token account from statedb",
 		zap.String("token_contract", string(contract)),
 		zap.Uint32("start_block_num", startBlockNum),
@@ -149,7 +149,7 @@ func getTokenBalancesFromStateDB(ctx context.Context, stateClient pbstatedb.Stat
 
 var errInvalidContractSymbol = errors.New("invalid contract symbol")
 
-func getTokensFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, contract eos.AccountName, symbols []eos.SymbolCode, startBlockNum uint32) (out []*pbtokenmeta.Token, err error) {
+func getTokensFromStateDB(ctx context.Context, stateClient pbstatedb.StateClient, contract zsw.AccountName, symbols []zsw.SymbolCode, startBlockNum uint32) (out []*pbtokenmeta.Token, err error) {
 	zlog.Debug("getting token symbol contract account from statedb", zap.String("token_contract", string(contract)))
 	for _, symbol := range symbols {
 		getTokensReq := &pbstatedb.StreamTableRowsRequest{

@@ -31,7 +31,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/wsmsg"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -114,7 +114,7 @@ func fetchTableRows(
 		var err error
 
 		var abiChangeHandler *ABIChangeHandler
-		tableDeltaHandler := newTableDeltaHandler(ctx, msg, emitter, zlog, func() *eos.ABI {
+		tableDeltaHandler := newTableDeltaHandler(ctx, msg, emitter, zlog, func() *zsw.ABI {
 			return abiChangeHandler.CurrentABI()
 		})
 
@@ -176,7 +176,7 @@ func fetchTableRows(
 	}
 }
 
-func tableDeltasFromBlock(block *bstream.Block, msg *wsmsg.GetTableRows, abi *eos.ABI, step forkable.StepType, zlog *zap.Logger) []*wsmsg.TableDelta {
+func tableDeltasFromBlock(block *bstream.Block, msg *wsmsg.GetTableRows, abi *zsw.ABI, step forkable.StepType, zlog *zap.Logger) []*wsmsg.TableDelta {
 	zlog.Debug("about to stream table deltas from block", zap.Stringer("block", block), zap.Stringer("step", step))
 	var deltas []*wsmsg.TableDelta
 
@@ -235,7 +235,7 @@ func tableDeltasFromBlock(block *bstream.Block, msg *wsmsg.GetTableRows, abi *eo
 	return deltas
 }
 
-func newDBRow(data []byte, tableName eos.TableName, abi *eos.ABI, payer string, needJSON bool, zlog *zap.Logger) *v1.DBRow {
+func newDBRow(data []byte, tableName zsw.TableName, abi *zsw.ABI, payer string, needJSON bool, zlog *zap.Logger) *v1.DBRow {
 	row := &v1.DBRow{
 		Payer: payer,
 	}
@@ -269,10 +269,10 @@ type tableDeltaHandler struct {
 	emitter    Emitter
 	ctx        context.Context
 	zlog       *zap.Logger
-	getABIFunc func() *eos.ABI
+	getABIFunc func() *zsw.ABI
 }
 
-func newTableDeltaHandler(ctx context.Context, msg *wsmsg.GetTableRows, emitter Emitter, zlog *zap.Logger, getABIFunc func() *eos.ABI) *tableDeltaHandler {
+func newTableDeltaHandler(ctx context.Context, msg *wsmsg.GetTableRows, emitter Emitter, zlog *zap.Logger, getABIFunc func() *zsw.ABI) *tableDeltaHandler {
 	return &tableDeltaHandler{msg: msg, emitter: emitter, ctx: ctx, zlog: zlog, getABIFunc: getABIFunc}
 }
 

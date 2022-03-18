@@ -6,10 +6,10 @@ import (
 
 	eoscvault "github.com/eoscanada/eosc/vault"
 	"github.com/spf13/viper"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
-func (b *booter) newKeyBagFromVault(vaultFile string) (*eos.KeyBag, error) {
+func (b *booter) newKeyBagFromVault(vaultFile string) (*zsw.KeyBag, error) {
 	if _, err := os.Stat(vaultFile); err != nil {
 		return nil, fmt.Errorf("vault file %q missing: %s", vaultFile, err)
 	}

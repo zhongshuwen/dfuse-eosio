@@ -19,12 +19,12 @@ import (
 
 	"github.com/golang/protobuf/ptypes"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func ToV1Account(in *pbcodec.AccountCreationRef) *Account {
 	account := &Account{
-		AccountResp: &eos.AccountResp{},
+		AccountResp: &zsw.AccountResp{},
 	}
 
 	if in != nil {
@@ -45,7 +45,7 @@ func ToV1Account(in *pbcodec.AccountCreationRef) *Account {
 
 type Account struct {
 	Creator *AccountCreator `json:"creator"`
-	*eos.AccountResp
+	*zsw.AccountResp
 	LinkedPermissions    []*LinkedPermission   `json:"linked_permissions"`
 	AccountVerifications *AccountVerifications `json:"account_verifications"`
 	HasContract          bool                  `json:"has_contract"`
@@ -66,8 +66,8 @@ type LinkedPermission struct {
 }
 
 type AccountResponse struct {
-	Name        eos.Name
-	CreatorName eos.Name
+	Name        zsw.Name
+	CreatorName zsw.Name
 	Creator     *AccountCreator
 
 	// TODO: trash these two, LinkedPermissions are never updated

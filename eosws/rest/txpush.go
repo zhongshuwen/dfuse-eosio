@@ -35,7 +35,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/metrics"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/eoserr"
 	"go.uber.org/zap"
 )
@@ -75,8 +75,8 @@ func (t *TxPushRouter) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 ////// PUSHER
 
 type TxPusher struct {
-	API             *eos.API
-	extraAPIs       []*eos.API
+	API             *zsw.API
+	extraAPIs       []*zsw.API
 	subscriptionHub *hub.SubscriptionHub
 	headInfoHub     *eosws.HeadInfoHub
 	retries         int
@@ -89,7 +89,7 @@ type PushResponse struct {
 	Processed     json.RawMessage `json:"processed"`
 }
 
-func NewTxPusher(API *eos.API, subscriptionHub *hub.SubscriptionHub, headInfoHub *eosws.HeadInfoHub, retries int, extraAPIs []*eos.API) *TxPusher {
+func NewTxPusher(API *zsw.API, subscriptionHub *hub.SubscriptionHub, headInfoHub *eosws.HeadInfoHub, retries int, extraAPIs []*zsw.API) *TxPusher {
 	return &TxPusher{
 		API:             API,
 		subscriptionHub: subscriptionHub,
@@ -99,11 +99,11 @@ func NewTxPusher(API *eos.API, subscriptionHub *hub.SubscriptionHub, headInfoHub
 	}
 }
 
-func (t *TxPusher) randomAPI() *eos.API {
+func (t *TxPusher) randomAPI() *zsw.API {
 	return t.extraAPIs[rand.Intn(len(t.extraAPIs))]
 }
 
-func (t *TxPusher) tryPush(API *eos.API, ctx context.Context, tx *eos.PackedTransaction, trxID string, useLegacyPush bool) (err error) {
+func (t *TxPusher) tryPush(API *zsw.API, ctx context.Context, tx *zsw.PackedTransaction, trxID string, useLegacyPush bool) (err error) {
 	timedoutContext, cancel := context.WithTimeout(ctx, 30*time.Second)
 	defer cancel()
 
@@ -125,15 +125,15 @@ func (t *TxPusher) tryPush(API *eos.API, ctx context.Context, tx *eos.PackedTran
 	return nil
 }
 
-func isExpiredError(err eos.APIError) bool {
+func isExpiredError(err zsw.APIError) bool {
 	return err.ErrorStruct.Code == 3040005
 }
 
-func isDuplicateError(err eos.APIError) bool {
+func isDuplicateError(err zsw.APIError) bool {
 	return err.ErrorStruct.Code == 3040008 || err.ErrorStruct.Code == 3040009 // duplicate
 }
 
-func isRetryable(err eos.APIError) bool {
+func isRetryable(err zsw.APIError) bool {
 	if err.ErrorStruct.Code < 3080000 || err.ErrorStruct.Code == 3080001 {
 		return false
 	}
@@ -168,7 +168,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		"push-trx-guarantee", guarantee,
 	)
 
-	var tx *eos.PackedTransaction
+	var tx *zsw.PackedTransaction
 	incomingContent, err := ioutil.ReadAll(r.Body)
 	defer r.Body.Close()
 	if err != nil {
@@ -237,7 +237,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			break
 		}
 
-		if apiErr, ok := err.(eos.APIError); ok { // decoded nodeos API error
+		if apiErr, ok := err.(zsw.APIError); ok { // decoded nodeos API error
 			retryable := isRetryable(apiErr)
 			if apiErrCnt, err := json.Marshal(apiErr); err == nil {
 				zapFields := append(
@@ -289,7 +289,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			zlog.Debug("retrying send transaction to push API", zap.String("random_api", a.BaseURL), zap.Error(err), zap.Int("resend", resend))
 			resend++
 			if err != nil {
-				if apiErr, ok := err.(eos.APIError); ok { // decoded nodeos API error
+				if apiErr, ok := err.(zsw.APIError); ok { // decoded nodeos API error
 					if isExpiredError(apiErr) {
 						trxExpired = true
 						zlog.Debug("trx expired error.", zap.String("trx_id", trxID))
@@ -355,7 +355,7 @@ func (t *TxPusher) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 			resp := &PushResponse{
 				BlockID:       blockID,
-				BlockNum:      eos.BlockNum(blockID),
+				BlockNum:      zsw.BlockNum(blockID),
 				Processed:     processed,
 				TransactionID: trxID,
 			}
@@ -383,15 +383,15 @@ func writeDetailedAPIError(err error, msg string, errorCode int, errorName, erro
 
 	zlog.Info("push transaction error, "+msg, fields...)
 
-	apiError := &eos.APIError{
+	apiError := &zsw.APIError{
 		Code:    500,
 		Message: msg,
 	}
 	apiError.ErrorStruct.Code = errorCode
 	apiError.ErrorStruct.Name = errorName
 	apiError.ErrorStruct.What = errorWhat
-	apiError.ErrorStruct.Details = []eos.APIErrorDetail{
-		eos.APIErrorDetail{
+	apiError.ErrorStruct.Details = []zsw.APIErrorDetail{
+		zsw.APIErrorDetail{
 			File:       "",
 			LineNumber: 0,
 			Message:    detailMessage,
@@ -415,7 +415,7 @@ func checkHTTPError(err error, msg string, errorCode eoserr.Error, w http.Respon
 		}, logFields...)
 
 		zlog.Info("push transaction error, "+msg, fields...)
-		apiError := eos.NewAPIError(500, msg, errorCode)
+		apiError := zsw.NewAPIError(500, msg, errorCode)
 		// FIXME: the error logging should use something like one of:
 		// http://www.gorillatoolkit.org/pkg/handlers#CustomLoggingHandler
 		// http://www.gorillatoolkit.org/pkg/handlers#CombinedLoggingHandler
@@ -572,7 +572,7 @@ func traceExecutedInBlock(trxID string, blk *pbcodec.Block) *pbcodec.Transaction
 	return nil
 }
 
-func logFieldsFromAPIErr(apiErr eos.APIError) []zap.Field {
+func logFieldsFromAPIErr(apiErr zsw.APIError) []zap.Field {
 	return []zap.Field{
 		zap.String("name", apiErr.ErrorStruct.Name),
 		zap.Int("code", apiErr.Code),

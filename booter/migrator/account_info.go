@@ -1,16 +1,18 @@
 package migrator
 
-import "github.com/zhongshuwen/zswchain-go"
+import (
+	zsw "github.com/zhongshuwen/zswchain-go"
+)
 
 type PermissionObject struct {
 	// Parent of this permission object
-	Parent eos.PermissionName `json:"parent,omitempty"`
+	Parent zsw.PermissionName `json:"parent,omitempty"`
 	// Owner is the account for which this permission belongs to
-	Owner eos.AccountName `json:"owner,omitempty"`
+	Owner zsw.AccountName `json:"owner,omitempty"`
 	// Name is the permission's name this permission object is known as (human-readable name for the permission)
-	Name eos.PermissionName `json:"name,omitempty"`
+	Name zsw.PermissionName `json:"name,omitempty"`
 	// Authority required to execute this permission
-	Authority *eos.Authority `json:"authority,omitempty"`
+	Authority *zsw.Authority `json:"authority,omitempty"`
 }
 
 type LinkAuth struct {
@@ -23,7 +25,7 @@ type AccountInfo struct {
 	Permissions []*PermissionObject `json:"permissions"`
 	LinkAuths   []*LinkAuth         `json:"link_auths"`
 
-	nameToPerm map[eos.PermissionName]*PermissionObject
+	nameToPerm map[zsw.PermissionName]*PermissionObject
 }
 
 func newAccountInfo(permissions []*PermissionObject, linkAuths []*LinkAuth) *AccountInfo {
@@ -36,7 +38,7 @@ func newAccountInfo(permissions []*PermissionObject, linkAuths []*LinkAuth) *Acc
 }
 
 func (a *AccountInfo) setupIDtoPerm() {
-	a.nameToPerm = make(map[eos.PermissionName]*PermissionObject, len(a.Permissions))
+	a.nameToPerm = make(map[zsw.PermissionName]*PermissionObject, len(a.Permissions))
 	for _, perm := range a.Permissions {
 		a.nameToPerm[perm.Name] = perm
 	}
@@ -44,7 +46,7 @@ func (a *AccountInfo) setupIDtoPerm() {
 
 func (a *AccountInfo) sortPermissions() (out []*PermissionObject) {
 	var roots []*PermissionObject
-	parentToChildren := map[eos.PermissionName][]*PermissionObject{}
+	parentToChildren := map[zsw.PermissionName][]*PermissionObject{}
 	for _, perm := range a.Permissions {
 		if perm.Parent == "" {
 			roots = append(roots, perm)

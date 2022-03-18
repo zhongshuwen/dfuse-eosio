@@ -32,7 +32,7 @@ import (
 	"github.com/streamingfast/dstore"
 	"github.com/zhongshuwen/dfuse-eosio/eosws"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -100,7 +100,7 @@ func SearchNotStuckHandler(searchEngine *eosws.SearchEngine) http.Handler {
 	})
 }
 
-func HealthzHandler(hub *hub.SubscriptionHub, api *eos.API, blocksStore dstore.Store, db eosws.DB, stateClient pbstatedb.StateClient, searchEngine *eosws.SearchEngine, expectedSecret string) http.Handler {
+func HealthzHandler(hub *hub.SubscriptionHub, api *zsw.API, blocksStore dstore.Store, db eosws.DB, stateClient pbstatedb.StateClient, searchEngine *eosws.SearchEngine, expectedSecret string) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		zlogger := logging.Logger(r.Context(), zlog)
 		h := &Healthz{
@@ -257,7 +257,7 @@ func healthCheckBigTable(h *Healthz, wg *sync.WaitGroup, db eosws.DB, r *http.Re
 		h.TRXDB = &TRXDB{}
 		if len(bigTableHeadBlocks) == 1 {
 			bgHeadBlock := bigTableHeadBlocks[0]
-			blockNum := eos.BlockNum(bgHeadBlock.Id)
+			blockNum := zsw.BlockNum(bgHeadBlock.Id)
 			h.TRXDB.HeadBlock = blockNum
 			h.TRXDB.BlockLatency = int(headBlockNum - blockNum)
 			if blockNum > headBlockNum {

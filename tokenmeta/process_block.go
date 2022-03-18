@@ -6,7 +6,7 @@ import (
 	"github.com/dfuse-io/bstream"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -67,14 +67,14 @@ func (t *TokenMeta) ProcessBlock(block *bstream.Block, obj interface{}) error {
 				}
 
 				if contractStats.isTokenContract {
-					if t.cache.IsTokenContract(eos.AN(account)) {
+					if t.cache.IsTokenContract(zsw.AN(account)) {
 						zlogger.Info("skipping already known token contract", zap.String("account", account))
 						continue
 					}
 
 					zlogger.Info("adding new token contract", zap.String("account", account))
 					mutations := &cache.MutationsBatch{}
-					mutations.SetContract(eos.AccountName(account))
+					mutations.SetContract(zsw.AccountName(account))
 					errs := t.cache.Apply(mutations, blk)
 					if len(errs) != 0 {
 						zlogger.Warn("failed add new token contract",
@@ -101,12 +101,12 @@ func (t *TokenMeta) ProcessBlock(block *bstream.Block, obj interface{}) error {
 
 			isEOSStake := dbop.Code == "zswhq" && dbop.TableName == string(EOSStakeTable)
 
-			tokenContract := eos.AccountName(dbop.Code)
+			tokenContract := zsw.AccountName(dbop.Code)
 			if !t.cache.IsTokenContract(tokenContract) && !isEOSStake {
 				continue
 			}
 
-			symbolCode, err := eos.NameToSymbolCode(eos.Name(dbop.PrimaryKey))
+			symbolCode, err := zsw.NameToSymbolCode(zsw.Name(dbop.PrimaryKey))
 			if err != nil {
 				zlogger.Warn("unable to decode primary key to symbol",
 					zap.String("contract", string(tokenContract)),
@@ -122,7 +122,7 @@ func (t *TokenMeta) ProcessBlock(block *bstream.Block, obj interface{}) error {
 				zlogger.Debug("using db row old data")
 				rowData = dbop.OldData
 			}
-			row, err := t.decodeDBOpToRow(rowData, eos.TableName(dbop.TableName), tokenContract, uint32(block.Number))
+			row, err := t.decodeDBOpToRow(rowData, zsw.TableName(dbop.TableName), tokenContract, uint32(block.Number))
 			if err != nil {
 				zlogger.Error("cannot decode table row",
 					zap.String("contract", string(tokenContract)),
@@ -176,7 +176,7 @@ func (t *TokenMeta) ProcessBlock(block *bstream.Block, obj interface{}) error {
 					muts.SetBalance(accountBalance)
 				}
 			case string(StatTable):
-				var symbol *eos.Symbol
+				var symbol *zsw.Symbol
 				eosToken := t.cache.TokenContract(tokenContract, symbolCode)
 				if eosToken == nil {
 					zlogger.Debug("new token contract",

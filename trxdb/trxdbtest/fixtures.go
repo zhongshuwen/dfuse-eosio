@@ -10,7 +10,7 @@ import (
 	"github.com/golang/protobuf/ptypes"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/ecc"
 )
 
@@ -18,35 +18,35 @@ func testBlock1() *pbcodec.Block {
 	blockTime, _ := time.Parse(time.RFC3339, "2006-01-02T15:04:05.5Z")
 	blockTimestamp, _ := ptypes.TimestampProto(blockTime)
 
-	trx := &eos.Transaction{
-		TransactionHeader: eos.TransactionHeader{
-			Expiration:     eos.JSONTime{blockTime},
+	trx := &zsw.Transaction{
+		TransactionHeader: zsw.TransactionHeader{
+			Expiration:     zsw.JSONTime{blockTime},
 			RefBlockNum:    123,
 			RefBlockPrefix: 234,
 		},
-		Actions: []*eos.Action{
+		Actions: []*zsw.Action{
 			{
 				Account:    "some",
 				Name:       "name",
-				ActionData: eos.NewActionDataFromHexData([]byte{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1}),
+				ActionData: zsw.NewActionDataFromHexData([]byte{0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x1}),
 			},
 		},
 	}
-	signedTrx := eos.NewSignedTransaction(trx)
+	signedTrx := zsw.NewSignedTransaction(trx)
 	signedTrx.Signatures = append(signedTrx.Signatures, ecc.MustNewSignature("SIG_K1_K7kTcvsznS2pSQ2unjW9nduqHieWnc5B6rFdbVif4RM1DCTVhQUpzwng3XTGewDhVZqNvqSAEwHgB8yBnfDYAHquRX4fBo"))
-	packed, err := signedTrx.Pack(eos.CompressionNone)
+	packed, err := signedTrx.Pack(zsw.CompressionNone)
 	if err != nil {
 		panic(err)
 	}
 	trxID, _ := hex.DecodeString("00112233aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-	receipt := &eos.TransactionReceipt{
-		TransactionReceiptHeader: eos.TransactionReceiptHeader{
-			Status:               eos.TransactionStatusExecuted,
+	receipt := &zsw.TransactionReceipt{
+		TransactionReceiptHeader: zsw.TransactionReceiptHeader{
+			Status:               zsw.TransactionStatusExecuted,
 			CPUUsageMicroSeconds: 32,
-			NetUsageWords:        eos.Varuint32(32),
+			NetUsageWords:        zsw.Varuint32(32),
 		},
-		Transaction: eos.TransactionWithID{
-			ID:     eos.Checksum256([]byte(trxID)),
+		Transaction: zsw.TransactionWithID{
+			ID:     zsw.Checksum256([]byte(trxID)),
 			Packed: packed,
 		},
 	}

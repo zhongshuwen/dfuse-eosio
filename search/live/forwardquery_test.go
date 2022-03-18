@@ -35,7 +35,7 @@ import (
 	_ "github.com/zhongshuwen/dfuse-eosio/codec"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	eosSearch "github.com/zhongshuwen/dfuse-eosio/search"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_forwardProcessBlock(t *testing.T) {
@@ -235,7 +235,7 @@ func newBlock(id, previous, trxID string, account string) *pbcodec.Block {
 
 	return &pbcodec.Block{
 		Id:     id,
-		Number: eos.BlockNum(id),
+		Number: zsw.BlockNum(id),
 		Header: &pbcodec.BlockHeader{
 			Previous:  previous,
 			Timestamp: &timestamp.Timestamp{Nanos: 0, Seconds: 0},

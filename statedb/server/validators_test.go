@@ -350,7 +350,7 @@ func Test_eosPublicKeyRule(t *testing.T) {
 		{"valid EOS string", "EOS7YNS1swh6QWANkzGgFrjiX8E3u8WK5CK9GMAb6EzKVNZMYhCH3", ""},
 		{"valid R1 string", "PUB_R1_78rbUHSk87e7eCBoccgWUkhNTCZLYdvJzerDRHg6fxj2SQy6Xm", ""},
 		{"valid K1 string", "PUB_K1_6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV", ""},
-		{"valid eos.PublicKey", validKey, ""},
+		{"valid zsw.PublicKey", validKey, ""},
 	}
 
 	runRuleTestCases(t, tag, tests, validator)

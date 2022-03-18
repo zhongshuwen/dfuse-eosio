@@ -23,9 +23,9 @@ import (
 	"time"
 
 	"github.com/streamingfast/dstore"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/node-manager/metrics"
-	eos "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -37,7 +37,7 @@ func (s *NodeosSuperviser) TakeSnapshot(snapshotStore dstore.Store, numberOfSnap
 		return fmt.Errorf("api call failed: %s", err)
 	}
 
-	filename := fmt.Sprintf("%010d-%s-snapshot.bin", eos.BlockNum(snapshot.HeadBlockID), snapshot.HeadBlockID)
+	filename := fmt.Sprintf("%010d-%s-snapshot.bin", zsw.BlockNum(snapshot.HeadBlockID), snapshot.HeadBlockID)
 
 	s.Logger.Info("saving state snapshot", zap.String("destination", filename))
 	fileReader, err := os.Open(snapshot.SnapshotName)

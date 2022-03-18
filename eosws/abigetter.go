@@ -19,11 +19,11 @@ import (
 	"fmt"
 
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type ABIGetter interface {
-	GetABI(ctx context.Context, blockNum uint32, account eos.AccountName) (*eos.ABI, error)
+	GetABI(ctx context.Context, blockNum uint32, account zsw.AccountName) (*zsw.ABI, error)
 }
 
 type DefaultABIGetter struct {
@@ -36,14 +36,14 @@ func NewDefaultABIGetter(client pbstatedb.StateClient) *DefaultABIGetter {
 	}
 }
 
-func (g *DefaultABIGetter) GetABI(ctx context.Context, blockNum uint32, contract eos.AccountName) (*eos.ABI, error) {
+func (g *DefaultABIGetter) GetABI(ctx context.Context, blockNum uint32, contract zsw.AccountName) (*zsw.ABI, error) {
 	response, err := g.client.GetABI(ctx, &pbstatedb.GetABIRequest{BlockNum: uint64(blockNum), Contract: string(contract)})
 	if err != nil {
 		return nil, fmt.Errorf("unable to get ABI for %q: %w", contract, err)
 	}
 
-	abi := new(eos.ABI)
-	if err = eos.UnmarshalBinary(response.RawAbi, abi); err != nil {
+	abi := new(zsw.ABI)
+	if err = zsw.UnmarshalBinary(response.RawAbi, abi); err != nil {
 		return nil, fmt.Errorf("unable to unmarshal ABI for %q: %w", contract, err)
 	}
 

@@ -29,7 +29,7 @@ import (
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
 	"github.com/golang/protobuf/ptypes"
 	graphql "github.com/graph-gophers/graphql-go"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -190,7 +190,7 @@ func (r *BlockIDResponse) ID() string {
 }
 
 func (r *BlockIDResponse) Num() commonTypes.Uint32 {
-	return commonTypes.Uint32(eos.BlockNum(r.blockID))
+	return commonTypes.Uint32(zsw.BlockNum(r.blockID))
 }
 
 func (r *BlockIDResponse) Time() graphql.Time {

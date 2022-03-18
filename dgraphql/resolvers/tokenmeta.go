@@ -12,7 +12,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/zhongshuwen/dfuse-eosio/dgraphql/types"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 var accountBalanceCursorDecoder = dgraphql.NewOpaqueProtoCursorDecoder(func() proto.Message { return &pbtokenmeta.AccountBalanceCursor{} })
@@ -602,9 +602,9 @@ const (
 
 func assetToString(amount uint64, precision uint32, symbol string, args *AssetArgs) string {
 	if args == nil || args.Format == AssetFormatAsset {
-		return eos.Asset{
-			Amount: eos.Int64(amount),
-			Symbol: eos.Symbol{
+		return zsw.Asset{
+			Amount: zsw.Int64(amount),
+			Symbol: zsw.Symbol{
 				Precision: uint8(precision),
 				Symbol:    symbol,
 			},

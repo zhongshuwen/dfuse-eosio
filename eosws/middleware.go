@@ -26,7 +26,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/eoserr"
 	"go.opencensus.io/plugin/ochttp"
 	"go.opencensus.io/trace"
@@ -138,7 +138,7 @@ func DfuseErrorHandler(w http.ResponseWriter, ctx context.Context, err error) {
 }
 
 func EOSChainErrorHandler(w http.ResponseWriter, ctx context.Context, err error) {
-	apiError := eos.NewAPIError(401, "this feature requires a dfuse API key (https://dfuse.io)", eoserr.ErrUnhandledException)
+	apiError := zsw.NewAPIError(401, "this feature requires a dfuse API key (https://dfuse.io)", eoserr.ErrUnhandledException)
 	zlog.Warn("chain Error", zap.Error(apiError))
 
 	w.WriteHeader(http.StatusUnauthorized)

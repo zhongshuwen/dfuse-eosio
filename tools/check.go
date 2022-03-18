@@ -26,7 +26,7 @@ import (
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb/kv"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -660,7 +660,7 @@ func checkTrxdbBlocksE(cmd *cobra.Command, args []string) error {
 			it := it.Item()
 
 			blockID := kv.Keys.UnpackIrrBlocksKey(it.Key)
-			blockNum := uint64(eos.BlockNum(blockID))
+			blockNum := uint64(zsw.BlockNum(blockID))
 
 			if blockNum%100000 == 0 {
 				fmt.Println("✅ Reading irr block", blockNum)

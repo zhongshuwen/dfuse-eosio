@@ -28,7 +28,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"
 )
@@ -41,7 +40,7 @@ func init() {
 }
 
 func newSearchMatchArchive(trxID string) *pbsearch.SearchMatch {
-	cs, err := ptypes.MarshalAny(&pbsearcheos.Match{})
+	cs, err := ptypes.MarshalAny(&pbsearchzsw.Match{})
 	if err != nil {
 		panic(err)
 	}
@@ -57,8 +56,8 @@ func newSearchMatchArchive(trxID string) *pbsearch.SearchMatch {
 }
 
 func newSearchMatchLive(trxID string, idx int) *pbsearch.SearchMatch {
-	cs, err := ptypes.MarshalAny(&pbsearcheos.Match{
-		Block: &pbsearcheos.BlockTrxPayload{
+	cs, err := ptypes.MarshalAny(&pbsearchzsw.Match{
+		Block: &pbsearchzsw.BlockTrxPayload{
 			Trace: &pbcodec.TransactionTrace{Index: uint64(idx)},
 		},
 	})

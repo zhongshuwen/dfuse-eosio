@@ -5,7 +5,7 @@ import (
 	"errors"
 
 	"github.com/dfuse-io/fluxdb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 var bigEndian = binary.BigEndian
@@ -16,30 +16,30 @@ var baseRow = fluxdb.NewBaseTabletRow
 var errABIUnmarshal = errors.New("unmarshal abi")
 
 func bytesToName(bytes []byte) string {
-	return eos.NameToString(bigEndian.Uint64(bytes))
+	return zsw.NameToString(bigEndian.Uint64(bytes))
 }
 
 func bytesToName2(bytes []byte) (string, string) {
-	return eos.NameToString(bigEndian.Uint64(bytes)), eos.NameToString(bigEndian.Uint64(bytes[8:]))
+	return zsw.NameToString(bigEndian.Uint64(bytes)), zsw.NameToString(bigEndian.Uint64(bytes[8:]))
 }
 
 func bytesToName3(bytes []byte) (string, string, string) {
-	return eos.NameToString(bigEndian.Uint64(bytes)),
-		eos.NameToString(bigEndian.Uint64(bytes[8:])),
-		eos.NameToString(bigEndian.Uint64(bytes[16:]))
+	return zsw.NameToString(bigEndian.Uint64(bytes)),
+		zsw.NameToString(bigEndian.Uint64(bytes[8:])),
+		zsw.NameToString(bigEndian.Uint64(bytes[16:]))
 }
 
 func bytesToJoinedName2(bytes []byte) string {
-	return eos.NameToString(bigEndian.Uint64(bytes)) + ":" + eos.NameToString(bigEndian.Uint64(bytes[8:]))
+	return zsw.NameToString(bigEndian.Uint64(bytes)) + ":" + zsw.NameToString(bigEndian.Uint64(bytes[8:]))
 }
 
 func bytesToJoinedName3(bytes []byte) string {
-	return eos.NameToString(bigEndian.Uint64(bytes)) +
-		":" + eos.NameToString(bigEndian.Uint64(bytes[8:])) +
-		":" + eos.NameToString(bigEndian.Uint64(bytes[16:]))
+	return zsw.NameToString(bigEndian.Uint64(bytes)) +
+		":" + zsw.NameToString(bigEndian.Uint64(bytes[8:])) +
+		":" + zsw.NameToString(bigEndian.Uint64(bytes[16:]))
 }
 
-var standardNameConverter = eos.MustStringToName
+var standardNameConverter = zsw.MustStringToName
 var extendedNameConverter = mustExtendedStringToName
 
 func standardNameToBytes(names ...string) (out []byte) {
@@ -61,20 +61,20 @@ func nameToBytes(converter func(name string) uint64, names []string) (out []byte
 	return
 }
 
-func nameaToBytes(name eos.AccountName) (out []byte) {
+func nameaToBytes(name zsw.AccountName) (out []byte) {
 	out = make([]byte, 8)
-	bigEndian.PutUint64(out, eos.MustStringToName(string(name)))
+	bigEndian.PutUint64(out, zsw.MustStringToName(string(name)))
 	return
 }
 
-func namenToBytes(name eos.Name) (out []byte) {
+func namenToBytes(name zsw.Name) (out []byte) {
 	out = make([]byte, 8)
-	bigEndian.PutUint64(out, eos.MustStringToName(string(name)))
+	bigEndian.PutUint64(out, zsw.MustStringToName(string(name)))
 	return
 }
 
 func mustExtendedStringToName(name string) uint64 {
-	val, err := eos.ExtendedStringToName(name)
+	val, err := zsw.ExtendedStringToName(name)
 	if err != nil {
 		panic(err)
 	}

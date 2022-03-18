@@ -24,7 +24,7 @@ import (
 	"github.com/dfuse-io/fluxdb"
 	"github.com/dfuse-io/logging"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.opencensus.io/trace"
 	"go.uber.org/zap"
 )
@@ -180,7 +180,7 @@ func (s *EOSServer) readContractStateTableRow(
 
 	if tabletRow == nil {
 		zlogger.Debug("row deleted or never existed")
-		return nil, nil, statedb.DataRowNotFoundError(ctx, eos.AccountName(contract), eos.TableName(table), eos.AccountName(scope), primaryKey)
+		return nil, nil, statedb.DataRowNotFoundError(ctx, zsw.AccountName(contract), zsw.TableName(table), zsw.AccountName(scope), primaryKey)
 	}
 
 	var serializationInfo *rowSerializationInfo
@@ -195,7 +195,7 @@ func (s *EOSServer) readContractStateTableRow(
 }
 
 type rowSerializationInfo struct {
-	abi           *eos.ABI
+	abi           *zsw.ABI
 	abiAtBlockNum uint64
 	tableTypeName string
 }
@@ -223,9 +223,9 @@ func (s *EOSServer) newRowSerializationInfo(ctx context.Context, contract, table
 		return nil, statedb.DataABINotFoundError(ctx, contract, blockNum)
 	}
 
-	tableDef := abi.TableForName(eos.TableName(table))
+	tableDef := abi.TableForName(zsw.TableName(table))
 	if tableDef == nil {
-		return nil, statedb.DataTableNotFoundError(ctx, eos.AccountName(contract), eos.TableName(table))
+		return nil, statedb.DataTableNotFoundError(ctx, zsw.AccountName(contract), zsw.TableName(table))
 	}
 
 	return &rowSerializationInfo{

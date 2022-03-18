@@ -11,7 +11,6 @@ import (
 	searchclient "github.com/dfuse-io/search-client"
 	"github.com/golang/protobuf/ptypes"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	pbsearcheos "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/search/v1"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
@@ -98,7 +97,7 @@ func processEOSHammerItem(ctx context.Context, m *searchclient.MatchOrError, row
 		return nil, err
 	}
 
-	eosMatch := eosMatchAny.Message.(*pbsearcheos.Match)
+	eosMatch := eosMatchAny.Message.(*pbsearchzsw.Match)
 
 	var blockID string
 	var blockHeader *pbcodec.BlockHeader
@@ -163,7 +162,7 @@ func isIrreversibleEOSMatch(match *pbsearch.SearchMatch) bool {
 		panic("this should be an EOS match object, it should already been validated at this point, this should not happen")
 	}
 
-	return eosMatchAny.Message.(*pbsearcheos.Match).Block == nil
+	return eosMatchAny.Message.(*pbsearchzsw.Match).Block == nil
 }
 
 type eosStreamMatches struct {

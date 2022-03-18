@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
 	"github.com/zhongshuwen/dfuse-eosio/tokenmeta/cache"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_tokenMatchFilters(t *testing.T) {
@@ -114,7 +114,7 @@ func Test_tokenMatchFilters(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			assert.Equal(t, test.expectMatch, matchFilters(eos.AccountName(test.token.Contract), test.token.Symbol, test.contractFilter, test.symbolFilter))
+			assert.Equal(t, test.expectMatch, matchFilters(zsw.AccountName(test.token.Contract), test.token.Symbol, test.contractFilter, test.symbolFilter))
 		})
 	}
 }
@@ -203,15 +203,15 @@ func Test_limitResults(t *testing.T) {
 	}
 
 }
-func generateTestSymbol(symbol string) *eos.Symbol {
-	return &eos.Symbol{
+func generateTestSymbol(symbol string) *zsw.Symbol {
+	return &zsw.Symbol{
 		Precision: 4,
 		Symbol:    symbol,
 	}
 }
 
-func generateTestAsset(amount eos.Int64, symbol string) eos.Asset {
-	return eos.Asset{
+func generateTestAsset(amount zsw.Int64, symbol string) zsw.Asset {
+	return zsw.Asset{
 		Amount: amount,
 		Symbol: *generateTestSymbol(symbol),
 	}

@@ -5,15 +5,15 @@ import (
 
 	"github.com/dfuse-io/bstream"
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 type Cache interface {
 	Tokens() []*pbtokenmeta.Token
-	IsTokenContract(contract eos.AccountName) bool
-	TokenContract(contract eos.AccountName, code eos.SymbolCode) *pbtokenmeta.Token
-	AccountBalances(account eos.AccountName, opts ...AccountBalanceOption) []*OwnedAsset
-	TokenBalances(contract eos.AccountName, opts ...TokenBalanceOption) []*OwnedAsset
+	IsTokenContract(contract zsw.AccountName) bool
+	TokenContract(contract zsw.AccountName, code zsw.SymbolCode) *pbtokenmeta.Token
+	AccountBalances(account zsw.AccountName, opts ...AccountBalanceOption) []*OwnedAsset
+	TokenBalances(contract zsw.AccountName, opts ...TokenBalanceOption) []*OwnedAsset
 	Apply(mutationsBatch *MutationsBatch, processedBlock bstream.BlockRef) []error
 	SaveToFile() error
 	AtBlockRef() bstream.BlockRef
@@ -21,7 +21,7 @@ type Cache interface {
 	GetHeadBlockTime() time.Time
 }
 
-const EOSTokenContract = eos.AccountName("zswhq.token")
+const EOSTokenContract = zsw.AccountName("zswhq.token")
 
 type SortingOrder int32
 

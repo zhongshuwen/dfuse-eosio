@@ -21,7 +21,7 @@ import (
 	ct "github.com/zhongshuwen/dfuse-eosio/codec/testing"
 	pbaccounthist "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/accounthist/v1"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -118,7 +118,7 @@ func listAccountActions(t *testing.T, s *Injector, act string, cursor *pbaccount
 	// TODO: this is kinda ugly maybe should cast the interace
 
 	server := grpc.Server{KVStore: s.KvStore, MaxEntries: s.MaxEntries}
-	err := server.StreamAccountActions(ctx, eos.MustStringToName(act), 1000, nil, func(cursor *pbaccounthist.Cursor, actionTrace *pbcodec.ActionTrace) error {
+	err := server.StreamAccountActions(ctx, zsw.MustStringToName(act), 1000, nil, func(cursor *pbaccounthist.Cursor, actionTrace *pbcodec.ActionTrace) error {
 		cursorStr := fmt.Sprintf("%x:%02x:%d", cursor.Key, byte(cursor.ShardNum), cursor.SequenceNumber)
 		out = append(out, &actionResult{cursor: cursorStr, actionTrace: actionTrace})
 		return nil
@@ -133,7 +133,7 @@ func listAccountContractActions(t *testing.T, s *Injector, act, ctr string, curs
 	// TODO: this is kinda ugly maybe should cast the interace
 
 	server := grpc.Server{KVStore: s.KvStore, MaxEntries: s.MaxEntries}
-	err := server.StreamAccountContractActions(ctx, eos.MustStringToName(act), eos.MustStringToName(ctr), 1000, nil, func(cursor *pbaccounthist.Cursor, actionTrace *pbcodec.ActionTrace) error {
+	err := server.StreamAccountContractActions(ctx, zsw.MustStringToName(act), zsw.MustStringToName(ctr), 1000, nil, func(cursor *pbaccounthist.Cursor, actionTrace *pbcodec.ActionTrace) error {
 		cursorStr := fmt.Sprintf("%x:%02x:%d", cursor.Key, byte(cursor.ShardNum), cursor.SequenceNumber)
 		out = append(out, &actionResult{cursor: cursorStr, actionTrace: actionTrace})
 		return nil

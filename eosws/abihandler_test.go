@@ -24,7 +24,7 @@ import (
 	"github.com/dfuse-io/bstream"
 	"github.com/dfuse-io/bstream/forkable"
 	"github.com/stretchr/testify/require"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestABIChangeHandler_ProcessBlock(t *testing.T) {
@@ -33,8 +33,8 @@ func TestABIChangeHandler_ProcessBlock(t *testing.T) {
 	abiString3 := `{"version":"eosio::abi/3.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
 
 	abiGetter := NewTestABIGetter()
-	abiGetter.SetABIForAccount(abiString1, eos.AccountName("zswhq"))
-	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
+	abiGetter.SetABIForAccount(abiString1, zsw.AccountName("zswhq"))
+	handler, err := NewABIChangeHandler(abiGetter, 2, zsw.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
 		return nil
 	}), context.Background())
 
@@ -71,8 +71,8 @@ func TestABIChangeHandler_ProcesswithError(t *testing.T) {
 	abiString := `{"version":"eosio::abi/1.0","structs":[{"name":"struct_name_1","fields":[{"name":"struct_1_field_1","type":"string"}]}],"tables":[{"name":"table_name_1","index_type":"i64","key_names":["key_name_1"],"key_types":["string"],"type":"struct_name_1"}]}`
 
 	abiGetter := NewTestABIGetter()
-	abiGetter.SetABIForAccount(abiString, eos.AccountName("zswhq"))
-	handler, err := NewABIChangeHandler(abiGetter, 2, eos.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
+	abiGetter.SetABIForAccount(abiString, zsw.AccountName("zswhq"))
+	handler, err := NewABIChangeHandler(abiGetter, 2, zsw.AccountName("zswhq"), bstream.HandlerFunc(func(blk *bstream.Block, obj interface{}) error {
 		return nil
 	}), context.Background())
 
@@ -98,8 +98,8 @@ func TestABIChangeHandler_ProcesswithError(t *testing.T) {
 func newBlockWithAbi(t *testing.T, abiString string) *bstream.Block {
 	t.Helper()
 
-	abi, err := eos.NewABI(strings.NewReader(abiString))
-	data, err := eos.MarshalBinary(abi)
+	abi, err := zsw.NewABI(strings.NewReader(abiString))
+	data, err := zsw.MarshalBinary(abi)
 	require.NoError(t, err)
 
 	return testBlock(t, "00000002a", "00000001a", "zswhq", 1, fmt.Sprintf(`{

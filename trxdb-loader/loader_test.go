@@ -29,7 +29,7 @@ import (
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	"github.com/zhongshuwen/dfuse-eosio/trxdb"
 	_ "github.com/zhongshuwen/dfuse-eosio/trxdb/kv"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/jsonpb"
 	"github.com/golang/protobuf/ptypes"
@@ -143,7 +143,7 @@ func testBlock(t *testing.T, id string, trxTraceJSONs ...string) *pbcodec.Block 
 
 	pbblock := &pbcodec.Block{
 		Id:                          id,
-		Number:                      eos.BlockNum(id),
+		Number:                      zsw.BlockNum(id),
 		UnfilteredTransactionTraces: trxTraces,
 	}
 

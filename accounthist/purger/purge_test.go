@@ -11,7 +11,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"github.com/zhongshuwen/dfuse-eosio/accounthist"
 	"github.com/zhongshuwen/dfuse-eosio/accounthist/injector"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func Test_purgeAccounts(t *testing.T) {
@@ -21,11 +21,11 @@ func Test_purgeAccounts(t *testing.T) {
 	ctx := context.Background()
 
 	maxEntries := uint64(10)
-	accountA := eos.MustStringToName("a") // only and maxed out on shard 0
-	accountB := eos.MustStringToName("b") // on shard 0 and maxed out on shard 1
-	accountC := eos.MustStringToName("c") // not maxed out
-	accountD := eos.MustStringToName("d") // no actions
-	accountE := eos.MustStringToName("e") // only on shard 1 and maxed out on shard 1
+	accountA := zsw.MustStringToName("a") // only and maxed out on shard 0
+	accountB := zsw.MustStringToName("b") // on shard 0 and maxed out on shard 1
+	accountC := zsw.MustStringToName("c") // not maxed out
+	accountD := zsw.MustStringToName("d") // no actions
+	accountE := zsw.MustStringToName("e") // only on shard 1 and maxed out on shard 1
 
 	shard0Service := setupAccountInjector(kvStore, 0, 10)
 	insertKeys(ctx, shard0Service, accountA, 12, 41)
@@ -122,7 +122,7 @@ func Test_purgeAccountAboveShard(t *testing.T) {
 	kvStore = injector.NewRWCache(kvStore)
 	ctx := context.Background()
 
-	accountA := eos.MustStringToName("a")
+	accountA := zsw.MustStringToName("a")
 
 	shard0Service := setupAccountInjector(kvStore, 0, 10)
 	insertKeys(ctx, shard0Service, accountA, 12, 26)

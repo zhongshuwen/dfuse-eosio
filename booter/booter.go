@@ -13,7 +13,7 @@ import (
 	eosboot "github.com/dfuse-io/eosio-boot"
 	"github.com/dfuse-io/shutter"
 	_ "github.com/zhongshuwen/dfuse-eosio/booter/migrator"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -24,7 +24,7 @@ var (
 type booter struct {
 	*shutter.Shutter
 	config *Config
-	nodeos *eos.API
+	nodeos *zsw.API
 }
 
 type state struct {
@@ -36,7 +36,7 @@ func newBooter(config *Config) *booter {
 	return &booter{
 		Shutter: shutter.New(),
 		config:  config,
-		nodeos:  eos.New(config.NodeosAPIAddress),
+		nodeos:  zsw.New(config.NodeosAPIAddress),
 	}
 }
 
@@ -114,7 +114,7 @@ func (b *booter) cleanUp(err error) {
 
 func (b *booter) waitOnNodeosReady() {
 	for {
-		out, err := b.nodeos.GetInfo(context.Background())
+		out, err := b.nodzsw.GetInfo(context.Background())
 		if err != nil {
 			zlog.Debug("nodeos get info not responding, waiting and trying again")
 			time.Sleep(1 * time.Second)
@@ -175,18 +175,18 @@ func (b *booter) getStateFilePath() string {
 	return filepath.Join(b.config.Datadir, "state.json")
 }
 
-func (b *booter) setupKeybag() (keybag *eos.KeyBag, err error) {
+func (b *booter) setupKeybag() (keybag *zsw.KeyBag, err error) {
 	if b.config.VaultPath != "" {
 		keybag, err = b.newKeyBagFromVault(b.config.VaultPath)
 		if err != nil {
 			return nil, fmt.Errorf("unable to load vault file: %w", err)
 		}
 	} else {
-		keybag = eos.NewKeyBag()
+		keybag = zsw.NewKeyBag()
 	}
 
 	if b.config.PrivateKey != "" {
-		keybag = eos.NewKeyBag()
+		keybag = zsw.NewKeyBag()
 		keybag.Add(b.config.PrivateKey)
 	}
 	return keybag, nil

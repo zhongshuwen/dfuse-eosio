@@ -2,21 +2,21 @@ package cache
 
 import (
 	pbtokenmeta "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/tokenmeta/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func ProtoEOSAccountBalanceToOwnedAsset(bal *pbtokenmeta.AccountBalance) *OwnedAsset {
 	return &OwnedAsset{
-		Owner: eos.AccountName(bal.Account),
-		Asset: &eos.ExtendedAsset{
-			Asset: eos.Asset{
-				Amount: eos.Int64(bal.Amount),
-				Symbol: eos.Symbol{
+		Owner: zsw.AccountName(bal.Account),
+		Asset: &zsw.ExtendedAsset{
+			Asset: zsw.Asset{
+				Amount: zsw.Int64(bal.Amount),
+				Symbol: zsw.Symbol{
 					Precision: uint8(bal.Precision),
 					Symbol:    bal.Symbol,
 				},
 			},
-			Contract: eos.AccountName(bal.TokenContract),
+			Contract: zsw.AccountName(bal.TokenContract),
 		},
 	}
 }

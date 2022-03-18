@@ -60,7 +60,7 @@ func TestAll(t *testing.T, driverName string, driverFactory DriverFactory) {
 
 // 	pbblock := &pbcodec.Block{
 // 		Id:                          blkId,
-// 		Number:                      eos.BlockNum(blkId),
+// 		Number:                      zsw.BlockNum(blkId),
 // 		UnfilteredTransactionTraces: trxTraces,
 // 	}
 

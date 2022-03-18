@@ -25,7 +25,7 @@ import (
 	"github.com/dfuse-io/kvdb/store"
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
 	pbtrxdb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/trxdb/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -285,7 +285,7 @@ func (db *DB) GetAccount(ctx context.Context, accountName string) (*pbcodec.Acco
 	return &pbcodec.AccountCreationRef{
 		Account:       acctRow.Name,
 		Creator:       acctRow.Creator,
-		BlockNum:      uint64(eos.BlockNum(acctRow.BlockId)),
+		BlockNum:      uint64(zsw.BlockNum(acctRow.BlockId)),
 		BlockId:       acctRow.BlockId,
 		BlockTime:     acctRow.BlockTime,
 		TransactionId: acctRow.TrxId,

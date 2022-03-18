@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/dfuse-io/blockmeta"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func init() {
@@ -12,5 +12,5 @@ func init() {
 }
 
 func blockNumFromID(ctx context.Context, id string) (uint64, error) {
-	return uint64(eos.BlockNum(id)), nil
+	return uint64(zsw.BlockNum(id)), nil
 }

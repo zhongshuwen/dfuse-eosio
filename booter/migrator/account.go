@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
 )
@@ -19,14 +19,14 @@ func init() {
 	traceEnable = os.Getenv("TRACE") == "true"
 }
 
-type sendActionFunc func(action *eos.Action)
+type sendActionFunc func(action *zsw.Action)
 type sendTrxBoundaryFunc func()
 type Account struct {
 	name    string
 	path    string
 	hasCode bool
 
-	abi  *eos.ABI
+	abi  *zsw.ABI
 	ctr  *Contract
 	info *AccountInfo
 
@@ -49,7 +49,7 @@ func (a *Account) SetLogger(logger *zap.Logger) {
 	a.logger = logger
 }
 
-func (a *Account) getAccountName() eos.AccountName { return AN(a.name) }
+func (a *Account) getAccountName() zsw.AccountName { return AN(a.name) }
 func (a *Account) setupAccountInfo() error {
 	accountInfo, err := a.readAccount()
 	if err != nil {
@@ -88,8 +88,8 @@ func (a *Account) migrateTable(table string, sendAction sendActionFunc, endTrans
 		}
 
 		hasInjectedFirstRow := false
-		var preActs []*eos.Action
-		var postActs []*eos.Action
+		var preActs []*zsw.Action
+		var postActs []*zsw.Action
 		var exclPrimKey *string
 		for primKey, _ := range tableScope.rows {
 			if !hasInjectedFirstRow {
@@ -154,7 +154,7 @@ func (a *Account) migrateTable(table string, sendAction sendActionFunc, endTrans
 	return nil
 }
 
-func (a *Account) setContractActions() ([]*eos.Action, error) {
+func (a *Account) setContractActions() ([]*zsw.Action, error) {
 	return system.NewSetContractContent(AN(a.name), a.ctr.Code, a.ctr.RawABI)
 
 }
@@ -215,7 +215,7 @@ func (a *Account) createDir() error {
 	return os.MkdirAll(a.path, os.ModePerm)
 }
 
-func (a *Account) readABI() (abi *eos.ABI, abiCnt []byte, err error) {
+func (a *Account) readABI() (abi *zsw.ABI, abiCnt []byte, err error) {
 	return readABI(a.abiPath())
 }
 

@@ -21,8 +21,7 @@ import (
 	"time"
 
 	v0 "github.com/dfuse-io/eosws-go/mdl/v0"
-
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func init() {
@@ -38,9 +37,9 @@ type GetActionTraces struct {
 
 	// TODO: Allow filtering by authorization accounts on DB ops
 	Data struct {
-		Receiver   eos.AccountName `json:"receiver"`    // deprecated (keep plural form)
-		Account    eos.AccountName `json:"account"`     // deprecated (keep plural form)
-		ActionName eos.ActionName  `json:"action_name"` // deprecated (keep plural form)
+		Receiver   zsw.AccountName `json:"receiver"`    // deprecated (keep plural form)
+		Account    zsw.AccountName `json:"account"`     // deprecated (keep plural form)
+		ActionName zsw.ActionName  `json:"action_name"` // deprecated (keep plural form)
 
 		Receivers   string `json:"receivers"`
 		Accounts    string `json:"accounts"`

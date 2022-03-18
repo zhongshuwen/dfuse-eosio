@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func readCode(path string) (code []byte, err error) {
@@ -18,7 +18,7 @@ func readCode(path string) (code []byte, err error) {
 	return cnt, nil
 }
 
-func readABI(path string) (abi *eos.ABI, abiCnt []byte, err error) {
+func readABI(path string) (abi *zsw.ABI, abiCnt []byte, err error) {
 	cnt, err := ioutil.ReadFile(path)
 	if err != nil {
 		return nil, nil, fmt.Errorf("unable to read ABI for at %q: %w", path, err)

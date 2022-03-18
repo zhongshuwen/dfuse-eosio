@@ -26,7 +26,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -88,8 +88,8 @@ func (srv *EOSServer) listTableScopesHandler(w http.ResponseWriter, r *http.Requ
 }
 
 type listTableScopesRequest struct {
-	Account  eos.AccountName `json:"account"`
-	Table    eos.TableName   `json:"table"`
+	Account  zsw.AccountName `json:"account"`
+	Table    zsw.TableName   `json:"table"`
 	BlockNum uint64          `json:"block_num"`
 }
 
@@ -110,8 +110,8 @@ func extractListTableScopesRequest(r *http.Request) *listTableScopesRequest {
 	blockNum64, _ := strconv.ParseInt(r.FormValue("block_num"), 10, 64)
 
 	return &listTableScopesRequest{
-		Account:  eos.AccountName(r.FormValue("account")),
-		Table:    eos.TableName(r.FormValue("table")),
+		Account:  zsw.AccountName(r.FormValue("account")),
+		Table:    zsw.TableName(r.FormValue("table")),
 		BlockNum: uint64(blockNum64),
 	}
 }

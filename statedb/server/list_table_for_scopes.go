@@ -23,7 +23,7 @@ import (
 
 	"github.com/dfuse-io/dhammer"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/logging"
@@ -85,7 +85,7 @@ func (srv *EOSServer) listTablesRowsForScopesHandler(w http.ResponseWriter, r *h
 			return nil, fmt.Errorf("unable to read tablet %s at %d: %w", tablet, request.BlockNum, err)
 		}
 
-		var abi *eos.ABI
+		var abi *zsw.ABI
 		if serializationInfo != nil && request.WithABI {
 			abi = serializationInfo.abi
 		}

@@ -16,7 +16,7 @@ package codec
 
 import (
 	pbcodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/codec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 //
@@ -72,7 +72,7 @@ type Specification struct {
 type SubjectiveRestrictions struct {
 	Enable                        bool         `json:"enable"`
 	PreactivationRequired         bool         `json:"preactivation_required"`
-	EarliestAllowedActivationTime eos.JSONTime `json:"earliest_allowed_activation_time"`
+	EarliestAllowedActivationTime zsw.JSONTime `json:"earliest_allowed_activation_time"`
 }
 
 //
@@ -89,11 +89,11 @@ type PermOp struct {
 // permissionObject represent the `nodeos` permission object that is stored
 // in chainbase. Used to deserialize deep mind JSON to a correct `PermOp`.
 type permissionObject struct {
-	Owner       eos.AccountName `json:"owner"`
+	Owner       zsw.AccountName `json:"owner"`
 	Name        string          `json:"name"`
 	ParentID    uint64          `json:"parent"`
-	LastUpdated eos.JSONTime    `json:"last_updated"`
-	Auth        *eos.Authority  `json:"auth"`
+	LastUpdated zsw.JSONTime    `json:"last_updated"`
+	Auth        *zsw.Authority  `json:"auth"`
 }
 
 func (p *permissionObject) ToProto() *pbcodec.PermissionObject {
@@ -110,13 +110,13 @@ type rlimitState struct {
 	ID                   uint32            `json:"id"`
 	AverageBlockNetUsage *usageAccumulator `json:"average_block_net_usage"`
 	AverageBlockCpuUsage *usageAccumulator `json:"average_block_cpu_usage"`
-	PendingNetUsage      eos.Uint64        `json:"pending_net_usage"`
-	PendingCpuUsage      eos.Uint64        `json:"pending_cpu_usage"`
-	TotalNetWeight       eos.Uint64        `json:"total_net_weight"`
-	TotalCpuWeight       eos.Uint64        `json:"total_cpu_weight"`
-	TotalRamBytes        eos.Uint64        `json:"total_ram_bytes"`
-	VirtualNetLimit      eos.Uint64        `json:"virtual_net_limit"`
-	VirtualCpuLimit      eos.Uint64        `json:"virtual_cpu_limit"`
+	PendingNetUsage      zsw.Uint64        `json:"pending_net_usage"`
+	PendingCpuUsage      zsw.Uint64        `json:"pending_cpu_usage"`
+	TotalNetWeight       zsw.Uint64        `json:"total_net_weight"`
+	TotalCpuWeight       zsw.Uint64        `json:"total_cpu_weight"`
+	TotalRamBytes        zsw.Uint64        `json:"total_ram_bytes"`
+	VirtualNetLimit      zsw.Uint64        `json:"virtual_net_limit"`
+	VirtualCpuLimit      zsw.Uint64        `json:"virtual_cpu_limit"`
 }
 
 func (s *rlimitState) ToProto() *pbcodec.RlimitOp_State {
@@ -155,10 +155,10 @@ func (c *rlimitConfig) ToProto() *pbcodec.RlimitOp_Config {
 }
 
 type rlimitAccountLimits struct {
-	Owner     eos.AccountName `json:"owner"`
-	NetWeight eos.Int64       `json:"net_weight"`
-	CpuWeight eos.Int64       `json:"cpu_weight"`
-	RamBytes  eos.Int64       `json:"ram_bytes"`
+	Owner     zsw.AccountName `json:"owner"`
+	NetWeight zsw.Int64       `json:"net_weight"`
+	CpuWeight zsw.Int64       `json:"cpu_weight"`
+	RamBytes  zsw.Int64       `json:"ram_bytes"`
 }
 
 func (u *rlimitAccountLimits) ToProto() *pbcodec.RlimitOp_AccountLimits {
@@ -173,10 +173,10 @@ func (u *rlimitAccountLimits) ToProto() *pbcodec.RlimitOp_AccountLimits {
 }
 
 type rlimitAccountUsage struct {
-	Owner    eos.AccountName   `json:"owner"`
+	Owner    zsw.AccountName   `json:"owner"`
 	NetUsage *usageAccumulator `json:"net_usage"`
 	CpuUsage *usageAccumulator `json:"cpu_usage"`
-	RamUsage eos.Uint64        `json:"ram_usage"`
+	RamUsage zsw.Uint64        `json:"ram_usage"`
 }
 
 func (c *rlimitAccountUsage) ToProto() *pbcodec.RlimitOp_AccountUsage {
@@ -192,8 +192,8 @@ func (c *rlimitAccountUsage) ToProto() *pbcodec.RlimitOp_AccountUsage {
 
 type usageAccumulator struct {
 	LastOrdinal uint32     `json:"last_ordinal"`
-	ValueEx     eos.Uint64 `json:"value_ex"`
-	Consumed    eos.Uint64 `json:"consumed"`
+	ValueEx     zsw.Uint64 `json:"value_ex"`
+	Consumed    zsw.Uint64 `json:"consumed"`
 }
 
 func (a *usageAccumulator) ToProto() *pbcodec.UsageAccumulator {
@@ -205,8 +205,8 @@ func (a *usageAccumulator) ToProto() *pbcodec.UsageAccumulator {
 }
 
 type elasticLimitParameters struct {
-	Target        eos.Uint64 `json:"target"`
-	Max           eos.Uint64 `json:"max"`
+	Target        zsw.Uint64 `json:"target"`
+	Max           zsw.Uint64 `json:"max"`
 	Periods       uint32     `json:"periods"`
 	MaxMultiplier uint32     `json:"max_multiplier"`
 	ContractRate  ratio      `json:"contract_rate"`
@@ -225,8 +225,8 @@ func (p *elasticLimitParameters) ToProto() *pbcodec.ElasticLimitParameters {
 }
 
 type ratio struct {
-	Numerator   eos.Uint64 `json:"numerator"`
-	Denominator eos.Uint64 `json:"denominator"`
+	Numerator   zsw.Uint64 `json:"numerator"`
+	Denominator zsw.Uint64 `json:"denominator"`
 }
 
 func (r *ratio) ToProto() *pbcodec.Ratio {

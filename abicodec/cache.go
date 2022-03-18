@@ -27,13 +27,13 @@ import (
 	"time"
 
 	"github.com/streamingfast/dstore"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
 type Cache interface {
 	ABIAtBlockNum(account string, blockNum uint32) *ABICacheItem
-	SetABIAtBlockNum(account string, blockNum uint32, abi *eos.ABI)
+	SetABIAtBlockNum(account string, blockNum uint32, abi *zsw.ABI)
 	RemoveABIAtBlockNum(account string, blockNum uint32)
 	SaveState() error
 	SetCursor(cursor string)
@@ -95,11 +95,11 @@ func NewABICache(store dstore.Store, cacheName string) (*DefaultCache, error) {
 }
 
 type ABICacheItem struct {
-	ABI      *eos.ABI
+	ABI      *zsw.ABI
 	BlockNum uint32
 }
 
-func (c *DefaultCache) SetABIAtBlockNum(account string, blockNum uint32, abi *eos.ABI) {
+func (c *DefaultCache) SetABIAtBlockNum(account string, blockNum uint32, abi *zsw.ABI) {
 	c.lock.Lock()
 	defer c.lock.Unlock()
 

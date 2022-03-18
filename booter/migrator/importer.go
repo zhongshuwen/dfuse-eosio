@@ -10,7 +10,7 @@ import (
 
 	rice "github.com/GeertJohan/go.rice"
 	bootops "github.com/dfuse-io/eosio-boot/ops"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"github.com/zhongshuwen/zswchain-go/ecc"
 	"github.com/zhongshuwen/zswchain-go/system"
 	"go.uber.org/zap"
@@ -151,7 +151,7 @@ func (i *importer) migrateContract(accountData *Account) error {
 		)
 		err = accountData.migrateTable(
 			table,
-			func(action *eos.Action) {
+			func(action *zsw.Action) {
 				i.actionChan <- (*bootops.TransactionAction)(action)
 			},
 			func() {
@@ -195,7 +195,7 @@ func (i *importer) resetAccountContract(act *Account) error {
 	return nil
 }
 
-func (i *importer) setImporterContract(account eos.AccountName) error {
+func (i *importer) setImporterContract(account zsw.AccountName) error {
 	actions, err := system.NewSetContractContent(account, i.ctr.Code, i.ctr.RawABI)
 	if err != nil {
 		return fmt.Errorf("unable to create set contract actions: %w", err)
@@ -244,7 +244,7 @@ func (i *importer) createPermissions(account *Account) error {
 	return nil
 }
 
-func (i *importer) setPermissions(account *Account, importerAuthority *eos.Authority) error {
+func (i *importer) setPermissions(account *Account, importerAuthority *zsw.Authority) error {
 	if isNativeChainAccount(account) {
 		i.logger.Info("skipping permission setting for native account",
 			zap.String("account", account.name),
@@ -253,7 +253,7 @@ func (i *importer) setPermissions(account *Account, importerAuthority *eos.Autho
 	}
 	// the link auth is signed with active account so lets perform this first before potentially updating the active account
 	for _, linkAuth := range account.info.LinkAuths {
-		i.actionChan <- (*bootops.TransactionAction)(system.NewLinkAuth(account.getAccountName(), AN(linkAuth.Contract), eos.ActionName(linkAuth.Action), PN(linkAuth.Permission)))
+		i.actionChan <- (*bootops.TransactionAction)(system.NewLinkAuth(account.getAccountName(), AN(linkAuth.Contract), zsw.ActionName(linkAuth.Action), PN(linkAuth.Permission)))
 	}
 	i.actionChan <- bootops.EndTransaction(i.opPublicKey) // end transaction
 
@@ -289,7 +289,7 @@ func (i *importer) setPermissions(account *Account, importerAuthority *eos.Autho
 
 }
 
-func (i *importer) shouldSetPermission(importerAuthority, authority *eos.Authority) bool {
+func (i *importer) shouldSetPermission(importerAuthority, authority *zsw.Authority) bool {
 	// TODO: this is temporary since the protocol features are not activated
 	for _, key := range authority.Keys {
 		if strings.HasPrefix(key.PublicKey.String(), "PUB_WA") {
@@ -300,10 +300,10 @@ func (i *importer) shouldSetPermission(importerAuthority, authority *eos.Authori
 	return !reflect.DeepEqual(importerAuthority, authority)
 }
 
-func (i *importer) importerAuthority() eos.Authority {
-	return eos.Authority{
+func (i *importer) importerAuthority() zsw.Authority {
+	return zsw.Authority{
 		Threshold: 1,
-		Keys: []eos.KeyWeight{
+		Keys: []zsw.KeyWeight{
 			{
 				PublicKey: i.opPublicKey,
 				Weight:    1,
@@ -312,11 +312,11 @@ func (i *importer) importerAuthority() eos.Authority {
 	}
 }
 
-func newNonceAction() *eos.Action {
-	return &eos.Action{
-		Account: eos.AN("zswhq.null"),
-		Name:    eos.ActN("nonce"),
-		ActionData: eos.NewActionData(system.Nonce{
+func newNonceAction() *zsw.Action {
+	return &zsw.Action{
+		Account: zsw.AN("zswhq.null"),
+		Name:    zsw.ActN("nonce"),
+		ActionData: zsw.NewActionData(system.Nonce{
 			Value: nonceActionEntropy(),
 		}),
 	}

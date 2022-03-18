@@ -1,9 +1,9 @@
 package grpc
 
-import "github.com/zhongshuwen/zswchain-go"
+import zsw "github.com/zhongshuwen/zswchain-go"
 
 type EOSName uint64
 
 func (n EOSName) String() string {
-	return eos.NameToString(uint64(n))
+	return zsw.NameToString(uint64(n))
 }

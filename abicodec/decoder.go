@@ -20,7 +20,7 @@ import (
 
 	"github.com/dfuse-io/derr"
 	pbabicodec "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/abicodec/v1"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/codes"
 )
@@ -39,7 +39,7 @@ func (d *Decoder) decodeAction(account string, action string, data []byte, block
 	abiItem := d.cache.ABIAtBlockNum(account, blockNum)
 	if abiItem != nil {
 		zlog.Debug("found abi", zap.String("account", account), zap.Uint32("at_block_num", blockNum))
-		out, err := abiItem.ABI.DecodeAction(data, eos.ActionName(action))
+		out, err := abiItem.ABI.DecodeAction(data, zsw.ActionName(action))
 		if err != nil {
 			return nil, 0, derr.Status(codes.InvalidArgument, err.Error())
 		}
@@ -53,7 +53,7 @@ func (d *Decoder) decodeTable(account string, table string, data []byte, blockNu
 	abiItem := d.cache.ABIAtBlockNum(account, blockNum)
 	if abiItem != nil {
 		zlog.Debug("found abi", zap.String("account", account), zap.Uint32("at_block_num", blockNum))
-		out, err := abiItem.ABI.DecodeTableRow(eos.TableName(table), data)
+		out, err := abiItem.ABI.DecodeTableRow(zsw.TableName(table), data)
 		if err != nil {
 			zlog.Info("failed to decode table data", zap.Error(err), zap.ByteString("data", data))
 			return nil, 0, derr.Status(codes.InvalidArgument, err.Error())

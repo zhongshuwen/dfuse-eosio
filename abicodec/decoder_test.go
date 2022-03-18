@@ -20,15 +20,15 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/eoscanada/eos-go"
 	"github.com/streamingfast/dstore"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 func TestDecoder_DecodeAction(t *testing.T) {
 
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	err := json.Unmarshal([]byte(ABI_TRANSFER), &abi)
 	require.NoError(t, err)
 
@@ -55,7 +55,7 @@ func TestDecoder_DecodeAction(t *testing.T) {
 
 func TestDecoder_DecodeTable(t *testing.T) {
 
-	var abi *eos.ABI
+	var abi *zsw.ABI
 	err := json.Unmarshal([]byte(ABI_TRANSFER), &abi)
 	require.NoError(t, err)
 

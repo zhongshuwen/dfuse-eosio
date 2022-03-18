@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/dfuse-io/kvdb"
-	"github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 )
 
 const (
@@ -173,7 +173,7 @@ func (Keyer) EndOfDtrxsTable() []byte   { return []byte{TblPrefixDtrxs + 1} }
 // Account virt table
 
 func (Keyer) PackAccountKey(accountName string) []byte {
-	name, err := eos.StringToName(accountName)
+	name, err := zsw.StringToName(accountName)
 	if err != nil {
 		panic(fmt.Errorf("invalid account name %q: %w", accountName, err))
 	}
@@ -185,7 +185,7 @@ func (Keyer) PackAccountKey(accountName string) []byte {
 
 func (Keyer) UnpackAccountKey(key []byte) string {
 	i := binary.LittleEndian.Uint64(key[1:])
-	return eos.NameToString(i)
+	return zsw.NameToString(i)
 }
 
 func (Keyer) StartOfAccountTable() []byte { return []byte{TblPrefixAccts} }

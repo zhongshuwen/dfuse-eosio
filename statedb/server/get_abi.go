@@ -24,7 +24,7 @@ import (
 	"github.com/dfuse-io/logging"
 	"github.com/dfuse-io/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
-	eos "github.com/zhongshuwen/zswchain-go"
+	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"
 )
 
@@ -54,7 +54,7 @@ func (srv *EOSServer) getABIHandler(w http.ResponseWriter, r *http.Request) {
 
 	response := &getABIResponse{
 		BlockNum: abiEntry.Height(),
-		Account:  eos.AccountName(abiEntry.Contract()),
+		Account:  zsw.AccountName(abiEntry.Contract()),
 	}
 
 	if request.ToJSON {
@@ -77,14 +77,14 @@ func (srv *EOSServer) getABIHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 type getABIRequest struct {
-	Account  eos.AccountName `json:"account"`
+	Account  zsw.AccountName `json:"account"`
 	BlockNum uint64          `json:"block_num"`
 	ToJSON   bool            `json:"json"`
 }
 
 type getABIResponse struct {
 	BlockNum uint64          `json:"block_num"`
-	Account  eos.AccountName `json:"account"`
+	Account  zsw.AccountName `json:"account"`
 	ABI      interface{}     `json:"abi"`
 }
 
@@ -101,7 +101,7 @@ func extractGetABIRequest(r *http.Request) *getABIRequest {
 
 	return &getABIRequest{
 		BlockNum: uint64(blockNum64),
-		Account:  eos.AccountName(r.FormValue("account")),
+		Account:  zsw.AccountName(r.FormValue("account")),
 		ToJSON:   boolInput(r.FormValue("json")),
 	}
 }
