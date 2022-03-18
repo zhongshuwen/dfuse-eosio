@@ -16,7 +16,7 @@ development chain by also managing the block producing node for you.
 ### Operating System
 * Linux or macOS (no Windows support for now, should work through WSL2 (**untested**))
 
-### dfuse Instrumented nodeos (deep-mind)
+### lishi Instrumented nodeos (deep-mind)
 * See [DEPENDENCIES.md](DEPENDENCIES.md) for instructions on how to get an instrumented `nodeos` binary.
 
 ## Installing
