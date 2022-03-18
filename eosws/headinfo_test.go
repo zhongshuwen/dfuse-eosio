@@ -19,7 +19,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/streamingfast/dstore"
+	"github.com/dfuse-io/dstore"
 	"github.com/stretchr/testify/assert"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 )

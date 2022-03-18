@@ -18,7 +18,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/dfuse-io/node-manager/metrics"
+	"github.com/dfuse-io/manageos/metrics"
 	"go.uber.org/zap"
 )
 

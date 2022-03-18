@@ -8,7 +8,7 @@ import (
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/logging"
-	"github.com/dfuse-io/validator"
+	"github.com/streamingfast/validator"
 	pbstatedb "github.com/zhongshuwen/dfuse-eosio/pb/dfuse/eosio/statedb/v1"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	"go.uber.org/zap"

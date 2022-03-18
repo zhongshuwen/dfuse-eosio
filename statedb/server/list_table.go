@@ -22,7 +22,7 @@ import (
 
 	"github.com/dfuse-io/derr"
 	"github.com/dfuse-io/logging"
-	"github.com/dfuse-io/validator"
+	"github.com/streamingfast/validator"
 	"github.com/zhongshuwen/dfuse-eosio/statedb"
 	zsw "github.com/zhongshuwen/zswchain-go"
 	"go.uber.org/zap"

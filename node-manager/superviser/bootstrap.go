@@ -22,7 +22,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/streamingfast/dstore"
+	"github.com/dfuse-io/dstore"
 	"go.uber.org/zap"
 )
 

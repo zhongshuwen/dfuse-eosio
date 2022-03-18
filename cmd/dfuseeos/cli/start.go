@@ -20,8 +20,8 @@ import (
 	"strings"
 
 	"github.com/dfuse-io/dgrpc"
+	"github.com/dfuse-io/dstore"
 	pbblockmeta "github.com/dfuse-io/pbgo/dfuse/blockmeta/v1"
-	"github.com/streamingfast/dstore"
 	"github.com/zhongshuwen/dfuse-eosio/codec"
 	"github.com/zhongshuwen/dfuse-eosio/filtering"
 

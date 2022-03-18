@@ -18,7 +18,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/dfuse-io/validator"
+	"github.com/streamingfast/validator"
 	"github.com/zhongshuwen/dfuse-eosio/eosws/mdl"
 )
 

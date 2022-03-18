@@ -19,7 +19,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/streamingfast/dstore"
+	"github.com/dfuse-io/dstore"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

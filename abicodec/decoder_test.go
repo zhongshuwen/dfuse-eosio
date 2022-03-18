@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/streamingfast/dstore"
+	"github.com/dfuse-io/dstore"
 	"github.com/stretchr/testify/require"
 	"github.com/tidwall/gjson"
 	zsw "github.com/zhongshuwen/zswchain-go"

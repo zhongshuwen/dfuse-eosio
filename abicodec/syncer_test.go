@@ -17,7 +17,7 @@ package abicodec
 import (
 	"testing"
 
-	"github.com/streamingfast/dstore"
+	"github.com/dfuse-io/dstore"
 	"github.com/stretchr/testify/require"
 )
 
